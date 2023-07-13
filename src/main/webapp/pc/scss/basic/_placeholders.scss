@@ -1,0 +1,111 @@
+//***************************************************//
+//Hide Text Set
+%no_text{
+	//font-size: 0;
+	text-indent: -99999px;
+}
+
+//Horizontal List
+%Hori_list{
+	display: block;
+	@extend .clearfix;
+
+	li{
+		display: block;
+		float: left;
+	}
+}
+
+//***************************************************//
+//主要漸層-橘色
+%mainGradient{
+	background-image: linear-gradient(0deg, #FF6100 0%, #FD8503 80%);
+	background-color: #FD8503\9;
+}
+
+//漸層-黑色
+%blackGradient{
+	background-image: linear-gradient(-270deg, #373737 3%, #040404 100%);
+	background-color: #000\9;
+}
+
+//Meron漸層-紅色
+%meronGradient{
+	background-image: linear-gradient(-90deg, #A7000F 22%, #480000 100%);
+	background-color: #A20014\9;
+}
+
+//Wala漸層-藍色
+%walaGradient{
+	background-image: linear-gradient(-90deg, #0006BF 0%, #0B0065 100%);
+	background-color: #09079C\9;
+}
+
+//Bdd漸層-綠色
+%bddGradient{
+	background-image: linear-gradient(-90deg, #0D7100 0%, #12320C 100%);
+	background-color: #1D5D00\9;
+}
+
+//選單漸層-淺灰色(被選到的淺灰)
+%eventGradient{
+	background-image: -webkit-linear-gradient(#FFFFFF 42%, #E2E2E2 84%, #B8B8B8 100%);
+	background-image: -o-linear-gradient(#FFFFFF 42%, #E2E2E2 84%, #B8B8B8 100%);
+	background-image: linear-gradient(#FFFFFF 42%, #E2E2E2 84%, #B8B8B8 100%);
+	background-color: #fff\9;
+}
+
+//選單漸層-inRunning
+%eventInRunning{
+	background-image: -webkit-linear-gradient(left, #21002D 0%, #8100AC 100%);
+	background-image: -o-linear-gradient(left, #21002D 0%, #8100AC 100%);
+	background-image: linear-gradient(to right, #21002D 0%, #8100AC 100%);
+	background-color: #8100AC\9;
+}
+
+//***************************************************//
+//共用整理
+%inputBtn{
+	font-size: 18px;
+	@extend .align-C;
+}
+
+//%popupWidth-M{width: 320px;}
+//%popupWidth-L{width: 650px;}
+
+%popupStyle{
+	position: relative;//for .aBtn-close
+	.aBtn-close{
+		position: absolute;
+		top: -18px;
+		right: -18px;
+	}
+}
+
+%popupStyle-1{
+	border-top: 4px solid $mainColor;
+	border-bottom: 1px solid $mainColor;
+	@extend %popupStyle;
+}
+
+%info{
+	position: absolute;
+	z-index: 40;
+	bottom: 0;
+	left: 0;
+	min-height: 36px;
+	padding: 9px 10px 9px 45px;
+	line-height: 18px;
+	color: #fff;
+}
+
+//.eventReady .eventOpen .eventOpening .eventInRunning
+%event{
+	background-color: #4A4A4A;
+	cursor: pointer;
+	color: #969696;
+	&:hover{
+		@extend %eventGradient;
+		//color: #fff;
+	}
+}

@@ -1,0 +1,296 @@
+.modal
+    &.modal-announcement
+        padding: 5px
+        &::before
+            content: ''
+            position: fixed
+            left: 0
+            top: 0
+            width: 100%
+            height: 100vh
+            background: #00000084
+        .modal-content
+            position: relative
+            border: 2px solid #3b8f2d
+            background-image: linear-gradient(to bottom, #0a1421, #11233d)
+            border-radius: 12px
+            overflow: hidden
+            .modal-header
+                position: relative
+                text-align: right
+                padding: 0 5px 6px 5px
+                border: none
+            .modal-body
+                padding: 0
+                height: 70vh
+                overflow-y: scroll
+                /* width */
+                &::-webkit-scrollbar 
+                    width: 10px
+                    height: 8px
+                /* Track */
+                &::-webkit-scrollbar-track 
+                    background: #0000003e 
+                /* Handle */
+                &::-webkit-scrollbar-thumb
+                    height: 5px
+                    border-radius: 20px
+                    background: #888
+                    cursor: pointer
+                /* Handle on hover */
+                &::-webkit-scrollbar-thumb:hover 
+                    background: #b0b0b0 
+            .btn-mail 
+                position: absolute
+                right: 20px
+                bottom: 20px
+                display: inline-block
+                z-index: 100
+                background: #224d1a
+                width: 40px
+                height: 40px
+                border-radius: 45px
+                &::before 
+                    font-family: 'icomoon'
+                    content: '\e977'
+                    display: inline-block
+                    width: 40px
+                    height: 40px
+                    line-height: 40px
+                    font-size: 22px
+                    color: #fff
+                    text-align: center
+            .inputCheckbox
+                min-width: 90px
+                vertical-align: top
+                text-align: center
+                display: inline-block
+                background: #3b8f2d
+                padding: 2px 15px
+                border-radius: 100px
+                margin: 5px
+                input[type="checkbox"]
+                    display: none
+                input[type="checkbox"] + span
+                    &:before
+                        content: ''
+                        vertical-align: middle
+                input[type="checkbox"]:checked + span:before 
+                    vertical-align: middle
+                    border-color: #ffffff
+                    background: url('data:image/svg+xml,<svg width="17" height="13" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 13" preserveAspectRatio="xMidYMid" class="uil-default">\a  <polygon fill="%23f3f3f3" points="5.833 12.157 0 6.323 1.645 4.678 5.833 8.855 14.688 0 16.333 1.657"/>\a<path fill="none" class="bk" d="M0 0h100v100H0z"/>\a</svg>') 50% 50% no-repeat
+                    background-size: 15px
+                span
+                    color: #dae7f4
+                    vertical-align: middle
+                    line-height: 30px
+                    font-size: 14px
+                    &:before 
+                        display: inline-block
+                        background: none
+                        border: 2px solid #dae7f4
+                        height: 15px
+                        width: 15px
+                        border-radius: 3px
+                        margin-right: 5px
+            .close
+                display: inline-block
+                opacity: 1
+                border-radius: 50px
+                width: 34px
+                height: 34px
+                padding: 0
+                position: absolute
+                right: 20px
+                top: 20px
+                text-align: center
+                color: #c9c9c9
+                &:hover
+                    background-color: #3b8f2d
+                i
+                    font-size: 135%
+                    font-weight: bold
+                    line-height: 34px
+                    text-shadow: none
+                    &::before
+                        content: "\e914"
+                        font-family: 'icomoon'
+.announce,
+.pop_up-box
+    padding: 0
+    .pop_up-box-list 
+        max-height: auto
+        flex: 1
+        -webkit-overflow-scrolling: touch
+        height: 100vh
+    dl 
+        position: relative
+        &:last-child 
+            margin-bottom: 10px
+        &:first-child
+            dt
+                border-top: none
+    dt 
+        text-align: center
+        position: sticky
+        top: -4px
+        padding: 10px
+        background: #041429b9
+        color: #68f050
+        line-height: 25px
+        font-weight: bold
+        width: 100%
+        margin: 0 auto
+
+    dd 		
+        padding: 0 2%
+        line-height: 1.6
+        text-align: center
+        img, 
+        object 
+            display: block
+            width: 100%
+            height: auto
+            margin: 0 auto
+        
+        //＝＝＝＝＝＝＝＝＝＝上稿樣式內容＝＝＝＝＝＝＝＝
+        p
+            margin: 0
+            padding: 10px 15px
+            text-align: left
+            color: #fff
+        
+        ol,ul,.txt 
+            margin: 15px 0 2% 0
+            padding: 4px 6%
+            text-align: left
+            color: #fff
+            p
+                padding: 0
+                line-height: 20px
+        ul
+            margin: 0
+            list-style: disc
+            padding: 4px 6%
+        ol
+            margin: 0
+            list-style: decimal
+        
+        li
+            text-align: left
+            display: list-item
+            padding: 4px 0
+        
+        .game-tit
+            margin-top: 2%
+            text-align: center
+            line-height: 30px
+            font-weight: bold
+            color: #3b8f2d
+            &.lt
+                text-align: left           
+        
+        .game-btnbox
+            padding: 10px 0 20px 0
+            display: block
+            text-align: center
+            &.lt
+                padding-left: 10%
+                text-align: left        
+        .game-btn
+            display: inline-block
+            padding: 6px 20px
+            margin: 0 auto
+            background: #3b8f2d
+            border-radius: 100px
+            color: #fff
+            text-decoration: none
+            transition: all 0.30s
+            &:hover,&:active
+                background: #fff
+                transition: all 0.30s        
+        .game-message 
+            color: #68f050
+            border: 1px solid #68f050
+            border-radius: 4px
+            padding: 10px
+            font-size: 0.9rem
+            line-height: 1.4
+            margin: 0 auto
+            width: 90%
+        a
+            display: inline-block
+            color: #fff
+            text-decoration: none
+            &:hover
+                text-decoration: none
+        hr 
+            height: 1px
+            margin: 10px 0
+            border: 0
+            background: #000000
+        .tit
+            color: #3b8f2d
+            padding: 15px 0
+    
+    
+        
+    
+    &-btn 
+        // width: vmin(110px)
+        margin: 0 auto
+        padding: 2px
+        border-radius: 5px
+        background-image: linear-gradient(270deg, #996D1B 0%, #F3C161 23%, #FFE581 45%, #F3C161 71%, #AD7C20 100%)
+
+        a 
+            display: inline-block
+            position: relative
+            width: 100%
+            padding-left: 10px
+            border-radius: 5px
+            background-image: linear-gradient(180deg, #503D14 16%, #2E270E 48%, #141007 49%, #0F212F 91%, #162E41 92%, #0C171F 100%)
+            box-sizing: border-box
+
+            &:before 
+                display: block
+                position: absolute
+                right: 10px
+                background: url('../../images/MPS_SITE_mobile/icon/icon-btn-arrow.svg') 50% 50% no-repeat
+                background-size: contain
+                content: ''
+            
+        
+    
+
+    .pop_up-box-bottom 
+        display: flex
+        background: rgba(#000000, .4)
+        align-items: center
+        justify-content: space-between
+        box-sizing: border-box
+        flex: 0 0 vmin(40px)
+
+        .more 
+            display: flex
+            align-items: center
+            justify-content: space-end
+        
+            
+
+    .dont-show 
+        display: flex
+        width: 100%
+        border-radius: 0 0 8px 8px
+        text-align: center
+        cursor: pointer
+        flex: 1
+        
+        &-checkbox 
+            position: absolute
+            opacity: 0
+        
+
+        &-checkbox:checked ~ .dont-show-icon 
+            background-size: contain
+        

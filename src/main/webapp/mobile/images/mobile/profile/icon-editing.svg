@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="46px" height="32px" viewBox="0 0 46 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
+    <title>editing</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Login/Logout/Profile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Profile-edit" transform="translate(-304.000000, -154.000000)">
+            <g id="Group-18" transform="translate(24.000000, 92.000000)">
+                <g id="editing" transform="translate(280.000000, 62.000000)">
+                    <g id="ic_mode_edit_black_24px" opacity="0.8" transform="translate(14.000000, 0.000000)">
+                        <path d="M4,22.9358542 L4,28 L9.06414585,28 L24,13.0641458 L18.9358542,8 L4,22.9358542 Z M27.6015326,9.50702427 C28.1328225,8.97573436 28.1328225,8.11749681 27.6015326,7.5862069 L24.4137931,4.39846743 C23.8825032,3.86717752 23.0242656,3.86717752 22.4929757,4.39846743 L20,6.89144317 L25.1085568,12 L27.6015326,9.50702427 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+                        <polygon id="Shape" points="0 0 32 0 32 32 0 32"></polygon>
+                    </g>
+                    <circle id="Oval-2" fill="#1D1D1D" cx="1" cy="27" r="1"></circle>
+                    <circle id="Oval-2" fill="#1D1D1D" cx="13" cy="27" r="1"></circle>
+                    <circle id="Oval-2" fill="#1D1D1D" cx="7" cy="27" r="1"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,817 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+html {
+  font-size: -apple-system, "SF Pro TC", "PingFang TC", "Noto Sans TC", "微軟正黑體";
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
+
+body {
+  width: 100%;
+  height: 100%;
+  font-size: -apple-system, "SF Pro TC", "PingFang TC", "Noto Sans TC", "微軟正黑體";
+  line-height: normal; }
+
+a, button {
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  line-height: normal; }
+
+a:hover {
+  text-decoration: none; }
+
+span {
+  display: inline-block; }
+
+div {
+  display: block; }
+
+img {
+  border-style: none;
+    border-style-width: 100%; }
+  img[src=""] {
+    display: none; }
+
+table {
+  border-collapse: collapse; }
+
+ul, ol {
+  list-style: none; }
+
+li {
+  display: inline-block; }
+
+button, input,
+optgroup, select,
+textarea {
+  outline: none;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15; }
+  button:invalid, input:invalid,
+  optgroup:invalid, select:invalid,
+  textarea:invalid {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none; }
+
+input:focus, textarea:focus, button:focus {
+  outline: none; }
+
+.page-web.lotto .font-10, .page-web.lotto .font-12, .page-web.lotto .font-14, .page-web.lotto .font-16, .page-web.lotto .font-10B, .page-web.lotto .font-12B, .page-web.lotto .font-14B, .page-web.lotto .font-16B, .page-web.lotto .font-18B, .page-web.lotto .font-20B {
+  font-family: 'Noto Sans', sans-serif;
+  color: #E6EAF2; }
+
+.page-web.lotto .font-20B {
+  font-weight: 600;
+  font-size: 20px; }
+
+.page-web.lotto .font-18B {
+  font-weight: 600;
+  font-size: 18px; }
+
+.page-web.lotto .font-16B {
+  font-weight: 600;
+  font-size: 16px; }
+
+.page-web.lotto .font-14B {
+  font-weight: 600;
+  font-size: 14px; }
+
+.page-web.lotto .font-12B {
+  font-weight: 600;
+  font-size: 12px; }
+
+.page-web.lotto .font-10B {
+  font-weight: 600;
+  font-size: 10px; }
+
+.page-web.lotto .font-16 {
+  font-weight: 400;
+  font-size: 16px; }
+
+.page-web.lotto .font-14 {
+  font-weight: 400;
+  font-size: 14px; }
+
+.page-web.lotto .font-12 {
+  font-weight: 400;
+  font-size: 12px; }
+
+.page-web.lotto .font-10 {
+  font-weight: 400;
+  font-size: 10px; }
+
+.page-web.lotto .numberBall {
+  font-family: 'ABeeZee', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #E6EAF2; }
+
+.page-web.lotto span.material-icons {
+  font-size: 24px;
+  color: #E6EAF2; }
+
+.lotto-alert {
+  position: fixed;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+  max-width: 80vw;
+  padding: 15px;
+  border-radius: 10px;
+  opacity: 0;
+  text-align: center;
+  background: #3E3F4D;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+  transition: opacity .4s, top .3s .3s;
+  z-index: 10; }
+  .lotto-alert.show {
+    top: 5vh;
+    opacity: 1;
+    transition: .3s; }
+  .lotto-alert span {
+    display: inline-block;
+    vertical-align: middle; }
+
+.lotto-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #3E3F4D;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+  width: 80vw;
+  padding: 5vw;
+  border-radius: 10px;
+  z-index: 10; }
+  .lotto-modal.show {
+    display: block; }
+    .lotto-modal.show ~ .lotto-mask {
+      z-index: 6 !important; }
+  .lotto-modal span.modal-close {
+    position: absolute;
+    top: 2vw;
+    right: 2vw; }
+  .lotto-modal .modal-title {
+    text-align: center; }
+    .lotto-modal .modal-title .title-icon {
+      font-size: 40px !important;
+      vertical-align: middle; }
+      .lotto-modal .modal-title .title-icon.success {
+        color: #4CAF50; }
+      .lotto-modal .modal-title .title-icon.error {
+        color: #F44336; }
+      .lotto-modal .modal-title .title-icon.notifs {
+        color: #FFAD33; }
+    .lotto-modal .modal-title .title-main {
+      vertical-align: middle; }
+  .lotto-modal .modal-info {
+    text-align: center;
+    margin-top: 3vw; }
+  .lotto-modal .modal-btn {
+    text-align: center;
+    margin-top: 4vw; }
+    .lotto-modal .modal-btn .lotto-btn {
+      padding: 2vw 4vw;
+      margin: 0 1vw;
+      border-radius: 100px; }
+      .lotto-modal .modal-btn .lotto-btn.btn-L {
+        background: none;
+        outline-offset: -1px;
+        outline: 2px solid #E6EAF2; }
+      .lotto-modal .modal-btn .lotto-btn.btn-R {
+        background: #E6EAF2;
+        color: #3E3F4D; }
+  .lotto-modal .modal-subtitle {
+    text-align: center;
+    margin-top: 4vw;
+    color: #8F98B2 !important; }
+
+.page-web.lotto .page-wrapper nav.page-head {
+  position: fixed;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 5vh;
+  padding: .5vh 1vh;
+  background: #26262E;
+  transition: .5s; }
+  .page-web.lotto .page-wrapper nav.page-head.scroll {
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
+    transition: .5s; }
+  .page-web.lotto .page-wrapper nav.page-head .nav-icon.back {
+    font-size: 3.5vh; }
+  .page-web.lotto .page-wrapper nav.page-head .nav-title {
+    display: inline-block;
+    color: #E6EAF2;
+    text-align: center; }
+  .page-web.lotto .page-wrapper nav.page-head .nav-hb {
+    display: inline-block;
+    position: relative;
+    width: 4vh;
+    height: 4vh; }
+    .page-web.lotto .page-wrapper nav.page-head .nav-hb div {
+      position: absolute;
+      background: #E6EAF2;
+      width: 3vh;
+      height: .35vh;
+      transition: transform .2s, top .2s .1s; }
+      .page-web.lotto .page-wrapper nav.page-head .nav-hb div:first-child {
+        top: 1vh; }
+      .page-web.lotto .page-wrapper nav.page-head .nav-hb div:last-child {
+        bottom: 1vh; }
+  .page-web.lotto .page-wrapper nav.page-head .nav-menu {
+    position: absolute;
+    top: 5vh;
+    left: 100%;
+    width: 100%;
+    height: 95vh;
+    padding: 20vw;
+    background: #26262E;
+    opacity: 0;
+    overflow-y: scroll;
+    transition: left 0s .3s, opacity .3s; }
+    .page-web.lotto .page-wrapper nav.page-head .nav-menu li.menu-item {
+      position: relative;
+      display: block; }
+      .page-web.lotto .page-wrapper nav.page-head .nav-menu li.menu-item:not(:first-child) {
+        margin-top: 4vh; }
+      .page-web.lotto .page-wrapper nav.page-head .nav-menu li.menu-item span.link-icon {
+        margin-right: 2vw; }
+        .page-web.lotto .page-wrapper nav.page-head .nav-menu li.menu-item span.link-icon.home, .page-web.lotto .page-wrapper nav.page-head .nav-menu li.menu-item span.link-icon.myTickets {
+          display: none; }
+      .page-web.lotto .page-wrapper nav.page-head .nav-menu li.menu-item svg.link-icon {
+        fill: #E6EAF2;
+        width: 6vw;
+        margin-right: 2vw; }
+      .page-web.lotto .page-wrapper nav.page-head .nav-menu li.menu-item a {
+        width: 100%;
+        display: inline-flex;
+        padding: 1vh 0;
+        vertical-align: middle; }
+      .page-web.lotto .page-wrapper nav.page-head .nav-menu li.menu-item select {
+        width: 100%;
+        height: 5vh;
+        line-height: 5vh;
+        color: #E6EAF2;
+        background: #3E3F4D;
+        padding: 0 20px;
+        border-radius: 100px;
+        border: none;
+        text-align: center;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E");
+        background-position: right 5px top 50%;
+        background-size: contain cover;
+        background-repeat: no-repeat repeat; }
+        .page-web.lotto .page-wrapper nav.page-head .nav-menu li.menu-item select option {
+          text-align: center;
+          appearance: none;
+          background: #26262E; }
+  .page-web.lotto .page-wrapper nav.page-head .nav-hb.show div {
+    top: 50%;
+    transition: top .2s, transform .3s .1s; }
+    .page-web.lotto .page-wrapper nav.page-head .nav-hb.show div:first-child {
+      transform: translateY(-50%) rotate(45deg); }
+    .page-web.lotto .page-wrapper nav.page-head .nav-hb.show div:last-child {
+      transform: translateY(-50%) rotate(-45deg); }
+  .page-web.lotto .page-wrapper nav.page-head .nav-hb.show + .nav-menu {
+    left: 0;
+    opacity: 1;
+    transition: left 0s, opacity .3s; }
+
+.page-web.lotto .page-body.betting {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden; }
+  .page-web.lotto .page-body.betting .box-drawTime {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    .page-web.lotto .page-body.betting .box-drawTime .lotto-icon.eventNote {
+      margin-right: 2vw; }
+    .page-web.lotto .page-body.betting .box-drawTime .lotto-icon.alarm {
+      margin: 0 2vw; }
+    .page-web.lotto .page-body.betting .box-drawTime select.drawTime-select {
+      flex-grow: 1;
+      background: #3E3F4D;
+      color: #E6EAF2;
+      min-width: 130px;
+      height: 5vh;
+      line-height: 5vh;
+      padding: 0 20px;
+      border-radius: 100px;
+      border: none;
+      text-align: center;
+      appearance: none;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E");
+      background-position: right 5px top 50%;
+      background-size: contain cover;
+      background-repeat: no-repeat repeat; }
+      .page-web.lotto .page-body.betting .box-drawTime select.drawTime-select option {
+        appearance: none;
+        background: #3E3F4D; }
+    .page-web.lotto .page-body.betting .box-drawTime .drawTime-countdown {
+      flex-grow: 1;
+      min-width: 80px;
+      height: 5vh;
+      line-height: 5vh;
+      border-radius: 100px;
+      background: #3E3F4D;
+      text-align: center; }
+    .page-web.lotto .page-body.betting .box-drawTime.endingSoon .lotto-icon.alarm {
+      color: #FFCC33;
+      animation: endingSoon 2s infinite; }
+    .page-web.lotto .page-body.betting .box-drawTime.endingSoon .drawTime-countdown {
+      border: 1px solid #FFCC33;
+      color: #FFCC33; }
+  .page-web.lotto .page-body.betting ul.box-numberList {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    column-gap: 4vw;
+    row-gap: 1.5vh;
+    margin: 0 auto;
+    align-items: center;
+    justify-items: center; }
+    .page-web.lotto .page-body.betting ul.box-numberList li.numberBall {
+      width: 14vw;
+      height: 11vw;
+      max-width: 60px;
+      max-height: 45px;
+      line-height: 11vw;
+      text-align: center;
+      border-radius: 100px;
+      background: #3E3F4D; }
+      .page-web.lotto .page-body.betting ul.box-numberList li.numberBall.pick {
+        background: #FFCC33;
+        color: #26262E; }
+  .page-web.lotto .page-body.betting ul.box-betAmount {
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 2vw;
+    align-items: center;
+    justify-items: center;
+    overflow: hidden; }
+    .page-web.lotto .page-body.betting ul.box-betAmount.show {
+      position: relative; }
+      .page-web.lotto .page-body.betting ul.box-betAmount.show li {
+        left: 0;
+        height: 4vh;
+        font-size: 16px;
+        transition: left 0s, height .3s, font-size .3s; }
+    .page-web.lotto .page-body.betting ul.box-betAmount li {
+      position: relative;
+      left: 1000%;
+      width: 100%;
+      height: 0;
+      line-height: 4vh;
+      font-size: 0;
+      border-radius: 5px;
+      background: #666A80;
+      text-align: center;
+      transition: left 0s .3s, height .3s, font-size 0s; }
+  .page-web.lotto .page-body.betting .box-pickNumber {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .page-web.lotto .page-body.betting .box-pickNumber .pickNumber-count {
+      position: relative;
+      flex-grow: 1;
+      margin-right: 10px;
+      display: inline-block; }
+      .page-web.lotto .page-body.betting .box-pickNumber .pickNumber-count .count-numberCount,
+      .page-web.lotto .page-body.betting .box-pickNumber .pickNumber-count .count-betCount {
+        position: relative; }
+        .page-web.lotto .page-body.betting .box-pickNumber .pickNumber-count .count-numberCount span,
+        .page-web.lotto .page-body.betting .box-pickNumber .pickNumber-count .count-betCount span {
+          vertical-align: bottom; }
+        .page-web.lotto .page-body.betting .box-pickNumber .pickNumber-count .count-numberCount span:last-child,
+        .page-web.lotto .page-body.betting .box-pickNumber .pickNumber-count .count-betCount span:last-child {
+          position: absolute;
+          right: 0;
+          bottom: 0; }
+    .page-web.lotto .page-body.betting .box-pickNumber .pickNumber-btn {
+      display: inline-block;
+      vertical-align: middle; }
+      .page-web.lotto .page-body.betting .box-pickNumber .pickNumber-btn .btn-clear,
+      .page-web.lotto .page-body.betting .box-pickNumber .pickNumber-btn .btn-luckyPick {
+        width: fit-content;
+        background: none;
+        padding: 0 3vw;
+        border-radius: 100px;
+        border: 1px solid #E6EAF2;
+        color: #E6EAF2; }
+        .page-web.lotto .page-body.betting .box-pickNumber .pickNumber-btn .btn-clear:active,
+        .page-web.lotto .page-body.betting .box-pickNumber .pickNumber-btn .btn-luckyPick:active {
+          border: 1px solid #FFCC33;
+          color: #FFCC33; }
+          .page-web.lotto .page-body.betting .box-pickNumber .pickNumber-btn .btn-clear:active svg,
+          .page-web.lotto .page-body.betting .box-pickNumber .pickNumber-btn .btn-luckyPick:active svg {
+            fill: #FFCC33; }
+        .page-web.lotto .page-body.betting .box-pickNumber .pickNumber-btn .btn-clear span.btn-txt,
+        .page-web.lotto .page-body.betting .box-pickNumber .pickNumber-btn .btn-clear svg.lotto-icon,
+        .page-web.lotto .page-body.betting .box-pickNumber .pickNumber-btn .btn-luckyPick span.btn-txt,
+        .page-web.lotto .page-body.betting .box-pickNumber .pickNumber-btn .btn-luckyPick svg.lotto-icon {
+          height: 5vh;
+          line-height: 5vh;
+          vertical-align: middle; }
+        .page-web.lotto .page-body.betting .box-pickNumber .pickNumber-btn .btn-clear svg.lotto-icon,
+        .page-web.lotto .page-body.betting .box-pickNumber .pickNumber-btn .btn-luckyPick svg.lotto-icon {
+          width: 20px;
+          fill: #E6EAF2; }
+  .page-web.lotto .page-body.betting .box-betConfirm {
+    position: absolute;
+    left: 0;
+    bottom: -50%;
+    width: 100%;
+    padding: 5vw;
+    background: #3E3F4D;
+    box-shadow: 0px -3px 8px rgba(0, 0, 0, 0.2);
+    transition: .5s;
+    z-index: 5; }
+    .page-web.lotto .page-body.betting .box-betConfirm.show {
+      bottom: 0;
+      transition: .3s; }
+    .page-web.lotto .page-body.betting .box-betConfirm hr,
+    .page-web.lotto .page-body.betting .box-betConfirm div:not(:last-child),
+    .page-web.lotto .page-body.betting .box-betConfirm p.betConfirm-deadline {
+      margin-bottom: 1.5vh; }
+    .page-web.lotto .page-body.betting .box-betConfirm .betConfirm-count {
+      display: flex; }
+      .page-web.lotto .page-body.betting .box-betConfirm .betConfirm-count span:nth-of-type(2),
+      .page-web.lotto .page-body.betting .box-betConfirm .betConfirm-count span:nth-of-type(4) {
+        flex-grow: 1;
+        text-align: right; }
+      .page-web.lotto .page-body.betting .box-betConfirm .betConfirm-count span:nth-of-type(2) {
+        padding-right: 1vw;
+        transform: translateX(-5vw); }
+    .page-web.lotto .page-body.betting .box-betConfirm .betConfirm-betAmount,
+    .page-web.lotto .page-body.betting .box-betConfirm .betConfirm-drawTime,
+    .page-web.lotto .page-body.betting .box-betConfirm .betConfirm-MaxPrize,
+    .page-web.lotto .page-body.betting .box-betConfirm .betConfirm-total {
+      position: relative; }
+      .page-web.lotto .page-body.betting .box-betConfirm .betConfirm-betAmount span:last-child,
+      .page-web.lotto .page-body.betting .box-betConfirm .betConfirm-drawTime span:last-child,
+      .page-web.lotto .page-body.betting .box-betConfirm .betConfirm-MaxPrize span:last-child,
+      .page-web.lotto .page-body.betting .box-betConfirm .betConfirm-total span:last-child {
+        position: absolute;
+        right: 0;
+        bottom: 0; }
+    .page-web.lotto .page-body.betting .box-betConfirm .betConfirm-deadline {
+      color: #8F98B2; }
+    .page-web.lotto .page-body.betting .box-betConfirm .betConfirm-btn {
+      text-align: center; }
+      .page-web.lotto .page-body.betting .box-betConfirm .betConfirm-btn button.lotto-btn {
+        border-radius: 100px;
+        padding: 3vw 10vw;
+        margin: 0 1vw;
+        color: #3E3F4D; }
+        .page-web.lotto .page-body.betting .box-betConfirm .betConfirm-btn button.lotto-btn.cancel {
+          background: none;
+          outline-offset: -1px;
+          outline: 2px solid #FFCC33;
+          color: #FFCC33; }
+        .page-web.lotto .page-body.betting .box-betConfirm .betConfirm-btn button.lotto-btn.submit {
+          background: #FFCC33;
+          color: #3E3F4D; }
+
+@keyframes endingSoon {
+  0% {
+    transform: rotate(10deg); }
+  8% {
+    transform: rotate(0deg); }
+  86% {
+    transform: rotate(0deg); }
+  93% {
+    transform: rotate(-10deg); }
+  100% {
+    transform: rotate(10deg); } }
+
+.page-web.lotto .page-body.myTickets {
+  justify-content: normal; }
+  .page-web.lotto .page-body.myTickets .box-categories {
+    margin-bottom: 2vh; }
+    .page-web.lotto .page-body.myTickets .box-categories ul.categories-list {
+      border-bottom: 1px solid #666A80; }
+      .page-web.lotto .page-body.myTickets .box-categories ul.categories-list li.categories {
+        margin-right: 3vw;
+        padding-bottom: .5vh; }
+        .page-web.lotto .page-body.myTickets .box-categories ul.categories-list li.categories.active {
+          color: #FFCC33;
+          border-bottom: 4px solid #FFCC33; }
+  .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list {
+    overflow: hidden; }
+    .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket {
+      display: block;
+      height: fit-content;
+      margin-bottom: 2vh;
+      padding: 3vw 4vw;
+      border-radius: 5px;
+      background: #3E3F4D; }
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.show {
+        border: 1px solid #FFCC33; }
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.show .ticket-title .lotto-icon.expandMore {
+          display: none; }
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.show .ticket-title .lotto-icon.expandLess {
+          display: inline-block; }
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.show ul.ticket-detail {
+          display: flex; }
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket .ticket-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket .ticket-title span.lotto-icon.expandMore {
+          display: inline-block; }
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket .ticket-title span.lotto-icon.expandLess {
+          display: none; }
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket .ticket-title p.drawDate {
+          font-size: 18px;
+          margin-right: 2vw;
+          vertical-align: middle; }
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket .ticket-title .box-icon .lotto-icon.videocam {
+          width: 24px;
+          height: 24px;
+          fill: #E6EAF2;
+          vertical-align: middle; }
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket .ticket-title .lotto-icon.alarm {
+          margin-right: 1vw; }
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket .ticket-title .deleted {
+          padding: 0 1vw;
+          border-radius: 5px;
+          border: 1px solid #E6EAF2; }
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket > hr {
+        margin: 2vw 0; }
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-numbers {
+        display: flex;
+        flex-wrap: nowrap; }
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-numbers .numberBall {
+          width: 12vw;
+          height: 10vw;
+          line-height: 11vw;
+          text-align: center;
+          border-radius: 100px;
+          background: #26262E; }
+          .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-numbers .numberBall:not(:last-child) {
+            margin-right: 2vw; }
+          .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-numbers .numberBall.hit {
+            background: #FFCC33;
+            color: #26262E;
+            opacity: .8; }
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail {
+        display: none;
+        flex-direction: column;
+        padding: 2vw 0 1vw; }
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .winningNumbers {
+          display: flex;
+          margin-bottom: 2vw; }
+          .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .winningNumbers span:first-child {
+            flex-grow: 1; }
+          .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .winningNumbers span:not(:first-child) {
+            margin-left: 10px; }
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .orderID,
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .betPlaced,
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .deletedOn,
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .numberCount,
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .betCount,
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .betAmount,
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .MaxPrize,
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .totalBet,
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .winningPrize,
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail hr {
+          position: relative;
+          margin-bottom: 2vw; }
+          .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .orderID > span:last-of-type,
+          .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .betPlaced > span:last-of-type,
+          .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .deletedOn > span:last-of-type,
+          .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .numberCount > span:last-of-type,
+          .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .betCount > span:last-of-type,
+          .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .betAmount > span:last-of-type,
+          .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .MaxPrize > span:last-of-type,
+          .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .totalBet > span:last-of-type,
+          .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .winningPrize > span:last-of-type,
+          .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail hr > span:last-of-type {
+            position: absolute;
+            right: 0;
+            bottom: 0; }
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .betCount > span:last-of-type {
+          top: 4px; }
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .betCount .lotto-icon.arrow_dropDown {
+          display: inline-block; }
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .betCount .lotto-icon.arrow_dropUp {
+          display: none; }
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .betCount > span {
+          vertical-align: middle; }
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .betCount .bet-list {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center; }
+          .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .betCount .bet-list .bet span {
+            font-weight: 500; }
+          .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .betCount .bet-list .bet:not(:last-child) {
+            margin-bottom: 2vw; }
+          .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .betCount .bet-list .bet .numberBall {
+            font-size: 16px; }
+            .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .betCount .bet-list .bet .numberBall:not(:last-child) {
+              margin-right: 2vw; }
+          .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .betCount .bet-list .bet.hit span {
+            color: #FFCC33; }
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .btn-box {
+          margin: 3vw auto 0; }
+          .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .btn-box .btn-delete {
+            padding: 3vw 15vw;
+            border-radius: 100px;
+            color: #3E3F4D; }
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket ul.ticket-detail .subTitle {
+          margin: 0 auto;
+          color: #8F98B2; }
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.num-3 .betCount .lotto-icon,
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.num-3 .betCount .bet-list {
+        display: none !important; }
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.num-6 .betCount .bet-list {
+        width: 90%;
+        margin: 0 auto;
+        display: grid !important;
+        grid-auto-flow: column;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+        align-items: center;
+        justify-items: center;
+        row-gap: 2vw;
+        margin-top: 1vw; }
+        .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.num-6 .betCount .bet-list .bet {
+          margin-bottom: 0 !important; }
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.overtime .ticket-detail .btn-box {
+        display: none; }
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.pending .ticket-title .drawDate {
+        flex-grow: 1; }
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.pending .ticket-title .box-icon,
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.pending .ticket-title .winning,
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.pending .ticket-title .deleted {
+        display: none; }
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.pending .ticket-detail .deletedOn,
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.pending .ticket-detail .winningPrize {
+        display: none; }
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.drawn .ticket-title .winning {
+        text-align: right; }
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.drawn .ticket-title .lotto-icon.alarm,
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.drawn .ticket-title .drawTime-countdown,
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.drawn .ticket-title .deleted {
+        display: none; }
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.drawn .ticket-title .box-icon {
+        flex-grow: 1; }
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.drawn .ticket-detail .MaxPrize,
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.drawn .ticket-detail .deletedOn,
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.drawn .ticket-detail .btn-box {
+        display: none; }
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.drawn .winning {
+        text-align: right; }
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.deleted .ticket-title .drawDate {
+        flex-grow: 1; }
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.deleted .ticket-title .box-icon,
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.deleted .ticket-title .winning,
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.deleted .ticket-title .lotto-icon.alarm,
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.deleted .ticket-title .drawTime-countdown {
+        display: none; }
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.deleted .ticket-detail .MaxPrize,
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.deleted .ticket-detail .btn-box,
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.deleted .ticket-detail .subTitle,
+      .page-web.lotto .page-body.myTickets .box-tickets ul.tickets-list li.ticket.deleted .ticket-detail .winningPrize {
+        display: none; }
+
+@media all and (min-width: 480px) {
+  .page-web.lotto::before {
+    position: fixed;
+    content: '';
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 11; }
+  .page-web.lotto::after {
+    position: fixed;
+    z-index: 12;
+    content: '\e9a1';
+    font-family: 'icomoon' !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 120px;
+    line-height: 120px;
+    color: #fff;
+    animation: verticalIcon 2s ease infinite; } }
+
+.page-web.lotto {
+  position: relative;
+  background: #26262E; }
+  .page-web.lotto .lotto-mask {
+    position: fixed;
+    left: 100%;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    transition: left 0s .3s, width 0s .3s, height 0s, opacity .3s; }
+    .page-web.lotto .lotto-mask.show {
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      opacity: 1;
+      transition: left 0s, width 0s, height 0s, opacity .3s; }
+  .page-web.lotto .page-body {
+    position: relative;
+    height: 100vh;
+    padding: 5vw;
+    padding-top: calc( 5vh + 10px); }
+  .page-web.lotto .box-liveDrawing {
+    position: relative;
+    top: 0;
+    right: 100%;
+    height: 0;
+    padding: 0 1.5vh;
+    background: #FFCC33;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    transition: top 0s 0.3s, height 0.5s 0.3s, right 0.3s cubic-bezier(0.7, 0, 0.4, 1); }
+    .page-web.lotto .box-liveDrawing.show {
+      top: 5vh;
+      right: 0;
+      height: 5vh;
+      transition: top 0s, height 0.5s, right 0.3s 0.3s cubic-bezier(0.7, 0, 0.4, 1); }
+      .page-web.lotto .box-liveDrawing.show + .page-body {
+        height: 95vh;
+        padding-top: calc( 5vh + 2vh); }
+        @media (max-height: 700px) {
+          .page-web.lotto .box-liveDrawing.show + .page-body li.numberBall {
+            height: 10vw;
+            line-height: 10vw; } }
+    .page-web.lotto .box-liveDrawing svg.lotto-icon.videocam {
+      width: 6vw;
+      height: 6vw;
+      fill: #26262E; }
+    .page-web.lotto .box-liveDrawing span.liveDrawing-title {
+      font-weight: 900;
+      margin-left: 1vw;
+      color: #26262E; }
+    .page-web.lotto .box-liveDrawing span.liveDrawing-countdown {
+      line-height: 3.5vh;
+      flex-grow: 1;
+      text-align: right;
+      color: #26262E; }
+      .page-web.lotto .box-liveDrawing span.liveDrawing-countdown.close {
+        display: none; }
+        .page-web.lotto .box-liveDrawing span.liveDrawing-countdown.close + ul.winningList {
+          display: inline-block; }
+    .page-web.lotto .box-liveDrawing ul.winningList {
+      display: none;
+      flex-grow: 1;
+      text-align: right; }
+      .page-web.lotto .box-liveDrawing ul.winningList li.winningBall {
+        position: relative;
+        left: 150%;
+        width: 25px;
+        height: 25px;
+        border-radius: 100px;
+        background: #26262E;
+        text-align: center;
+        vertical-align: middle; }
+        .page-web.lotto .box-liveDrawing ul.winningList li.winningBall.show {
+          left: 0;
+          animation: winningBall-show 2s 1 forwards; }
+
+@keyframes winningBall-show {
+  0% {
+    left: 150%;
+    transform: rotate(480deg); }
+  100% {
+    left: 0;
+    transform: rotate(0deg); } }
+
+@keyframes verticalIcon {
+  0% {
+    transform: translate(-50%, -50%) rotate(-90deg);
+    opacity: 1; }
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+    opacity: 1; } }

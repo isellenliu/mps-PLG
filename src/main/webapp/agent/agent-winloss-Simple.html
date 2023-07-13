@@ -1,0 +1,442 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <title>Credit / Balance</title>
+    <link rel="stylesheet" type="text/css" media="all" href="css/agentAll.css" />
+</head>
+
+<body>
+
+    <div class="bgWhite setFlex-center">
+        <p class="icLoading">Loading</p>
+    </div>
+
+    <div class="main agentDetails">
+        <div class="box_1 clearfix">
+            <input class="inputCalender" type="button" value="01/02/2022" name="startDate" id="startDate" size="8"
+                onclick="calendarObj.show(event,'startDate');">
+            <input class="inputCalender" type="button" value="08/02/2022" name="endDate" id="endDate" size="8"
+                onclick="calendarObj.show(event,'endDate');">
+            <input class="inputBtn_orange" type="button" value="Submit" onclick="WinLossSimpleHandler.fetchData()">
+            <input type="hidden" name="queryStartDate" value="">
+            <input type="hidden" name="queryEndDate" value="">
+            <input type="hidden" name="clickedUserId" value="">
+            <input type="hidden" name="site" value="null">
+            <input type="hidden" value="" id="first">
+            <input type="hidden" name="pageNumber" value="1">
+            <input type="hidden" name="pageSize" value="50">
+            <ul class="ul_3_S">
+                <li class="li_First" onclick="WinLossSimpleHandler.today()">Today</li>
+                <li onclick="WinLossSimpleHandler.yesterday()">Yesterday</li>
+
+                <li class="li_First" onclick="WinLossSimpleHandler.thisWeek()">This Week</li>
+                <li onclick="WinLossSimpleHandler.lastWeek()">Last Week</li>
+
+                <li class="li_First" onclick="WinLossSimpleHandler.thisMonth()">This Month</li>
+                <li onclick="WinLossSimpleHandler.lastMonth()">Last Month</li>
+            </ul>
+
+
+        </div>
+        <div class="box_1 clearfix">
+            <ul class="ul_1 clearfix">
+
+                <li name="locationTypeCheck" id="locationType2" onclick="WinLossSimpleHandler.locationTypeCheck(2)">CAM
+                    <input type="checkbox" value="2" name="locationTypes" checked="false" style="display: none;"
+                        disabled="">
+                </li>
+
+                <li name="locationTypeCheck" id="locationType4" onclick="WinLossSimpleHandler.locationTypeCheck(4)"
+                    class="li_check_on">MX
+                    <input type="checkbox" value="4" name="locationTypes" checked="false" style="display: none;">
+                </li>
+
+                <li name="locationTypeCheck" id="locationType1" onclick="WinLossSimpleHandler.locationTypeCheck(1)"
+                    class="li_check_on">PHI
+                    <input type="checkbox" value="1" name="locationTypes" checked="false" style="display: none;">
+                </li>
+
+                <li name="locationTypeCheck" id="locationType3" onclick="WinLossSimpleHandler.locationTypeCheck(3)"
+                    class="li_check_on">TH
+                    <input type="checkbox" value="3" name="locationTypes" checked="false" style="display: none;">
+                </li>
+
+            </ul>
+
+
+        </div>
+
+        <div class="box_1 clearfix">
+            <input id="extension1" name="extension1" class="inputText_2" type="text" placeholder="extension1"
+                maxlength="20" value="">
+            <input id="extension2" name="extension2" class="inputText_2" type="text" placeholder="extension2"
+                maxlength="20" value="">
+            <input id="extension3" name="extension3" class="inputText_2" type="text" placeholder="extension3"
+                maxlength="20" value="">
+        </div>
+
+        <ul id="navigationPath" class="box_1 ul_4 clearfix">
+
+            <li user="one"><a href="#" onclick="WinLossSimpleHandler.fetchData('one',0)" class="a_last">one</a></li>
+        </ul>
+        <div class="box_1" id="loading" style="display: none">
+            <p class="loading_1">Loading...</p>
+        </div>
+        <div id="dataTable_13" style="">
+            <h3><span class="color_Red" id="currencyTitle">VND<a id="click_13" class="atext" href="javascript:void(0)"
+                        onclick="WinLossSimpleHandler.clickExpandAll('total_13','click_13')">Expand All</a></span></h3>
+            <table style="margin: 0px 0px 30px;">
+
+                <thead id="title_row_tbody">
+                    <tr>
+                        <th rowspan="2">#</th>
+                        <th rowspan="2">Site</th>
+                        <th rowspan="2">Username</th>
+                        <th rowspan="2">Rolling T/O</th>
+
+                        <th colspan="3" class="agent" id="downlineLevel">Shareholder</th>
+
+                        <th colspan="3" id="comapanyLevel">Company</th>
+                    </tr>
+                    <tr id="title_row">
+
+                        <th class="agent">Win / Loss</th>
+                        <th class="agent">Comm.</th>
+                        <th class="agent">Total</th>
+
+
+
+
+
+                        <th>Win / Loss</th>
+                        <th>Comm.</th>
+                        <th>Total</th>
+
+                    </tr>
+                </thead>
+                <tbody id="nodataTbody" style="display:none">
+                    <tr>
+                        <td id="nodata" class="tdNodate" colspan="23">No Data</td>
+                    </tr>
+                </tbody>
+                <tbody id="dynamic_data" style="">
+                    <tr id="data_template" style="display:none">
+
+                        <td id="data_number"> 0.00</td>
+                        <td id="data_user_id"> NA</td>
+                        <td id="data_turnover"> 0.00</td>
+
+                        <td class="agent" id="data_downline_winloss"> 0.00</td>
+                        <td class="agent" id="data_downline_comm"> 0.0</td>
+                        <td class="agent" id="data_downline_total"> 0.00</td>
+
+                        <td class="master" id="data_viewer_winloss"> 0.00</td>
+                        <td class="master" id="data_viewer_comm"> 0.00</td>
+                        <td class="master" id="data_viewer_total"> 0.00</td>
+
+                        <td id="data_company_winloss"> 0.00</td>
+                        <td id="data_company_comm"> 0.00</td>
+                        <td id="data_company_total"> 0.00</td>
+                    </tr>
+                    <tr id="fistRowSpan_13_1" style="" live_type="-1" name="total_13_awv">
+
+                        <td id="data_number" rowspan="1">1</td>
+                        <td rowspan="3">CF</td>
+                        <td id="data_user_id"><a href="#" onclick="WinLossSimpleHandler.fetchData('awv','33')">awv</a><a
+                                id="total_13_awv" class="aBtn-More" href="javascript:void(0);"
+                                onclick="WinLossSimpleHandler.clickDropButton('detail_13_awv','total_13_awv','fistRowSpan_13_1')">more</a>
+                        </td>
+                        <td id="data_turnover">20</td>
+
+                        <td class="agent" id="data_downline_winloss">2.70</td>
+                        <td class="agent" id="data_downline_comm">0.00</td>
+                        <td class="agent" id="data_downline_total">2.70</td>
+
+                        <td class="master" id="data_viewer_winloss" style="display: none;">0.00</td>
+                        <td class="master" id="data_viewer_comm" style="display: none;">0.00</td>
+                        <td class="master" id="data_viewer_total" style="display: none;">0.00</td>
+
+                        <td id="data_company_winloss">
+                            <font color="red">-2.70</font>
+                        </td>
+                        <td id="data_company_comm">0.00</td>
+                        <td id="data_company_total">
+                            <font color="red">-2.70</font>
+                        </td>
+                    </tr>
+                    <tr id="dataRow_1" style="display: none;" live_type="0" name="detail_13_awv"
+                        class="trColor trShadow-1">
+
+                        <td id="data_number" style="display: none;">1</td>
+                        <td id="data_user_id">Pre-fight</td>
+                        <td id="data_turnover">20</td>
+
+                        <td class="agent" id="data_downline_winloss">2.70</td>
+                        <td class="agent" id="data_downline_comm">0.00</td>
+                        <td class="agent" id="data_downline_total">2.70</td>
+
+                        <td class="master" id="data_viewer_winloss" style="display: none;">0.00</td>
+                        <td class="master" id="data_viewer_comm" style="display: none;">0.00</td>
+                        <td class="master" id="data_viewer_total" style="display: none;">0.00</td>
+
+                        <td id="data_company_winloss">
+                            <font color="red">-2.70</font>
+                        </td>
+                        <td id="data_company_comm">0.00</td>
+                        <td id="data_company_total">
+                            <font color="red">-2.70</font>
+                        </td>
+                    </tr>
+                    <tr id="dataRow_1" style="display: none;" live_type="1" name="detail_13_awv"
+                        class="trColor trShadow-2">
+
+                        <td id="data_number" style="display: none;">1</td>
+                        <td id="data_user_id">Live</td>
+                        <td id="data_turnover">0</td>
+
+                        <td class="agent" id="data_downline_winloss">0.00</td>
+                        <td class="agent" id="data_downline_comm">0.00</td>
+                        <td class="agent" id="data_downline_total">0.00</td>
+
+                        <td class="master" id="data_viewer_winloss" style="display: none;">0.00</td>
+                        <td class="master" id="data_viewer_comm" style="display: none;">0.00</td>
+                        <td class="master" id="data_viewer_total" style="display: none;">0.00</td>
+
+                        <td id="data_company_winloss">0.00</td>
+                        <td id="data_company_comm">0.00</td>
+                        <td id="data_company_total">0.00</td>
+                    </tr>
+                </tbody>
+                <tfoot id="data_tfoot">
+                    <tr id="sum_data_tr">
+                        <th colspan="3">Grand Total</th>
+                        <th id="sum_data_turnover" name="sum_data">20</th>
+                        <th id="sum_data_downline_winloss" name="sum_data">2.70</th>
+                        <th id="sum_data_downline_comm" name="sum_data">0.00</th>
+                        <th id="sum_data_downline_total" name="sum_data">2.70</th>
+
+                        <th id="sum_data_viewer_winloss" name="sum_data" style="display: none;">0.00</th>
+                        <th id="sum_data_viewer_comm" name="sum_data" style="display: none;">0.00</th>
+                        <th id="sum_data_viewer_total" name="sum_data" style="display: none;">0.00</th>
+
+                        <th id="sum_data_company_winloss" name="sum_data">
+                            <font color="red">-2.70</font>
+                        </th>
+                        <th id="sum_data_company_comm" name="sum_data">0.00</th>
+                        <th id="sum_data_company_total" name="sum_data">
+                            <font color="red">-2.70</font>
+                        </th>
+
+                    </tr>
+                </tfoot>
+            </table>
+
+            <table style="margin: 0px 0px 30px;">
+
+				<thead id="title_row_tbody">
+					<tr>
+                        <th rowspan="2">#</th>
+                        <th rowspan="2">Site</th>
+						<th rowspan="2">Username</th>
+						<th rowspan="2">Rolling T/O</th>
+						
+						<th colspan="3" class="agent" id="downlineLevel">Shareholder</th>
+							
+						<th colspan="3" id="comapanyLevel">Company</th>
+					</tr>
+					<tr id="title_row">
+
+						<th class="agent">Win / Loss</th>
+						<th class="agent">Comm.</th>
+						<th class="agent">Total</th>
+						
+						
+						
+						
+						
+						<th>Win / Loss</th>
+						<th>Comm.</th>
+						<th>Total</th>
+
+					</tr>
+				</thead>
+				<tbody id="nodataTbody" style="display:none">
+					<tr><td id="nodata" class="tdNodate" colspan="23">No Data</td></tr>
+				</tbody>
+				<tbody id="dynamic_data" style="">
+					<tr id="data_template" style="display:none">
+								
+						<td id="data_number"> 0.00</td>
+						<td id="data_user_id"> NA</td>
+						<td id="data_turnover"> 0.00</td>
+					
+						<td class="agent" id="data_downline_winloss"> 0.00</td>
+						<td class="agent" id="data_downline_comm"> 0.0</td>
+						<td class="agent" id="data_downline_total"> 0.00</td>
+					
+						<td class="master" id="data_viewer_winloss"> 0.00</td>
+						<td class="master" id="data_viewer_comm"> 0.00</td>
+						<td class="master" id="data_viewer_total"> 0.00</td>
+
+						<td id="data_company_winloss"> 0.00</td>
+						<td id="data_company_comm"> 0.00</td>
+						<td id="data_company_total"> 0.00</td>
+					</tr>
+				<tr id="fistRowSpan_13_1" style="" live_type="-1" name="total_13_awv">
+								
+                        <td id="data_number" rowspan="3">1</td>
+                        <td rowspan="3">CF</td>
+						<td id="data_user_id"><a href="#" onclick="WinLossSimpleHandler.fetchData('awv','33')">awv</a><a id="total_13_awv" class="aBtn-More now" href="javascript:void(0);" onclick="WinLossSimpleHandler.clickDropButton('detail_13_awv','total_13_awv','fistRowSpan_13_1')">more</a></td>
+						<td id="data_turnover">20</td>
+					
+						<td class="agent" id="data_downline_winloss">2.70</td>
+						<td class="agent" id="data_downline_comm">0.00</td>
+						<td class="agent" id="data_downline_total">2.70</td>
+					
+						<td class="master" id="data_viewer_winloss" style="display: none;">0.00</td>
+						<td class="master" id="data_viewer_comm" style="display: none;">0.00</td>
+						<td class="master" id="data_viewer_total" style="display: none;">0.00</td>
+
+						<td id="data_company_winloss"><font color="red">-2.70</font></td>
+						<td id="data_company_comm">0.00</td>
+						<td id="data_company_total"><font color="red">-2.70</font></td>
+					</tr><tr id="dataRow_1" style="display: table-row;" live_type="0" name="detail_13_awv" class="trColor trShadow-1">
+								
+						<td id="data_number" style="display: none;">1</td>
+						<td id="data_user_id">Pre-fight</td>
+						<td id="data_turnover">20</td>
+					
+						<td class="agent" id="data_downline_winloss">2.70</td>
+						<td class="agent" id="data_downline_comm">0.00</td>
+						<td class="agent" id="data_downline_total">2.70</td>
+					
+						<td class="master" id="data_viewer_winloss" style="display: none;">0.00</td>
+						<td class="master" id="data_viewer_comm" style="display: none;">0.00</td>
+						<td class="master" id="data_viewer_total" style="display: none;">0.00</td>
+
+						<td id="data_company_winloss"><font color="red">-2.70</font></td>
+						<td id="data_company_comm">0.00</td>
+						<td id="data_company_total"><font color="red">-2.70</font></td>
+					</tr><tr id="dataRow_1" style="display: table-row;" live_type="1" name="detail_13_awv" class="trColor trShadow-2">
+								
+						<td id="data_number" style="display: none;">1</td>
+						<td id="data_user_id">Live</td>
+						<td id="data_turnover">0</td>
+					
+						<td class="agent" id="data_downline_winloss">0.00</td>
+						<td class="agent" id="data_downline_comm">0.00</td>
+						<td class="agent" id="data_downline_total">0.00</td>
+					
+						<td class="master" id="data_viewer_winloss" style="display: none;">0.00</td>
+						<td class="master" id="data_viewer_comm" style="display: none;">0.00</td>
+						<td class="master" id="data_viewer_total" style="display: none;">0.00</td>
+
+						<td id="data_company_winloss">0.00</td>
+						<td id="data_company_comm">0.00</td>
+						<td id="data_company_total">0.00</td>
+					</tr></tbody>
+				<tfoot id="data_tfoot">
+					<tr id="sum_data_tr">
+						<th colspan="3">Grand Total</th>
+						<th id="sum_data_turnover" name="sum_data">20</th>	
+						<th id="sum_data_downline_winloss" name="sum_data">2.70</th>
+						<th id="sum_data_downline_comm" name="sum_data">0.00</th>
+						<th id="sum_data_downline_total" name="sum_data">2.70</th>
+						
+						<th id="sum_data_viewer_winloss" name="sum_data" style="display: none;">0.00</th>
+						<th id="sum_data_viewer_comm" name="sum_data" style="display: none;">0.00</th>
+						<th id="sum_data_viewer_total" name="sum_data" style="display: none;">0.00</th>
+						
+						<th id="sum_data_company_winloss" name="sum_data"><font color="red">-2.70</font></th>
+						<th id="sum_data_company_comm" name="sum_data">0.00</th>
+						<th id="sum_data_company_total" name="sum_data"><font color="red">-2.70</font></th>
+						
+					</tr>
+				</tfoot>
+			</table>
+        </div>
+        <div id="report_table" style="display: none;">
+            <h3><span class="color_Red" id="currencyTitle"></span></h3>
+            <table style="margin: 0px 0px 30px;">
+
+                <thead id="title_row_tbody">
+                    <tr>
+                        <th rowspan="2">#</th>
+                        <th rowspan="2">Username</th>
+                        <th rowspan="2">Rolling T/O</th>
+
+                        <th colspan="3" class="agent" id="downlineLevel">Shareholder</th>
+
+                        <th colspan="3" id="comapanyLevel">Company</th>
+                    </tr>
+                    <tr id="title_row">
+
+                        <th class="agent">Win / Loss</th>
+                        <th class="agent">Comm.</th>
+                        <th class="agent">Total</th>
+
+
+
+
+
+                        <th>Win / Loss</th>
+                        <th>Comm.</th>
+                        <th>Total</th>
+
+                    </tr>
+                </thead>
+                <tbody id="nodataTbody" style="display:none">
+                    <tr>
+                        <td id="nodata" class="tdNodate" colspan="23">No Data</td>
+                    </tr>
+                </tbody>
+                <tbody id="dynamic_data" style="display:none">
+                    <tr id="data_template" style="display:none">
+
+                        <td id="data_number"> 0.00</td>
+                        <td id="data_user_id"> NA</td>
+                        <td id="data_turnover"> 0.00</td>
+
+                        <td class="agent" id="data_downline_winloss"> 0.00</td>
+                        <td class="agent" id="data_downline_comm"> 0.0</td>
+                        <td class="agent" id="data_downline_total"> 0.00</td>
+
+                        <td class="master" id="data_viewer_winloss"> 0.00</td>
+                        <td class="master" id="data_viewer_comm"> 0.00</td>
+                        <td class="master" id="data_viewer_total"> 0.00</td>
+
+                        <td id="data_company_winloss"> 0.00</td>
+                        <td id="data_company_comm"> 0.00</td>
+                        <td id="data_company_total"> 0.00</td>
+                    </tr>
+                </tbody>
+                <tfoot id="data_tfoot">
+                    <tr id="sum_data_tr">
+                        <th colspan="2">Grand Total</th>
+                        <th id="sum_data_turnover" name="sum_data">0.00</th>
+                        <th id="sum_data_downline_winloss" name="sum_data">0.00</th>
+                        <th id="sum_data_downline_comm" name="sum_data">0.00</th>
+                        <th id="sum_data_downline_total" name="sum_data">0.00</th>
+
+                        <th id="sum_data_viewer_winloss" name="sum_data">0.00</th>
+                        <th id="sum_data_viewer_comm" name="sum_data">0.00</th>
+                        <th id="sum_data_viewer_total" name="sum_data">0.00</th>
+
+                        <th id="sum_data_company_winloss" name="sum_data">0.00</th>
+                        <th id="sum_data_company_comm" name="sum_data">0.00</th>
+                        <th id="sum_data_company_total" name="sum_data">0.00</th>
+
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <input type="hidden" id="agentTitle" name="winLossSimple" value="Win / Loss Simple">
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,756 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <title>Credit / Balance</title>
+    <link rel="stylesheet" type="text/css" media="all" href="css/agentAll.css" />
+</head>
+
+<body onload="WinLossDetailsHandler.init()">
+    <!-- <div class="bgWhite setFlex-center">
+        <p class="icLoading">Loading</p>
+    </div> -->
+    <div id="ContainerPanel" style="display:none"><div id="calendarPanel" class="calendarPanel">  <div id="calendarForm" name="calendarForm" style="margin: 0px;">    <table class="calendarTable_1">    	<tbody>       		<tr>      			<th><input class="prevMonth" name="prevMonth" type="button" id="prevMonth" value=""></th>                <th class="nowrap" nowrap="nowrap">          		    <select class="calendarYear" name="calendarYear" id="calendarYear"><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option></select><select calss="calendarMonth" name="calendarMonth" id="calendarMonth"><option value="0">Jan </option><option value="1">Feb </option><option value="2">Mar </option><option value="3">Apr </option><option value="4">May </option><option value="5">Jun </option><option value="6">Jul </option><option value="7">Aug </option><option value="8">Sep </option><option value="9">Oct </option><option value="10">Nov </option><option value="11">Dec </option></select></th>                <th><input class="nextMonth" name="nextMonth" type="button" id="nextMonth"></th>      		</tr>    	</tbody>    </table>    <table id="calendarTable" class="calendarTable_2" cellpadding="2" cellspacing="1">    	<tbody>      <tr class="calendarTable_title">      <th>wk #</th>      <th>Mon</th>      <th>Tue</th>      <th>Wed</th>      <th>Thu</th>      <th>Fri</th>      <th>Sat</th>      <th>Sun</th>      </tr>    <tr>  <td week="x" style="font-weight:bold"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;color:#0657B9;"></td>  <td style="cursor:pointer;color:#D91717;"></td>    </tr>    <tr>  <td week="x" style="font-weight:bold"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;color:#0657B9;"></td>  <td style="cursor:pointer;color:#D91717;"></td>    </tr>    <tr>  <td week="x" style="font-weight:bold"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;color:#0657B9;"></td>  <td style="cursor:pointer;color:#D91717;"></td>    </tr>    <tr>  <td week="x" style="font-weight:bold"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;color:#0657B9;"></td>  <td style="cursor:pointer;color:#D91717;"></td>    </tr>    <tr>  <td week="x" style="font-weight:bold"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;color:#0657B9;"></td>  <td style="cursor:pointer;color:#D91717;"></td>    </tr>    <tr>  <td week="x" style="font-weight:bold"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;"></td>  <td style="cursor:pointer;color:#0657B9;"></td>  <td style="cursor:pointer;color:#D91717;"></td>    </tr>      <tr class="calendarTable_inputBox">        <th colspan="2"><input class="calendarInput1_ie7" name="calendarClear" type="button" id="calendarClear" value="Clear"></th>        <th colspan="3"><input class="calendarInput2_ie7" name="calendarToday" type="button" id="calendarToday" value="Today"></th>        <th colspan="3"><input class="calendarInput1_ie7" name="calendarClose" type="button" id="calendarClose" value="Close"></th>      </tr>    </tbody>    </table>  </div></div></div>
+
+	<form id="form1" name="form1" method="get" action="/agent/queryReports/winLossDetail">
+		
+		<div class="main agentDetails">
+			<div class="box_1 clearfix">
+				<input class="inputCalender" type="button" value="21/02/2022" name="startDate" id="startDate" size="8" onclick="calendarObj.show(event,'startDate');">
+				<input class="inputCalender" type="button" value="21/02/2022" name="endDate" id="endDate" size="8" onclick="calendarObj.show(event,'endDate');">
+				<input class="inputBtn_orange" type="button" value="Submit" onclick="WinLossDetailsHandler.fetchData()">
+				
+				<input type="hidden" name="queryStartDate" value="">
+				<input type="hidden" name="queryEndDate" value="">
+				<input type="hidden" name="clickedUserId" value="">				
+				<input type="hidden" name="site" value="-1">
+				<input type="hidden" value="" id="first">
+				<input type="hidden" value="true" name="internalFlag" id="internalFlag">
+				<input type="hidden" value="true" name="externalFlag" id="externalFlag">
+				<input type="hidden" name="pageNumber" value="1"> 
+				<input type="hidden" name="pageSize" value="50">
+				
+				<ul class="ul_3_S"> 
+					<li class="li_First" onclick="WinLossDetailsHandler.today()">Today</li>
+					<li onclick="WinLossDetailsHandler.yesterday()">Yesterday</li>
+		
+					<li class="li_First" onclick="WinLossDetailsHandler.thisWeek()">This Week</li>
+					<li onclick="WinLossDetailsHandler.lastWeek()">Last Week</li>
+		
+					<li class="li_First" onclick="WinLossDetailsHandler.thisMonth()">This Month</li>
+					<li onclick="WinLossDetailsHandler.lastMonth()">Last Month</li>
+				</ul>
+				
+				</div>
+				<div class="box_1 clearfix">
+					<ul class="ul_1 clearfix">
+						
+							<li name="locationTypeCheck" id="locationType2" onclick="WinLossDetailsHandler.locationTypeCheck(2)" class="li_check_on">CAM
+								<input type="checkbox" value="2" name="locationTypes" checked="false" style="display: none;">
+							</li>
+						
+							<li name="locationTypeCheck" id="locationType4" onclick="WinLossDetailsHandler.locationTypeCheck(4)" class="li_check_on">MX
+								<input type="checkbox" value="4" name="locationTypes" checked="false" style="display: none;">
+							</li>
+						
+							<li name="locationTypeCheck" id="locationType1" onclick="WinLossDetailsHandler.locationTypeCheck(1)" class="li_check_on">PHI
+								<input type="checkbox" value="1" name="locationTypes" checked="false" style="display: none;">
+							</li>
+						
+							<li name="locationTypeCheck" id="locationType3" onclick="WinLossDetailsHandler.locationTypeCheck(3)" class="li_check_on">TH
+								<input type="checkbox" value="3" name="locationTypes" checked="false" style="display: none;">
+							</li>
+						
+					</ul>
+				
+				
+			</div>
+			
+			
+
+			<div class="box_1 clearfix">
+				<input id="extension1" name="extension1" class="inputText_2" type="text" placeholder="extension1" maxlength="20" value="">
+				<input id="extension2" name="extension2" class="inputText_2" type="text" placeholder="extension2" maxlength="20" value="">
+				<input id="extension3" name="extension3" class="inputText_2" type="text" placeholder="extension3" maxlength="20" value="">
+			</div>
+			
+			
+			<div class="box_1 clearfix">
+				<ul class="ul_1 clearfix">
+					<li name="internalCheck" id="internalCheck" class="li_check_on" onclick="WinLossDetailsHandler.internalCheck()">Internal</li>
+					<li name="externalCheck" id="externalCheck" class="li_check_on" onclick="WinLossDetailsHandler.externalCheck()">External</li>
+				</ul>
+			</div>
+			
+			
+			<ul id="navigationPath" class="box_1 ul_4 clearfix">
+		
+			<li user="one"><a href="#" onclick="WinLossDetailsHandler.fetchData('one',0)" class="a_last">one</a></li></ul>
+			<div class="box_1" id="loading" style="display: none">
+				<p class="loading_1">Loading...</p>
+			</div>
+			<div id="dataTable_4" style="">
+			<h3><span class="color_Red" id="currencyTitle">THB<a id="click_4" class="atext" href="javascript:void(0)" onclick="WinLossDetailsHandler.clickExpandAll('total_4','click_4')">Expand All</a></span></h3>
+			<table style="margin: 0px 0px 30px;">
+				<colgroup>
+					<col>
+					<col>
+			
+					
+					<col>
+					<col class="member">
+					<col class="member">
+					<col class="member">
+		
+					<col lvl="1" class="agent">
+					<col lvl="1" class="agent">
+					<col lvl="1" class="agent">
+		
+					<col lvl="2" class="master">
+					<col lvl="2" class="master">
+					<col lvl="2" class="master">
+			
+					<col lvl="3" class="senior">
+					<col lvl="3" class="senior">
+					<col lvl="3" class="senior">
+			
+					<col lvl="4" class="ssenior">
+					<col lvl="4" class="ssenior">
+					<col lvl="4" class="ssenior">
+			
+					<col lvl="5" class="shareholder">
+					<col lvl="5" class="shareholder">
+					<col lvl="5" class="shareholder">
+				<col>
+				</colgroup>
+				<thead id="title_row_tbody">
+					<tr>
+                        <th rowspan="2">#</th>
+                        <th rowspan="2">Website</th>
+						<th rowspan="2">Username</th>
+						<th rowspan="2">Rolling T/O</th>
+						
+						
+						<th colspan="3" class="member">Member</th>
+						<th colspan="3" lvl="1" class="agent">Agent</th>
+						<th colspan="3" lvl="2" class="master">Master</th>
+						<th colspan="3" lvl="3" class="senior">Senior</th>
+						<th colspan="3" lvl="4" class="ssenior">Super Senior</th>
+						<th colspan="3" lvl="5" class="shareholder">Shareholder</th>
+						<th rowspan="2">Company</th>
+					</tr>
+					<tr id="title_row">
+						<th class="member">Win / Loss</th>
+						<th class="member">Comm.</th>
+						<th class="member">Total</th>
+						
+						<th lvl="1" class="agent">Win / Loss</th>
+						<th lvl="1" class="agent">Comm.</th>
+						<th lvl="1" class="agent">Total</th>
+						
+						<th lvl="2" class="master">Win / Loss</th>
+						<th lvl="2" class="master">Comm.</th>
+						<th lvl="2" class="master">Total</th>
+					
+						<th lvl="3" class="senior">Win / Loss</th>
+						<th lvl="3" class="senior">Comm.</th>
+						<th lvl="3" class="senior">Total</th>
+						
+						<th lvl="4" class="ssenior">Win / Loss</th>
+						<th lvl="4" class="ssenior">Comm.</th>
+						<th lvl="4" class="ssenior">Total</th>
+						
+						<th lvl="5" class="shareholder">Win / Loss</th>
+						<th lvl="5" class="shareholder">Comm.</th>
+						<th lvl="5" class="shareholder">Total</th>
+					</tr>
+				</thead>
+				<tbody id="nodataTbody" style="display:none">
+					<tr><td id="nodata" class="tdNodate" colspan="23">No Data</td></tr>
+				</tbody>
+				<tbody id="dynamic_data" style="">
+					<tr id="data_template" style="display:none">
+								
+                        <td id="data_number"> 0.00</td>
+                        <td>xxx</td>
+						<td id="data_user_id"> </td>
+						<td id="data_turnover"> 0.00</td>
+						
+						
+					
+						<td id="data_member_winloss"> 0.00</td>
+						<td id="data_member_comm"> 0.0</td>
+						<td id="data_member_total"> 0.00</td>
+					
+						<td lvl="1" id="data_agent_winloss"> 0.00</td>
+						<td lvl="1" id="data_agent_comm"> 0.00</td>
+						<td lvl="1" id="data_agent_total"> 0.00</td>
+					
+						<td lvl="2" id="data_master_winloss"> 0.00</td>
+						<td lvl="2" id="data_master_comm"> 0.00</td>
+						<td lvl="2" id="data_master_total"> 0.00</td>
+					
+						<td lvl="3" id="data_senior_winloss"> 0.00</td>
+						<td lvl="3" id="data_senior_comm"> 0.00</td>
+						<td lvl="3" id="data_senior_total"> 0.00</td>
+						
+						<td lvl="4" id="data_ssenior_winloss"> 0.00</td>
+						<td lvl="4" id="data_ssenior_comm"> 0.00</td>
+						<td lvl="4" id="data_ssenior_total"> 0.00</td>
+						
+						<td lvl="5" id="data_shareholder_winloss"> 0.00</td>
+						<td lvl="5" id="data_shareholder_comm"> 0.00</td>
+						<td lvl="5" id="data_shareholder_total"> 0.00</td>
+						
+						<td id="data_company"> 0.00</td>
+					</tr>
+				<tr id="fistRowSpan_4_1" style="" live_type="-1" name="total_4_aw6">
+								
+                        <td id="data_number">1</td>
+                        <td>CF</td>
+						<td id="data_user_id"><a href="#" onclick="WinLossDetailsHandler.fetchData('aw6','33')">aw6</a><a id="total_4_aw6" class="aBtn-More" href="javascript:void(0);" onclick="WinLossDetailsHandler.clickDropButton('detail_4_aw6','total_4_aw6','fistRowSpan_4_1')">more</a></td>
+						<td id="data_turnover">50</td>
+						
+						
+					
+						<td id="data_member_winloss">40.00</td>
+						<td id="data_member_comm">0.00</td>
+						<td id="data_member_total">40.00</td>
+					
+						<td lvl="1" id="data_agent_winloss"><font color="red">-36.80</font></td>
+						<td lvl="1" id="data_agent_comm">0.00</td>
+						<td lvl="1" id="data_agent_total"><font color="red">-36.80</font></td>
+					
+						<td lvl="2" id="data_master_winloss">0.00</td>
+						<td lvl="2" id="data_master_comm">0.00</td>
+						<td lvl="2" id="data_master_total">0.00</td>
+					
+						<td lvl="3" id="data_senior_winloss">0.00</td>
+						<td lvl="3" id="data_senior_comm">0.00</td>
+						<td lvl="3" id="data_senior_total">0.00</td>
+						
+						<td lvl="4" id="data_ssenior_winloss">0.00</td>
+						<td lvl="4" id="data_ssenior_comm">0.00</td>
+						<td lvl="4" id="data_ssenior_total">0.00</td>
+						
+						<td lvl="5" id="data_shareholder_winloss">0.00</td>
+						<td lvl="5" id="data_shareholder_comm">0.00</td>
+						<td lvl="5" id="data_shareholder_total">0.00</td>
+						
+						<td id="data_company"><font color="red">-3.20</font></td>
+					</tr><tr id="dataRow_1" style="display:none" live_type="0" name="detail_4_aw6" class="trColor trShadow-1">
+								
+						<td id="data_number" style="display: none;">1</td>
+						<td id="data_user_id">Pre-fight</td>
+						<td id="data_turnover">50</td>
+						
+						
+					
+						<td id="data_member_winloss" class="member">40.00</td>
+						<td id="data_member_comm" class="member">0.00</td>
+						<td id="data_member_total" class="member">40.00</td>
+					
+						<td lvl="1" id="data_agent_winloss" class="agent"><font color="red">-36.80</font></td>
+						<td lvl="1" id="data_agent_comm" class="agent">0.00</td>
+						<td lvl="1" id="data_agent_total" class="agent"><font color="red">-36.80</font></td>
+					
+						<td lvl="2" id="data_master_winloss" class="master">0.00</td>
+						<td lvl="2" id="data_master_comm" class="master">0.00</td>
+						<td lvl="2" id="data_master_total" class="master">0.00</td>
+					
+						<td lvl="3" id="data_senior_winloss" class="senior">0.00</td>
+						<td lvl="3" id="data_senior_comm" class="senior">0.00</td>
+						<td lvl="3" id="data_senior_total" class="senior">0.00</td>
+						
+						<td lvl="4" id="data_ssenior_winloss" class="ssenior">0.00</td>
+						<td lvl="4" id="data_ssenior_comm" class="ssenior">0.00</td>
+						<td lvl="4" id="data_ssenior_total" class="ssenior">0.00</td>
+						
+						<td lvl="5" id="data_shareholder_winloss" class="shareholder">0.00</td>
+						<td lvl="5" id="data_shareholder_comm" class="shareholder">0.00</td>
+						<td lvl="5" id="data_shareholder_total" class="shareholder">0.00</td>
+						
+						<td id="data_company"><font color="red">-3.20</font></td>
+					</tr><tr id="dataRow_1" style="display:none" live_type="1" name="detail_4_aw6" class="trColor trShadow-2">
+								
+						<td id="data_number" style="display: none;">1</td>
+						<td id="data_user_id">Live</td>
+						<td id="data_turnover">0</td>
+						
+						
+					
+						<td id="data_member_winloss" class="member">0.00</td>
+						<td id="data_member_comm" class="member">0.00</td>
+						<td id="data_member_total" class="member">0.00</td>
+					
+						<td lvl="1" id="data_agent_winloss" class="agent">0.00</td>
+						<td lvl="1" id="data_agent_comm" class="agent">0.00</td>
+						<td lvl="1" id="data_agent_total" class="agent">0.00</td>
+					
+						<td lvl="2" id="data_master_winloss" class="master">0.00</td>
+						<td lvl="2" id="data_master_comm" class="master">0.00</td>
+						<td lvl="2" id="data_master_total" class="master">0.00</td>
+					
+						<td lvl="3" id="data_senior_winloss" class="senior">0.00</td>
+						<td lvl="3" id="data_senior_comm" class="senior">0.00</td>
+						<td lvl="3" id="data_senior_total" class="senior">0.00</td>
+						
+						<td lvl="4" id="data_ssenior_winloss" class="ssenior">0.00</td>
+						<td lvl="4" id="data_ssenior_comm" class="ssenior">0.00</td>
+						<td lvl="4" id="data_ssenior_total" class="ssenior">0.00</td>
+						
+						<td lvl="5" id="data_shareholder_winloss" class="shareholder">0.00</td>
+						<td lvl="5" id="data_shareholder_comm" class="shareholder">0.00</td>
+						<td lvl="5" id="data_shareholder_total" class="shareholder">0.00</td>
+						
+						<td id="data_company">0.00</td>
+					</tr></tbody>
+				<tfoot id="data_tfoot">
+					<tr id="sum_data_tr">
+						<th colspan="3">Grand Total</th>
+						<th id="sum_data_turnover" name="sum_data">50</th>
+						
+						
+						
+						<th id="sum_data_member_winloss" name="sum_data">40.00</th>
+						<th id="sum_data_member_comm" name="sum_data">0.00</th>
+						<th id="sum_data_member_total" name="sum_data">40.00</th>
+						
+						<th lvl="1" id="sum_data_agent_winloss" name="sum_data"><font color="red">-36.80</font></th>
+						<th lvl="1" id="sum_data_agent_comm" name="sum_data">0.00</th>
+						<th lvl="1" id="sum_data_agent_total" name="sum_data"><font color="red">-36.80</font></th>
+						
+						<th lvl="2" id="sum_data_master_winloss" name="sum_data">0.00</th>
+						<th lvl="2" id="sum_data_master_comm" name="sum_data">0.00</th>
+						<th lvl="2" id="sum_data_master_total" name="sum_data">0.00</th>
+						
+						<th lvl="3" id="sum_data_senior_winloss" name="sum_data">0.00</th>
+						<th lvl="3" id="sum_data_senior_comm" name="sum_data">0.00</th>
+						<th lvl="3" id="sum_data_senior_total" name="sum_data">0.00</th>
+						
+						<th lvl="4" id="sum_data_ssenior_winloss" name="sum_data">0.00</th>
+						<th lvl="4" id="sum_data_ssenior_comm" name="sum_data">0.00</th>
+						<th lvl="4" id="sum_data_ssenior_total" name="sum_data">0.00</th>
+						
+						<th lvl="5" id="sum_data_shareholder_winloss" name="sum_data">0.00</th>
+						<th lvl="5" id="sum_data_shareholder_comm" name="sum_data">0.00</th>
+						<th lvl="5" id="sum_data_shareholder_total" name="sum_data">0.00</th>
+						
+						<th id="sum_data_company" name="sum_data"><font color="red">-3.20</font></th>
+					</tr>
+				</tfoot>
+			</table>
+			</div><div id="dataTable_5" style="">
+			<h3><span class="color_Red" id="currencyTitle">IDR<a id="click_5" class="atext" href="javascript:void(0)" onclick="WinLossDetailsHandler.clickExpandAll('total_5','click_5')">Expand All</a></span></h3>
+			<table style="margin: 0px 0px 30px;">
+				<colgroup>
+					<col>
+					<col>
+			
+					
+					<col>
+					<col class="member">
+					<col class="member">
+					<col class="member">
+		
+					<col lvl="1" class="agent">
+					<col lvl="1" class="agent">
+					<col lvl="1" class="agent">
+		
+					<col lvl="2" class="master">
+					<col lvl="2" class="master">
+					<col lvl="2" class="master">
+			
+					<col lvl="3" class="senior">
+					<col lvl="3" class="senior">
+					<col lvl="3" class="senior">
+			
+					<col lvl="4" class="ssenior">
+					<col lvl="4" class="ssenior">
+					<col lvl="4" class="ssenior">
+			
+					<col lvl="5" class="shareholder">
+					<col lvl="5" class="shareholder">
+					<col lvl="5" class="shareholder">
+				<col>
+				</colgroup>
+				<thead id="title_row_tbody">
+					<tr>
+                        <th rowspan="2">#</th>
+                        <th rowspan="2">Website</th>
+						<th rowspan="2">Username</th>
+						<th rowspan="2">Rolling T/O</th>
+						
+						
+						<th colspan="3" class="member">Member</th>
+						<th colspan="3" lvl="1" class="agent">Agent</th>
+						<th colspan="3" lvl="2" class="master">Master</th>
+						<th colspan="3" lvl="3" class="senior">Senior</th>
+						<th colspan="3" lvl="4" class="ssenior">Super Senior</th>
+						<th colspan="3" lvl="5" class="shareholder">Shareholder</th>
+						<th rowspan="2">Company</th>
+					</tr>
+					<tr id="title_row">
+						<th class="member">Win / Loss</th>
+						<th class="member">Comm.</th>
+						<th class="member">Total</th>
+						
+						<th lvl="1" class="agent">Win / Loss</th>
+						<th lvl="1" class="agent">Comm.</th>
+						<th lvl="1" class="agent">Total</th>
+						
+						<th lvl="2" class="master">Win / Loss</th>
+						<th lvl="2" class="master">Comm.</th>
+						<th lvl="2" class="master">Total</th>
+					
+						<th lvl="3" class="senior">Win / Loss</th>
+						<th lvl="3" class="senior">Comm.</th>
+						<th lvl="3" class="senior">Total</th>
+						
+						<th lvl="4" class="ssenior">Win / Loss</th>
+						<th lvl="4" class="ssenior">Comm.</th>
+						<th lvl="4" class="ssenior">Total</th>
+						
+						<th lvl="5" class="shareholder">Win / Loss</th>
+						<th lvl="5" class="shareholder">Comm.</th>
+						<th lvl="5" class="shareholder">Total</th>
+					</tr>
+				</thead>
+				<tbody id="nodataTbody" style="display:none">
+					<tr><td id="nodata" class="tdNodate" colspan="23">No Data</td></tr>
+				</tbody>
+				<tbody id="dynamic_data" style="">
+					<tr id="data_template" style="display:none">
+								
+						<td id="data_number"> 0.00</td>
+						<td id="data_user_id"> </td>
+						<td id="data_turnover"> 0.00</td>
+						
+						
+					
+						<td id="data_member_winloss"> 0.00</td>
+						<td id="data_member_comm"> 0.0</td>
+						<td id="data_member_total"> 0.00</td>
+					
+						<td lvl="1" id="data_agent_winloss"> 0.00</td>
+						<td lvl="1" id="data_agent_comm"> 0.00</td>
+						<td lvl="1" id="data_agent_total"> 0.00</td>
+					
+						<td lvl="2" id="data_master_winloss"> 0.00</td>
+						<td lvl="2" id="data_master_comm"> 0.00</td>
+						<td lvl="2" id="data_master_total"> 0.00</td>
+					
+						<td lvl="3" id="data_senior_winloss"> 0.00</td>
+						<td lvl="3" id="data_senior_comm"> 0.00</td>
+						<td lvl="3" id="data_senior_total"> 0.00</td>
+						
+						<td lvl="4" id="data_ssenior_winloss"> 0.00</td>
+						<td lvl="4" id="data_ssenior_comm"> 0.00</td>
+						<td lvl="4" id="data_ssenior_total"> 0.00</td>
+						
+						<td lvl="5" id="data_shareholder_winloss"> 0.00</td>
+						<td lvl="5" id="data_shareholder_comm"> 0.00</td>
+						<td lvl="5" id="data_shareholder_total"> 0.00</td>
+						
+						<td id="data_company"> 0.00</td>
+					</tr>
+				<tr id="fistRowSpan_5_1" style="" live_type="-1" name="total_5_aw2">
+								
+                        <td id="data_number" rowspan="3">1</td>
+                        <td rowspan="3">CF</td>
+						<td id="data_user_id"><a href="#" onclick="WinLossDetailsHandler.fetchData('aw2','33')">aw2</a><a id="total_5_aw2" class="aBtn-More now" href="javascript:void(0);" onclick="WinLossDetailsHandler.clickDropButton('detail_5_aw2','total_5_aw2','fistRowSpan_5_1')">more</a></td>
+						<td id="data_turnover">510</td>
+						
+						
+					
+						<td id="data_member_winloss">54.00</td>
+						<td id="data_member_comm">0.00</td>
+						<td id="data_member_total">54.00</td>
+					
+						<td lvl="1" id="data_agent_winloss"><font color="red">-49.68</font></td>
+						<td lvl="1" id="data_agent_comm">0.00</td>
+						<td lvl="1" id="data_agent_total"><font color="red">-49.68</font></td>
+					
+						<td lvl="2" id="data_master_winloss">0.00</td>
+						<td lvl="2" id="data_master_comm">0.00</td>
+						<td lvl="2" id="data_master_total">0.00</td>
+					
+						<td lvl="3" id="data_senior_winloss">0.00</td>
+						<td lvl="3" id="data_senior_comm">0.00</td>
+						<td lvl="3" id="data_senior_total">0.00</td>
+						
+						<td lvl="4" id="data_ssenior_winloss">0.00</td>
+						<td lvl="4" id="data_ssenior_comm">0.00</td>
+						<td lvl="4" id="data_ssenior_total">0.00</td>
+						
+						<td lvl="5" id="data_shareholder_winloss">0.00</td>
+						<td lvl="5" id="data_shareholder_comm">0.00</td>
+						<td lvl="5" id="data_shareholder_total">0.00</td>
+						
+						<td id="data_company"><font color="red">-4.32</font></td>
+					</tr><tr id="dataRow_1" style="" live_type="0" name="detail_5_aw2" class="trColor trShadow-1">
+								
+						<td id="data_number" style="display: none;">1</td>
+						<td id="data_user_id">Pre-fight</td>
+						<td id="data_turnover">510</td>
+						
+						
+					
+						<td id="data_member_winloss" class="member">54.00</td>
+						<td id="data_member_comm" class="member">0.00</td>
+						<td id="data_member_total" class="member">54.00</td>
+					
+						<td lvl="1" id="data_agent_winloss" class="agent"><font color="red">-49.68</font></td>
+						<td lvl="1" id="data_agent_comm" class="agent">0.00</td>
+						<td lvl="1" id="data_agent_total" class="agent"><font color="red">-49.68</font></td>
+					
+						<td lvl="2" id="data_master_winloss" class="master">0.00</td>
+						<td lvl="2" id="data_master_comm" class="master">0.00</td>
+						<td lvl="2" id="data_master_total" class="master">0.00</td>
+					
+						<td lvl="3" id="data_senior_winloss" class="senior">0.00</td>
+						<td lvl="3" id="data_senior_comm" class="senior">0.00</td>
+						<td lvl="3" id="data_senior_total" class="senior">0.00</td>
+						
+						<td lvl="4" id="data_ssenior_winloss" class="ssenior">0.00</td>
+						<td lvl="4" id="data_ssenior_comm" class="ssenior">0.00</td>
+						<td lvl="4" id="data_ssenior_total" class="ssenior">0.00</td>
+						
+						<td lvl="5" id="data_shareholder_winloss" class="shareholder">0.00</td>
+						<td lvl="5" id="data_shareholder_comm" class="shareholder">0.00</td>
+						<td lvl="5" id="data_shareholder_total" class="shareholder">0.00</td>
+						
+						<td id="data_company"><font color="red">-4.32</font></td>
+					</tr><tr id="dataRow_1" style="" live_type="1" name="detail_5_aw2" class="trColor trShadow-2">
+								
+						<td id="data_number" style="display: none;">1</td>
+						<td id="data_user_id">Live</td>
+						<td id="data_turnover">0</td>
+						
+						
+					
+						<td id="data_member_winloss" class="member">0.00</td>
+						<td id="data_member_comm" class="member">0.00</td>
+						<td id="data_member_total" class="member">0.00</td>
+					
+						<td lvl="1" id="data_agent_winloss" class="agent">0.00</td>
+						<td lvl="1" id="data_agent_comm" class="agent">0.00</td>
+						<td lvl="1" id="data_agent_total" class="agent">0.00</td>
+					
+						<td lvl="2" id="data_master_winloss" class="master">0.00</td>
+						<td lvl="2" id="data_master_comm" class="master">0.00</td>
+						<td lvl="2" id="data_master_total" class="master">0.00</td>
+					
+						<td lvl="3" id="data_senior_winloss" class="senior">0.00</td>
+						<td lvl="3" id="data_senior_comm" class="senior">0.00</td>
+						<td lvl="3" id="data_senior_total" class="senior">0.00</td>
+						
+						<td lvl="4" id="data_ssenior_winloss" class="ssenior">0.00</td>
+						<td lvl="4" id="data_ssenior_comm" class="ssenior">0.00</td>
+						<td lvl="4" id="data_ssenior_total" class="ssenior">0.00</td>
+						
+						<td lvl="5" id="data_shareholder_winloss" class="shareholder">0.00</td>
+						<td lvl="5" id="data_shareholder_comm" class="shareholder">0.00</td>
+						<td lvl="5" id="data_shareholder_total" class="shareholder">0.00</td>
+						
+						<td id="data_company">0.00</td>
+					</tr></tbody>
+				<tfoot id="data_tfoot">
+					<tr id="sum_data_tr">
+						<th colspan="3">Grand Total</th>
+						<th id="sum_data_turnover" name="sum_data">510</th>
+						
+						
+						
+						<th id="sum_data_member_winloss" name="sum_data">54.00</th>
+						<th id="sum_data_member_comm" name="sum_data">0.00</th>
+						<th id="sum_data_member_total" name="sum_data">54.00</th>
+						
+						<th lvl="1" id="sum_data_agent_winloss" name="sum_data"><font color="red">-49.68</font></th>
+						<th lvl="1" id="sum_data_agent_comm" name="sum_data">0.00</th>
+						<th lvl="1" id="sum_data_agent_total" name="sum_data"><font color="red">-49.68</font></th>
+						
+						<th lvl="2" id="sum_data_master_winloss" name="sum_data">0.00</th>
+						<th lvl="2" id="sum_data_master_comm" name="sum_data">0.00</th>
+						<th lvl="2" id="sum_data_master_total" name="sum_data">0.00</th>
+						
+						<th lvl="3" id="sum_data_senior_winloss" name="sum_data">0.00</th>
+						<th lvl="3" id="sum_data_senior_comm" name="sum_data">0.00</th>
+						<th lvl="3" id="sum_data_senior_total" name="sum_data">0.00</th>
+						
+						<th lvl="4" id="sum_data_ssenior_winloss" name="sum_data">0.00</th>
+						<th lvl="4" id="sum_data_ssenior_comm" name="sum_data">0.00</th>
+						<th lvl="4" id="sum_data_ssenior_total" name="sum_data">0.00</th>
+						
+						<th lvl="5" id="sum_data_shareholder_winloss" name="sum_data">0.00</th>
+						<th lvl="5" id="sum_data_shareholder_comm" name="sum_data">0.00</th>
+						<th lvl="5" id="sum_data_shareholder_total" name="sum_data">0.00</th>
+						
+						<th id="sum_data_company" name="sum_data"><font color="red">-4.32</font></th>
+					</tr>
+				</tfoot>
+			</table>
+			</div><div id="report_table" style="display: none;">
+			<h3><span class="color_Red" id="currencyTitle"></span></h3>
+			<table style="margin: 0px 0px 30px;">
+				<colgroup>
+					<col>
+					<col>
+			
+					
+					<col>
+					<col class="member">
+					<col class="member">
+					<col class="member">
+		
+					<col lvl="1" class="agent">
+					<col lvl="1" class="agent">
+					<col lvl="1" class="agent">
+		
+					<col lvl="2" class="master">
+					<col lvl="2" class="master">
+					<col lvl="2" class="master">
+			
+					<col lvl="3" class="senior">
+					<col lvl="3" class="senior">
+					<col lvl="3" class="senior">
+			
+					<col lvl="4" class="ssenior">
+					<col lvl="4" class="ssenior">
+					<col lvl="4" class="ssenior">
+			
+					<col lvl="5" class="shareholder">
+					<col lvl="5" class="shareholder">
+					<col lvl="5" class="shareholder">
+				<col>
+				</colgroup>
+				<thead id="title_row_tbody">
+					<tr>
+						<th rowspan="2">#</th>
+						<th rowspan="2">Username</th>
+						<th rowspan="2">Rolling T/O</th>
+						
+						
+						<th colspan="3" class="member">Member</th>
+						<th colspan="3" lvl="1" class="agent">Agent</th>
+						<th colspan="3" lvl="2" class="master">Master</th>
+						<th colspan="3" lvl="3" class="senior">Senior</th>
+						<th colspan="3" lvl="4" class="ssenior">Super Senior</th>
+						<th colspan="3" lvl="5" class="shareholder">Shareholder</th>
+						<th rowspan="2">Company</th>
+					</tr>
+					<tr id="title_row">
+						<th class="member">Win / Loss</th>
+						<th class="member">Comm.</th>
+						<th class="member">Total</th>
+						
+						<th lvl="1" class="agent">Win / Loss</th>
+						<th lvl="1" class="agent">Comm.</th>
+						<th lvl="1" class="agent">Total</th>
+						
+						<th lvl="2" class="master">Win / Loss</th>
+						<th lvl="2" class="master">Comm.</th>
+						<th lvl="2" class="master">Total</th>
+					
+						<th lvl="3" class="senior">Win / Loss</th>
+						<th lvl="3" class="senior">Comm.</th>
+						<th lvl="3" class="senior">Total</th>
+						
+						<th lvl="4" class="ssenior">Win / Loss</th>
+						<th lvl="4" class="ssenior">Comm.</th>
+						<th lvl="4" class="ssenior">Total</th>
+						
+						<th lvl="5" class="shareholder">Win / Loss</th>
+						<th lvl="5" class="shareholder">Comm.</th>
+						<th lvl="5" class="shareholder">Total</th>
+					</tr>
+				</thead>
+				<tbody id="nodataTbody" style="display:none">
+					<tr><td id="nodata" class="tdNodate" colspan="23">No Data</td></tr>
+				</tbody>
+				<tbody id="dynamic_data" style="display:none">
+					<tr id="data_template" style="display:none">
+								
+						<td id="data_number"> 0.00</td>
+						<td id="data_user_id"> </td>
+						<td id="data_turnover"> 0.00</td>
+						
+						
+					
+						<td id="data_member_winloss"> 0.00</td>
+						<td id="data_member_comm"> 0.0</td>
+						<td id="data_member_total"> 0.00</td>
+					
+						<td lvl="1" id="data_agent_winloss"> 0.00</td>
+						<td lvl="1" id="data_agent_comm"> 0.00</td>
+						<td lvl="1" id="data_agent_total"> 0.00</td>
+					
+						<td lvl="2" id="data_master_winloss"> 0.00</td>
+						<td lvl="2" id="data_master_comm"> 0.00</td>
+						<td lvl="2" id="data_master_total"> 0.00</td>
+					
+						<td lvl="3" id="data_senior_winloss"> 0.00</td>
+						<td lvl="3" id="data_senior_comm"> 0.00</td>
+						<td lvl="3" id="data_senior_total"> 0.00</td>
+						
+						<td lvl="4" id="data_ssenior_winloss"> 0.00</td>
+						<td lvl="4" id="data_ssenior_comm"> 0.00</td>
+						<td lvl="4" id="data_ssenior_total"> 0.00</td>
+						
+						<td lvl="5" id="data_shareholder_winloss"> 0.00</td>
+						<td lvl="5" id="data_shareholder_comm"> 0.00</td>
+						<td lvl="5" id="data_shareholder_total"> 0.00</td>
+						
+						<td id="data_company"> 0.00</td>
+					</tr>
+				</tbody>
+				<tfoot id="data_tfoot">
+					<tr id="sum_data_tr">
+						<th colspan="2">Grand Total</th>
+						<th id="sum_data_turnover" name="sum_data">0.00</th>
+						
+						
+						
+						<th id="sum_data_member_winloss" name="sum_data">0.00</th>
+						<th id="sum_data_member_comm" name="sum_data">0.00</th>
+						<th id="sum_data_member_total" name="sum_data">0.00</th>
+						
+						<th lvl="1" id="sum_data_agent_winloss" name="sum_data">0.00</th>
+						<th lvl="1" id="sum_data_agent_comm" name="sum_data">0.00</th>
+						<th lvl="1" id="sum_data_agent_total" name="sum_data">0.00</th>
+						
+						<th lvl="2" id="sum_data_master_winloss" name="sum_data">0.00</th>
+						<th lvl="2" id="sum_data_master_comm" name="sum_data">0.00</th>
+						<th lvl="2" id="sum_data_master_total" name="sum_data">0.00</th>
+						
+						<th lvl="3" id="sum_data_senior_winloss" name="sum_data">0.00</th>
+						<th lvl="3" id="sum_data_senior_comm" name="sum_data">0.00</th>
+						<th lvl="3" id="sum_data_senior_total" name="sum_data">0.00</th>
+						
+						<th lvl="4" id="sum_data_ssenior_winloss" name="sum_data">0.00</th>
+						<th lvl="4" id="sum_data_ssenior_comm" name="sum_data">0.00</th>
+						<th lvl="4" id="sum_data_ssenior_total" name="sum_data">0.00</th>
+						
+						<th lvl="5" id="sum_data_shareholder_winloss" name="sum_data">0.00</th>
+						<th lvl="5" id="sum_data_shareholder_comm" name="sum_data">0.00</th>
+						<th lvl="5" id="sum_data_shareholder_total" name="sum_data">0.00</th>
+						
+						<th id="sum_data_company" name="sum_data">0.00</th>
+					</tr>
+				</tfoot>
+			</table>
+			</div>
+			<input type="hidden" id="agentTitle" name="winLossDetails" value="Downline Win / Loss">
+			
+		</div>
+	</form>
+	
+
+
+
+
+</body>
+
+</html>

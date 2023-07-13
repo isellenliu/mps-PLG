@@ -1,0 +1,246 @@
+// ============================
+.card{
+	position: relative;
+	&.card-action{
+		display: flex;
+		border-radius: 2px;
+		margin: 20px 0px 20px 0px;
+		background-color: #ececec;
+		.card-tit{
+			align-self: center;
+			padding: 10px 25px 10px 15px;
+			color: #853900;
+			font-weight: bold;
+		}
+		.card-body{
+			padding: 10px;
+			margin: 0px;
+			background: none;
+		}
+	}
+	&.myProfileStatistics{
+		display: block;
+		border-radius: 20px;
+		padding: 0px;
+		margin: 0 20px 0 10px;
+		max-width: 1300px;
+		.card-body{
+			padding: 0px;
+			margin: 0;
+			border-radius: 15px;
+		}
+	}
+	.card-body{
+		margin: 20px 3% 10px 3%;
+		background: #f1f1f1;
+		border-radius: 8px;
+		padding: 18px 20px 20px 20px;
+		.card-body-tit{
+			display: flex;
+		}
+		.form-edit{
+			width: auto;
+			display: inline-block;
+			background-color: #fff;
+			margin-bottom: 0;
+			padding: 5px;
+			border-radius: 5px 5px 0 0;
+			.form-select{
+				width: 200px;
+				border-color: rgb(220, 220, 220);
+				background-color: #fff;
+				&:hover{
+					border-color: #ffc396;
+				}
+			}
+		}
+		.online-box{
+			display: flex;
+			background: #fff;
+			border-radius: 60px;
+			margin: 0 10px 5px 10px;
+			padding: 0 20px 0 15px;
+			span{
+				line-height: 40px;
+				color: rgb(144, 144, 144);
+			}
+			.online-info{
+				position: relative;
+				text-align: left;				
+				padding: 3px 0 0 50px;
+				i{
+					position: absolute;
+					left: 20px;
+					top: 50%;
+					transform: translateY(-50%);
+					font-size: 24px;
+					color: rgb(144, 144, 144);
+				}
+				small{
+					position: relative;
+					font-size: 8px;
+					color: rgb(144, 144, 144);
+					transform: scale(.9);
+				}
+				.txt-num{
+					font-size: 14px;
+				}
+			}
+		}
+		.card-bodyflex{
+			&.top-info{
+				grid-template-columns: 70% auto;
+				small.txt-gray{
+					color: #c1c1c1;
+					white-space: nowrap;
+				}
+			}
+			display: grid;
+			grid-template-columns: auto 65%;
+			gap: 1.5%;
+			background: #fff;
+			padding: 15px 25px 25px 25px !important;
+			border-radius: 0 10px 10px 10px;
+			margin-bottom: 20px;
+			&.mb-10{
+				margin-bottom: 10px;
+				border-radius: 0 6px 6px 6px;
+				padding: 10px 20px 20px 20px !important;
+			}
+			.tab-content{
+				table {
+					tr{
+						border: none;
+						&:nth-child(even){
+							background-color: #f7f7f7;
+						}
+						td{
+							height: 35px;
+						}
+					}
+				}
+			}
+			.statistic-tb.padd-5px{
+				padding: 0 3px 5px 3px;
+				border-radius: 6px;
+			}
+			.w-35per{
+				width: 32%;
+				min-width: 32%;
+				margin-right: 10px !important;
+			}
+			table tr{
+				th{
+					border-right: none;
+					height: 30px;
+					padding: 2px 5px 2px 2px;
+					.dis-inline{
+						display: inline-block;
+					}
+				}
+				td{
+					padding: 2px 5px 2px 2px;
+					&.vtop{
+						vertical-align: top !important;
+					}
+					.img-platform-logo{
+						position: relative;
+						width: auto;
+						margin-left: 45px;
+						display: table;
+						height: 40px;
+						width: 100%;
+						i{
+							position: absolute;
+							top: 0;
+							left: -45px;
+							width: 40px;
+						}
+						.txt{
+							word-wrap: break-word;
+							line-height: normal;
+							display: table-cell;
+							vertical-align: middle;
+							font-size: 12px;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	&.is-error{
+		.p-0 .dis-F{
+			padding: 30px 4%;
+		}
+	}
+	.card-error-msg {
+		position: relative;
+		padding: 0px 3% 25px 3%;
+		.info-icon {
+			position: absolute;
+			left: 55px;
+			top: 15px;
+			display: inline-block;
+			background: #fff;
+			border: 1px solid #f8dbd7;
+			border-radius: 30px;
+			padding: 8px;
+			vertical-align: top;
+		}
+		.info-list {
+			display: block;
+			width: calc(100% - 108px);
+			vertical-align: middle;
+			color: $colorNegative;
+			border-radius: 20px;
+			margin:0;
+			padding: 10px 20px 20px 90px;
+			background: #ffeeef;
+			
+			li{
+				margin-bottom: 10px;
+				&.tit{
+					font-weight: bold;
+					margin: 15px 0 5px -20px;
+					list-style: none;
+				}
+			}
+			li:only-child {
+				list-style-type: none;
+				margin: 10px 0 0 -15px;
+			}
+		}
+	}
+	//[AG] edit page 修改checkbox 觸發範圍
+	.createId{
+		.basic02{
+			dt{
+				display: none;
+			}
+			.h-auto{
+				width: 100%;
+				.btnASec{
+					white-space: nowrap;
+				}
+			}
+		}
+	}
+	.checkbox-list{
+		display: block;
+		padding: 5px 0;
+		.inputCheckbox{
+			display: inline-block;
+		}
+	}
+	.btn-s{
+		align-self: flex-end;
+		padding: 0 10px;
+	}
+	.form-group{
+		&.check-list{
+			background: #f1f1f1;
+			padding: 5px 5px;
+		}
+	}
+}

@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<title>CF mobile - main page</title>
+    <link rel="stylesheet" href="../mobile/icomoon/style.css" /> <!-- all icon -->
+	<link href="css/mobile/game-hall.css" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	
+</head>
+
+<body class="mps" id="txnBody" >
+	
+	<div class="full-screen" id="swipeup" style="visibility:hidden;">
+		<a href="javascript:void(0)" class="swipe-up-link">
+			<div class="swipe-up">
+				<div id="fullScreenImage" class=""></div>
+			</div>
+			<dl class="swipe-up-intro">
+				<dt id="fullScreenTip">Swipe Up</dt>
+				<dd>to start betting.</dd>
+			</dl>
+		</a>
+	</div>
+	<div id="ancBannerBox" class="overlay" style="display:none">
+		<div class="news-wrap intro">
+			<div id="ancBannerContent"></div>
+			<div class="intro-check">
+				<input id="ancBannerNeverShow" type="checkbox" class="have-read">
+				<label>I've read this announcement. Never show up again.</label>
+			</div>
+			<a id="ancBannerExit" class="btn btn-primary" href="#">Confirm</a>
+		</div>
+	</div>
+	<div id="scaleable-wrapper" class="scaleable-wrapper ui-resizable">
+		<div id="sizableDiv" class="scaleable-content safari-only open-matchIframe" style="position: absolute; transform: translate(-50%, -50%) scale(.92);">
+			<div id="mask-all"></div>
+			<!-- warning msg -->
+			<div class="overlay" style="display: none;">
+				<div id="suspendedMsg" class="news-wrap">
+					<h3>Warning</h3>
+					<p></p>
+					<a id="clickOk" href="javascript:void(0)" class="btn btn-primary"
+						onclick="PlayerInfoHandler.hideErrorMsg()">OK</a>
+				</div>
+			</div>
+			<!-- ================ -->
+			
+			<div id="container_1" class="container">
+				<!-- <div id="infoMsg" class="msg msg-danger betmsg msg msg-show" style="display: flex;" windownum="1">
+					<p id="message" windownum="1">Betting Closed</p>
+				</div> -->
+				<div id="infoMsg" class="msg msg-warning" style="display:none;" windownum="1">
+					<p id="message" windownum="1"></p>
+					<a href="javascript:void(0)" class="btn-close" onclick="closeMsgNav()">×</a>
+				</div>
+				<div id="streamContainer_1" class="video">
+					<!-- unavailable msg -->
+					<div id="msgLeave2_msg" class="news-wrap" style="display: none;">
+						<p>There is no event available now. Sorry for the inconvenience caused
+						</p>
+					</div>
+					<div id="showNotifyMessage_1" class="news-wrap" style="display: none">
+					</div>
+					<!-- ================ -->
+					<div id="canvasDiv_1">
+						<div id="streamMessage_1" style="" class="msg">
+							<p>NEW MATCH</p>
+						</div>
+						<div class="video-container">
+							<div id="streamLoading" class="loading" style="display: none;"></div>
+							<div class="video-func" id="videoFuncDiv_1">
+								<a class="txt-security-code r-top" id="watermark">MDAwZGVkZWRlZGUyMjI6MQ</a>
+								<div id="timer_1" class="video-countdown" style="display:none;">00:00:00</div>
+								<!-- 					<div class="video-logo"><img src="/images/login-logo.png" alt=""></div>		remove streaming logo -->
+								<div id="live_1" class="video-live" style="display: block; opacity: 0.785357;"></div>
+								<div id="videoFunBtns_1">
+									<ul class="fade-in">
+										<li id="streamAudio_1" class="video-volume"></li>
+										<li id="streamLine_1" class="video-switch2"></li>
+									</ul>
+									<ul class="fade-in">
+										<li id="btn_infoMenu" class="video-info"></li>
+										<li id="streamFcn_1" class="video-expand" style="display: none"></li>
+									</ul>
+								</div>
+							</div>
+							<!-- <canvas id="playerContent_1"  ></canvas>	-->
+							<video id="playerContent_1" muted="" playsinline="" autoplay=""
+								src="http://techslides.com/demos/sample-videos/small.mp4">
+							</video>
+						</div>
+					</div>
+				</div>
+				<ul class="game-type-list">
+					<li>
+						<a href="javascript:void(0)" class="btn btn-CASINO"></a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" class="btn btn-DICE"></a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" class="btn btn-FANTAN"></a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" class="btn btn-XO"></a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" class="btn btn-POKERVN"></a>
+					</li>
+				</ul>
+				<div id="arenaContainer" class="arena">
+					<span>Coming soon</span>
+					<ul id="arenaList">
+						<li id="arena_0" class="arena-betting">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>_AO2</span>
+							</a>
+						</li>
+						<li id="arena_1" class="arena-betting active">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>_AG3</span>
+							</a>
+						</li>
+						<li id="arena_2" class="arena-betting betted">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>_TH2</span>
+							</a>
+						</li>
+						<li id="arena_3" class="arena-fighting">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>_PH2</span>
+							</a>
+						</li>
+						<li id="arena_4" class="arena-countdown times-up">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>_TH1</span>
+							</a>
+						</li>
+						<li id="arena_5" style="">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>_AG1</span>
+							</a>
+						</li>
+						<li id="arena_6" style="">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>_AG4</span>
+							</a>
+						</li>
+						<li id="arena_7" style="">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>_TH4</span>
+							</a>
+						</li>
+						<li id="arena_8" style="">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>_TH6</span>
+							</a>
+						</li>
+						<li id="arena_9" style="">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>_TH2</span>
+							</a>
+						</li>
+						<li id="arena_10" style="">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>-</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="content-COCKFIGHT"></div>
+				<div class="content-DICE"></div>
+				<div class="status-bar">
+					<div class="raceGroup">
+						<div class="logo">
+							<img src="./images/mobile/profile/SV388_logo.png" alt="">
+						</div>
+						<strong id="raceLocationType">PHI</strong>
+						<span id="raceMatchID">50</span>
+					</div>
+					<div class="date-time">
+						<p>10:57:55&nbsp;UTC+8</p>
+					</div>
+					<!-- <input id="betStake" class="inputText-1" type="text" placeholder="$" windowNum="1"/> -->
+					<p id="maxMinBet" windownum="1" style="display:none;" maxbet="2999"></p>
+					<ul id="statusBarVsCon" class="status-name">
+						<li id="statusBarBankerName">Meron</li>
+						<li id="statusBarPlayerName">Wala</li>
+					</ul>
+				</div>
+				<!--main class="main-disabled"-->
+				<div id="bettingStatus" class="betting-status">
+					<div id="vscon" class="pit-area" windownum="1">
+						<div id="meron" class="pit-meron " windownum="1">
+							<div id="meronCoinBetPrompt" class="betting-add">100</div>
+							<div id="meronCoinBetChip" class="betting"><span>0</span></div>
+							<div id="meronCoinBetted" class="betting betting-confirmed" style="display:none;">
+								<span id="meronCoinBettedAppend" class="betting-add-tbc" style="display:none;">0</span>
+								<span id="meronCoinBettedStake" style="display:none;">0</span>
+							</div>
+							<div id="bankerKingCock" class="kingcock" style="display: none;"></div>
+							<div class="loadingPic">
+								<img id="bankerImg" src="./cockPicWide/meron/Dom_Dom_Dom_Y_01_right.webp" alt="meron avatar"
+								class="avatar">
+							</div>
+							<div id="bankerWeight" class="chicken-weight">2110g</div>
+							<dl>
+								<dt id="bankerName">
+									<span style="background:  rgb(2550, 0, 0);"></span>
+									Meron
+								</dt>
+								<dd id="meronOdds" class="odds" status="4" betstatus="1" accountsuspended=""
+									livestatus="" matchid="950394">0.8</dd>
+							</dl>
+						</div>
+						<div id="bdd" class="pit-bdd" windownum="1">
+							<div id="bddCoinBetPrompt" class="betting-add" style="display:none;">0</div>
+							<div id="bddCoinBetChip" class="betting"><span>0</span></div>
+							<div id="bddCoinBetted" class="betting betting-confirmed" style="display:none;">
+								<span id="bddCoinBettedAppend" class="betting-add-tbc" style="display:none;">0</span>
+								<span id="bddCoinBettedStake" style="display:none;">0</span>
+							</div>
+							<dl>
+								<dt>BDD</dt>
+								<dd id="bddOdds" class="odds" status="4" betstatus="1" accountsuspended="" livestatus=""
+									matchid="950394">1:8</dd>
+							</dl>
+						</div>
+						<div id="wala" class="pit-wala" windownum="1">
+							<div id="walaCoinBetPrompt" class="betting-add" style="display:none;">0</div>
+							<div id="walaCoinBetChip" class="betting"><span>0</span></div>
+							<div id="walaCoinBetted" class="betting betting-confirmed" style="display:none;">
+								<span id="walaCoinBettedAppend" class="betting-add-tbc" style="display:none;">0</span>
+								<span id="walaCoinBettedStake" style="display:none;">0</span>
+							</div>
+							<div id="playerKingCock" class="kingcock" style="display: none;"></div>
+							<div class="">
+								<img id="playerImg" src="./cockPicWide/wala/D_Dark_Dark_D_02_left.webp" alt="wala avatar"
+									class="avatar ">
+							</div>
+							<div id="playerWeight" class="chicken-weight">2005g</div>
+							<dl>
+								<dt id="playerName">
+									<span style="background: rgb(0, 102, 255);"></span>
+									Wala
+								</dt>
+								<dd id="walaOdds" class="odds" status="4" betstatus="1" accountsuspended=""
+									livestatus="" matchid="950394">-0.9</dd>
+							</dl>
+						</div>
+					</div>
+					<ul id="coinSelector" class="chip-area" windownum="1">
+						<li>
+							<a href="javascript:void(0)" id="myCoin_1" class="chip chip-6" coinvalue="500">500</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)" id="myCoin_2" class="chip chip-7 active" coinvalue="1000"
+								select="1">1000</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)" id="myCoin_3" class="chip chip-customize"
+								coinvalue="1000">1000</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)" id="userCoin" class="chip chip-all">
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)" id="acceptAnyOdds" class="btn btn-accept-odds" windownum="1">
+								Any Odds
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)" id="coinSetBtn" class="btn btn-setting" enable="1"
+								windownum="1"></a>
+						</li>
+					</ul>
+					<div id="coinList" class="setting-area setting-hide">
+						<a href="javascript:void(0)" id="listExit" class="btn-close" windownum="1">×</a>
+						<dl>
+							<dt>Select Chips</dt>
+							<dd><a href="javascript:void(0)" id="coin_1" class="chip chip-1 chip-no-select" select="0"
+									windownum="1">10</a></dd>
+							<dd><a href="javascript:void(0)" id="coin_2" class="chip chip-2 chip-no-select" select="0"
+									windownum="1">25</a></dd>
+							<dd><a href="javascript:void(0)" id="coin_3" class="chip chip-3 chip-no-select" select="0"
+									windownum="1">50</a></dd>
+							<dd><a href="javascript:void(0)" id="coin_4" class="chip chip-4 chip-no-select" select="0"
+									windownum="1">100</a></dd>
+							<dd><a href="javascript:void(0)" id="coin_5" class="chip chip-5 chip-no-select" select="0"
+									windownum="1">250</a></dd>
+							<dd><a href="javascript:void(0)" id="coin_6" class="chip chip-6 active" select="1"
+									windownum="1">500</a></dd>
+							<dd><a href="javascript:void(0)" id="coin_7" class="chip chip-7 active" select="1"
+									windownum="1">1000</a></dd>
+							<dd><a href="javascript:void(0)" id="coin_8" class="chip chip-8 chip-no-select" select="0"
+									windownum="1">2000</a></dd>
+							<dd><a href="javascript:void(0)" id="coin_9" class="chip chip-9 chip-no-select" select="0"
+									windownum="1">3000</a></dd>
+							<dd class="setting-customize">
+								<a href="javascript:void(0)" id="amountSetBtn" class="chip chip-customize active"
+									select="1" windownum="1">$</a>
+								<p class="chip-input"><span id="userSetChip">1000</span><span id="chipPlaceHolder"
+										style="font-size: 16px; display: none;">Create Your Chips</span></p>
+								<span class="chip-remark">Maximum $5,000</span>
+							</dd>
+						</dl>
+						<a href="javascript:void(0)" id="coinSelectSubmit" class="btn btn-confirm btn-primary"
+							windownum="1">Submit</a>
+						<div class="keyboard" id="keyboard" style="display: none;">
+							<ol>
+								<li name="keyboard-number">1</li>
+								<li name="keyboard-number">2</li>
+								<li name="keyboard-number">3</li>
+								<li name="keyboard-number">4</li>
+								<li name="keyboard-number">5</li>
+								<li name="keyboard-number">6</li>
+								<li name="keyboard-number">7</li>
+								<li name="keyboard-number">8</li>
+								<li name="keyboard-number">9</li>
+								<li name="keyboard-number" class="kb-zero">0</li>
+								<li class="kb-del" id="keyboard-del"></li>
+							</ol>
+							<div class="kb-btn">
+								<a href="javascript:void(0)" class="btn btn-md" id="keyboard-cancel"></a>
+								<a href="javascript:void(0)" class="btn btn-md btn-primary" id="keyboard-submit"></a>
+							</div>
+						</div>
+					</div>
+					<div class="confirm-area">
+						<ul class="road-table-info">
+							<li id="bankerList" class="road-table-meron">0</li>
+							<li id="drawList" class="road-table-bdd">0</li>
+							<li id="playerList" class="road-table-wala">0</li>
+							<li id="changeBacarat" class="road-table-switcher" windownum="1">
+								<span id="road-table-switcher" class="badge meron-win-reverse">B</span>
+							</li>
+						</ul>
+						<div id="bacarat" class="road-wrapper" windownum="1">
+							<div class="start-betting fade-out" style="display: none;"></div>
+							<div id="bacarat_road" class="road-table">
+								<table id="bacarat_table">
+									<tbody>
+										<tr>
+											<td id="0_0"></td>
+											<td id="1_0"></td>
+											<td id="2_0"></td>
+											<td id="3_0"></td>
+											<td id="4_0"></td>
+											<td id="5_0"></td>
+											<td id="6_0"></td>
+											<td id="7_0"></td>
+											<td id="8_0"></td>
+											<td id="9_0"></td>
+											<td id="10_0"></td>
+											<td id="11_0"></td>
+											<td id="12_0"></td>
+											<td id="13_0"></td>
+											<td id="14_0"></td>
+											<td id="15_0"></td>
+										</tr>
+										<tr>
+											<td id="0_1"></td>
+											<td id="1_1"></td>
+											<td id="2_1"></td>
+											<td id="3_1"></td>
+											<td id="4_1"></td>
+											<td id="5_1"></td>
+											<td id="6_1"></td>
+											<td id="7_1"></td>
+											<td id="8_1"></td>
+											<td id="9_1"></td>
+											<td id="10_1"></td>
+											<td id="11_1"></td>
+											<td id="12_1"></td>
+											<td id="13_1"></td>
+											<td id="14_1"></td>
+											<td id="15_1"></td>
+										</tr>
+										<tr>
+											<td id="0_2"></td>
+											<td id="1_2"></td>
+											<td id="2_2"></td>
+											<td id="3_2"></td>
+											<td id="4_2"></td>
+											<td id="5_2"></td>
+											<td id="6_2"></td>
+											<td id="7_2"></td>
+											<td id="8_2"></td>
+											<td id="9_2"></td>
+											<td id="10_2"></td>
+											<td id="11_2"></td>
+											<td id="12_2"></td>
+											<td id="13_2"></td>
+											<td id="14_2"></td>
+											<td id="15_2"></td>
+										</tr>
+										<tr>
+											<td id="0_3"></td>
+											<td id="1_3"></td>
+											<td id="2_3"></td>
+											<td id="3_3"></td>
+											<td id="4_3"></td>
+											<td id="5_3"></td>
+											<td id="6_3"></td>
+											<td id="7_3"></td>
+											<td id="8_3"></td>
+											<td id="9_3"></td>
+											<td id="10_3"></td>
+											<td id="11_3"></td>
+											<td id="12_3"></td>
+											<td id="13_3"></td>
+											<td id="14_3"></td>
+											<td id="15_3"></td>
+										</tr>
+										<tr>
+											<td id="0_4"></td>
+											<td id="1_4"></td>
+											<td id="2_4"></td>
+											<td id="3_4"></td>
+											<td id="4_4"></td>
+											<td id="5_4"></td>
+											<td id="6_4"></td>
+											<td id="7_4"></td>
+											<td id="8_4"></td>
+											<td id="9_4"></td>
+											<td id="10_4"></td>
+											<td id="11_4"></td>
+											<td id="12_4"></td>
+											<td id="13_4"></td>
+											<td id="14_4"></td>
+											<td id="15_4"></td>
+										</tr>
+										<tr>
+											<td id="0_5"></td>
+											<td id="1_5"></td>
+											<td id="2_5"></td>
+											<td id="3_5"></td>
+											<td id="4_5"></td>
+											<td id="5_5"></td>
+											<td id="6_5"></td>
+											<td id="7_5"></td>
+											<td id="8_5"></td>
+											<td id="9_5"></td>
+											<td id="10_5"></td>
+											<td id="11_5"></td>
+											<td id="12_5"></td>
+											<td id="13_5"></td>
+											<td id="14_5"></td>
+											<td id="15_5"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div id="rightChart" class="road-wrapper" windownum="1" style="display: none;  z-index:2;">
+							<div class="start-betting" style="display: none;"></div>
+							<div id="rightChart_road" class="road-table" style="">
+								<table id="rightChart_table">
+									<tbody>
+										<tr>
+											<td id="r_0_0"></td>
+											<td id="r_1_0"></td>
+											<td id="r_2_0"></td>
+											<td id="r_3_0"></td>
+											<td id="r_4_0"></td>
+											<td id="r_5_0"></td>
+											<td id="r_6_0"></td>
+											<td id="r_7_0"></td>
+											<td id="r_8_0"></td>
+											<td id="r_9_0"></td>
+											<td id="r_10_0"></td>
+											<td id="r_11_0"></td>
+											<td id="r_12_0"></td>
+											<td id="r_13_0"></td>
+											<td id="r_14_0"></td>
+											<td id="r_15_0"></td>
+										</tr>
+										<tr>
+											<td id="r_0_1"></td>
+											<td id="r_1_1"></td>
+											<td id="r_2_1"></td>
+											<td id="r_3_1"></td>
+											<td id="r_4_1"></td>
+											<td id="r_5_1"></td>
+											<td id="r_6_1"></td>
+											<td id="r_7_1"></td>
+											<td id="r_8_1"></td>
+											<td id="r_9_1"></td>
+											<td id="r_10_1"></td>
+											<td id="r_11_1"></td>
+											<td id="r_12_1"></td>
+											<td id="r_13_1"></td>
+											<td id="r_14_1"></td>
+											<td id="r_15_1"></td>
+										</tr>
+										<tr>
+											<td id="r_0_2"></td>
+											<td id="r_1_2"></td>
+											<td id="r_2_2"></td>
+											<td id="r_3_2"></td>
+											<td id="r_4_2"></td>
+											<td id="r_5_2"></td>
+											<td id="r_6_2"></td>
+											<td id="r_7_2"></td>
+											<td id="r_8_2"></td>
+											<td id="r_9_2"></td>
+											<td id="r_10_2"></td>
+											<td id="r_11_2"></td>
+											<td id="r_12_2"></td>
+											<td id="r_13_2"></td>
+											<td id="r_14_2"></td>
+											<td id="r_15_2"></td>
+										</tr>
+										<tr>
+											<td id="r_0_3"></td>
+											<td id="r_1_3"></td>
+											<td id="r_2_3"></td>
+											<td id="r_3_3"></td>
+											<td id="r_4_3"></td>
+											<td id="r_5_3"></td>
+											<td id="r_6_3"></td>
+											<td id="r_7_3"></td>
+											<td id="r_8_3"></td>
+											<td id="r_9_3"></td>
+											<td id="r_10_3"></td>
+											<td id="r_11_3"></td>
+											<td id="r_12_3"></td>
+											<td id="r_13_3"></td>
+											<td id="r_14_3"></td>
+											<td id="r_15_3"></td>
+										</tr>
+										<tr>
+											<td id="r_0_4"></td>
+											<td id="r_1_4"></td>
+											<td id="r_2_4"></td>
+											<td id="r_3_4"></td>
+											<td id="r_4_4"></td>
+											<td id="r_5_4"></td>
+											<td id="r_6_4"></td>
+											<td id="r_7_4"></td>
+											<td id="r_8_4"></td>
+											<td id="r_9_4"></td>
+											<td id="r_10_4"></td>
+											<td id="r_11_4"></td>
+											<td id="r_12_4"></td>
+											<td id="r_13_4"></td>
+											<td id="r_14_4"></td>
+											<td id="r_15_4"></td>
+										</tr>
+										<tr>
+											<td id="r_0_5"></td>
+											<td id="r_1_5"></td>
+											<td id="r_2_5"></td>
+											<td id="r_3_5"></td>
+											<td id="r_4_5"></td>
+											<td id="r_5_5"></td>
+											<td id="r_6_5"></td>
+											<td id="r_7_5"></td>
+											<td id="r_8_5"></td>
+											<td id="r_9_5"></td>
+											<td id="r_10_5"></td>
+											<td id="r_11_5"></td>
+											<td id="r_12_5"></td>
+											<td id="r_13_5"></td>
+											<td id="r_14_5"></td>
+											<td id="r_15_5"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="btns-area">
+							<a class="btn btn-confirm btn-primary" id="betSubmit" windownum="1">Confirm</a>
+							<a id="openRecordArena" href="javascript:void(0)" class="btn-record">
+								<span id="unread" class="unread" style="display:none;">-</span>
+							</a><a href="javascript:void(0)"></a>
+
+							<a href="javascript:void(0)" id="betCancel" class="btn btn-cancel" windownum="1"></a>
+						</div>
+					</div>
+					<footer class="copyright">
+						Copyright © 2022 SV.All Rights Reserved.
+					</footer>
+				</div>
+			</div>
+			<!-- record-area record-show active -->
+			<div class="record-area" id="record-area">
+				<a id="closeRecordArena" href="javascript:void(0)" class="btn-close">×</a>
+				<ul class="nav-tabs">
+					<li id="currentBetArena">
+						<a id="currentBetsTitle" href="javascript:void(0)" class="active">Current Bets</a>
+						<div id="slideRecord" class="record-detail " style="z-index: 6;">
+							<dl id="slideNoData" class="no-data-info">
+								<dt></dt>
+								<dd>No Data</dd>
+							</dl>
+							<table id="match_tableTemplate" class="tab-current-record" style="display:none;">
+								<thead>
+									<tr>
+										<th></th>
+										<th></th>
+										<th class="th-arena">Arena</th>
+										<th class="th-odds">Bet(Odd)</th>
+										<th>$</th>
+										<th></th>
+									</tr>
+								</thead>
+
+								<tbody id="currentBetBoard">
+
+								</tbody>
+
+								<tbody>
+									<tr id="betIdTemplate" class="ref-line" style="display: none">
+										<td></td>
+										<td colspan="2"></td>
+										<td colspan="2" id="txid"></td>
+										<td></td>
+									</tr>
+									<tr id="betTemplate" style="display: none">
+										<td></td>
+										<td></td>
+										<td id="arena">
+											<span id="code">-</span>
+											<span id="matchNo" class="badge-arena">-</span>
+										</td>
+										<td id="oddsAndType">
+											<span id="oddsType" class="tag tag-wala">-</span>
+											<span id="odds">-</span>
+										</td>
+										<td id="stake" class="unit-money">$-</td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</li>
+					<li id="transhistoryArena">
+						<!--input type="radio" id="tans-history" name="navtabs-group">
+						<label for="tans-history">Trans History</label-->
+						<a href="javascript:void(0)" id="todayReportTitle">Today Report</a>
+						<div id="slideTransHistory" class="record-detail">
+							<dl id="transHistoryNoData" class="no-data-info">
+								<dt></dt>
+								<dd>No Data</dd>
+							</dl>
+							<table id="tableTransTemplate" class="tab-history" style="display:none;">
+								<thead>
+									<tr>
+										<th></th>
+										<th class="th-arena">Arena</th>
+										<th class="th-odds">Bet(Odd)</th>
+										<th>W / L</th>
+										<th class="th-time">Time</th>
+										<th></th>
+									</tr>
+								</thead>
+
+								<tbody id="todayReportBoard">
+								</tbody>
+
+								<tbody>
+									<tr id="reportIdTemplate" class="ref-line" style="display: none">
+										<td></td>
+										<td colspan="2"></td>
+										<td colspan="2" id="txid"></td>
+										<td></td>
+									</tr>
+									<tr id="reportTemplate" style="display: none">
+										<td></td>
+										<td id="arena">
+											<span id="code">-</span>
+											<span id="matchNo" class="badge-arena">-</span>
+										</td>
+										<td id="oddsAndType">
+											<span id="oddsType" class="tag tag-wala">-</span>
+											<span id="odds">-</span>
+										</td>
+										<td id="payout" class="unit-money">$-</td>
+										<td class="align-R">
+											<span id="time" class="time">-</span>
+										</td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div>
+		<div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div>
+		<div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;">
+		</div>
+	</div>
+	<div class="popup-bg-black popup-menu" id="popup-menu" style="display: none;">
+		<ul>
+			<li><a href="#" class="btn-menu-close"></a></li>
+			<li id="matchHistoryInfo">Match History</li>
+			<li id="announceInfo" onclick="MemberPage.openInfo('./mobile/allAnnouncements.jsp?srw=0&amp;fromMobile=1')">
+				Announcement</li>
+			<li id="scheduleInfo" onclick="MemberPage.openInfo('./mobile/schedule.jsp?srw=0&amp;fromMobile=1')">Schedule
+			</li>
+
+			<li id="guideInfo" onclick="MemberPage.openInfo('/member/mobile/guide/guide.jsp?srw=0&amp;fromMobile=1')">
+				Guide</li>
+			<li id="termsAndConditionsInfo"
+				onclick="MemberPage.openInfo('/member/mobile/termsAndConditions/termsAndConditions.jsp?srw=0')">Terms
+				&amp; Conditions</li>
+		</ul>
+	</div>
+	<script src="./js/main.js"></script>
+	<!-- <script>
+		let autoHeight = window.screen.availHeight;
+		if (autoHeight >= 670){
+			$('html body').addClass('expand-height');
+		}else{
+			$('html body').removeClass('expand-height');
+		}
+
+	</script> -->
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+//CSS Sprites by Compass
+$chip-spacing: 50px;
+$chip-use-percentages: true;
+@import 'compass/utilities/sprites';
+@import 'chip/*.png';
+
+// Core variables and mixins
+@import 'basic/variables';
+@import 'basic/mixin';
+@import 'basic/basicSet';
+@import 'basic/placeholders';
+
+// Normalize
+@import 'layout/normalize';
+
+// Layout
+@import 'layout/global';
+@import 'layout/animation';
+@import 'layout/nav';
+@import 'layout/arena';
+@import 'layout/button';
+@import 'layout/chip';
+@import 'layout/table';
+@import 'layout/main-game';
+@import 'layout/disabled';
+@import 'layout/popup';
+
+// Layout
+@import 'theme/mps';
+@import 'layout/resize';
+
+@media
+	screen and (orientation: landscape) and (min-aspect-ratio: 13/9),
+	screen and (min-width: 768px) and (max-width: 1366px) and (orientation: landscape)
+{
+    @import 'layout/landscape';
+}
+
+// CSS specific to iOS devices
+@supports (-webkit-overflow-scrolling: touch) {
+    @import 'layout/iosonly';
+}
+
+// CSS for none iOS devices
+// @supports not (-webkit-overflow-scrolling: touch) {
+// }
+
+// For Android Only
+// @media screen and (orientation: portrait) and (device-width: 360px) {
+//     @import 'layout/android-style';
+//   }
+
+// @media screen and (orientation: portrait) and (device-width: 384px) {
+//     @import 'layout/android-style';
+//   }
+
+// @media screen and (orientation: portrait) and (device-width: 400px) {
+//     @import 'layout/android-style';
+// }
+
+// @media screen and (orientation: portrait) and (device-width: 412px) {
+//     @import 'layout/android-style';
+// }
+
+//For large-size device landscape (iphone X / Galaxy S8)
+// @media screen and (min-width: 710px) and (orientation: landscape) {
+// 	@import 'layout/landscape-lg';
+// }

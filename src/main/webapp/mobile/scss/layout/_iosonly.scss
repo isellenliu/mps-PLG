@@ -1,0 +1,20 @@
+.start-betting {
+    height: vw($ht-port-confirm + 7px);
+}
+
+.road-table {
+    height: vw($ht-port-confirm + 6px);
+}
+
+.badge {
+    text-indent: 0;
+}
+
+@media
+    screen and (orientation: landscape) and (min-aspect-ratio: 13/9),
+    screen and (min-width: 768px) and (max-width: 1366px) and (orientation: landscape)
+{
+    .road-table {
+        height: vmax($ht-port-confirm + 4px);
+	}
+}

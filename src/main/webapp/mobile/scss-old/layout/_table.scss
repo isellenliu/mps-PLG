@@ -1,0 +1,319 @@
+//the detail information of current record and trans history in left sidenav
+.record-area {
+    @include box-shadow(0 vw(-4px) vw(4px) rgba($black, .6));
+    position: fixed;
+    z-index: $zindex-record-area;
+    bottom: -100%;
+    // bottom: vw(-380px - 4px - 16px - 16px);
+    left: 0;
+    width: calc(100% - 4vw);
+    height: vw(380px);
+    padding: vw(24px) 2vw 0;
+    overflow: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    opacity: 0;
+    background: $gray-darker;
+
+    &.active {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: vw(24px) 0 0 !important;
+        opacity: 1;
+    }
+
+    .btn-close {
+        z-index: $zindex-record-area + 1;
+    }
+}
+
+.no-data-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    dt {
+        display: block;
+        width: vw(48px);
+        height: vw(48px);
+        margin-bottom: vw(16px);
+        background: svg-folder-empty('%239b9b9b') center no-repeat;
+        background-size: contain;
+    }
+
+    dd {
+        color: $gray;
+        font-size: vw($font-lg);
+    }
+}
+
+.record-detail {
+    position: absolute;
+    top: vw(32px);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: vw(380px - 32px - 8px);
+    overflow-y: scroll;
+    background: $gray-darker;
+    -webkit-overflow-scrolling: touch;
+
+    table {
+        width: 100%;
+
+        th {
+            color: $gray;
+        }
+
+        tr {
+            height: vw(48px);
+        }
+
+        tbody {
+            tr:last-child {
+                border-bottom: 0;
+            }
+        }
+
+        .unit-money {
+            text-align: right;
+        }
+    }
+
+    .tag {
+        min-width: vw(58px);
+        margin: 0 vw(2px) 0 vw(4px);
+        padding: vw(2px) vw(6px);
+        border-left: vw(6px) solid $gray-mid;
+    }
+
+    .tag-countdown {
+        border-left: vw(6px) solid $purple;
+    }
+
+    .badge-arena {
+        @include arena-number($white, $black, $font-xs);
+        width: vw(14px);
+        height: vw(14px);
+    }
+}
+
+.tab-basic{
+    th {
+        text-align: center;
+
+        &:first-child, &:last-child{
+            width: vw(20px);
+        }
+    }
+
+    tr{
+        height: vw(35px) !important;
+
+        td{
+            height: vw(35px) !important;
+            background-size: vw(20px) !important;
+        }
+
+    }
+
+    .th-arena {
+        text-align: left;
+    }
+}
+
+.tab-current-record {
+    @extend .tab-basic;
+
+    tr{
+        td{
+            &:nth-child(2){
+                width: vw(35px);
+                background: url('../../images/mobile/icon-success.svg') 0 vw(8px) no-repeat;
+            }
+        }
+
+        &.bet-fail td:nth-child(2) {
+            background: url('../../images/mobile/icon-fail.svg') 0 vw(8px) no-repeat;
+        }
+    }
+
+    .th-arena {
+        width: vw(80px);
+    }
+
+    .th-odds {
+        width: vw(120px);
+    }
+
+    .tag {
+        margin-bottom: 0 !important;
+    }
+}
+
+.bg-color{
+    background-color: #363636;
+}
+
+.tab-history {
+    @extend .tab-basic;
+
+    .th-arena {
+        width: vw(70px);
+    }
+
+    .th-odds {
+        width: vw(110px);
+    }
+
+    .ref-line {
+        height: vw(25px) !important;
+
+        td{
+            height: vw(25px) !important;
+
+            &:nth-child(2) {
+                background: url('../../images/mobile/icon-success.svg') 0 vw(2px) no-repeat;
+                border-bottom: vw(1px) solid #808080;
+            }
+
+            &:nth-child(3){
+                text-align: right;
+                border-bottom: vw(1px) solid #808080;
+            }
+        }
+
+        &.bet-fail td:nth-child(2) {
+            background: url('../../images/mobile/icon-fail.svg') 0 vw(2px) no-repeat;
+        }
+    }
+
+    td {
+        height: vw(60px);
+
+        &:last-child {
+            text-align: center;
+        }
+    }
+
+    .th-time {
+        width: vw(70px);
+        text-align: right;
+    }
+
+    .tag {
+        margin-bottom: vw(2px);
+    }
+
+    .badge-arena {
+        float: none;
+    }
+}
+
+.bet-fail {
+    filter: opacity(.5) grayscale(100%);
+    -webkit-filter: opacity(.5) grayscale(100%); // Safari 6.0 - 9.0 *
+
+    .tag {
+        background: $gray-mdd;
+    }
+
+    .minus {
+        color: #CCCCCC;
+    }
+}
+
+//road-table and the style of badges, including meron/wala/bdd win(實心圓 BEAD ROAD/空心圓 BIG ROAD)
+.confirm-area {
+    table {
+        width: 100%;
+        height: 100%;
+        table-layout: fixed;
+        -webkit-transform: translate3d(0, 0, 0);
+        background: $white;
+        color: $black;
+        font-size: vw(6px);
+        cursor: pointer;
+
+        td {
+            position: relative;
+            width: vw(18px);
+            height: vw(18px);
+            border-right: 1px solid $gray-light;
+            border-bottom: 1px solid $gray-light;
+            vertical-align: middle;
+
+            &:last-of-type {
+                border-right: 0;
+            }
+        }
+
+        tr:nth-child(6n) td {
+            border-bottom: 0;
+        }
+
+        .badge {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+.badge {
+    @extend %box-sizing;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: vw(15px);
+    height: vw(15px);
+    margin: 0 auto;
+    border: 2px solid;
+    border-radius: 900px;
+    font-size: vw($font-xs);
+    font-weight: bold;
+    line-height: vw(15px);
+    text-indent: vw(1px);
+}
+
+.meron-win {
+    border-color: $meron;
+    color: transparent;
+    text-indent: -9999px;
+}
+
+.wala-win {
+    border-color: $wala;
+    color: transparent;
+    text-indent: -9999px;
+}
+
+.bdd-win {
+    border-color: $bdd;
+    background: url('../../images/mobile/icon-bdd-win.svg') center no-repeat;
+    background-size: cover;
+    color: transparent;
+    font-size: vw($font-xxxs);
+    text-indent: -9999px;
+}
+
+.bdd-wins {
+    border-color: $bdd;
+    color: $bdd;
+}
+
+.meron-win-reverse {
+    @include bg-reverse($meron);
+}
+
+.wala-win-reverse {
+    @include bg-reverse($wala);
+}
+
+.bdd-win-reverse {
+    @include bg-reverse($bdd);
+}

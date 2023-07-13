@@ -1,0 +1,146 @@
+// base
+@import '../../src-ICF/sass/base/reset'
+@import 'base/base-lotto_color'
+@import 'base/base-lotto_btn'
+@import 'base/base-lotto_font'
+
+// components
+@import 'components/components-lotto_alert'
+@import 'components/components-lotto_modal'
+@import 'components/components-lotto_header'
+
+// layout
+@import 'layout/page-lotto_Betting'
+@import 'layout/page-lotto_MyTickets'
+
+@media all and (min-width: 480px)
+    .page-web.lotto
+        &::before
+            position: fixed
+            content: ''
+            width: 100vw
+            height: 100vh
+            background: #000
+            z-index: 11
+        &::after
+            position: fixed
+            z-index: 12
+            content: '\e9a1'
+            font-family: 'icomoon' !important
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            font-size: 120px
+            line-height: 120px
+            color: #fff
+            animation: verticalIcon 2s ease infinite
+
+.page-web.lotto
+    position: relative
+    background: $clr-gray_1
+    // 遮罩
+    .lotto-mask
+        &.show
+            left: 0
+            width: 100vw
+            height: 100vh
+            opacity: 1
+            transition: left 0s, width 0s, height 0s, opacity .3s
+        // --------------------
+        position: fixed
+        left: 100%
+        width: 0
+        height: 0
+        opacity: 0
+        background: rgba(0, 0, 0, .3)
+        z-index: 1
+        transition: left 0s .3s, width 0s .3s, height 0s, opacity .3s
+    // 頁面內容
+    .page-body
+        position: relative
+        height: 100vh
+        padding: 5vw
+        padding-top: calc( 5vh + 10px )
+    // 直播開獎橫幅 --------------------
+    .box-liveDrawing
+        &.show
+            top: 5vh
+            right: 0
+            height: 5vh
+            transition: top 0s, height .5s, right .3s .3s cubic-bezier(.7,0,.4,1)
+            // 橫幅出現時調整高度 --------------------
+            &+.page-body
+                height: 95vh
+                padding-top: calc( 5vh + 2vh )
+                @media (max-height: 700px)
+                    li.numberBall
+                        height: 10vw
+                        line-height: 10vw
+        // --------------------
+        position: relative
+        top: 0
+        right: 100%
+        height: 0
+        padding: 0 1.5vh
+        background: $clr-yellow
+        display: flex
+        flex-wrap: nowrap
+        align-items: center
+        justify-content: space-between
+        transition: top 0s .3s, height .5s .3s, right .3s cubic-bezier(.7,0,.4,1)
+        // icon
+        svg.lotto-icon.videocam
+            width: 6vw
+            height: 6vw
+            fill: $clr-gray_1
+        // 標題
+        span.liveDrawing-title
+            font-weight: 900
+            margin-left: 1vw
+            color: $clr-gray_1
+        // 倒計時
+        span.liveDrawing-countdown
+            &.close
+                display: none
+                &+ul.winningList
+                    display: inline-block
+            // --------------------
+            line-height: 3.5vh
+            flex-grow: 1
+            text-align: right
+            color: $clr-gray_1
+        // 中獎號碼
+        ul.winningList
+            display: none
+            flex-grow: 1
+            text-align: right
+            // 滾出來
+            li.winningBall
+                &.show
+                    left: 0
+                    animation: winningBall-show 2s 1 forwards
+                // --------------------
+                position: relative
+                left: 150%
+                width: 25px
+                height: 25px
+                border-radius: 100px
+                background: $clr-gray_1
+                text-align: center
+                vertical-align: middle
+
+@keyframes winningBall-show
+    0%
+        left: 150%
+        transform: rotate(480deg)
+    100%
+        left: 0
+        transform: rotate(0deg)
+
+@keyframes verticalIcon
+    0%
+        transform: translate(-50%, -50%) rotate(-90deg)
+        opacity: 1
+    100%
+        transform: translate(-50%, -50%) rotate(0deg)
+        opacity: 1

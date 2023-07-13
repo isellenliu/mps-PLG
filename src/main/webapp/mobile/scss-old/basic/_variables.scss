@@ -1,0 +1,112 @@
+// ==========================================================================
+// Base – Variables
+// ==========================================================================
+// 
+// Global Typography
+$body-font-family:  Arial, Helvetica, 'Roboto', sans-serif;;
+
+// Global Color
+$white:  			#fff;
+$black:  			#000;
+$red:    			#C62828;
+$blue:   			#1564BF;
+$green:  			#4CAF50;
+$orange: 			#F19600;
+$yellow: 			#FFEB3B;
+$purple: 			#9061E2;
+$bluegreen: 		#44A08D;
+$gold:				#C5B358;
+
+$gold-grey:			#aba273;
+
+// Create grayscale
+$gray-darker:       #1D1D1D;
+$gray-dark:         #2D2D2D;
+$gray-mdd:          #444444;
+$gray-mid:          #666666;
+$gray:              #9B9B9B;
+$gray-light:        #CCCCCC;
+$gray-lighter:      #D8D8D8;
+
+$bg-white: 			#FDFDFD;
+$bg-gray: 			#F6F6F6;
+
+// Reassign color vars to semantic color scheme
+$meron:             $red;
+$meron-dark:        #8E0000;
+$meron-light:       #FF5F52;
+// $wala:              #eef2f3;
+// $wala-dark:         #8e9eab;
+// $wala-light:        #dedede;
+$wala:              $blue;
+$wala-dark:         #003B8E;
+$wala-light:        #5E91F2;
+$bdd:               $green;
+$bdd-dark:          #388E3C;
+$orange-dark:       #EF6C00;
+$bk: 				#7352AD;
+
+//Font sizes
+$font-xxxl:			32px;
+$font-xxl:			28px;
+$font-xl:			24px;
+$font-lg:			20px;
+$font-md:			18px;
+$font-body:			16px;
+$font-sm:			14px;
+$font-xs:			12px;
+$font-xxs:			10px;
+$font-xxxs:			 8px;
+
+//Element height for Portrait mode
+// $ht-port-header: 48px;
+////header-height 30px for MPS 
+$ht-port-header: 40px;
+$ht-port-status: 20px;
+$ht-port-arena: 44px;
+$ht-port-pit: 130px;
+// $ht-port-predict: 20px;
+$ht-port-chip: 68px;
+$ht-port-confirm: 107px;
+// $ht-port-btn: 54px;
+
+//Element height for landscape mode
+////header-height 30px for MPS 
+// $ht-header: 40px;
+$ht-header: 30px;
+$ht-status: 18px;
+// $ht-video: 44px;
+// $ht-confirm: 44px;
+$ht-arena: 50px;
+$ht-pit: 152px;
+$ht-predict: 20px;
+$ht-chip: 68px;
+$ht-btn: 54px;
+
+//For MPS system
+// $ht-mps-header: 40px - 10px;
+$ht-mps-header: 0px;
+$ht-mps-subheader: 30px;
+$ht-mps-status: 22px + 10px;
+$ht-mps-arena: 50px + 4px;
+$ht-mps-pit: 158px;
+$ht-mps-predict: 20px;
+$ht-mps-chip: 68px + 2px;
+$ht-mps-btn: 54px + 4px;
+
+//z-index
+$zindex-popup: 160;
+$zindex-mainnav: 150;
+$zindex-mask: $zindex-mainnav - 1;
+
+$zindex-record-area: 140;
+$zindex-match-iframe: $zindex-record-area + 1;
+$zindex-msg: 130;
+$zindex-setting-area: 120;
+
+$zindex-videomsg: 110;
+$zindex-videofunc: $zindex-videomsg + 1;
+$zindex-video-fullsrn: $zindex-mainnav + 1;
+
+$zindex-arena: 100;
+$zindex-betting: 50;

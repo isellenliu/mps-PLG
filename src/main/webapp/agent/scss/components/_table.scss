@@ -1,0 +1,32 @@
+// =================================
+// div table
+.div-tb{
+	display: table;
+    width: 100%;
+	margin: 0 ;
+	.hd {
+		width: 140px;
+	}
+	.tr{
+        display: table-row;
+	}
+	.td{
+		text-align: left;
+        display: table-cell;
+        vertical-align: top;
+        padding: 0 1px 0 1px;
+		line-height: normal;
+		&.ct{
+			text-align: center;
+		}
+		&.rt{
+			text-align: right;
+		}
+		&.hd{
+			line-height: 22px;
+		}
+		&.v-mid{
+			vertical-align: middle;
+		}
+	}
+}

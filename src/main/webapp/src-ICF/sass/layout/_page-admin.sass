@@ -1,0 +1,152 @@
+.page-video
+	position: relative
+	max-width: 400px
+	background: #000
+	border-radius: 10px
+	padding: 5px
+	.txt-security-code
+		font-size: 10px
+		color: #ffffffc2
+		font-weight: 300
+		text-align: left
+		text-shadow: 0 0 3px #000
+		transform: scale(.8)
+		opacity: .8
+		position: absolute
+		z-index: 550
+		width: 70%
+		word-break: break-all
+		&.l-top
+			left: -10px
+			top: 40%
+		&.l-btm
+			left: 10px
+			bottom: 40%
+		&.r-top
+			right: 10px
+			top: 40%
+			text-align: right
+		&.r-btm
+			right: -10px
+			bottom: 40%
+			text-align: right
+	.marquee-txt
+		z-index: 499
+	.video-btnbox
+		position: absolute
+		top: 7px
+		right: 10px
+		z-index: 550
+		width: 150px
+		height: 30px
+		background-color: #00000061
+		border-radius: 8px
+		box-shadow: 0 0 5px #4f4f4f
+		display: flex
+		justify-content: space-between
+		.btn-menu,
+		.volume,
+		.monitor
+			color: #f1f1f1
+			width: 35px
+			text-align: center
+			&::before
+				font-family: 'icomoon' !important
+				content: '\ea15'
+				line-height: 30px
+				font-size: 16px
+		.volume
+			position: relative
+			&.off
+				&::after
+					position: absolute
+					top: 15px
+					left: 0
+					content: ''
+					width: 30px
+					height: 2px
+					background: red
+					transform: rotate(45deg)
+		.monitor
+			font-size: 80%
+			border-radius: 10px
+			&::before
+				font-family: 'icomoon' !important
+				content: '\e979'
+				margin-right: 3px
+		.btn-menu
+			background: #1bb04d
+			border-radius: 10px
+			&::before
+				font-family: 'icomoon' !important
+				content: '\e9b1'
+				color: #fff
+				text-shadow: 0 0 3px #333
+		.num-arena
+			padding: 5px 0 0 5px
+			span
+				background: #000000b4
+				padding: 0 10px 
+				border-radius: 40px
+				min-width: 20px
+				color: #f1f1f1
+	.txt-time,
+	.tag-live
+		position: absolute
+		top: 7px
+		left: 55px
+		display: inline-block
+		padding: 0 5px
+		border-radius: 4px
+		color: $white
+		font-size: 85%
+		background-color: $red
+		line-height: 20px
+	.txt-time
+		background-color: #ffffffa8
+		color: #333
+		z-index: 50
+	.tag-live
+		left: 10px
+		&.blink-1
+			animation: blink-1 1.5s infinite both
+	.txt-country
+		min-width: 90px
+		background: url(../ICF-img/layout/game-site-part-s.png) top center no-repeat
+		background-size: 100%
+		position: absolute
+		top: 0
+		left: 50%
+		padding-bottom: 10px
+		transform: translateX(-50%)
+		color: #b2b2b2
+		font-size: 95%
+		line-height: 22px
+		text-align: center
+		pointer-events: none
+		span
+			padding: 0 10px 
+			border-radius: 40px
+			min-width: 20px
+	.video
+		overflow: hidden
+		height: 100%
+		text-align: center
+		border-radius: 5px
+		.img-video-loading
+			background: url(../ICF-img/layout/img-video-loading.jpg) center center no-repeat
+			background-size: 100%
+			height: 100%
+			width: 100%
+
+		video
+			margin: 0 auto
+			width: 100vw
+		img
+			width: 100%
+		// video 1
+		.vcp-player
+			width: 100% !important
+			z-index: -1 !important
+			video
+				width: 100% !important

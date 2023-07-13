@@ -1,0 +1,205 @@
+//form general setting
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+input,
+select {
+    @include border-radius(vw(4px));
+    width: vw(240px);
+    height: vw(40px);
+    border: 1px $gray solid;
+    background: transparent;
+    font-size: vw($font-sm);
+    text-indent: vw(8px);
+}
+
+input:focus {
+    border: 1px $gray-dark solid;
+    background-image: none;
+}
+
+.form-group {
+    position: relative;
+}
+
+.checked {
+    border: 1px $green solid;
+    background: url('../../images/mobile/profile/icon-checked.svg') 98% center no-repeat;
+    background-size: vw(24px);
+}
+
+.error {
+    border: 1px $red solid;
+    background: url('../../images/mobile/profile/icon-error.svg') 98% center no-repeat;
+    background-size: vw(24px);
+}
+
+.help-block {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    margin-bottom: vw(8px);
+    color: $red;
+    font-size: vw($font-sm);
+    text-align: left;
+
+    &::before {
+        content: '';
+        display: inline-block;
+        position: relative;
+        top: vw(4px);
+        width: vw(18px);
+        height: vw(18px);
+        margin-right: vw(4px);
+        background: svg-error('%23FF5F52') left bottom no-repeat;
+        background-size: cover;
+    }
+}
+
+//Login page form
+.login-form {
+    position: relative;
+    margin-bottom: vw(32px);
+
+    .form-group {
+        margin-bottom: vw(24px);
+
+        &:last-of-type {
+            margin-bottom: vw(8px);
+        }
+    }
+
+    .help-block {
+        display: block;
+        // top: vw(64px + 64px + 64px + 40px + 2px);
+        position: relative;
+        top: 0;
+        margin-bottom: vw(56px);
+        color: $meron-light;
+    }
+
+    .validation-img {
+        position: absolute;
+        top: vw(3px);
+        right: 0;
+        width: auto;
+        height: vw(34px);
+        margin-right: vw(4px);
+    }
+
+    img {
+        width: vw(32px);
+        margin-right: vw(16px);
+        vertical-align: middle;
+    }
+
+    input {
+        color: $white;
+
+        &:focus {
+            border: 1px $gray-light solid;
+            background-image: none;
+        }
+    }
+
+    select {
+        background: url('../../images/mobile/profile/icon-arrow-drop-down.svg') right center no-repeat;
+        color: $white;
+
+        &:invalid {
+            color: $gray-mid;
+        }
+    }
+}
+
+//Change pwd in the first time
+.pwd-default {
+    height: 100vh;
+    background: url('../../images/mobile/profile/login-bg.jpg') center fixed no-repeat;
+    background-size: cover;
+    color: #ffffff;
+
+    header {
+        background-color: rgba(0, 0, 0, .5);
+    }
+
+    input {
+        color: #ffffff;
+
+        &:focus {
+            border: 1px $gray-light solid;
+            background-image: none;
+        }
+    }
+}
+
+//add nickname form
+.nickname-form {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    margin-bottom: vw(16px);
+    margin-left: vw(24px + 48px);
+
+    label {
+        flex: 5 0 100%;
+        padding-bottom: vw(8px);
+    }
+
+    input {
+        flex: 4 0 0;
+
+        &:focus + button {
+            width: vw(46px);
+            height: vw(40px);
+            background: url('../../images/mobile/profile/icon-editing.svg') center no-repeat;
+            background-size: vw(46px);
+        }
+    }
+
+    button {
+        flex: 1 0 0;
+        width: vw(32px);
+        height: vw(40px);
+        background: url('../../images/mobile/profile/icon-edit.svg') center no-repeat;
+        background-size: vw(32px);
+    }
+
+    .help-block {
+        top: 0;
+    }
+}
+
+//Change pwd form
+.pwd-form {
+    position: relative;
+
+    label {
+        display: inline-block;
+        margin-bottom: vw(4px);
+    }
+
+    input {
+        width: 100%;
+    }
+
+    ul {
+        margin-bottom: vw(40px);
+        padding-left: vw(24px);
+        font-size: vw($font-xs);
+        line-height: vw(18px);
+    }
+
+    .form-group {
+        margin-bottom: vw(42px);
+    }
+
+    .help-block {
+        top: vw(62px + 2px);
+        font-size: vw($font-xs);
+    }
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh_TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Cockfight</title>
+
+    <script src="../../library/jquery/jquery-3.3.1.min.js"></script>
+    <script src="../../library/jquery/jquery.marquee.min.js"></script>
+    <script src="../../library/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../library/owlcarousel/js/owl.carousel.min.js"></script>
+    <script src="../js/base.js"></script>
+
+    <link rel="stylesheet" href="../../library/bootstrap/css/bootstrap.min.css" /> <!-- bootstrap -->
+    <link rel="stylesheet" href="../../library/owlcarousel/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="../../library/lib-common/css-lib/lib-common.css" /> <!-- reset css -->
+    <link rel="stylesheet" href="../../library/icomoon/style.css" /> <!-- all icon -->
+    <link rel="stylesheet" href="../../src-gameHall/gameHall-css/gamehall-public-m.css" />
+</head>
+<body class="page-web body-iframe">
+    <div class="page-wrapper">
+        <div class="page-top">
+            <ul class="user-info">
+            <!-- <ul class="user-info"> -->
+                <li class="user-id">
+                    <span class="txt">seandesign</span>
+                    <span class="txt user-ID">
+                        <a href="" class="btn-xs">abcdefghky12345<i class=" icon-copy"></i></a>
+                      </span>
+                </li>
+                <li class="user-balance show">
+                    <span class="txt PHP">54,534.23</span>
+                </li>
+                <li class="txt txt-demo">DEMO GAME</li>
+            </ul>
+            <a class="btn-search" href="javascript:void(0)">
+                <i class="icon-search"></i>
+            </a>
+            <a class="btn-messages" href="javascript:void(0)">
+                <span class="txt">10</span>
+                <i class="icon-mail"></i>
+            </a>
+            <a class="btn-menu" href="javascript:void(0);">
+                <i class="icon icon-hamburger"></i>
+            </a>
+            <div class="txt-limit">You have to bet <b> 2,000,000.00</b> before withdraw</div>
+        </div>
+        <!-- /page-top -->
+    </div>
+    <div class="game-iframe" style="height:calc(100% - 10vmin)">
+        <iframe id="parentGame" src="ICF.html" name="parentGame" scrolling="no" width="100%" height="100%"  style="height:100%" src=""></iframe>
+    </div>
+    <div class="iframe-btn-box">
+        <a href="gamehall-public-index.html" class="btn-small-game">
+            <i class="icon-minus"></i>
+        </a>
+        <a href="gamehall-public-index.html" class="btn-close">
+            <i class="icon-close"></i>
+        </a>
+        
+    </div>
+    <div class="page-backdrop"></div>
+    <style>
+        .body-iframe{
+            overflow: hidden;
+        }
+    </style>
+</body>
+</html>

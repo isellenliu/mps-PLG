@@ -1,0 +1,103 @@
+.page-web.lotto
+    .page-wrapper
+        nav.page-head
+            &.scroll
+                box-shadow: 0px 3px 8px rgba(0, 0, 0, .15)
+                transition: .5s
+            // --------------------
+            position: fixed
+            z-index: 10
+            display: flex
+            justify-content: space-between
+            align-items: center
+            width: 100%
+            height: 5vh
+            padding: .5vh 1vh
+            background: $clr-gray_1
+            transition: .5s
+            .nav-icon.back
+                font-size: 3.5vh
+            .nav-title
+                display: inline-block
+                color: $clr-white
+                text-align: center
+            .nav-hb
+                display: inline-block
+                position: relative
+                width: 4vh
+                height: 4vh
+                div
+                    position: absolute
+                    background: $clr-white
+                    width: 3vh
+                    height: .35vh
+                    transition: transform .2s, top .2s .1s
+                    &:first-child
+                        top: 1vh
+                    &:last-child
+                        bottom: 1vh
+            .nav-menu
+                position: absolute
+                top: 5vh
+                left: 100%
+                width: 100%
+                height: 95vh
+                padding: 20vw
+                background: $clr-gray_1
+                opacity: 0
+                overflow-y: scroll
+                transition: left 0s .3s, opacity .3s
+                li.menu-item
+                    &:not(:first-child)
+                        margin-top: 4vh
+                    // --------------------
+                    position: relative
+                    display: block
+                    span.link-icon
+                        margin-right: 2vw
+                        &.home,
+                        &.myTickets
+                            display: none
+                    svg.link-icon
+                        fill: $clr-white
+                        width: 6vw
+                        margin-right: 2vw
+                    a
+                        width: 100%
+                        display: inline-flex
+                        padding: 1vh 0
+                        vertical-align: middle
+                    select
+                        width: 100%
+                        height: 5vh
+                        line-height: 5vh
+                        color: $clr-white
+                        background: $clr-gray_2
+                        padding: 0 20px
+                        border-radius: 100px
+                        border: none
+                        text-align: center
+                        appearance: none
+                        -moz-appearance: none
+                        -webkit-appearance: none
+                        background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E")
+                        background-position: right 5px top 50%
+                        background-size: contain cover
+                        background-repeat: no-repeat repeat
+                        option
+                            text-align: center
+                            appearance: none
+                            background: $clr-gray_1
+            // 選單打開 --------------------
+            .nav-hb.show
+                div
+                    top: 50%
+                    transition: top .2s, transform .3s .1s
+                    &:first-child
+                        transform: translateY(-50%) rotate(45deg)
+                    &:last-child
+                        transform: translateY(-50%) rotate(-45deg)
+            .nav-hb.show+.nav-menu
+                left: 0
+                opacity: 1
+                transition: left 0s, opacity .3s

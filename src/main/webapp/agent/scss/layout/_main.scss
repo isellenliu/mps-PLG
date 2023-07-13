@@ -1,0 +1,57 @@
+// =======================
+.setting-box{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	.btn{
+		display: inline-block;
+		border-radius: 5px;
+		font-size: 14px;
+		background: #fa8c0b;
+		min-width: 90px;
+		max-width: 90px;
+		min-height: 65px;
+		color: #fff;
+		border: 1px solid $colorMain;
+		padding: 1px 10px 0px 10px;
+		vertical-align: top;
+		line-height: 15px;
+		text-align: center;
+		i{
+			display: block;
+			font-size: 23px;
+			line-height: 30px;
+			margin-bottom: 10px;
+			text-align: center;
+			width: 100%;
+			&.icon-mail-group {
+				font-size: 30px;
+			}
+		}
+		&:hover{
+			background: $colorMain;
+		}
+		//新增2FA Settnig btn按鈕狀態
+		&.btn-2FA{
+			.icon-shield-2FA{
+				background: none;
+			}
+			p{
+				font-size: 10px;
+				margin-top: 2px;
+				.on{
+					background-color: #ffffff;
+					color: #fa8c0b;
+					padding: 2px 15px;
+					border-radius: 10px;
+				}
+				.disabled{
+					background-color: rgba(104, 104, 104, 0.308);
+					color: white;
+					padding: 2px 15px;
+					border-radius: 10px;
+				}
+			}
+		}
+	}
+}

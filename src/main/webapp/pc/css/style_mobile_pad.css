@@ -1,0 +1,593 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #fff;
+}
+
+a {
+  text-decoration: underline;
+  color: #cc0000;
+  outline: none;
+  hlbr: expression(this.onFocus=this.blur());
+}
+
+a:hover {
+  color: #a00000;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+input {
+  background-color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #666;
+  border: 1px #aaa solid;
+}
+
+h1 {
+  font-size: 70px;
+  line-height: 70px;
+  margin-bottom: 10px;
+  font-weight: lighter;
+}
+
+h2 {
+  font-size: 50px;
+  line-height: 50px;
+  font-weight: lighter;
+}
+
+h3 {
+  font-size: 35px;
+  font-weight: lighter;
+}
+
+h4 {
+  color: #686868;
+  font-size: 15px;
+  font-weight: lighter;
+}
+
+ul li {
+  list-style: none;
+  margin-bottom: 8px;
+}
+
+img {
+  border-radius: 5px;
+}
+
+/***************************************************/
+/*Clear*/
+.clearfix:after, .road_box:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.clearfix, .road_box {
+  zoom: 1;
+}
+
+.clear {
+  clear: both;
+}
+
+/*Float Set*/
+.float-L, .road_box .scrollX_L, .road_box .scrollX_R, .road_box .road_box_r {
+  float: left;
+}
+
+.float-R, .road_box .road_box_r ul li span {
+  float: right;
+}
+
+/*Align Set*/
+.align-L {
+  text-align: left;
+}
+
+.align-R {
+  text-align: right;
+}
+
+.align-C {
+  text-align: center;
+}
+
+.margin-bottom, h2, h3, h4, p, img {
+  margin-bottom: 20px;
+}
+
+/***************************************************/
+/*
+.main_width{
+	width:1230px;
+	margin: 0 auto;
+	@extend .clearfix;
+}
+
+.more{
+	display: block;
+	width:100px;
+	padding:15px;
+	color: #fff;
+	background-color:#333;
+	border-radius: 5px;
+	text-align: center;
+	text-decoration: none;
+
+	&:hover{
+		background-color:#000;
+	}
+}
+*/
+/*--Hide Long Word Set--*/
+/*--Pop Up Shadow Set--*/
+/*--Horizontal List--*/
+.bankerB, .playerP, .drawD, .banker, .drawb_1, .drawb_2, .drawb_3, .drawb_4, .drawb_5, .player, .drawp_1, .drawp_2, .drawp_3, .drawp_4, .drawp_5, .draw_1, .draw_2, .draw_3, .draw_4, .draw_5 {
+  background-size: 100% 100%;
+  text-indent: -5555px;
+}
+
+.road_box .road_box_r .btn_result_solid, .road_box .road_box_r .btn_result_solid:hover, .road_box .road_box_r .btn_result_hollow:hover, .road_box .road_box_r .btn_result_hollow {
+  display: block;
+  width: 86px;
+  height: 35px;
+}
+
+.road_box .road_box_r ul li:before, .road_box .road_box_r ul .wala:before, .road_box .road_box_r ul .draw:before {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  content: "";
+  pointer-events: none;
+}
+
+.road_box .scrollX_L, .road_box .scrollX_R {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  /*border-left: 1px solid #C3C3C3;*/
+  border-right: 1px solid #C3C3C3;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+/***************************************************/
+/*.main_width{
+	position: relative;
+	width: 667px;
+	height: 375px;
+	background: url(../images/iPhone6A-2.png) repeat;
+}*/
+.road_box {
+  /*position: absolute;
+	top: 265px;
+	left:333px;*/
+  padding-left: 4px;
+}
+
+.road_box .scrollX_L, .road_box .scrollX_R {
+  width: 70%;
+  margin-top: 3px;
+  box-sizing: border-box;
+}
+
+.road_box table {
+  /*width: 100%;*/
+  background: #fff;
+}
+
+.road_box table td {
+  border-top: 1px #C3C3C3 solid;
+  border-bottom: 1px #C3C3C3 solid;
+  border-left: 1px #C3C3C3 solid;
+  background: #fff;
+  height: 15px;
+  width: 15px;
+  line-height: 15px;
+  box-sizing: border-box;
+}
+
+.road_box table td p {
+  display: block;
+  width: 15px;
+  height: 15px;
+  margin: 0 auto;
+}
+
+.road_box .road_box_r {
+  width: 28%;
+  padding: 0 3px 3px 3px;
+  box-sizing: border-box;
+}
+
+.road_box .road_box_r .btn_result_solid, .road_box .road_box_r .btn_result_solid:hover, .road_box .road_box_r .btn_result_hollow:hover, .road_box .road_box_r .btn_result_hollow {
+  background: url(../images/btn_result_solid.png) 0 0 no-repeat;
+  background-size: 100%;
+}
+
+.road_box .road_box_r .btn_result_solid:hover, .road_box .road_box_r .btn_result_hollow:hover {
+  background-image: url(../images/btn_result_solid_hover.png);
+}
+
+.road_box .road_box_r .btn_result_hollow {
+  background-image: url(../images/btn_result_hollow.png);
+}
+
+.road_box .road_box_r .btn_result_hollow:hover {
+  background-image: url(../images/btn_result_hollow_hover.png);
+}
+
+.road_box .road_box_r ul {
+  width: 77px;
+  margin: 3px 0 0 3px;
+  /*background-color: #4e000b;*/
+}
+
+.road_box .road_box_r ul li {
+  position: relative;
+  line-height: 14px;
+  padding-left: 15px;
+}
+
+.road_box .road_box_r ul li:before {
+  background-color: #d40000;
+}
+
+.road_box .road_box_r ul .wala:before {
+  background-color: #4a90e2;
+}
+
+.road_box .road_box_r ul .draw:before {
+  background-color: #599611;
+}
+
+.bankerB {
+  background: url(../images/banker_b.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+  text-indent: -5555px;
+}
+
+.playerP {
+  background: url(../images/player_p.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.drawD {
+  background: url(../images/draw_d.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+/********banker********/
+.banker {
+  background: url(../images/banker.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.drawb_1 {
+  background: url(../images/drawb_1.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.drawb_2 {
+  background: url(../images/drawb_2.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.drawb_3 {
+  background: url(../images/drawb_3.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.drawb_4 {
+  background: url(../images/drawb_4.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.drawb_5 {
+  background: url(../images/pad/drawb_5.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+/********player********/
+.player {
+  background: url(../images/player.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.drawp_1 {
+  background: url(../images/drawp_1.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.drawp_2 {
+  background: url(../images/drawp_2.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.drawp_3 {
+  background: url(../images/drawp_3.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.drawp_4 {
+  background: url(../images/drawp_4.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.drawp_5 {
+  background: url(../images/drawp_5.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+/********draw********/
+.draw_1 {
+  background: url(../images/draw_1.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.draw_2 {
+  background: url(../images/draw_2.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.draw_3 {
+  background: url(../images/draw_3.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.draw_4 {
+  background: url(../images/draw_4.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.draw_5 {
+  background: url(../images/draw_5.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.road_box {
+  padding-left: 4px;
+}
+
+.road_box .scrollX_L, .road_box .scrollX_R {
+  width: 74%;
+}
+
+.road_box table td {
+  height: 32px;
+  width: 32px;
+}
+
+.road_box table td p {
+  width: 30px;
+  height: 30px;
+  margin: 1px;
+}
+
+.road_box .road_box_r {
+  width: 25%;
+}
+
+.road_box .road_box_r ul {
+  width: 135px;
+  margin: 10px 0 0 10px;
+  /*background-color: #4e000b;*/
+}
+
+.road_box .road_box_r ul li {
+  position: relative;
+  line-height: 14px;
+  padding-left: 25px;
+  font-size: 20px;
+  line-height: 25px;
+  margin-bottom: 15px;
+}
+
+.road_box .road_box_r ul li:before {
+  background-color: #d40000;
+  top: 7px;
+  left: 3px;
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+}
+
+.road_box .road_box_r ul .wala:before {
+  background-color: #4a90e2;
+  top: 7px;
+  left: 3px;
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+}
+
+.road_box .road_box_r ul .draw:before {
+  background-color: #599611;
+  top: 7px;
+  left: 3px;
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+}
+
+.road_box .road_box_r .btn_result_solid, .road_box .road_box_r .btn_result_solid:hover, .road_box .road_box_r .btn_result_hollow:hover, .road_box .road_box_r .btn_result_hollow {
+  width: 158px;
+  height: 64px;
+}
+
+.bankerB {
+  background: url(../images/banker_b.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.playerP {
+  background: url(../images/player_p.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.drawD {
+  background: url(../images/draw_d.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+/********banker********/
+.banker {
+  background: url(../images/banker.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.drawb_1 {
+  background: url(../images/drawb_1.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.drawb_2 {
+  background: url(../images/drawb_2.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.drawb_3 {
+  background: url(../images/drawb_3.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.drawb_4 {
+  background: url(../images/drawb_4.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.drawb_5 {
+  background: url(../images/drawb_5.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+/********player********/
+.player {
+  background: url(../images/player.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.drawp_1 {
+  background: url(../images/drawp_1.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.drawp_2 {
+  background: url(../images/drawp_2.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.drawp_3 {
+  background: url(../images/drawp_3.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.drawp_4 {
+  background: url(../images/drawp_4.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.drawp_5 {
+  background: url(../images/drawp_5.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+/********draw********/
+.draw_1 {
+  background: url(../images/draw_1.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.draw_2 {
+  background: url(../images/draw_2.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.draw_3 {
+  background: url(../images/draw_3.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.draw_4 {
+  background: url(../images/draw_4.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.draw_5 {
+  background: url(../images/draw_5.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.mx .road_box_r .btn_result_solid, .mx .road_box .road_box_r .btn_result_solid:hover, .road_box .mx .road_box_r .btn_result_solid:hover, .mx .road_box .road_box_r .btn_result_hollow, .road_box .mx .road_box_r .btn_result_hollow {
+  background: url(../images/btn_result_solid_mx.png) 0 0 no-repeat;
+  background-size: 100%;
+}
+
+.mx .road_box_r .btn_result_solid:hover, .mx .road_box .road_box_r .btn_result_hollow:hover, .road_box .mx .road_box_r .btn_result_hollow:hover {
+  background-image: url(../images/btn_result_solid_mx_hover.png);
+}
+
+.mx .road_box_r .btn_result_hollow {
+  background-image: url(../images/btn_result_hollow_mx.png);
+}
+
+.mx .road_box_r .btn_result_hollow:hover {
+  background-image: url(../images/btn_result_hollow_mx_hover.png);
+}
+
+.mx .road_box_r ul .wala:before {
+  background-color: #7e7e7e;
+}
+
+.mx .bankerB {
+  background: url(../images/banker_m_mx.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.mx .playerP {
+  background: url(../images/player_w_mx.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.mx .player {
+  background: url(../images/player_mx.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.mx .drawp_1 {
+  background: url(../images/drawp_1_mx.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.mx .drawp_2 {
+  background: url(../images/drawp_2_mx.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.mx .drawp_3 {
+  background: url(../images/drawp_3_mx.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.mx .drawp_4 {
+  background: url(../images/drawp_4_mx.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.mx .drawp_5 {
+  background: url(../images/drawp_5_mx.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}

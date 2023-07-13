@@ -1,0 +1,425 @@
+@charset "UTF-8";
+/* calendar */
+dl {
+  font-size: 14px;
+}
+
+dt {
+  float: left;
+  border: 1px solid #903a0b;
+  width: 26px;
+  text-align: center;
+  border-radius: 3px;
+  color: #903a0b;
+  margin: 1px 3px 0 5px;
+}
+
+dd {
+  line-height: 23px;
+  line-height: 20px\9;
+  color: #000;
+  text-align: left;
+}
+
+.thisWeek {
+  width: 100%;
+  margin-top: 5px;
+  border: 1px solid #545454;
+}
+.thisWeek thead {
+  background-color: #262626;
+}
+.thisWeek th {
+  height: 30px;
+  font-size: 20px;
+  color: #fefefe;
+  font-weight: normal;
+}
+.thisWeek dl {
+  min-height: 100px;
+  margin-top: 5px;
+}
+.thisWeek span {
+  font-size: 14px;
+  color: #bdbdbd;
+  padding-left: 5px;
+}
+.thisWeek td {
+  vertical-align: top;
+  width: 141px;
+  border-right: 1px solid #545454;
+  text-align: center;
+}
+
+.datepast {
+  background-color: #f0f0f0;
+}
+.datepast dt {
+  border-color: #757575;
+  color: #757575;
+}
+.datepast dd {
+  color: #757575;
+}
+
+.today {
+  background-color: #000;
+  border: 2px solid #FFA646;
+  border-bottom: 0;
+}
+.today span {
+  color: #FFA646;
+}
+
+.todaylist {
+  background-color: #FFA646;
+  position: relative;
+}
+.todaylist span {
+  width: 21px;
+  height: 10px;
+  background: url(../images/iconSet.png) no-repeat 0 -1720px;
+  position: absolute;
+  top: -2px;
+  left: 61px;
+  text-indent: -99999px;
+}
+.todaylist dt {
+  border-color: #171717;
+  color: #fff;
+  background-color: #1e1e1e;
+}
+
+.month {
+  margin-top: 18px;
+}
+.month h2 {
+  font-size: 21px;
+  color: #4C4C4C;
+  font-weight: normal;
+  float: left;
+  margin: 0 10px;
+  line-height: 18px;
+}
+.month a {
+  display: block;
+  background: url(../images/iconSet.png) no-repeat 5px -1560px;
+  text-indent: -99999px;
+  width: 18px;
+  height: 18px;
+  float: left;
+  padding: 0 3px;
+}
+.month .arrowRight {
+  background-position: 5px -1612px;
+}
+.month .arrowLnostatus, .month .arrowRnostatus {
+  cursor: default;
+  background-position: 5px -2081px;
+}
+.month .arrowRnostatus {
+  background-position: 5px -2163px;
+}
+
+.calendar {
+  width: 100%;
+  border: 1px solid #a5a5a5;
+  margin-top: 10px;
+}
+.calendar th {
+  height: 30px;
+  background-color: #e7e7e7;
+  font-size: 14px;
+  font-weight: normal;
+}
+.calendar dl {
+  min-height: 70px;
+}
+.calendar td {
+  width: 142px;
+  border: 1px solid #a5a5a5;
+  vertical-align: top;
+}
+.calendar p {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: right;
+  margin: 2px 3px 0 0;
+}
+
+.show_more {
+  display: block;
+  text-indent: -99999px;
+  background: url(../images/iconSet.png) no-repeat 0 -1663px;
+  width: 12px;
+  height: 22px;
+  float: right;
+}
+
+.calendar_more {
+  position: absolute;
+  left: 887px;
+  top: 603px;
+  width: 142px;
+  background-color: #fff;
+  border: 1px solid #999;
+  z-index: 100;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+  min-height: 104px;
+}
+.calendar_more h3 {
+  background-color: #FD8503;
+  font-size: 16px;
+  padding: 2px 2px 2px 5px;
+}
+.calendar_more dl {
+  margin: 9px 0;
+}
+.calendar_more dt {
+  margin-right: 5px;
+}
+.calendar_more a {
+  text-indent: -99999px;
+  display: block;
+  width: 17px;
+  height: 17px;
+  background: url(../images/iconSet.png) no-repeat 0 -1759px;
+  position: absolute;
+  right: 1px;
+  top: 2px;
+}
+
+/* LAYOUT */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+/***************************************************/
+/*Clear*/
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+input[type=text]::-ms-clear {
+  display: none;
+}
+
+input[type=password]::-ms-reveal {
+  display: none;
+}
+
+/***************************************************/
+.main {
+  width: 996px;
+  margin: 0 auto 10px auto;
+}
+
+.header {
+  height: 50px;
+  background-color: #000;
+  border-bottom: 1px solid #bc7429;
+}
+.header h1 {
+  float: left;
+  background: url(../images/logo.png) no-repeat 0 4px; /*這邊要改回*/
+  width: 165px;
+  height: 46px;
+  text-indent: -99999px;
+  margin-left: 25px;
+}
+.header ul {
+  float: right;
+  margin: 11px 32px 0 0;
+}
+.header li {
+  float: left;
+  padding-right: 5px;
+}
+.header a {
+  display: block;
+  text-indent: -99999px;
+  background: url(../images/Language.png) no-repeat;
+  width: 36px;
+  height: 30px;
+}
+.header a:hover {
+  background-position: -1px -248px;
+}
+.header .vn {background-position: 0 -62px;}
+.header .vn:hover {background-position: -1px -311px;}
+
+.header .cn {background-position: 0 -123px;}
+.header .cn:hover {background-position: -1px -374px;}
+
+.header .jp {background-position: -3px -494px;}
+.header .jp:hover {background-position: -3px -550px;}
+
+.header .th {background-position: -3px -601px;}
+.header .th:hover {background-position: -3px -651px;}
+
+.header .es {background-position: -3px -706px;}
+.header .es:hover {background-position: -3px -756px;}
+
+.header .ms {background-position: -3px -810px;}
+.header .ms:hover {background-position: -3px -860px;}
+
+.banner {
+  height: 215px;
+  background: url(../images/banner.jpg);
+  padding: 40px 35px 40px 0;
+}
+
+.loginBox {
+  position: absolute;
+  width: 222px;
+  background-color: #4b4b4b;
+  background: rgba(76, 76, 76, 0.6);
+  padding: 20px 25px;
+  top: 50px;
+  right: 30px;
+  z-index: 500;
+}
+.loginBox li {
+  padding: 2px 0;
+}
+.loginBox input {
+  width: 190px;
+  height: 34px;
+  line-height: 36px;
+  color: #777;
+  border: 1px solid #8b8b8b;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+  padding-left: 30px;
+  font-size: 14px;
+  background-color: #fff;
+}
+.loginBox .usericon {
+  background: white url(../images/iconSet.png) no-repeat 0 -1450px;
+}
+.loginBox .passwicon {
+  background: white url(../images/iconSet.png) no-repeat 1px -1503px;
+}
+.loginBox .vcode {
+  width: 96px;
+  padding-left: 4px;
+  float: left;
+  font-size: 13px;
+}
+.loginBox .verify {
+  padding: 2px;
+  *padding: 0;
+  float: right;
+  border: 1px solid #8b8b8b;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+  background-color: #fff;
+  *width: 116px;
+  *height: 34px;
+}
+.loginBox a {
+  display: block;
+  background: url(../images/iconSet.png) no-repeat 2px -1310px;
+  text-indent: -999999px;
+  width: 26px;
+  height: 30px;
+  float: left;
+}
+.loginBox a:hover {
+  background-position: 2px -1386px;
+}
+.loginBox img {
+  width: 85px;
+  height: 30px;
+  float: left;
+}
+.loginBox .loginBtn {
+  border: 1px solid #a23900;
+  *border: 0;
+  width: 222px;
+  height: 38px;
+  margin-top: 4px;
+  background: url(../images/bg.gif) repeat-x 0 -332px;
+  color: #fff;
+  font-size: 22px;
+  padding-left: 0;
+  cursor: pointer;
+}
+.loginBox .loginBtn:hover {
+  background: url(../images/bg.gif) repeat-x 0 -371px;
+}
+.loginBox .errormsg {
+  display: none;
+  font-size: 14px;
+  color: #fff;
+  background: url(../images/iconSet.png) no-repeat 0 -1813px;
+  padding-left: 32px;
+  line-height: 18px;
+  margin-top: 8px;
+}
+
+.agentLogin {
+  background-color: #333;
+}
+.agentLogin .main {
+  width: 610px;
+  background-color: #000;
+  margin-top: 11%;
+  border-radius: 6px;
+}
+.agentLogin .header {
+  background: none;
+}
+.agentLogin .banner {
+  position: relative;
+  border-radius: 0 0 6px 6px;
+  background: url(../images/agentbanner.jpg) no-repeat;
+}
+.agentLogin .loginBox{
+  position: relative;
+  top: auto;
+  right: auto;
+  margin-left: auto;
+}
+.cn .loginBox .loginBtn {
+  line-height: 34px;
+  /* IE 10 以上 */
+  line-height: 40px\9;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .cn .loginBox .loginBtn {
+    line-height: 39px;
+  }
+}
+.cn .month h2 {
+  /* IE 10 以上 */
+  line-height: 15px\9;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .cn .month h2 {
+    line-height: 15px;
+  }
+}

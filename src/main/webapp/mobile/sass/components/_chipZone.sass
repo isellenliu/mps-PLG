@@ -1,0 +1,151 @@
+
+//籌碼區===========================
+.chip-box
+    position: relative
+    height: 8vh
+    // height: 7vh
+    display: flex
+    justify-content: space-around
+    align-items: center
+    margin: 0 1vmin
+    gap: 0
+    .top-chip-box
+        position: absolute
+        top: -80%
+        left: 50%
+        transform: translateX(-50%)
+        display: grid
+        grid-template-columns: 40% 60%
+        background: linear-gradient(0deg, #7b7b7b00, #5f5f5f)
+        border-radius: 8px 8px 0 0
+        padding: 2px 0 0 0
+        width: 29%
+        .btn
+            background: none
+            color: #fff
+            font-size: 80%
+            text-align: center
+            height: 5vh
+            display: inline-block
+
+            i
+                color: #fff
+                width: 100%
+                text-align: center
+                font-size: 24px
+            &.btn-setting
+                justify-self: center
+                i
+                    width: 30px
+                    line-height: 32px
+                &::after
+                   display: none 
+            &.btn-Anyodds
+                position: relative
+                padding: 2px 0 0 20px
+                text-align: left
+                width: auto
+                &::after,
+                &::before
+                    position: absolute
+                    left: 0
+                    top: 8px
+                    content: ''
+                    width: 10px
+                    height: 10px
+                    display: inline-block
+                    text-align: right
+                    border-radius: 3px
+                    border: 2px solid #9a9a9a
+                &.checked
+                    &::after
+                        border: none
+                        font-family: 'icomoon' !important
+                        content: '\e90f'
+                        font-size: 15px
+                        line-height: 15px
+
+    // -------------
+    .chips
+        display: flex
+        gap: 3px
+        width: 58%
+        .chip
+            position: relative
+            align-items: unset
+            padding-bottom: 0
+            font-weight: bold
+            border: none
+            line-height: 45px
+            height: 50px
+            width: 100%
+            font-size: 95%
+            &::after
+                opacity: 0
+                content: ''
+                position: absolute
+                top: 12px
+                width: 45px
+                height: 35px
+                border-radius: 50%
+                z-index: -1
+                background: none
+                background: #F19600
+                box-shadow: 0 0 10px 4px #F19600
+                transition: all 0.40s ease-in-out
+            &.selected
+                &::after
+                    opacity: 1
+        .chip-1
+            background: url('../../images/mobile/chips-V2/chip-1.png') center center no-repeat
+            background-size: contain
+        .chip-2
+            background: url('../../images/mobile/chips-V2/chip-2.png') center center no-repeat
+            background-size: contain
+        .chip-3
+            background: url('../../images/mobile/chips-V2/chip-3.png') center center no-repeat
+            background-size: contain
+        .chip-4
+            background: url('../../images/mobile/chips-V2/chip-4.png') center center no-repeat
+            background-size: contain
+        .chip-5
+            background: url('../../images/mobile/chips-V2/chip-5.png') center center no-repeat
+            background-size: contain
+        .chip-6
+            background: url('../../images/mobile/chips-V2/chip-6.png') center center no-repeat
+            background-size: contain
+        .chip-7
+            background: url('../../images/mobile/chips-V2/chip-7.png') center center no-repeat
+            background-size: contain
+        .chip-8
+            background: url('../../images/mobile/chips-V2/chip-8.png') center center no-repeat
+            background-size: contain                
+    .btn-group
+        display: inline-flex
+        gap: 5px
+        margin: 0
+        width: 40%
+        .btn
+            display: inline-block
+            padding: 0
+            border-radius: 60px
+            font-size: 3.4vh
+            line-height: 5.3vh
+            color: #fff
+            font-weight: bold
+            text-shadow: 0 2px 3px #0000009f
+            text-align: center
+            // ------------
+            &.submit
+                color: #fff
+                width: 70%
+                font-size: 4vh
+                background: linear-gradient(180deg, #F19600 0%, #EF6C00 100%)
+                border: 2px solid #F19600
+            &.cancel
+                width: 28%
+                line-height: 10px
+                background: linear-gradient(#000000 0%, #393939 100%)
+                border: 1px solid #000
+                &.on-focus
+                    border-color: #F19600

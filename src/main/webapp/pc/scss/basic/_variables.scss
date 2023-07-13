@@ -1,0 +1,49 @@
+//***************************************************//
+//Width Set for All
+$widthFull: 1430px;//1400px(4:3)
+$widthAside: 280px;
+
+//Width Set for VideoTwo
+//VideoTwo Width = .box-M X 2 + 2px
+$widthBox-M: 573px;//558px(4:3)
+
+//Width Set for VideoOne
+//VideoOne Width = .box-L + .box-S + 2px
+$widthBox-L: 859px;//766px(4:3)
+$widthBox-S: 287px;//350px(4:3)
+
+//***************************************************//
+//popupWidth
+$popupWidth-M: 320px;
+$popupWidth-L: 650px;
+
+//***************************************************//
+//color Setting
+$mainColor: #FD8503;//主要色-橘色
+$negativeColor: #E91932;//數字負值狀態
+
+
+//***************************************************//
+$eventColor-0: #434343;//#47381F;//#845400;//#717171;//eventReady
+$eventColor-1: #356c1a;//#458000;//eventOpening
+$eventColor-2: #9a0000;//#9D0000;//eventBetClosed
+$eventColor-3: #4F0193;//#6200B8;//eventInRunning
+
+$eventColor-0-light: #808080;//#9F6A10;//#FFAF25;//eventReady
+$eventColor-1-light: #B7D200;//#7ED321;//eventOpening
+$eventColor-2-light: #ff4040;//#ff0000;//eventBetClosed
+$eventColor-3-light: #BE38DA;//#D300FF;//eventInRunning
+
+
+//***************************************************//
+//正常
+$meronColor: #A20014;
+$walaColor: #09079C;
+$bddColor: #1D5D00;//old-#2C5519
+
+//淺色-function-1(Current Bet)
+$meronColor-light: #FF7B8B;
+$walaColor-light: #56B0F9;
+$bddColor-light: #5CCD8D;
+
+

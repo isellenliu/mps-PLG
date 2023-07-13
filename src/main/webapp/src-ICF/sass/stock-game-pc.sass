@@ -1,0 +1,109 @@
+// PC
+
+// pad 768-1023
+.page-web.stock
+    @include pad-M
+        .page-wrapper
+            .page-video
+                width: 640px
+                height: 490px
+            .page-body
+                width: 370px
+                height: 490px
+                .bet-sel-chipBox
+                    ul
+                        width: 280px !important
+                        .chipBox,.bet-allin
+                            width: 40px !important
+                            height: 40px !important
+                            a
+                                width: 40px !important
+                                height: 40px !important
+                .bet-function-box
+                    width: 370px
+                    .confirm-area
+                        width: 370px !important
+                        .road-wrapper
+                            width: 150px
+                        .btns-area
+                            a
+                                width: 60px !important
+
+    // PC 1024以上
+    @include Breakpoint-up
+        .page-wrapper
+            width: 1024px
+            height: 490px
+            .page-video
+                width: 640px
+                height: 490px
+            .page-body
+                width: 370px
+                height: 465px
+                .game-site-tab
+                    height: auto
+                .game-site-tab-content
+                    height: 410px
+                    .user-info
+                        top: -5px
+                        height: 25px
+                    .main-bet
+                        height: 180px !important
+                        .main-bet-lt,.main-bet-rt
+                            .bet-meron,.bet-wala
+                                .txt-money
+                                    top: 4.2rem !important
+                                    i:before,span
+                                        font-size: 18px
+                            .main-bet-input
+                                .bet-tit
+                                    font-size: 2rem !important
+                                .chip
+                                    transform: translate(-50%, 135%)
+                                    font-size: 16px
+                                .chip-img
+                                    transform: translate(-50%, 30%)
+                                    width: 45px
+                                    height: 45px
+                                &.on-focus
+                                    .txt-increase
+                                        bottom: 20px
+                                    .txt-max-bet
+                                        bottom: 5px
+                                    .chip
+                                        transform: translate(-50%, 55%) !important
+                                    .chip-img
+                                        transform: translate(-50%, -5%) !important
+                    .bet-sel-chipBox
+                        height: 60px
+                        padding: 12px 0 5px
+                        ul
+                            width: 280px !important
+                            .chipBox,.bet-allin
+                                width: 40px !important
+                                height: 40px !important
+                                .btn-chip
+                                    line-height: 40px !important
+                                    width: 40px !important
+                                    height: 40px !important
+                    .bet-function-box
+                        width: 370px
+                        .confirm-area
+                            width: 350px !important
+                            .road-wrapper
+                                width: auto
+                            .btns-area
+                                .btn-primary, .btn-cancel
+                                    width: 60px !important
+                                .btn-primary
+                                    height: 115px
+                                    bottom: 58px
+                                .btn-cancel
+                                    height: 50px
+                                    i
+                                        position: absolute !important
+                                        font-size: 40px !important
+                                        line-height: 40px !important
+                                        top: 50%
+                                        left: 50%
+                                        transform: translate(-50%, -50%)

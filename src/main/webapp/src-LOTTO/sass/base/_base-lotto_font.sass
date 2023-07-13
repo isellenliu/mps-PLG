@@ -1,0 +1,47 @@
+// .font-20B 		H1
+// .font-18B		H2
+// .font-16B		H3
+// .font-16			H4
+// .font-14B		H5
+// .font-14			H6
+// .font-12B		段落標題
+// .font-12			內文
+// .font-10			提示字
+// .numberBalls     號碼球
+
+// Noto Sans
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap')
+
+// ABeeZee
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&display=swap')
+
+.page-web.lotto
+    %font-style
+        font-family: 'Noto Sans', sans-serif
+        color: $clr-white
+
+    $font-size_Bold: 20, 18, 16, 14, 12, 10
+    @each $size in $font-size_Bold
+        .font-#{$size}B
+            @extend %font-style
+            font-weight: 600
+            font-size: $size + px
+
+    $font-size_Regular: 16, 14, 12, 10
+    @each $size in $font-size_Regular
+        .font-#{$size}
+            @extend %font-style
+            font-weight: 400
+            font-size: $size + px
+
+    // 號碼球
+    .numberBall
+        font-family: 'ABeeZee', sans-serif
+        font-size: 20px
+        font-weight: 600
+        color: $clr-white
+
+    // icons
+    span.material-icons
+        font-size: 24px
+        color: $clr-white

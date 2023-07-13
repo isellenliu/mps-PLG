@@ -1,0 +1,256 @@
+.body_bg{
+	background: url("../images/bg-nav.gif") repeat-y top left;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){ 
+	.body_bg { overflow : hidden; } 
+}
+
+h3{
+	font-size: 16px;
+}
+
+/******** header ********/
+.header{
+	min-width: 920px;
+	
+	.language{
+		margin: 0;
+		padding: 0;
+		margin: 11px 20px 0 0;
+	}
+}
+
+.scrollingText{
+	width: 40%;
+    height: 27px;
+	margin: 11px 10px 10px 0px;
+	border-radius: 4px;
+	padding: 0px 10px 0px 25px;
+	background: #5A3D1E url("../images/iconSet.gif") no-repeat -17px -11px;
+	line-height: 27px;
+	color: #FEBD78;
+	@extend .float-R;
+	li{
+		list-style: none;
+	}
+}
+
+.language{
+	@extend .float-R;
+	@extend .color_Orange;
+	width: 130px;
+	line-height: 25px;
+	border: 1px solid #FD8503;
+	font-size: 13px;//12px
+	border-radius: 4px;
+	background-color: #353535;
+
+	li{
+		position: relative;
+		padding:0 10px;
+		background: url("../images/iconSet.gif") no-repeat 82px -48px;
+		cursor: pointer;
+		list-style: none;
+		
+		&:hover{
+			background: #000 url(../images/iconSet.gif) no-repeat 82px -68px;
+			border-radius: 4px;
+
+			ul{
+				display: block;
+	        }
+        }
+	}
+
+	ul{
+		position: absolute;
+		display: none;
+		top: 25px;
+		right: 0px;
+		width: 130px;
+		background-color: #353535;
+		border-radius: 4px;
+		color: #fff;
+		margin: 0;
+		padding: 0;
+
+		li{
+			padding:0 10px;
+			background-image: none;
+			list-style: none;
+
+			&:hover{
+			@extend .color_Orange;
+			background-image: none;
+			background-color: #000;
+			border-radius: 4px;
+		    }
+		}
+	}
+}
+
+.headerBtn{
+	@extend .float-R;
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+
+	li{
+		@extend .float-L;
+		border-left: 1px solid #fff;
+		list-style: none;
+	}
+}
+
+.btnLive{
+	@extend %no_text;
+	width: 70px;
+	background: url(../images/iconSet.gif) no-repeat center -101px #353535;
+
+	&:hover{
+		background: url(../images/iconSet.gif) no-repeat center -146px #353535;
+	}
+}
+
+
+.btnLogout{
+	padding: 0 30px;
+	background-color: #FD8503;
+	color: #fff;
+
+	&:hover{
+		@extend .color_Orange;
+		background-color: #000;
+	}
+}
+
+/******** nav ********/
+.nav{
+	@extend .float-L;
+	width: 220px;
+	background-color: #353535;
+
+	h3{
+		@extend .color_Orange;
+		margin: 0;
+		padding: 5px 0 5px 35px;
+		font-weight: normal;
+		background: url(../images/iconSet.gif) no-repeat -6px -324px;
+		/*background: url(../images/nav-title.gif) no-repeat 16px 2px;*/
+	}
+
+	ul{
+		padding: 0;
+		margin: 0 0 20px 0;
+
+		li{
+			padding: 5px 0 5px 35px;
+			color: #fff;
+			cursor: pointer;
+
+			&:hover{
+			color: #FFCB93;
+			background-color: #272727;
+			}
+		}
+	}
+
+	.tagPage{
+		color: #FFCB93;
+		background-color: #272727;
+	}
+}
+
+.userID{
+	padding: 6px 0 4px 45px;
+	height: 35px;
+	border-bottom: 1px solid #fff;
+	background-image: url("../images/icon-id.gif");
+	background-repeat: no-repeat;
+	background-color: #FD8503;
+	margin: 0 0 10px 0;
+
+	p{
+		margin: 0 0 2px 0;
+		font-size: 13px;//12px
+		strong{
+			font-size: 16px;
+		}
+	}
+}
+.com{background-position: -2px -2px;}
+.pl{background-position: -2px -49px;}
+.ag{background-position: -2px -96px;}
+.ma{background-position: -2px -143px;}
+.sma{background-position: -2px -190px;}
+.ssma{background-position: -2px -237px;}
+.sh{background-position: -2px -289px;}
+.sub{background-position: -2px -338px;}
+
+/******** title ********/
+.title{
+	min-width: 830px;
+	background-color: #FFCB93;
+	height: 45px;
+	line-height: 45px;
+	border-bottom: 1px solid #FFF;
+
+	a{
+		@extend .float-L;
+		@extend %no_text;
+		width: 70px;
+		background: url(../images/iconSet.gif) no-repeat center -209px;
+		display: block;
+		height: 45px;
+		cursor: pointer;
+
+		&:hover{
+			background: url(../images/iconSet.gif) no-repeat center -265px;
+		}
+	}
+
+	h3{
+		@extend .float-L;
+		margin: 0;
+		font-size: 14px;
+		padding: 0;
+		color: #000;
+	}
+
+	p{
+		@extend .float-R;
+		padding: 0 30px 0 0;
+		font-size: 13px;//12px
+		line-height: 45px;
+		margin: 0;
+	}
+}
+/******** title/op ********/
+.userOp{
+	background-color: #C8C6C6;
+	h4{
+		margin: 10px 15px 10px 0;
+		border-right: 1px solid #9B9B9B;
+		border-left: 1px solid #9B9B9B;
+		padding: 0 15px 0 46px;
+		font-size: 16px;
+		line-height: 25px;
+		color: #417505;
+		background: url(../images/iconSet.gif) no-repeat left -1812px;
+		@extend .float-R;
+	}
+	span{
+		margin: 0 5px 0 0;
+	}
+}
+
+/******** main ********/
+.main{
+	padding: 20px 10px 10px 10px;
+	color: #353535;
+	min-width: 1000px;
+	min-height: 950px\9;
+}
+
+

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh_TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Cockfight</title>
+
+    <script src="../../library/jquery/jquery-3.3.1.min.js"></script>
+    <script src="../../library/jquery/jquery.marquee.min.js"></script>
+    <script src="../../library/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../library/owlcarousel/js/owl.carousel.min.js"></script>
+    <script src="../js/base.js"></script>
+
+    <link rel="stylesheet" href="../../library/bootstrap/css/bootstrap.min.css" /> <!-- bootstrap -->
+    <link rel="stylesheet" href="../../library/owlcarousel/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="../../library/icomoon/style.css" /> <!-- all icon -->
+    <link rel="stylesheet" href="../ICF-css/ICF.css" />
+</head>
+<body class="page-web page-report page-announcement">
+    <div class="main-wrap">
+        <header>
+            <div class="header-content">
+                <h1 class="tit">Announcement</h1>
+                <div class="header-btn">
+                    <a class="close" href="./ICF.html"></a>
+                    <a class="go-back" href="javascript: history.go(-1)"></a>
+                </div>
+            </div>
+        </header>
+        <div class="panel">
+            <div class="panel-tit">
+                <div class="label-group">
+                    <a href="./page-Announcement.html" class="label">All</a>
+                    <a class="label active" href="javascript:void(0);">Announcement</a>
+                    <!-- <a class="label">Maintenance</a>
+                    <a class="label">Personal</a> -->
+                </div>
+            </div>
+            <!-- Personal -->
+            <div class="ann-all">
+                <ul class="panel-list-tb">
+            		
+            			
+            			
+                    <li class="ALL MAINTENANCE anno" style="display: none;">
+                        <div class="trans-date">
+                            <span class="tit-date">08/17/2022 14:42:45</span>
+                        </div>
+                        <div class="info-group">
+                            <p>Maintain test 1</p>
+                            <span class="info">8/17 14:45~14:50
+(By A)</span>
+                        </div>
+                    </li>
+                    	
+                    
+            			
+            			
+                    <li class="ALL ANNOUNCEMENT anno" style="display: none;">
+                        <div class="trans-date">
+                            <span class="tit-date">08/17/2022 14:33:11</span>
+                        </div>
+                        <div class="info-group">
+                            <p>Annouce Test 2</p>
+                            <span class="info">8/17 14:35~14:40</span>
+                        </div>
+                    </li>
+                    	
+                    
+            			
+            			
+                    <li class="ALL ANNOUNCEMENT anno" style="display: none;">
+                        <div class="trans-date">
+                            <span class="tit-date">08/01/2022 18:52:53</span>
+                        </div>
+                        <div class="info-group">
+                            <p>1</p>
+                            <span class="info">1</span>
+                        </div>
+                    </li>
+                    	
+                    
+            			
+            			
+                    <li class="ALL ANNOUNCEMENT anno" style="display: none;">
+                        <div class="trans-date">
+                            <span class="tit-date">08/01/2022 18:15:51</span>
+                        </div>
+                        <div class="info-group">
+                            <p>Cancel fight due to video disruption</p>
+                            <span class="info">"Due to video disruption, all bets placed on Arena [CPC2] Match No.[(2)] are considered REFUNDED. Kindly double check your statement again. Sorry for the inconveniences caused!"
+</span>
+                        </div>
+                    </li>
+                    	
+                    
+                </ul>
+            </div>
+            <div class="ann-empty">
+                <div class="panel-list-tb">
+                    <span class="icon-info"></span>
+                    <h4>No Messages!</h4>
+                    <p>Your inbox is empty.<br>Please enjoy your day!</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <script>
+        $(window).ready(function() {
+            $('.label-group a').on('click', function () {
+                $('.label-group a').removeClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
+    
+</body>
+</html>

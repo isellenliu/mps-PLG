@@ -1,0 +1,2102 @@
+//共用元件
+//***************************************************//
+table{
+	width: 100%;
+	border-collapse: collapse;
+	background-color: #fff;
+	font-size: $fontSize;
+	color: $fontColor;
+	margin-bottom: 10px;
+	&:last-child{
+		margin-bottom: 0;
+	}
+	text-align: right;
+	
+	.drop,.dropStatus{
+		width: 100px;
+		margin: 0 auto;
+		a{width: 100px;}
+	}
+
+	input, .select, .info{
+		width: 90%;
+		height: 26px;
+		margin: 4px auto;
+		line-height: 26px;
+	}
+
+	.textLevelSec{margin-right: 2px;}
+	
+}
+
+thead{
+    background-image: linear-gradient(-180deg, #FEFEFE 0%, #EAEAEA 100%);
+
+	th{
+		&:first-child{border-left: none;}
+		&:last-child{border-right: none;}
+		border-right: 1px solid #bebebe;
+		border-bottom: 1px solid $lineGray;
+		border-top: 1px solid $lineGray;
+		text-align: center;
+	}
+	//註解此段是因為ICF的表格調整,若有影響再解開
+	// tr{
+	// 	th:only-child{
+	// 		border-top: 0;
+	// 		border-right: 1px solid $lineGray;
+	// 	}
+	// }
+}
+
+tbody tr{&:hover{background-color: $colorBG-3;}}
+
+tr{@extend.borderDotted-B;}
+
+th,td{padding: 3px 8px;}
+
+th{
+	box-sizing: border-box;
+	height: 30px;
+	font-weight: normal;
+	color: $colorSec;
+}
+
+td{
+	position: relative;
+	box-sizing: border-box;
+	height: 26px;
+}
+
+.tableScroll{
+	border-collapse: separate;
+	border-spacing: 0;
+	th{
+		position: sticky;
+		z-index: 501;
+		background-image:linear-gradient(-180deg, #FEFEFE 0%, #EAEAEA 100%);
+	}
+    td{
+        border-bottom: 1px solid rgba(196, 196, 196, 0.534);
+		&.lt{
+			text-align: left;
+		}
+    }
+}
+
+//tableRow2:tr雙數為實線。tr單數第一個td，border-bottom為實線
+.tableRow2{
+	tbody{
+		tr:nth-child(even){
+			td{border-bottom: 1px solid #979797;}
+		}
+	}
+}
+
+//tableReport
+.tableReport{
+	th,td{
+		padding: 0 4px;
+		font-size: $fontSize-S;
+	}
+}
+
+//tableAuto:欄位寬度由colgroup控制
+.tableAuto{width: auto;}
+
+//** trTable **//
+//tr下底線為實線
+.tableTrSolid{
+	tbody{
+		tr{border-bottom: 1px solid #979797;}
+		.trExtend{@extend .trExtend;}
+	}
+
+	.trTotal{@extend .trTotal;}
+}
+//tr下底線為虛線
+.tableTrDotted{
+	border-top: 1px solid #979797;
+	tbody tr{
+		border-bottom: 1px dotted #979797;;		
+	}
+	.trTitle{@extend .trTitle;}
+	.trTotal{@extend .trTotal;}
+}
+
+//tdTable
+//td虛線
+.tableTdDotted{
+	td{
+		border-right: 1px dotted $lineGray;
+		&:first-child{border-left: none;}
+		&:last-child{border-right: none;}
+	}
+
+	.trTitle td,.trTotal td{border:none;}
+	.borderSolid-R{border-right: 1px solid $lineGray;}
+	.borderSolid-L{border-left: 1px solid $lineGray;}
+}
+
+
+//** tr **//
+//tr
+.trSelect{
+	background-color: $colorBG-1;
+	&:hover{background-color: $colorBG-1;}
+	.tb-card{
+		border-color: #fec4a0;
+	}
+}
+//行數辨識
+.trBgEven{
+	background-color: #fafafa;
+	&:hover{background-color: #fafafa;}
+}
+//reportHistoryWeather
+.trBg-1{background-color: #F7F7F7;}
+
+//DeleteLine
+.trDeleteLine{
+	background-color: darken($colorBG-2,10%);
+	color: #666;
+	&:hover{background-color:darken($colorBG-2,10%);}
+
+	td{
+ 		background-repeat: repeat-x;
+ 		background-position: center center;
+ 		background-image: url(../images/report-web/deleteLine.png);
+ 	}
+
+	ul .id{color: #666;}
+}
+
+//
+.trTitle{
+	background-color: $colorBG-1;
+	box-shadow: 0 3px 3px 0 rgba(0,0,0,0.30);
+	font-weight: bold;
+	color: $colorSec;
+	border-bottom: 1px solid #979797;
+	border-top: 1px solid $lineGray;
+	&:hover{background-color: $colorBG-1;}
+}
+.trSubTotal{
+	background-color: $colorBG-2;
+	font-weight: bold;
+	border-bottom: 1px solid #979797;
+	border-top: 1px solid $lineGray;
+}
+.trTotal{
+	height: 40px;
+	border-bottom: 1px solid $colorMain;
+	background-color: $colorBG-2;
+	box-shadow: inset 0 3px 4px 0 rgba(0,0,0,0.20);
+	font-weight: bold;
+	line-height: 40px;
+	color: #111;
+	&:hover{background-color: $colorBG-2;}
+}
+
+//trExtend:tr延伸
+.trExtend{
+	td{padding: 0;}
+	&:hover{background-color: #fff;}
+	border:none;
+}
+
+//th排序
+.thSortingTop,
+.thSorting{
+	position: relative;
+	&:after{
+		font-family: 'icomoon' !important;
+		content: "\e9df";
+		position: absolute;
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
+		cursor: pointer;
+		color: #853900;
+		line-height: 30px;
+		width: 20px;
+		z-index: 100;
+		font-size: 15px;
+	}
+}
+.thSortingTop{
+	&:after{
+		content: "\e90a";
+		
+	}
+}
+
+//td為了上下合併圖層，滑過不要有變化
+.tdRowspanBG{
+	position: static;
+	background-color: #fff;
+	border-bottom: 1px solid #979797;
+}
+
+.tdNoWrap{
+	white-space: nowrap;
+	align-items: center;
+	display: flex;
+	span{
+		text-align: left;
+	}
+}
+
+//td合併儲存格
+.rowspanBorder{
+	font-style: italic;
+	font-size: $fontSize-M;
+	text-align: center;
+	border-bottom: 1px solid #979797;
+	border-right: 1px solid $lineGray;
+}
+
+//***************************************************//
+//h3
+.h3Tab{
+	width: 170px;
+	box-sizing: border-box;
+	padding-left: 10px;
+	font-weight: normal;
+	font-size: $fontSize;
+	line-height: 28px;
+	// @include main-sprite(bgTitle);
+	.ulInfo.icon-only{
+		padding: 0 !important;
+		.popupInText{
+			padding: 5px !important;
+		}
+	}
+}
+
+//h3Text:popup
+.h3Text{font-size: $fontSize-M;}
+
+//***************************************************//
+.scroll{
+	position: relative;
+	overflow: auto;
+}
+
+.scrollBar-Y{
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 10;
+	width: 8px;
+	border: 1px solid lighten($lineGray,10%);
+	border-top: none;
+	padding: 1px;
+	background-color: #fff;
+
+	span{
+		min-height: 80px;
+		width: 8px;
+		background: #ddd url(../images/scroll-Y.png) no-repeat center center;
+		display: block;
+		@extend %no_text;
+	}
+}
+.scrollBar-X{
+	position: absolute;
+	bottom: -20px;
+	left: 0;
+	z-index: 10;
+	height: 8px;
+	width: calc(100% - 4px);
+	border: 1px solid lighten($lineGray,10%);
+	padding: 1px;
+	background-color: #fff;
+
+	span{
+		height: 8px;
+		min-width: 180px;
+		background: #ddd url(../images/scroll-X.png) no-repeat center center;
+		display: inline-block;
+		@extend %no_text;
+	}
+}
+
+//***************************************************//
+//整合btn,input,日期,搜尋列皆可
+.ulBox{
+	li{
+		position: relative;
+		margin: 0 4px 0 0;
+		&.drop{
+			li{ margin: 0;}
+		}
+		.btnAMain{margin: 0 8px;}
+		.form-select{
+			min-width: 120px;
+		}
+	}
+	@extend %ulBox;
+
+	.textRadio{margin-right: 5px;}	
+
+	.drop a,input{width: 150px;}
+	input.w-200px{width: 200px;}
+
+	.ulTab{
+		margin-left: 12 - 4px;
+		li{margin: 0;}
+	}
+
+	.btnRefreshText{
+		margin-left: 12 - 4px;
+	}
+
+	.inputDate,.inputTime{width: 110px;}
+
+	& + .ulBox-odd{
+		margin-left: 5px;
+	}
+}
+
+.ulBox-odd{
+	li{margin-right: 2px}
+	// li:nth-child(odd){margin-left: 5px}
+	li:first-child{margin-left: 0;}
+	@extend %ulBox;
+
+	.btnASec{
+		min-width: 100px;
+		padding: 0;
+		font-size: $fontSize;
+	}
+}
+
+//層級
+.ulLevel{
+	flex: none;
+	display: block;
+	li{
+		padding-right: 24px;
+		position: relative;
+		display: inline-block;
+		margin-bottom: 10px;
+		background: none;
+		&::after{
+			font-family: 'icomoon' !important;
+			content: '\e904';
+			position: absolute;
+			right: 5px;
+			top: 12px;
+			color: #b4b4b4;
+		}
+		&:last-child::after{
+			content: '';
+		}
+	}
+	a{
+		padding: 16px 5px 3px 5px;
+		position: relative;
+		min-width: 40px;
+		border-radius: 5px;
+		height: auto;
+		line-height: normal;
+		border: 1px solid #f1f1f1;
+		background-color: #f1f1f1;
+		color: $fontColor;
+		display: flex;
+		&:hover{
+			color: $colorSec;
+			border-color: #ffcca6;
+			background-color: #ffeee1;
+			.textLevel{
+				background-color: $colorSec; 
+			}
+		}
+		.textLevel{
+			position: absolute;
+			left: -1px;
+			top: -1px;
+			font-size: 11px;
+			font-weight: normal;
+			border-radius: 5px 0 5px 0;
+			background-color: #848484;
+		}
+		&.now{
+			box-shadow: none;
+			border: 1px solid #ffcca6;
+			background-color: #ffeee1;
+			color: $colorSec;
+			.textLevel{
+				background-color: $colorSec; 
+			}
+		}
+	}
+	&.borderDottedMP{
+		border: none;
+		padding-bottom: 0;
+		margin-bottom: 10px;
+	}
+}
+//頁籤
+.ulSelect{
+	position: relative;
+	height: 30px;
+	display: flex;
+	padding: 6px 15px 1px 15px;
+	border-radius: 5px 5px 0 0;
+	background-color: #f1f1f1;
+	overflow: hidden;
+	li{
+		background: #fff;
+		margin-right: 5px;
+		border-radius: 5px 5px 0 0;
+		a{
+			min-width: 90px;
+			width: auto !important;
+			background-image: none !important;
+			color: $colorSec;
+			display: block;
+			line-height: 30px;
+			border-radius: 5px 5px 0 0;
+			padding: 0 20px !important;
+			background: #ffd5bd;
+			text-align: center;
+			border: 1px solid #fff;
+			border-bottom: 0;
+			transition: all .2s ease-in-out;
+			&:hover{
+				color: #fff;
+				background: #FF6E00;
+				border-color: #ff801e;
+			}
+			&.now,
+			&.now:hover{
+				position: relative;
+				border-color: #fff;
+				background-color: #fff;
+				color: rgb(93, 93, 93);
+				font-weight: bold;
+				cursor: default;
+				box-shadow: 0 1px 3px rgb(144, 144, 144);
+			}
+		}
+	}
+}
+.ulAnchor{
+	position: sticky;
+    top: 50px;
+    left: 0;
+    z-index: 500;
+	width: auto;
+	margin-bottom: 10px;
+	border-top: 10px solid #F1F1F1;
+	background-color: #fff;
+	box-shadow: 0 1px 0  $colorMain;
+	@extend %Hori_list-F;
+
+	li{
+		margin-right: 20px;
+		&:last-child{margin: 0;}
+	}
+
+	a{
+		min-width: 98px;
+		height: 32 - 2px;
+		padding: 0 16px;
+		border-bottom: 2px solid #fff;
+		line-height: 32px;
+		color: $fontColor;
+		text-align: center;
+		display: block;
+		&:hover{
+			border-color: $colorMain;
+			color: $colorMain;
+		}
+
+		&.now{
+			border-radius: 3px 3px 0 0;
+			border-color: $colorMain;
+			background-color: $colorMain;
+			color: #fff;
+		}
+	}
+}
+
+//二選一切換
+.ulTab{
+	line-height: 20px;
+	@extend %Hori_list-F;
+
+	a{
+		min-width: 80px;
+		box-sizing: border-box;
+		padding: 0 10px;
+		background-color: #fff;
+		color: $fontColor;
+		border: 1px solid $lineGray;
+		@extend .borderNone-R;
+		display: block;
+		text-align: center;
+		&:hover{box-shadow: inset 0 2px 2px 0 rgba(0,0,0,0.30);}
+	}
+
+	li:first-child a{border-radius: 99em 0 0 99em;}
+	li:last-child a{
+		border: 1px solid $lineGray;
+		border-radius: 0 99em 99em 0;
+	}
+
+	.now{
+		background-color: #888;
+		box-shadow: inset 0 2px 2px 0 rgba(0,0,0,0.30);
+		color: #fff;
+		&:hover{
+			background: #888;
+			color: #fff;
+		}
+	}
+}
+
+.ulTab-1{
+	height: 30px;
+	border-radius: 99em;
+	background: #666;
+	box-shadow: inset 0 3px 3px 0 rgba(0,0,0,0.30);
+	line-height: 30px;
+	@extend %Hori_list-F;
+
+	a{
+		width: 90px;
+		border-radius: 99em;
+		color: #fff;
+		text-align: center;
+		display: block;
+
+		&:hover{
+			text-decoration: underline;
+		}
+
+		&.now{
+			background: $colorMain;
+			box-shadow: inset 0 -2px 0 0 #863C03;
+		}
+	}
+}
+
+//
+.ulInfo{
+	@extend %Hori_list-F;
+
+	li,.ulInfo-btntag{
+		min-width: 110px;
+		height: 22px;
+		box-sizing: border-box;
+		margin-right: 5px;
+		border-radius: 4px;
+		padding: 0 10px;
+		background-color: #EAEAEA;
+		line-height: 22px;
+		font-size: 13px;
+		text-align: center;
+		&.no-style{
+			background: none;
+			padding: 0;
+		}
+		.popupInText{
+			display: none;
+		}
+		
+	}
+	.ulInfo-btntag{
+		color: #c80000;
+		display: inline-block;
+		line-height: 22px; 
+		position: relative;
+		margin-right: 0;
+		.tag-i{
+			display: inline-block;
+			width: 17px;
+			height: 17px;
+			background: $colorMain;
+			line-height: 17px;
+			text-align: center;
+			font-weight: 500;
+			color: $colorWhite;
+			border-radius: 40px;
+		}
+		&:hover{
+			.popupInText{
+				display: inline-block;
+				padding: 8px;
+				z-index: 1000;
+				&::after{
+					left: calc(50% - 60px);
+					width: 120px;
+				}
+				&.right{
+					.popupInText-body{
+						padding: 0;
+					}
+				}
+				.popupInText-body{
+					min-width: 200px;
+					max-height: 300px;
+					overflow-y: auto;
+					overflow-x: hidden;
+					padding-right: 10px;
+					p{
+						font-family: Arial, Helvetica, sans-serif;
+						&.tit{
+							font-weight: bold;
+							text-align: center;
+							background: none;
+						}
+						text-align: left;
+						line-height: 24px !important;
+						padding: 0 5px;
+						width: 100%;
+						span{
+							float: right;
+						}
+						&:nth-child(even){
+							background: $colorWhite;
+						}
+					}
+					.txt.lt{
+						font-family: Arial;
+						text-align: left;
+						color: #333;
+						margin-bottom: 15px;
+						.tit{
+							font-weight: bold;
+						}
+						&:last-child{
+							margin-bottom: 5px;
+						}
+					}
+				}
+				//下方往右
+				&.top-start {
+					left: 0%;
+					transform: translateX(-22px);
+					&::after{
+						left: calc(0% - 30px);
+					}
+				}	
+				//下方往左
+				&.top-end {
+					left: auto;
+					right: 0%;
+					transform: translateX(22px);
+					&::after{
+						left: auto;
+						right: calc(0% - 30px);
+					}
+				}	
+				//往右
+				&.right {
+					max-width: 300px;
+					transform: translate(22px, -34px);
+					&::after{
+						transform: rotate(-90deg);
+						top: 11px;
+						left: -62px;
+					}
+				}
+				&.msg-SMS {
+					width: 500px;
+					color: #333;
+					background: #fff;
+					ul{
+						li{
+							height: auto;
+							background-color: initial;
+						}
+					}
+				}			
+			}
+		}
+	}
+	&.icon-only{
+		display: inline-block;
+		min-width: auto;
+		background: $colorMain;
+		border-radius: 40px;
+		line-height: normal;
+		.ulInfo-btntag{
+			min-width: auto;
+			padding: 0;
+			background: none;
+			height: auto;
+			line-height: normal;
+			margin: 0;
+			p{
+				width: auto;
+			}
+		}
+		.w-nowrap{
+			min-width: auto !important;
+			max-width: auto !important;
+			white-space:nowrap;
+			padding: 0;
+			p{
+				text-align: center !important;
+				padding: 0 5px;
+				&.lt{
+					text-align: left !important;
+				}
+			}
+		}
+	}
+}
+.div-tb,
+.checkboxList{
+	.inputCheckbox{
+		.ulInfo.icon-only{
+			margin: 0 3px;
+		}
+	}
+}
+//***************************************************//
+.drop{
+	& > a{
+		width: 200px;
+		height: 30px;
+		box-sizing: border-box;
+		border-radius: 4px;
+		padding: 0 20px 0 10px;
+		background-color: #fff;
+		font-weight: normal;
+		line-height: 30px;
+		color: $fontColor;
+		text-align: left;
+		border: 1px solid $lineGray;
+		background-image: svg-arror-btm($colorMain);
+		background-repeat: no-repeat;
+		background-position: right center;
+		background-size: 28px;
+		&:hover{
+			border-color: $colorMain;
+			color: $colorMain;
+		}
+		&:active{color: $colorMain;}
+		&.now{color: $colorMain;}
+	}
+	& > ul{
+		border-radius: 6px;
+		min-width: 200px;
+		padding: 5px;
+		width: 200px;
+		max-height: 305px;
+		background: #fff;
+		box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.2);
+		li{
+			margin: 0;
+			padding: 3px 0;
+			display: block;
+			background: #fff;
+			border-bottom: 1px solid #ededed;
+			&:first-child{
+				padding-top: 0;
+			}
+			&:last-child{
+				border: none;
+				padding-bottom: 0;
+			}
+			a{
+				line-height: 26px;
+				padding: 3px 3px 3px 10px;
+				cursor: pointer;
+				display: block;
+				border-radius: 3px;
+				color: #333;
+				min-width: auto;
+				width: 185px !important;
+				border: 1px solid #fff;
+				border-radius: 5px;
+				&:hover{
+					border: 1px solid $colorMain;
+				}
+			}
+		}
+		
+	}
+	@extend %dropdown;
+
+	.scroll{height: 300px;}
+	.scrollBar-Y{height: 297px;}
+}
+
+//width:50px
+.select-S{
+	appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	overflow: hidden;
+	box-sizing: border-box;
+	width: 50px;
+	height: 30px;
+	padding: 0 8px;
+	border-radius: 4px;
+	background-color: #fff;
+	font-size: 14px;
+	color: $fontColor;
+	//以下為select箭頭樣式
+	background-image: svg-arror-btm($colorMain);
+	background-repeat: no-repeat;
+	background-position: right center;
+	background-size: 20px;
+	border: 1px solid $lineGray;
+	// @include main-sprite(icArrowDrop, false, 100%);
+	&:hover{
+		border: 1px solid $colorMain;
+		option{
+			color: $colorMain;
+		}
+	}
+	&.now{
+		border: 1px solid $colorMain;
+		color: $colorMain;
+	}
+	option{
+		color: $colorMain;
+	}
+	&:focus{
+		outline: none;
+	}
+}
+
+//width:auto
+.select{
+	width: auto;
+	padding: 0 30px 0 8px;
+	@extend .select-S;
+}
+
+//***************************************************//
+//input
+//H=30px(基準大小,不特別寫尺寸)
+input,.inputC{
+	height: 30px;
+	box-sizing: border-box;
+	border-radius: 4px;
+	padding: 0 6px;
+	background-color: #fff;
+	font-size: $fontSize;
+	line-height: 30px;
+	color: $colorMain;
+	text-align: center;
+	border: 1px solid $lineGray;
+	&:hover{border: 1px solid $colorMain;}
+	&[disabled]{
+		color: #3B3B3B;
+		border: none !important;
+		background-color: $color-disabled;
+		box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+		
+	}
+}
+.inputL{text-align: left;}
+.inputR{text-align: right;}
+
+//H=40px(Size:L)
+.inputC-L{
+	height: 40px;
+	font-size: $fontSize-M;
+	line-height: 38px;
+	text-align: center;
+}
+.inputL-L{
+	height: 40px;
+	line-height: 38px;
+	text-align: left;
+}
+
+//
+.inputDate{
+	background: url(../images/report-web/main/icDate.png) no-repeat left center;
+	background-size: 26px;
+	width: 110px;
+	padding: 0 0 0 20px;
+	color: #666;
+	&:hover{
+		background: url(../images/report-web/main/icDate-hover.png) no-repeat left center;
+		background-size: 26px;
+	}
+}
+
+.inputTime{
+	background: url(../images/report-web/main/icTime.png) no-repeat left center;
+	background-size: 30px;
+
+	width: 110px;
+	padding: 0 0 0 20px;
+	line-height: 30px;
+	// @include main-sprite(icTime);
+}
+
+//加金額(+)
+.inputAdd{
+	width: 120px;
+	padding-left: 24px;
+	// @include main-sprite(icAdd);
+	text-align: right;
+}
+//扣金額(-)
+.inputSub{
+	@extend .inputAdd;
+	// @include main-sprite(icSub);
+}
+
+//inputCheckbox(拿除所有的a換成inputCheckbox)
+.inputCheckbox{
+	input[type="checkbox"]{
+ 		display:none;
+	}
+
+	input[type="checkbox"] + span{
+		height: 22px;
+		line-height: 22px;
+		cursor: pointer;
+		align-items: center;
+	display: flex;
+
+		&:before{
+			content: " ";
+			width: 14px;
+			height: 14px;
+			margin-right: 3px;
+			background-image: svg-icCheckbox($colorGray);
+			background-repeat: no-repeat;
+			background-color: #ffffff;
+			border-radius: 3px;
+		}
+
+		&:hover{
+			color: $colorMain;
+
+			&:before{
+				background-image: svg-icCheckbox($colorMain);
+			}
+		}
+	}
+
+	input[type="checkbox"]:checked + span{
+		color: $colorMain;
+		&:before{
+			background-image: svg-icCheckbox-now($colorMain);
+		}
+	}
+	// disabled
+	input[type="checkbox"]:disabled + span{
+		color: #c6c7c7;
+		&:before{
+			background-image: svg-icCheckbox(#c6c7c7);
+		}
+	}
+	input[type="checkbox"]:checked:disabled + span{
+		color: #c6c7c7;
+		&:before{
+			background-image: svg-icCheckbox-now(#c6c7c7);
+		}
+	}
+	// readonly
+	input[type="checkbox"]:checked[readonly] + span{
+		pointer-events: none;
+		color: #8d8d8d;
+		&:before{
+			background-image: svg-icCheckbox-now(#8d8d8d);
+		}
+	}
+
+}
+//使用於全選
+.inputCheckbox-circle{
+	@extend .inputCheckbox;
+
+	input[type="checkbox"] + span{
+		&:before{
+			border-radius: 99em;
+			background-image: svg-icCheckboxCircle($colorGray);
+		}
+		&:hover{
+			&:before{
+				background-image: svg-icCheckboxCircle($colorMain);
+			}
+		}
+	
+	}
+
+	input[type="checkbox"]:checked + span{
+		&:before{
+			background-image: svg-icCheckboxCircle-now($colorMain);
+		}
+	}
+	// disabled
+	input[type="checkbox"]:disabled + span,
+	input[type="checkbox"]:checked:disabled + span{
+		color: #c6c7c7;
+		&:before{
+			background-image: svg-icCheckboxCircle-now(#c6c7c7);
+		}
+	}
+
+}
+
+.inputRadio{
+	input[type="radio"]{
+ 		display:none;
+	}
+
+	input[type="radio"] + span{
+		height: 22px;
+		line-height: 22px;
+		cursor: pointer;
+		align-items: center;
+	display: flex;
+		
+		//change Banker & Player color
+		strong{
+			&:first-child{margin-right: 4px; }
+			&:last-child{margin-left: 4px;}
+		}
+
+		&:before{
+			content: " ";
+			width: 14px;
+			height: 14px;
+			margin-right: 3px;
+			border-radius: 99em;
+			background-image: svg-icRadio($colorGray);
+			background-repeat: no-repeat;
+			background-color: #ffffff;
+		}
+
+		&:hover{
+			color: $colorMain;
+
+			&:before{
+				background-image: svg-icRadio($colorMain);
+			}
+		}
+	}
+
+	input[type="radio"]:checked + span{
+		color: $colorMain;
+		&:before{
+			background-image: svg-icRadio-now($colorMain);
+		}
+	}
+	// disabled
+	input[type="checkbox"]:disabled + span{
+		background-image: none;
+	}
+	input[type="checkbox"]:checked:disabled + span{
+		color: #c6c7c7;
+	}
+
+}
+
+
+//***************************************************//
+//資訊區塊(只顯示不修改)
+//沒下寬度
+.info{
+	height: 30px;
+	box-sizing: border-box;
+	border-radius: 4px;
+	padding: 0 10px;
+	background-color: #EAEAEA;
+	box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.20);
+	line-height: 30px;
+	text-align: center;
+}
+.infoNone{
+	@extend .info;
+	@extend %no_text;
+}
+
+//對應btnC-S
+.infoC-S{
+	min-width: 90px;
+	box-sizing: border-box;
+	padding: 0 10px;
+	border-radius: 99em;
+	background-color: #EAEAEA;
+	box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.20);
+	line-height: 22px;
+	display: inline-block;
+	text-align: center;
+}
+
+
+//***************************************************//
+.btnRefresh{
+	width: 28px;
+	height: 32px;
+	background-color: #fff;
+	@extend %no_text;
+	@extend %btnSetAfter;
+
+	&:after{
+		width: 22px;
+		height: 16px;
+		background-image: svg-btnRefresh('rgb(136,136,136)');
+	}
+
+	&:hover{
+		&:after{background-image: svg-btnRefresh('rgb(133,58,0)');}
+	}
+}
+.btnRefreshText{
+	position: relative;
+	height: 20px;
+	border: 1px solid $colorMain;
+	border-radius: 99em;
+	padding: 0 10px 0 25px;
+	background-color: #fff;
+	line-height: 20px;
+	color: $colorMain;
+	display: inline-block;
+	&:hover{
+		background-image: linear-gradient(-270deg, #FFA700 0%, #FF6E00 100%);
+		color: #fff;
+	}
+
+	strong{
+		margin-left: 3px;
+		font-style: italic;
+	}
+
+	.icRefresh{
+		position: absolute;
+		top: -1px;
+		left: -2px;
+	}
+}
+.btnReplay{
+	width: 20px;
+	height: 20px;
+	background: url(../images/report-web/main/btnReplay.png) no-repeat center center;
+	background-size: 100%;
+	// @include main-sprite(btnReplay,true);
+	@extend %no_text;
+	display: block;
+	&:hover{
+		background: url(../images/report-web/main/btnReplay-hover.png) no-repeat center center;
+		background-size: 100%;
+	}	
+}
+
+//
+.btnDownload{
+	width: 34px;
+	height: 34px;
+	@extend %no_text;
+	@extend %btnSetAfter;
+
+	&:after{
+		width: 20px;
+		height: 20px;
+		background-image: svg-btnDownload($colorSec);
+	}
+
+	&:hover{
+		&:after{background-image: svg-btnDownload(darken($colorSec,10%));}
+	}	
+}
+
+//
+// .btnLock{
+// 	@include main-sprite(btnLock,true);
+// 	@extend %no_text;
+// 	display: block;
+// }
+.btnView{
+	width: 25px;
+	height: 25px;
+	background: url(../images/report-web/main/btnView.png) no-repeat center center;
+	background-size: 100%;
+	// @include main-sprite(btnView,true);
+	@extend %no_text;
+	display: block;
+	&:hover{
+		background: url(../images/report-web/main/btnView-hover.png) no-repeat center center;
+		background-size: 100%;
+	}
+}
+// .btnEdit{
+// 	@include main-sprite(btnEdit,true);
+// 	@extend %no_text;
+// 	display: block;
+// }
+// .btnDelete{
+// 	@include main-sprite(btnDelete,true);
+// 	@extend %no_text;
+// 	display: block;
+// }
+
+//
+// .btnStatusOpen{
+// 	height: auto;
+// 	min-width: 65px;
+// 	box-sizing: border-box;
+// 	padding: 4px 6px;
+// 	border-radius: 99em;
+// 	font-weight: normal;
+// 	line-height: normal;
+// 	font-size: 13px;
+// 	color: #fff;
+// 	text-align: center;
+// 	display: inline-block;
+// 	@extend %btnSD-U;
+// 	@extend %btnOpenColor;
+// }
+// .btnStatusSuspend{
+// 	@extend .btnStatusOpen;
+// 	@extend %btnSuspendColor;
+// }
+// .btnStatusLocked{
+// 	@extend .btnStatusOpen;
+// 	@extend %btnLockedColor;
+// }
+// .btnStatusClose{
+// 	@extend .btnStatusOpen;
+// 	@extend %btnCloseColor;
+// }
+
+//
+.btnSubmit{
+	width: 30px;
+	height: 30px;
+	border-radius: 4px;
+	background: #FF6E00 url(../images/report-web/main/btnSubmit.png) no-repeat center center;
+	background-size: 100%;
+	// @include main-sprite(btnSubmit);
+	@extend %no_text;
+	display: block;
+	@extend %btnMainColor;
+	@extend %btnSD-T;
+	
+}
+// .btnCancel{
+// 	@include main-sprite(btnCancel);
+// 	@extend %btnCancelColor;
+// 	@extend .btnSubmit;
+// }
+// .btnRefreshSec{
+// 	@include main-sprite(btnRefreshSec);
+// 	@extend %btnSecColor;
+// 	@extend .btnSubmit;
+// }
+.btnX{
+	// @include main-sprite(btnX,true);
+	width: 30px;
+	height: 30px;
+	background: url(../images/report-web/main/btnX.png) no-repeat center center;
+	background-size: 30px;
+	@extend %no_text;
+	display: block;
+	&:hover{
+		background: url(../images/report-web/main/btnX-hover.png) no-repeat center center;
+		background-size: 30px;
+	}
+}
+
+// //weatherTable
+// .btnCloseGray{
+// 	@include main-sprite(btnCloseGray,true);
+// 	@extend .btnClose;
+// }
+// .btnOpenGray{
+// 	@include main-sprite(btnOpenGray,true);
+// 	@extend .btnClose;
+// }
+
+// //圓形的關掉
+.btnXCircle{
+	width: 25px;
+	height: 25px;
+	background: #777 url(../images/report-web/main/btnXCircle.png) no-repeat center center;
+	background-size: 100%;
+	border-radius: 99rem;
+	// @include main-sprite(btnXCircle ,true);
+	@extend %btnCancelColor;
+	@extend %btnSD-T;
+	@extend %no_text;
+	display: block;
+}
+
+.btnMore{
+	width: 24px;
+	height: 12px;
+	border: 1px solid $lineGray;
+	border-radius: 99rem;
+	background-color: $colorWhite;
+	@extend %btnSetAfter;
+	@extend %btnSD-U-blur;
+	@extend %no_text;
+
+	&:after{
+		width: 16px;
+		height: 4px;
+		background-image: svg-btnMore($colorSec);
+	}
+
+	&:hover{
+		border-color: $colorMain;
+		box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.30);
+		&:after{
+			background-image: svg-btnMore($colorMain);
+		}
+	}
+}
+
+.btnTop{
+	position: fixed;
+	right: 20px;
+	bottom: 10px;
+	z-index: 999;
+	width: 40px;
+	height: 40px;
+	background: url(../images/report-web/main/btnTop.png) no-repeat center center;
+	background-size: 100%;
+	// @include main-sprite(btnTop,true);
+	@extend %no_text;
+	display: inline-block;
+	&:hover{
+		background: url(../images/report-web/main/btnTop-hover.png) no-repeat center center;
+		background-size: 100%;
+	}
+}
+
+.btnInfoPop{
+	width: 14px;
+	height: 14px;
+	margin: 0 5px;
+	background-image: url('data:image/svg+xml,<svg width="14" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M6 9h1.7v1.6H6V9zm0-6h1.7v4.8H6V3zm.993-3A6.997 6.997 0 0 0 0 7c0 3.864 3.129 7 6.993 7A7.004 7.004 0 0 0 14 7c0-3.864-3.136-7-7.007-7zM7 12.6A5.598 5.598 0 0 1 1.4 7c0-3.094 2.506-5.6 5.6-5.6s5.6 2.506 5.6 5.6-2.506 5.6-5.6 5.6z" fill="%23494949" fill-rule="evenodd"/></svg>');
+	@extend %no_text;
+	display: block;
+}
+
+.btnInbox{
+	position: relative;
+	width: 35px;
+	height: 35px;
+	border-radius: 99rem;
+	background-color: #F1F1F1;
+	@extend %btnSetAfter;
+
+	&:hover{
+		background-color: #ffffff;
+		box-shadow: inset 0 2px 1px 0 rgba(0,0,0, .4);
+	}
+	&:after{
+		width: 20px;
+		height: 15px;
+		background-image: svg-btnInbox($colorSec);
+	}
+
+	span {
+		position: absolute;
+		top: -5px;
+		right: -10px;
+		display: block;
+		width: 18px;
+		height: 18px;
+		padding: 0px 4px;
+		border-radius: 99em;
+		background-color: #c0110e;
+		color: #fff;
+		line-height: 18px;
+		font-size: 11px;
+		text-align: center;
+		box-shadow: 1px 1px 2px rgba(0, 0, 0, .5); 
+	}
+}
+
+//***************************************************//
+//btnText
+//樣式A:方角
+//H=30px(基準大小,不特別寫尺寸)
+.btnAMain{
+	height: 30px;
+	min-width: 130px;
+	box-sizing: border-box;
+	padding: 0 12px;
+	border-radius: 4px;
+	font-size: $fontSize-M;
+	line-height: 30px;
+	color: #fff;
+
+	@extend %btnMainColor;
+	@extend %btnSD-T;
+	text-align: center;
+	display: block;
+}
+.btnASec{
+	@extend %btnSecColor;
+	@extend .btnAMain;
+}
+.btnACancel{
+	@extend %btnCancelColor;
+	@extend .btnAMain;
+}
+
+//H=40px(Size:L)
+.btnAMain-L{
+	height: 40px;
+	font-size: $fontSize-L;
+	line-height: 40px;
+	@extend .btnAMain;
+}
+.btnASec-L{
+	height: 40px;
+	line-height: 40px;
+	@extend .btnASec;
+}
+.btnACancel-L{
+	height: 40px;
+	line-height: 40px;
+	@extend .btnACancel;
+}
+//H=22px;
+.btnAMain-S{
+	height: 22px;
+	font-size: $fontSize-S;
+	line-height: 22px;
+	@extend .btnAMain;
+}
+.btnASec-S{
+	height: 22px;
+	font-size: $fontSize-S;
+	line-height: 22px;
+	@extend .btnASec;
+}
+
+.btnACancel-S{
+	height: 22px;
+	font-size: $fontSize-S;
+	line-height: 22px;
+	@extend .btnACancel;
+}
+
+//樣式B:圓角
+//H=30px(基準大小,不特別寫尺寸)
+.btnBMain{
+	height: 30px;
+	padding: 0 12px;
+	border-radius: 99em;
+	line-height: 29px;
+	color: #fff;
+	text-align: center;
+	@extend %btnMainColor;
+	@extend %btnSD-T;
+	display: inline-block;
+}
+.btnBSec{
+	@extend %btnSecColor;
+	@extend .btnBMain;
+}
+.btnBCancel{
+	@extend %btnCancelColor;
+	@extend .btnBMain;
+}
+//H=22px(Size:S)
+.btnBMain-S{
+	height: 22px;
+	padding: 0 10px;
+	border-radius: 99em;
+	font-size: $fontSize-S;
+	line-height: 22px;
+	color: #fff;
+	text-align: center;
+	@extend %btnMainColor;
+	@extend %btnSD-T;
+	display: inline-block;
+}
+.btnBSec-S{
+	@extend %btnSecColor;
+	@extend .btnBMain-S;
+}
+.btnBCancel-S{
+	@extend %btnCancelColor;
+	@extend .btnBMain-S;
+}
+
+//樣式C:線框
+//H=22px(Size:S)
+//<a class="btnCMain-S" href="#">Expend All</a>
+.btnCMain-S{
+	min-width: 90px;
+	box-sizing: border-box;
+	padding: 0 10px;
+	border-radius: 99em;
+	border: 1px solid $colorMain;
+	background-color: #fff;
+	color: $colorMain;
+	line-height: 20px;
+	display: inline-block;
+	text-align: center;
+	&:hover{
+		color: #fff;
+		background: $colorMain;
+	}
+}
+.btnCSec-S{
+	border: 1px solid $colorSec;
+	color: $colorSec;
+	@extend .btnCMain-S;
+	&:hover{
+		background: $colorSec;
+	}
+}
+
+//樣式D:圓角
+//Show Grand Total & Close Grand Total
+.btnDMain{
+	width: 180px;
+	height: 26px;
+	background-image: svg-btnDMain('%23ff6e00');
+	background-repeat: no-repeat;
+	line-height: 26px;
+	color: #fff;
+	&:hover{background-image: svg-btnDMain('%23e66300');}
+	text-align: center;
+	display: block;
+}
+.btnDCancel{
+	background-image: svg-btnDMain('%23777777');
+	&:hover{background-image: svg-btnDMain('%235e5e5e');}
+	@extend .btnDMain;
+}
+
+.btnStateMain-Red{
+	min-width: 90px;
+	box-sizing: border-box;
+	padding-left: 10px;
+	border-radius: 99em;
+	border: 1px solid $colorMain;
+	background-color: #fff;
+	color: $colorMain;
+	line-height: 20px;
+	display: inline-block;
+	text-align: center;
+	&:hover{
+		color: #fff;
+		background: $colorMain;
+	}
+
+	span{
+		height: 20px;
+		padding: 0 10px;
+		color: #ffffff;
+		margin-left: 8px;
+		border-radius: 99em;
+		background-color: $colorNegative;
+		box-shadow: inset 0 2px 3px rgba(0,0,0,0.30);
+		display: inline-block;
+	}
+}
+
+.btnStateMain-Gray{
+	@extend .btnStateMain-Red;
+	span{
+		background-color: #979797;
+	}
+}
+
+//***************************************************//
+.textCheckInfo{
+	height: 22px;
+	line-height: 22px;
+	align-items: center;
+	display: flex;
+
+	&:before{
+		content: " ";
+		width: 14px;
+		height: 14px;
+		margin-right: 3px;
+		background-image: svg-icCheckbox-now($colorGray);
+		background-repeat: no-repeat;
+		background-color: #ffffff;
+	}
+}
+
+.textRadioInfo{
+	height: 22px;
+	line-height: 22px;
+	align-items: center;
+	display: flex;
+	&:before{
+		content: " ";
+		width: 14px;
+		height: 14px;
+		margin-right: 3px;
+		background-image: svg-icCheckboxCircle-now($colorGray);
+		background-repeat: no-repeat;
+		background-color: #ffffff;
+	}
+}
+.textRadioInfo-none{
+	@extend .textRadioInfo;
+	&:before{
+		background-image: svg-icCheckboxCircle($colorGray);
+	}
+}
+
+//level:MG/SMG
+//none灰色,Sec咖啡色
+.textLevel{
+	height: 16px;
+	padding: 0 5px;
+	border-radius: 99em;
+	background-color: #666;
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 16px;
+	color: #fff;
+	text-align: center;
+	display: inline-block;
+}
+.textLevelSec{
+	background-color: $colorSec;
+	@extend .textLevel;
+}
+
+//文字連結:一般藍色,Sec咖啡色(沒用到),Red負數
+.textBtn{
+	font-style: italic;
+	color: #1951A2;
+	text-decoration: underline;
+	display: inline-block;
+	&:hover{
+		color: $colorMain;
+		text-decoration: none;
+	}
+}
+.textBtnSec{
+	color: $colorSec;
+	@extend .textBtn;
+}
+.textBtnRed{
+	color: $colorNegative;
+	@extend .textBtn;
+}
+
+//純文字顏色
+//負數
+.textRed{color: $colorNegative;}
+//主色文字加深
+.textMainDarken{color: darken( $colorMain,10%);}
+//灰色字
+.textGray{color: #868686;}
+
+//粗體
+.textBold{font-weight: bold;}
+
+//空心
+//<span class="textBorderMain">x10</span>
+.textBorderMain{
+	border-radius: 4px;
+	border: 1px solid $colorMain;
+	padding: 1px 4px;
+	color: $colorMain;
+}
+.textBorderSec{
+	border-radius: 4px;
+	border: 1px solid $colorSec;
+	padding: 1px 4px;
+	color: $colorSec;
+}
+
+.textBorderRed{
+	border-radius: 4px;
+	border: 1px solid $colorNegative;
+	padding: 1px 4px;
+	color: $colorNegative;
+}
+
+.textBorderGray{
+	border-radius: 4px;
+	border: 1px solid $fontColor;
+	padding: 1px 4px;
+	color: $fontColor;
+}
+
+//實心
+//<span class="textSolidMain">x10</span>
+.textSolidMain{
+	border-radius: 4px;
+	padding: 1px 4px;
+	font-weight: bold;
+	background-color: $colorMain;
+	color: #000;
+}
+
+//樣式A:方角
+//樣式B:圓角+實心
+.textBSolidGray{
+	height: 20px;
+	border-radius: 99em;
+	padding: 0 8px;
+	background-color: $fontColor;
+	font-size: $fontSize;
+	line-height: 20px;
+	color: #fff;
+	display: inline-block;
+}
+//<li class="textBSolidLightGray-S">TW</li>
+.textBSolidLightGray-S{
+	height: 14px;
+	padding: 0 6px;
+	border-radius: 99em;
+	line-height: 14px;
+	background-color: #9f9f9f;
+	color: #fff;
+	font-size: 11px;
+	letter-spacing: 1px;
+	display: inline-block;
+}
+
+//***************************************************//
+//ic
+.icEarth{
+	// @include main-sprite(icEarth ,true);
+	@extend %no_text;
+	display: block;
+}
+.icCorrect,
+.icWrong{
+	width: 20px;
+	height: 20px;
+	background: url(../images/report-web/main/icWrong.png) no-repeat center center;
+	background-size: 100%;
+	@extend %no_text;
+	display: block;
+}
+.icCorrect{
+	background: url(../images/report-web/main/icCorrect.png) no-repeat center center;
+	background-size: 100%;
+}
+
+//階層縮寫
+.icEllipsis{
+	// @include main-sprite(icEllipsis,true);
+	@extend %no_text;
+	display: block;
+}
+
+.icUnlock{
+	// @include main-sprite(icUnlock,true);
+	display: block;
+	@extend %no_text;
+}
+
+//
+.icTextStatus{
+	height: 26px;
+	min-width: 80px;
+	box-sizing: border-box;
+	padding: 0 10px;
+	border-radius: 99em;
+	background-color: #666;
+	font-weight: normal;
+	line-height: 26px;
+	color: #fff;
+	display: inline-block;
+}
+
+//page:PL-reportTransationIn
+//page:reportHistory.html#popupParlay
+//<span class="icVs">VS</span>
+.icVs{
+	width: 18px;
+	height: 18px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M9 18A9 9 0 1 1 9 0a9 9 0 0 1 0 18zm-3.612-5.205h1.44l2.393-6.681H7.79l-1.636 4.945-1.691-4.945H3l2.388 6.681zm4.18-2.174c.088.748.358 1.317.81 1.707.453.39 1.102.586 1.947.586.58 0 1.065-.081 1.454-.244A1.968 1.968 0 0 0 15 10.85c0-.423-.089-.778-.267-1.065a1.877 1.877 0 0 0-.738-.679c-.314-.166-.8-.326-1.456-.48-.656-.156-1.07-.305-1.24-.448a.513.513 0 0 1-.2-.405c0-.173.071-.312.214-.415.222-.16.529-.241.92-.241.38 0 .665.075.855.225.19.15.314.397.372.74l1.349-.058c-.022-.614-.244-1.105-.668-1.473C13.717 6.184 13.086 6 12.247 6c-.513 0-.952.077-1.315.232-.363.155-.64.381-.834.677-.193.296-.289.615-.289.955 0 .529.205.977.615 1.345.292.26.8.481 1.522.66.563.14.923.237 1.08.292.232.082.393.179.486.29.093.11.139.245.139.403 0 .246-.11.46-.33.645-.22.183-.548.275-.983.275-.41 0-.736-.103-.977-.31-.242-.206-.402-.53-.481-.97l-1.313.127z" fill="%23B3B3B3" fill-rule="evenodd"/></svg>');
+	@extend %no_text;
+	display: inline-block;
+}
+
+//驚嘆號for Login Popup
+.icExclamation{
+	// @include main-sprite(icExclamation,true);
+	@extend %no_text;
+	display: block;
+}
+
+//
+.icRefresh{
+	width: 22px;
+	height: 22px;
+	background: url(../images/report-web/main/icRefresh.png) no-repeat center center;
+	background-size: 100%;
+	// @include main-sprite(icRefresh,true);
+	@extend %no_text;
+	display: block;
+}
+
+//***************************************************//
+//<td class="lineHight-S">0.00</br>0.10%</td>
+.lineHight-S{line-height: 22px;}
+
+//***************************************************//
+//<dd class="marginTop-S notice">
+.marginTop-S{margin-top: 7px;}
+
+//***************************************************//
+//背景色
+.colorBG-1{
+	background-color: $colorBG-1;
+	&:hover{background-color: $colorBG-1;}
+}
+.colorBG-1Darken{background-color: darken($colorBG-1, 5%);}
+
+.colorBG-2{background-color: $colorBG-2;}
+.colorBG-2Darken{background-color: darken($colorBG-2, 5%);}
+
+//文字色
+.choosedFontColor{color: $colorMain !important;}
+
+//變化Banker跟Player的顏色
+.baccaratRed{color: #d91029;}
+.baccaratBlue{color: #2072d1;}
+
+
+//***************************************************//
+//page:MyProfile，NewMember，newSample，userView，userEdit
+.createNick{
+	.ulBox{
+		margin-bottom: 10px;
+		li:last-child{margin-left: 7px;}
+	}
+}
+.createId{
+	display: flex;
+
+	dd{
+		height: 30px;
+		margin-right: 2px;
+		@extend .float-L;
+		@extend .setFlex-center;
+	}
+
+	.basic01,.basic02{
+		min-width: 200px;
+		margin-right: 30px;
+		@extend .clearfix;
+	}
+
+	.info{
+		width: inherit;
+		font-size: $fontSize-M;
+		font-style: italic;
+	}
+
+	.info.user{color: $colorSec;}
+
+	.textLevelSec{margin-right: 2px;}
+	
+	.drop a,input{ width: 50px;}
+
+	.icWrong,.icCorrect{
+		margin-left: 5px;
+	}
+	.check-name{
+		position: relative;
+		display: inline-block;
+		border-radius: 100px;
+		background-color: #f1f1f1;
+		min-width: 50px;
+		line-height: 24px;
+		margin: 0 8px;
+    	padding: 2px 5px 2px 32px;
+		.icCorrect{
+			position: absolute;
+			left: 0px;
+			top: 4px;
+			display: inline-block;
+		}
+	}
+}
+
+.password{
+	align-self: stretch;
+	width: 180px;
+	background-color: $colorBG-2;
+	.btnAMain{
+		width: 100%;
+		font-size: $fontSize;
+	}
+
+	dd{
+		position: relative;
+	}
+
+	.icWrong,.icCorrect{
+		position: absolute;
+		top: 5px;
+		right: -23px;
+	}
+	.form-control-btn{
+		right: 2%;
+		margin-top: -28px;
+		i{
+			&:hover{
+				background: #e3e3e3;
+			}
+		}
+	}
+}
+.password-group{
+	.basic01{padding: 10px 0;}
+	.password{padding: 10px 30px 10px 20px;} 
+	//因應新增reset password,在modal的password區,眼睛放input內,狀態改在外顯示
+	.basic01:last-child{margin: 0;}
+	@extend .basic01-group;
+}
+
+
+//***************************************************//
+//page:reportHistorypage
+//for品牌 //New Platform
+.textBgCock{
+	height: 17px;
+	margin-right: 4px;
+	border-radius: 4px;
+	padding: 1px 4px;
+	background-color: $colorCock;
+	line-height: 17px;
+	color: #fff;
+	text-align: center;
+	display: inline-block;
+}
+
+//
+.textBgBrand{
+	background-color: $colorBetGray;
+	@extend .textBgCock;
+}
+// 0630 之後統一顏色
+.textBgPlatform{
+	@extend .textBgCock;
+	background-color: #1299e4;
+	box-shadow: 0 0 5px #a5daff;
+}
+
+//page:reportHistorypage
+//page:PL-reportTransationIn
+.textColorRed,.colorMeron{color: $colorBetRed;}
+.textColorBlue,.colorWala{color: $colorBetBlue;}
+.textColorGreen,.colorBdd{color: $colorBetGreen;}
+.textColorLive{
+	color: $colorLive;
+	.textBtn{
+		color: $colorLive;	
+		&:hover{color: $colorMain;}
+	}
+}
+
+//***************************************************//
+//尚未確定
+//reportHistory(A)
+//for Status
+.textBorderFontColor{
+	border-radius: 4px;
+	border: 1px solid $fontColor;
+	padding: 1px 4px;
+	color: $fontColor;
+	display: inline-block;
+}
+.textBorderRed{
+	border-color: $colorBetRed;
+	color: $colorBetRed;
+	@extend .textBorderFontColor;
+}
+.textBorderBlue{
+	border-color: $colorBetBlue;
+	color: $colorBetBlue;
+	@extend .textBorderFontColor;
+}
+.textBorderGreen{
+	border-color: $colorBetGreen;
+	color: $colorBetGreen;
+	@extend .textBorderFontColor;
+}
+//天空藍，雨天藍
+.textBorderLightBlue{
+	border-color: $colorRain;
+	color: $colorRain;
+	@extend .textBorderFontColor;
+}
+//草綠色，雨天綠
+.textBorderLightgreen{
+	border-color: $colorNoRain;
+	color: $colorNoRain;
+	@extend .textBorderFontColor;
+}
+
+//尚未確定
+//reportHistory(C)
+.textBgRed{
+	height: 17px;
+	border-radius: 4px;
+	padding: 0 4px;
+	background-color: $colorBetRed;
+	line-height: 17px;
+	font-weight: normal;
+	color: #fff;
+	text-align: center;
+	display: inline-block;
+}
+.textBgBlue{
+	background-color: $colorBetBlue;
+	@extend .textBgRed;
+}
+.textBgGreen{
+	background-color: $colorBetGreen;
+	@extend .textBgRed;
+}
+.textBgGold{
+	background-color: $colorBetGold;
+	@extend .textBgRed;
+}
+.textBgGray{
+	background-color: $colorBetGray;
+	@extend .textBgRed;
+}
+.textBgGrayLight{
+	background-color:  lighten($colorBetGray,10%);
+	@extend .textBgRed;
+}
+
+
+//***************************************************//
+.checkboxList{
+	flex-wrap: wrap;
+	display: flex;
+
+	.textCheckInfo,.textCheck,.textRadio{
+		margin-right: 24px;
+	}
+
+	label{
+		margin-right: 20px;
+	}
+}
+
+
+//***************************************************//
+.fixedPage{
+	@extend %fixedBottom;
+	@extend .setFlex-center;
+	.ulpage{
+		margin: 0 6px 0 0;
+	}
+}
+

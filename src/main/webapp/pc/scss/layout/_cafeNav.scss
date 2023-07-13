@@ -1,0 +1,112 @@
+.wrapper{
+	position: relative;
+}
+.cafeNav{
+	position: absolute;
+	top:0;
+	right: 0;
+	z-index: 400;
+}
+
+.dropdownLanguage{
+	margin: 2px 16px 0 0;//修改maring-top
+	border: 1px solid darken($mainColor,10%);
+	background-color: #292929;
+	font-size: 12px;
+	color: darken($mainColor,10%);
+	@extend .float-L;
+
+	li{
+		position: relative;
+		z-index: 300;
+		min-width: 120-30px;
+		padding: 0 20px 0 10px;
+		background: url(../images/iconCafeNav.png) no-repeat right -153px;
+		line-height: 20px;
+		cursor: pointer;
+
+		&:hover{
+			background: url(../images/iconCafeNav.png) no-repeat right -182px #000;
+			ul{display: block;}
+		}
+	}
+
+	ul{
+		position: absolute;
+		z-index: 30;
+		display: none;
+		top: 19px;
+		left: -1px;
+		border-top: 1px solid darken($mainColor,10%);
+		background-color: #292929;
+
+		li{
+			border: 1px solid darken($mainColor,10%);
+			border-top:none;
+			background-image: none;
+
+			&:hover{
+				color: #fff;
+				background-image: none;
+			}
+		}
+	}
+}
+.dropdownMenu{
+	position: relative;
+	z-index: 210;
+	border-bottom: 1px solid #242424;
+	padding: 21px 23px;
+	background: url(../images/iconCafeNav.png) no-repeat -5px -208px;
+	cursor: pointer;
+	@extend .float-R;
+	&:hover{
+		background: url(../images/iconCafeNav.png) no-repeat -60px -208px;
+		ul{display: block;}
+	}
+
+	ul{
+		display: none;
+		position: absolute;
+		z-index: 200;
+		top: 43px;
+		right: 0px;
+		font-size: 15px;
+		color: #fff;
+		box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
+		@extend .align-C;
+
+		li{
+			padding: 0;
+			border-bottom: 1px solid darken($mainColor,20%);
+			background-image: none;
+			&:hover{
+				background-image: none;
+			}
+		}
+
+		a{
+			display: block;
+			min-width: 184-10px;
+			padding: 10px 5px;
+			background-color: darken($mainColor,10%);
+			color: #fff;
+			&:hover{
+				background-color: darken($mainColor,20%);
+			}			
+		}
+
+		.last{
+			border-bottom: none;
+
+			a{
+				color: $mainColor;
+				background-color: darken($mainColor,40%);
+
+				&:hover{
+					background-color: darken($mainColor,30%);
+				}	
+			}
+		}
+	}
+}

@@ -1,0 +1,84 @@
+<link rel="stylesheet" type="text/css" media="all" href="../../library/icomoon/style.css"/>
+<link rel="stylesheet" href="../css/agentAll.css">
+<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-none">
+      </div>
+      <div class="modal-body padd-0">
+        
+        <div class="modal-2FA-box">
+            <ul>
+                <li>
+                    <div class="step">
+                        <span class="txt-num">1</span>
+                        <p>Install App(Google Authenticator)</p>
+                    </div>
+
+                    <div class="div-tb">
+                        <div class="td apps">
+                            <img src="../images/2FA-Setting/2FA-google-authenticator.png" alt="">
+                            <span class="app-name">
+                                Google<br>Authenticator
+                            </span>
+                        </div>
+                        <div class="td social-icons">
+                            <a href="javascript:void(0);">
+                                <i class="icon-ios"></i>
+                            </a>
+                            <a href="javascript:void(0);">
+                                <i class="icon-android"></i>
+                            </a>
+                            <a href="javascript:void(0);">
+                                <i class="icon icon-googlechrome"></i>
+                            </a>
+                        </div>
+                    </div>
+                   <img src="../images/2FA-Setting/2FA-qr-step.png" alt="">
+                </li>
+                <li>
+                    <div class="step">
+                        <span class="txt-num">2</span>
+                        <p>“Scan QR code” or “Enter Authentication key” in Google Authenticator“Scan QR code” or “Enter Authentication key” in Google Authenticator</p>
+                    </div>
+                    <div class="div-tb">
+                        <div class="td">
+                            <span class="img-qrcode">
+                                <img src="../images/2FA-Setting/2FA-qrcode.png" alt="">
+                            </span>
+                        </div>
+                        <div class="td">
+                            <div class="txt-num">
+                                <p>890 789 769</p>
+                                <a href="javascript:void(0);">Copy</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="step">
+                        <span class="txt-num">3</span>
+                        <p>Press “Enable” button to confirm enhance security</p>
+                    </div>
+                    <div class="div-tb">
+                        <div class="td">
+                            <a class="btn-sumit" href="javascript:void(0);">
+                                <i class="icon-shield-check"><span>Enable</span></i>
+                            </a>
+                            <span class="txt-tooltip" style="display: block;">
+                                <i class="icon-alert-triangle"></i>Be sure to press the buttom when the scan is complete
+                            </span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $('[data-action]').on('click', function () {
+        parent.closeIFrame();
+    });
+</script>

@@ -1,0 +1,414 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+html, body {
+  background-color: #292929;
+  font-family: Helvetica Neue, Arial, sans-serif;
+  font-size: 14px; }
+
+a {
+  text-decoration: none;
+  outline: none;
+  hlbr: expression(this.onFocus=this.blur()); }
+
+li {
+  list-style: none; }
+
+table {
+  border-collapse: collapse; }
+
+input {
+  border: none; }
+
+.wrapper {
+  position: relative;
+  width: 1430px;
+  margin: 0 auto; }
+
+::-webkit-scrollbar {
+  width: 8px; }
+
+::-webkit-scrollbar-track {
+  border-left: 1px solid #555;
+  border-right: 1px solid #555; }
+
+::-webkit-scrollbar-thumb {
+  min-height: 20px;
+  margin: 1px 0;
+  background: url(../images/scrollbar-Y.png) no-repeat center center #3C3C3C; }
+  ::-webkit-scrollbar-thumb:hover {
+    background: url(../images/scrollbar-Y.png) no-repeat center center #504F4F; }
+
+.function-2, .function-1 {
+  scrollbar-face-color: #3C3C3C;
+  /* Firefox 63 compatibility */
+  scrollbar-track-color: #555;
+  /* Firefox 63 compatibility */
+  scrollbar-color: #3C3C3C #555;
+  scrollbar-width: thin; }
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both; }
+
+.clearfix {
+  zoom: 1; }
+
+.clear {
+  clear: both; }
+
+.float-L, .dropdownLanguage, .box-XS .nicescroll-rails, .box-S .nicescroll-rails, .popup-1 li {
+  float: left; }
+
+.float-R, .dropdownMenu, .aside .nicescroll-rails {
+  float: right; }
+
+.align-L {
+  text-align: left; }
+
+.align-R, .popup-3 p {
+  text-align: right; }
+
+.align-C, .dropdownMenu ul, .inputBtn-betOn, .inputBtn-betOff, .inputBtn-betNo, .popup-4, .popup-2, .popup-1 ul, .icon-Countdown {
+  text-align: center; }
+
+.padding-1 {
+  padding: 12px 0 0 0; }
+
+.negativeColor {
+  color: #E91932; }
+
+.icon-BeenBet {
+  position: absolute;
+  z-index: 200;
+  top: -13px;
+  right: -1px;
+  width: 21px;
+  height: 21px;
+  background: url(../images/iconAll.png) no-repeat right -723px; }
+
+.icon-InRunning {
+  padding: 0 0 0 16px;
+  background: url(../images/iconAll.png) no-repeat -1px -1220px; }
+
+.icon-Countdown {
+  position: absolute;
+  z-index: 100;
+  font-weight: bold;
+  color: #fff; }
+
+.aBtn-close {
+  display: block;
+  width: 36px;
+  height: 36px;
+  background: url(../images/iconAll.png) no-repeat -9px -1054px; }
+  .aBtn-close:hover {
+    background: url(../images/iconAll.png) no-repeat -67px -1054px; }
+
+.info-normal {
+  border-bottom: 1px solid #cb6b02;
+  background: url(../images/info-green.png) no-repeat 7px 13px #0D3D36; }
+
+.info-warning {
+  border-bottom: 1px solid #cb6b02;
+  background: url(../images/info-red.png) no-repeat 7px 13px #57141D; }
+
+.popupBG-BK {
+  position: absolute;
+  z-index: 9999;
+  width: 100%;
+  height: 100%; }
+
+.popup-1 {
+  width: 320px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 30px;
+  background-color: #e0e0e0;
+  color: #242424; }
+  .popup-1 p {
+    font-size: 16px; }
+  .popup-1 h3 {
+    margin: 0 0 15px 0;
+    font-size: 22px; }
+  .popup-1 li {
+    min-width: 105px;
+    padding: 15px 25px;
+    background-color: #FD8503;
+    font-size: 16px;
+    color: #4d2801;
+    cursor: pointer;
+    margin: 0 3px\9;
+    min-width: 100px\9; }
+    .popup-1 li:hover {
+      background-color: #fd9d36; }
+  .popup-1 li:last-child {
+    margin: 0 0 0 10px; }
+  .popup-1 strong {
+    display: block;
+    margin: 3px 0 0 0;
+    border-top: 1px solid #b25d01;
+    padding: 2px 0 0 0;
+    color: #242424;
+    font-size: 24px; }
+
+.popup-3 {
+  width: 650px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  background-color: #e6e6e6; }
+  .popup-3 p {
+    padding: 2px 8px 10px;
+    height-line: 20px;
+    color: #353535;
+    background-color: #fff; }
+  .popup-3 input {
+    margin: 0 6px; }
+
+.popup-2 {
+  width: 320px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  padding: 65px 30px 10px;
+  background: url(../images/icon-01.png) no-repeat center 15px #242424;
+  color: #b4b4b4; }
+  .popup-2 p {
+    margin: 0 0 10px 0;
+    font-size: 16px; }
+  .popup-2 a {
+    color: #FD8503;
+    text-decoration: underline; }
+    .popup-2 a:hover {
+      text-decoration: none; }
+
+.popup-4 {
+  width: 320px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  padding: 65px 30px 20px;
+  background: url(../images/icon-02.png) no-repeat center 15px #242424;
+  color: #E91932; }
+  .popup-4 h2 {
+    margin: 0 0 10px 0;
+    font-size: 32px;
+    line-height: 32px; }
+  .popup-4 p {
+    margin: 0 0 10px 0;
+    font-size: 18px; }
+  .popup-4 .inputBtn-betOn {
+    min-width: 180px;
+    padding: 5px 20px;
+    border: 1px solid #454545; }
+
+.popup-noEnter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  line-height: 34px;
+  color: #F5A623; }
+  .popup-noEnter dl {
+    display: flex; }
+  .popup-noEnter dt {
+    width: 160px;
+    height: 160px;
+    margin-right: 28px;
+    background: url("../images/iconNoEnter.png") no-repeat center center;
+    background-size: contain;
+    filter: drop-shadow(5px 5px 5px #111); }
+  .popup-noEnter dd {
+    align-self: center; }
+
+.aside .nicescroll-rails {
+  height: 598px;
+  width: 8px;
+  border: 1px solid #4A4A4A;
+  border-top: none;
+  border-bottom: none;
+  padding: 0 1px; }
+
+.box-XS .nicescroll-rails, .box-S .nicescroll-rails {
+  width: 265px;
+  height: 8px;
+  border: 1px solid #BBB;
+  border-top: none\9;
+  padding: 1px 0; }
+
+.scrollbar-Y {
+  width: 8px;
+  min-height: 20px;
+  margin: 1px 0;
+  background: url(../images/scrollbar-Y.png) no-repeat center center #3C3C3C; }
+  .scrollbar-Y:hover {
+    background: url(../images/scrollbar-Y.png) no-repeat center center #504F4F; }
+
+.scrollbar-X {
+  width: 20px;
+  height: 8px;
+  margin: 0 1px;
+  background: url(../images/scrollbar-X.png) no-repeat center center #E4E3E3; }
+  .scrollbar-X:hover {
+    background: url(../images/scrollbar-X.png) no-repeat center center #D6D6D6; }
+
+.inputText-1 {
+  padding: 0 7px;
+  font-size: 16px; }
+
+.inputText-2 {
+  border: 1px solid #eee;
+  padding: 5px 7px;
+  font-size: 16px; }
+  .inputText-2:hover {
+    border: 1px solid #cb6b02; }
+
+.inputBtn-betOn {
+  color: #FFA543;
+  font-weight: bold;
+  cursor: pointer; }
+  .inputBtn-betOn:hover {
+    color: #000; }
+
+.inputBtn-betOff {
+  color: #7A7A7A;
+  cursor: pointer; }
+  .inputBtn-betOff:hover {
+    color: #fff; }
+
+.inputBtn-betNo {
+  background: #7A7878;
+  color: #242424;
+  cursor: auto; }
+  .inputBtn-betNo:hover {
+    background: #7A7878;
+    color: #242424; }
+
+.icon-BeenBet {
+  text-indent: -99999px; }
+
+.inputBtn-betOn:hover {
+  background-image: linear-gradient(0deg, #FF6100 0%, #FD8503 80%);
+  background-color: #FD8503\9; }
+
+.inputBtn-betOn, .inputBtn-betOff, .inputBtn-betOff:hover {
+  background-image: linear-gradient(-270deg, #373737 3%, #040404 100%);
+  background-color: #000\9; }
+
+.inputBtn-betOn, .inputBtn-betOff, .inputBtn-betNo {
+  font-size: 18px; }
+
+.popup-1, .popup-2, .popup-4, .popup-3 {
+  position: relative; }
+  .popup-1 .aBtn-close, .popup-2 .aBtn-close, .popup-4 .aBtn-close, .popup-3 .aBtn-close {
+    position: absolute;
+    top: -18px;
+    right: -18px; }
+
+.popup-1, .popup-2, .popup-4 {
+  border-top: 4px solid #FD8503;
+  border-bottom: 1px solid #FD8503; }
+
+.info-normal, .info-warning {
+  position: absolute;
+  z-index: 40;
+  bottom: 0;
+  left: 0;
+  min-height: 36px;
+  padding: 9px 10px 9px 45px;
+  line-height: 18px;
+  color: #fff; }
+
+.wrapper {
+  position: relative; }
+
+.cafeNav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 400; }
+
+.dropdownLanguage {
+  margin: 2px 16px 0 0;
+  border: 1px solid #cb6b02;
+  background-color: #292929;
+  font-size: 12px;
+  color: #cb6b02; }
+  .dropdownLanguage li {
+    position: relative;
+    z-index: 300;
+    min-width: 90px;
+    padding: 0 20px 0 10px;
+    background: url(../images/iconCafeNav.png) no-repeat right -153px;
+    line-height: 20px;
+    cursor: pointer; }
+    .dropdownLanguage li:hover {
+      background: url(../images/iconCafeNav.png) no-repeat right -182px #000; }
+      .dropdownLanguage li:hover ul {
+        display: block; }
+  .dropdownLanguage ul {
+    position: absolute;
+    z-index: 30;
+    display: none;
+    top: 19px;
+    left: -1px;
+    border-top: 1px solid #cb6b02;
+    background-color: #292929; }
+    .dropdownLanguage ul li {
+      border: 1px solid #cb6b02;
+      border-top: none;
+      background-image: none; }
+      .dropdownLanguage ul li:hover {
+        color: #fff;
+        background-image: none; }
+
+.dropdownMenu {
+  position: relative;
+  z-index: 210;
+  border-bottom: 1px solid #242424;
+  padding: 21px 23px;
+  background: url(../images/iconCafeNav.png) no-repeat -5px -208px;
+  cursor: pointer; }
+  .dropdownMenu:hover {
+    background: url(../images/iconCafeNav.png) no-repeat -60px -208px; }
+    .dropdownMenu:hover ul {
+      display: block; }
+  .dropdownMenu ul {
+    display: none;
+    position: absolute;
+    z-index: 200;
+    top: 43px;
+    right: 0px;
+    font-size: 15px;
+    color: #fff;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3); }
+    .dropdownMenu ul li {
+      padding: 0;
+      border-bottom: 1px solid #995001;
+      background-image: none; }
+      .dropdownMenu ul li:hover {
+        background-image: none; }
+    .dropdownMenu ul a {
+      display: block;
+      min-width: 174px;
+      padding: 10px 5px;
+      background-color: #cb6b02;
+      color: #fff; }
+      .dropdownMenu ul a:hover {
+        background-color: #995001; }
+    .dropdownMenu ul .last {
+      border-bottom: none; }
+      .dropdownMenu ul .last a {
+        color: #FD8503;
+        background-color: #341b00; }
+        .dropdownMenu ul .last a:hover {
+          background-color: #663601; }

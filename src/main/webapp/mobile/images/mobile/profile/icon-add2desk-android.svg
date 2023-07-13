@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="20px" viewBox="0 0 9 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
+    <title>android-more-vertical</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-16.1%" y="-8.3%" width="133.1%" height="133.3%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Login/Logout/Profile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-9" transform="translate(-126.000000, -4.000000)">
+            <g id="Group-8" transform="translate(72.000000, 0.000000)">
+                <g id="android-more-vertical" filter="url(#filter-1)" transform="translate(45.466667, 0.000000)">
+                    <path d="M14.725,6.375 C14.725,5.34365625 13.8532219,4.5 12.7875,4.5 C11.7217781,4.5 10.85,5.34365625 10.85,6.375 C10.85,7.40634375 11.7217781,8.25 12.7875,8.25 C13.8532219,8.25 14.725,7.40634375 14.725,6.375 Z M14.725,17.625 C14.725,16.5936562 13.8532219,15.75 12.7875,15.75 C11.7217781,15.75 10.85,16.5936562 10.85,17.625 C10.85,18.6563438 11.7217781,19.5 12.7875,19.5 C13.8532219,19.5 14.725,18.6563438 14.725,17.625 Z M14.725,12 C14.725,10.9686562 13.8532219,10.125 12.7875,10.125 C11.7217781,10.125 10.85,10.9686562 10.85,12 C10.85,13.0313438 11.7217781,13.875 12.7875,13.875 C13.8532219,13.875 14.725,13.0313438 14.725,12 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                    <rect id="Rectangle-28" x="0" y="0" width="24.8" height="24"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

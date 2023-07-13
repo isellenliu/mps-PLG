@@ -1,0 +1,225 @@
+// page-lotto_betting
+
+.page-web.lotto
+    .page-body.betting
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        overflow: hidden
+        // 日期場次＋開獎倒數
+        .box-drawTime
+            display: flex
+            align-items: center
+            justify-content: space-between
+            .lotto-icon.eventNote
+                margin-right: 2vw
+            .lotto-icon.alarm 
+                margin: 0 2vw
+            // 日期場次
+            select.drawTime-select
+                flex-grow: 1
+                background: $clr-gray_2
+                color: $clr-white
+                min-width: 130px
+                height: 5vh
+                line-height: 5vh
+                padding: 0 20px
+                border-radius: 100px
+                border: none
+                text-align: center
+                appearance: none
+                -moz-appearance: none
+                -webkit-appearance: none
+                background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E")
+                background-position: right 5px top 50%
+                background-size: contain cover
+                background-repeat: no-repeat repeat
+                option
+                    appearance: none
+                    background: $clr-gray_2
+            // 開獎倒數
+            .drawTime-countdown
+                flex-grow: 1
+                min-width: 80px
+                height: 5vh
+                line-height: 5vh
+                border-radius: 100px
+                background: $clr-gray_2
+                text-align: center
+            // 投注時間快結束
+            &.endingSoon
+                .lotto-icon.alarm
+                    color: $clr-yellow
+                    animation: endingSoon 2s infinite
+                .drawTime-countdown
+                    border: 1px solid $clr-yellow
+                    color: $clr-yellow
+        //  號碼表
+        ul.box-numberList
+            // transform: scaleY(.95)
+            // 5vw*2=10vw  左右padding
+            // 14vw*5=70vw 球寬度
+            // 4vw*4=16vw  球間距
+            // 4vw         多的(加上去太胖)
+            display: grid
+            grid-template-columns: repeat(5, 1fr)
+            grid-template-rows: repeat(9, 1fr)
+            column-gap: 4vw
+            row-gap: 1.5vh
+            margin: 0 auto
+            align-items: center
+            justify-items: center
+            // 號碼球
+            li.numberBall
+                &.pick
+                    background: $clr-yellow
+                    color: $clr-gray_1
+                // --------------------
+                width: 14vw
+                height: 11vw
+                max-width: 60px
+                max-height: 45px
+                line-height: 11vw
+                text-align: center
+                border-radius: 100px
+                background: $clr-gray_2
+        // 投注金額
+        ul.box-betAmount
+            &.show
+                position: relative
+                li
+                    left: 0
+                    height: 4vh
+                    font-size: 16px
+                    transition: left 0s, height .3s, font-size .3s
+            // --------------------
+            position: absolute
+            display: grid
+            grid-template-columns: repeat(6, 1fr)
+            column-gap: 2vw
+            align-items: center
+            justify-items: center
+            overflow: hidden
+            li
+                position: relative
+                left: 1000%
+                width: 100%
+                height: 0
+                line-height: 4vh
+                font-size: 0
+                border-radius: 5px
+                background: $clr-gray_6
+                text-align: center
+                transition: left 0s .3s, height .3s, font-size 0s
+        // 清除/隨機
+        .box-pickNumber
+            display: flex
+            justify-content: space-between
+            align-items: center
+            .pickNumber-count
+                position: relative
+                flex-grow: 1
+                margin-right: 10px
+                display: inline-block
+                .count-numberCount,
+                .count-betCount
+                    position: relative
+                    span
+                        vertical-align: bottom
+                    span:last-child
+                            position: absolute
+                            right: 0
+                            bottom: 0
+            .pickNumber-btn
+                display: inline-block
+                vertical-align: middle
+                .btn-clear,
+                .btn-luckyPick 
+                    &:active
+                        border: 1px solid $clr-yellow
+                        color: $clr-yellow
+                        svg
+                            fill: $clr-yellow
+                    // --------------------
+                    width: fit-content
+                    background: none
+                    padding: 0 3vw
+                    border-radius: 100px
+                    border: 1px solid $clr-white
+                    color: $clr-white
+                    span.btn-txt,
+                    svg.lotto-icon
+                        height: 5vh
+                        line-height: 5vh
+                        vertical-align: middle
+                    svg.lotto-icon
+                        width: 20px
+                        fill: $clr-white
+        // 確認明細
+        .box-betConfirm
+            &.show
+                bottom: 0
+                transition: .3s
+            // --------------------
+            position: absolute
+            left: 0
+            bottom: -50%
+            width: 100%
+            padding: 5vw
+            background: $clr-gray_2
+            box-shadow: 0px -3px 8px rgba(0, 0, 0, .2)
+            transition: .5s
+            z-index: 5
+            hr,
+            div:not(:last-child),
+            p.betConfirm-deadline
+                margin-bottom: 1.5vh
+            .betConfirm-count
+                display: flex
+                span:nth-of-type(2),
+                span:nth-of-type(4)
+                    flex-grow: 1
+                    text-align: right
+                span:nth-of-type(2)
+                    padding-right: 1vw
+                    transform: translateX(-5vw)
+            .betConfirm-betAmount,
+            .betConfirm-drawTime,
+            .betConfirm-MaxPrize,
+            .betConfirm-total
+                position: relative
+                span:last-child
+                    position: absolute
+                    right: 0
+                    bottom: 0
+            .betConfirm-deadline
+                color: $clr-gray_7
+            .betConfirm-btn
+                text-align: center
+                button.lotto-btn
+                    border-radius: 100px
+                    // padding: 10px 35px
+                    padding: 3vw 10vw
+                    margin: 0 1vw
+                    color: $clr-gray_2
+                    &.cancel
+                        background: none
+                        outline-offset: -1px
+                        outline: 2px solid $clr-yellow
+                        color: $clr-yellow
+                    &.submit 
+                        background: $clr-yellow
+                        color: $clr-gray_2
+
+@keyframes endingSoon
+	0%
+		transform: rotate(10deg)
+	8%
+		transform: rotate(0deg)
+	86%
+		transform: rotate(0deg)
+	93%
+		transform: rotate(-10deg)
+	100%
+		transform: rotate(10deg)
+        

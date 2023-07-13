@@ -1,0 +1,414 @@
+
+.page-web
+    // PC 1024以上
+    @include Breakpoint-up
+        background: #1c365c url(../ICF-img/layout/layout-bg.jpg) no-repeat center 35px
+        background-size: cover
+        background-attachment: fixed
+        user-select: none
+        &::-webkit-scrollbar 
+            width: 10px
+            height: 8px
+        /* Track */
+        &::-webkit-scrollbar-track 
+            background: #0000003e 
+        /* Handle */
+        &::-webkit-scrollbar-thumb
+            height: 5px
+            border-radius: 20px
+            background: #888
+            cursor: pointer
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover 
+            background: #b0b0b0
+        .page-wrapper
+            position: relative
+            left: auto
+            top: auto
+            transform: none !important
+            width: 1024px
+            height: 490px
+            border-radius: 20px
+            margin-bottom: 30px
+            margin-top: 10vh
+            background: $black
+            overflow: visible
+            box-shadow: 0 5px 20px #203d66
+            .page-video
+                height: 490px
+                width: 640px
+                padding: 15px 15px 0 15px
+                border: none
+                .txt-security-code
+                    &.l-top
+                        top: 45%
+                    &.l-btm
+                        bottom: 45%
+                        left: 10%
+                    &.r-top
+                        top: 45%
+                    &.r-btm
+                        bottom: 45%
+                        right: 10%
+                .video
+                    overflow: hidden
+                    padding-top: 30px
+                    video,
+                    img
+                        width: 610px !important
+                        height: 405px !important
+                        border-radius: 10px
+                    .vcp-player
+                        video
+                            width: 610px !important
+                            height: 405px !important
+                .txt-country
+                    top: 10px
+                .btn-info
+                    left: 4%
+                    width: 40px
+                .toast
+                    border-radius: 10px 10px 0 0
+                    top: 15px
+                    left: 15px
+                    width: calc(100% - 30px)
+                .txt-time
+                    top: 55px
+                    left: 70px
+                .tag-live
+                    top: 55px
+                    left: 25px
+                .video-btnbox
+                    position: absolute
+                    top: 55px
+                    right: 30px
+            .marquee-txt
+                background: none
+                width: 610px
+                margin: 0 0 3px 0
+                border-radius: 0
+                li
+                    i,a
+                        line-height: 30px
+
+                    line-height: 30px
+
+                
+            .game-status
+                width: 620px
+                margin: 0 0 0 15px
+                border-radius: 0 0 10px 10px
+                height: 50px
+                .txt
+                    line-height: 50px
+            // ------------------------
+            .page-body
+                position: absolute
+                top: 0
+                right: 15px
+                margin: 10px 0 0 650px
+                width: 370px
+                border-radius: 0 0 15px 15px
+                .main-bet
+                    padding: 0
+                .alert
+                    top: auto
+                    bottom: auto
+                    margin-top: 30px
+                    text-align: center
+                    max-width: 600px
+            // ------------------------
+            .game-site-tab
+                padding: 0
+                ul
+                    padding: 5px 5px 0 5px
+                    height: auto
+                    /* width */
+                    &::-webkit-scrollbar 
+                        width: 10px
+                        height: 8px
+                    /* Track */
+                    &::-webkit-scrollbar-track 
+                        background: #0000003e 
+                    /* Handle */
+                    &::-webkit-scrollbar-thumb
+                        height: 5px
+                        border-radius: 20px
+                        background: #888
+                        cursor: pointer
+                    /* Handle on hover */
+                    &::-webkit-scrollbar-thumb:hover 
+                        background: #b0b0b0
+                    li.item
+                        .txt
+                            min-width: 30px
+                            line-height: 30px
+                            font-size: 90%
+            // ---------------------------
+            .game-site-tab-content
+                .game-site-part
+                    .ICF
+                        top: -10px
+                        width: 100px
+                // ------------
+                .main-bet
+                    .main-bet-lt
+                        .tit
+                            .img-cf
+                                left: -8px !important
+                    .main-bet-ct
+                        .tit,
+                        .tit span
+                            font-size: 90%
+                        .txt-rate
+                            padding-top: 25px
+                        .main-bet-input
+                            .bet-tit.farmName
+                                font-size: 17px !important
+                    .main-bet-rt
+                        .tit
+                            .img-cf
+                                right: -8px !important
+                    .main-bet-lt,
+                    .main-bet-rt
+                        &::before
+                            height: 170px
+                // ------------
+
+                .main-bet
+                    .bet-meron,
+                    .bet-draw,
+                    .bet-wala
+                        min-height: 60px
+                    .tit
+                        font-size: 100%
+                        .farmName
+                            display: none
+                        .img-cf
+                            top: 50px !important
+                            .img
+                                width: 46px
+                                height: 46px
+                                &::before
+                                    line-height: 35px
+                            .txt-weight
+                                top: 34px
+                                line-height: 12px
+                                font-size: 9px
+                                padding: 2px 5px
+                    .txt-rate
+                        font-size: 80%
+                        line-height: 20px
+                        height: auto
+                    .txt-money
+                        font-size: 20px
+                        line-height: 30px
+                        .icon-PHP,
+                        .icon-VND
+                            margin-left: -17px
+                            line-height: 15px
+                            &::before
+                                font-size: 13px
+                                width: 15px
+                                height: 15px
+                        .icon-VND
+                             &::before
+                                font-size: 12px
+                                width: 24px
+                                margin-left: 12px
+                                margin-right: 2px
+
+                    .main-bet-input
+                        line-height: 80px
+                        height: 130px
+                        border-radius: 10px
+                        .txt-increase,
+                        .txt-online-number,
+                        .txt-max-bet
+                            line-height: normal
+                            font-size: 13px
+                        .chip
+                            font-size: 18px
+                        .chip-img
+                            width: 50px
+                            height: 50px
+                        .txt-increase
+                            padding: 2px 10px
+                            border-radius: 5px
+                        .txt-max-bet
+                            line-height: normal
+                            font-size: 10px
+                            font-weight: normal
+                        .bet-tit.farmName
+                            position: absolute
+                            bottom: -18px !important
+                            font-size: 22px !important
+                // ------------
+                .bet-sel-chipBox
+                    ul
+                        li.bet-allin,
+                        li.chipBox
+                            width: 50px
+                            height: 50px
+                            .btn-chip
+                                line-height: 54px
+                                font-size: 12px
+                        li.bet-set
+                            .btn
+                                text-align: center
+                                i
+                                    line-height: 38px
+                                    vertical-align: top
+                        li .btn-chip
+                            display: inline-block
+                            height: 54px
+
+                // ---------------
+                .bet-function-box
+                    .confirm-area
+                        .btns-area
+                            .btn.btn-primary
+                                height: 115px
+                                i
+                                    font-size: 180%
+                                    line-height: 100px
+                            .btn.btn-cancel
+                                width: 45px
+                                height: 45px
+                                i
+                                    line-height: 42px
+
+        // =============================================
+        .toast
+            // display: none
+        // =============================================
+        .modal
+            &.pos-btm
+                .modal-dialog
+                    .modal-content
+                        width: 100%
+                        max-width: 500px
+                        height: 60vh
+                        .tab-content
+                            min-height: auto
+                            max-height: 43vh
+                            /* width */
+                            &::-webkit-scrollbar 
+                                width: 10px
+                                height: 8px
+                            /* Track */
+                            &::-webkit-scrollbar-track 
+                                background: #0000003e 
+                            /* Handle */
+                            &::-webkit-scrollbar-thumb
+                                height: 5px
+                                border-radius: 20px
+                                background: #888
+                                cursor: pointer
+                            /* Handle on hover */
+                            &::-webkit-scrollbar-thumb:hover 
+                                background: #b0b0b0 
+                            .tab-pane
+                                .panel-list-tb, .panel
+                                    /* width */
+                                    &::-webkit-scrollbar 
+                                        width: 10px
+                                        height: 8px
+                                    /* Track */
+                                    &::-webkit-scrollbar-track 
+                                        background: #0a1421
+                                    /* Handle */
+                                    &::-webkit-scrollbar-thumb
+                                        height: 5px
+                                        border-radius: 20px
+                                        background: #c9c7c780
+                                        cursor: pointer
+                                    /* Handle on hover */
+                                    &::-webkit-scrollbar-thumb:hover 
+                                        background: #b0b0b0 
+
+            .modal-dialog
+                justify-content: center
+                margin: 0 auto
+                max-width: 1024px
+                .game-status
+                    text-align: center
+                    position: relative
+                    &.wala-win,
+                    &.meron-win
+                        .img
+                            top: 50%
+                            left: 50%
+                            transform: translate(-200% , -50%)
+                    .msg
+                        width: 500px
+                        display: inline-block
+                        margin: 0 auto
+                        transform: none
+                        text-align: left
+                        padding-left: 170px
+                        .txt
+                            display: block
+                            text-align: left
+
+            &.modal-announcement
+                .modal-dialog
+                    max-width: 800px
+                    .modal-content
+                        .modal-body
+                            /* width */
+                            &::-webkit-scrollbar 
+                                width: 10px
+                                height: 8px
+                            /* Track */
+                            &::-webkit-scrollbar-track 
+                                background: #0000003e 
+                            /* Handle */
+                            &::-webkit-scrollbar-thumb
+                                height: 5px
+                                border-radius: 20px
+                                background: #888
+                                cursor: pointer
+                            /* Handle on hover */
+                            &::-webkit-scrollbar-thumb:hover 
+                                background: #b0b0b0 
+                            .pop_up-box
+                                .pop_up-box-list
+                                    overflow: visible
+                                    dt
+                                        width: 100%
+                                        padding: 20px 10px
+            .modal-body
+                &.page-history
+                    .tab-content
+                        max-height: 57vh !important
+                        #nav-replay
+                            .panel
+                                overflow-y: auto
+                                max-height: 52vh
+                                .panel-list-tb
+                                    li
+                                        margin: 5px 0
+                &.page-schedule
+                    .panel
+                        .daily-list, .panel-list-tb
+                            /* width */
+                            &::-webkit-scrollbar 
+                                width: 10px
+                                height: 5px
+                            /* Track */
+                            &::-webkit-scrollbar-track 
+                                background: transparent
+                            /* Handle */
+                            &::-webkit-scrollbar-thumb
+                                height: 5px
+                                border-radius: 20px
+                                background: #c9c9c9
+                                cursor: pointer
+                            /* Handle on hover */
+                            &::-webkit-scrollbar-thumb:hover 
+                                background: #b0b0b0 
+    // ==================================
+    .demolink
+        width: 100%
+        justify-content: center

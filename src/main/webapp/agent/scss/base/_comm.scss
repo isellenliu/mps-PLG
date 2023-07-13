@@ -1,0 +1,131 @@
+// ===========================
+// comm
+// ===========================
+.d-none{
+	display: none !important;
+}
+.d-block{
+	display: block;
+}
+.d-inline-block{
+	display: inline-block !important;
+}
+.d-flex{
+	display: flex !important;
+}
+.relative{
+	position: relative;
+}
+
+.v-top{vertical-align: top;}
+.v-mid{vertical-align: middle;}
+.v-btm{vertical-align: bottom;}
+.h-auto{height: auto !important;}
+.w-900px{width: 900px;}
+.w-500px{width: 500px;}
+.w-420px{width: 420px;}
+.w-360px{width: 360px;}
+.w-300px{width: 300px;}
+.w-250px{width: 250px;}
+.w-220px{width: 220px;}
+.w-210px{width: 210px;}
+.w-200px{width: 200px;}
+.w-180px{width: 180px;}
+.w-160px{width: 160px;}
+.w-120px{width: 120px;}
+.w-110px{width: 110px;}
+.w-100px{width: 100px;}
+.w-90px{width: 90px;}
+.w-80px{width: 80px;}
+.w-70px{width: 70px;}
+.w-65px{width: 65px;}
+.w-60px{width: 60px;}
+.w-50px{width: 50px;}
+.w-40px{
+	width: 40px;
+	&.textLevel,
+	&.textLevelSec{margin-right: 3px;}
+}
+.w-35px{width: 35px;}
+.w-80 {
+	width: 80px !important;
+	display: inline-block;
+	&.select{
+		vertical-align: middle;
+	}
+}
+.w-3per{width: 3%;}
+.w-5per{width: 5%;}
+.w-10per{width: 10%;}
+.w-20per{width: 20%;}
+.w-30per{width: 30%;}
+.w-35per{width: 35%;}
+.w-40per{width: 40%;}
+.w-45per{width: 45%;}
+.w-50per{width: 50%;}
+.w-55per{width: 55%;}
+.w-80per{width: 80%;}
+.w-90per{width: 90%;}
+.w-100per{width: 100%;}
+.w-auto{width: auto;}
+.min-w-100px{min-width: 100px;}
+.p-0{padding: 0;}
+.p-5px{padding: 5px;}
+.p-10px{padding: 10px;}
+.mt-10px{margin-top: 10px;}
+.mt-20px{margin-top: 20px;}
+.mt-23px{margin-top: 23px;}
+.mt-50px{margin-top: 50px;}
+.mr-5px{margin-right: 5px;}
+.mb-0{margin-bottom: 0 !important;}
+.mb-5px{margin-bottom: 5px !important;}
+.mb-10px{margin-bottom: 10px !important;}
+.mb-20px{margin-bottom: 20px !important;}
+.ml-20px{margin-left: 20px !important;}
+.ml-25px{margin-left: 25px !important;}
+.checkboxList.w-100per{
+	text-align: left;
+}
+
+.bg-white{background: #fff;}
+.bg-black{background: #000;}
+
+.img-flag{
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0;
+    color: #676767;
+    line-height: normal;
+    font-size: 13px;
+    text-align: left;
+    white-space: nowrap;
+	img{
+		width: 22px;
+	}
+}
+//***************************************************//
+//文字變數
+$fontSize: 14px;
+$fontSize-S: 13px;
+$fontSize-M: 16px;
+$fontSize-L: 18px;
+
+// for demo
+.demolink{
+	margin: 50px 0 30px 0;
+	text-align: center;
+    a{
+		color: #333;
+        background: #f1f1f1;
+        display: inline-block;
+        margin-bottom: 5px;
+        border: 1px solid #ffffff6b;
+        text-decoration: none;
+        padding: 2px 5px;
+        font-size: 12px;
+        font-weight: normal;
+	}
+        
+
+}
+    

@@ -1,0 +1,64 @@
+//the styles of chips
+.chip {
+    @include transition(opacity .3s);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: vw(54px);
+    height: vw(54px);
+    border: vw(2px) solid rgba($gray-darker, 0);
+    font-size: vw($font-md - 1);
+    letter-spacing: vw(-1px);
+
+    &:hover,
+    &:active {
+        color: $black;
+    }
+
+    &.active {
+        @include border-radius(vw(100px));
+        @include transition(opacity .3s);
+        width: vw(58px);
+        height: vw(58px);
+        border: vw(2px) solid rgba($yellow, 1);
+        color: $black;
+    }
+}
+
+@each $chip-num in '1' '2' '3' '4' '5' '6' '7' '8' '9' '10' 'customize' 'all' 'no-select' {
+    .chip-#{$chip-num} {
+        @include transition(opacity .3s);
+        @include chip-sprite(chip- + $chip-num);
+        position: relative;
+        border: vw(2px) solid rgba($gray-darker, 0);
+        background-size: cover;
+    }
+}
+
+.chip-all::after {
+    content: 'Max';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.chip-repeat {
+    @include transition(opacity .3s);
+    @include chip-sprite(chip-set);
+    border: vw(2px) solid rgba($gray-darker, 0);
+    background-size: cover;
+
+    &::before {
+        content: '';
+        width: vw(24px);
+        height: vw(24px);
+        background: svg-rebet('%23444444') left bottom no-repeat;
+        background-size: cover;
+    }
+
+    &.active::before {
+        background: svg-rebet('%23000000') left bottom no-repeat;
+        background-size: cover;
+    }
+}

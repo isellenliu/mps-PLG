@@ -1,0 +1,383 @@
+//Profile Global setting
+body {
+    background-color: $bg-gray;
+    color: $gray-dark;
+}
+
+nav ul {
+    justify-content: flex-end;
+
+}
+
+//login page and the device switcher
+.login {
+    height: 100vh;
+    overflow: scroll;
+    background: url('../../images/mobile/profile/login-bg.jpg') center fixed no-repeat;
+    background-size: cover;
+
+    header {
+        padding: vw(20px) vw(40px);
+        background-color: transparent;
+        box-shadow: none;
+        text-align: center;
+
+        img {
+            width: vw(240px);
+        }
+    }
+
+    main {
+        padding: 0 vw(40px);
+        text-align: center;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        height: vw(96px - 12 * 2px);
+        padding: vw(12px) vw(20px);
+        background-color: rgba($white, .2);
+        color: $white;
+        font-size: vw($font-sm);
+        line-height: vw(24px);
+        text-shadow: 0 vw(2px) vw(2px) rgba(0, 0, 0, .5);
+
+        .add2desk {
+            vertical-align: middle;
+        }
+
+        .app-logo {
+            margin-top: vw(4px);
+            margin-right: vw(16px);
+            float: left;
+        }
+    }
+}
+
+//force to hide footer notification when andoid keyborad is active
+@media screen and (max-height: 400px) {
+    .login {
+        footer {
+            display: none;
+        }
+    }
+}
+
+.device-switcher {
+    @include border-radius(vw(100px));
+    @include gradient-y(rgba($black, 0), rgba($black, .1));
+    display: inline-flex;
+    position: relative;
+    width: vw(128px);
+    height: vw(32px);
+    margin: auto 0;
+    background: $gray-dark;
+
+    > img {
+        margin-left: vw(24px);
+        opacity: .4;
+    }
+
+    .switch-controller {
+        @include transition(all .4s);
+        @include border-radius(vw(100px));
+        @include gradient-y(rgba($black, 0), rgba($black, .3));
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: vw(54px);
+        width: vw(64px);
+        height: vw(24px);
+        margin: vw(4px);
+        background: $gray;
+
+        img {
+            opacity: 1;
+        }
+    }
+}
+
+.has-switched {
+    > img {
+        z-index: 1;
+        opacity: 1;
+    }
+
+    .switch-controller {
+        @include translate(vw(-54px), 0);
+
+        img {
+            @include translate(vw(54px), 0);
+            opacity: .4;
+        }
+    }
+}
+
+//TC page
+.tc {
+    overflow: scroll;
+    background-color: $gray-darker;
+
+    main {
+        padding: vw(24px) vw(24px) vw(24px + 48px);
+    }
+
+    header {
+        @include box-shadow(0 vw(8px) vw(16px) rgba($black, .2));
+        position: fixed;
+        top: 0;
+        width: vw(375px - 24px * 2);
+        padding: vw(24px) vw(24px) vw(16px);
+        background-color: $gray-darker;
+        color: $orange;
+        font-size: vw($font-xl);
+    }
+
+    h1 {
+        margin: vw(30px + 16px + 8px) 0 vw(16px);
+        color: $gray-lighter;
+        font-size: vw($font-md);
+        font-weight: bold;
+    }
+
+    ol {
+        padding-left: vw(24px);
+        list-style-type: decimal;
+        color: $gray-lighter;
+        font-size: vw($font-sm);
+        line-height: vw(24px);
+    }
+
+    footer {
+        @include box-shadow(0 vw(-8px) vw(16px) rgba($black, .2));
+        display: inline-flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: vw(375px);
+        height: vw(48px);
+
+        a {
+            @include border-radius(0);;
+            width: 50%;
+            height: 100%;
+            font-size: vw($font-md);
+            font-weight: bold;
+        }
+    }
+}
+
+//profile page
+.profile {
+    main {
+        padding: vw(24px);
+
+        > div:nth-child(even) {
+            margin-top: vw(24px);
+        }
+    }
+}
+
+.my-profile {
+    dl {
+        display: flex;
+        margin-bottom: vw(8px);
+        margin-left: vw(24px + 48px);
+
+        dd {
+            margin-left: vw(8px);
+            color: $black;
+            font-weight: bold;
+        }
+    }
+
+    img {
+        width: vw(48px);
+        float: left;
+        opacity: .4;
+    }
+
+    ul {
+        padding-left: vw(24px);
+        font-size: vw($font-xs);
+        line-height: vw(20px);
+    }
+
+    p {
+        margin-left: vw(24px + 48px);
+        color: $gray-mid;
+        font-size: vw($font-sm);
+        line-height: vw($font-body);
+    }
+}
+
+.my-credit {
+    h3 {
+        color: $gray-darker;
+        font-size: vw($font-md);
+        font-weight: bold;
+    }
+
+    dl {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: vw(8px);
+        border: 0;
+    }
+
+    dt,
+    dd {
+        flex: 1 1 32%;
+        height: vw(40px);
+        margin-top: vw(16px);
+        border-bottom: 1px dashed $gray;
+
+        &:last-of-type {
+            border: 0;
+        }
+    }
+
+    dd {
+        position: relative;
+        flex: 1 1 68%;
+        font-size: vw($font-xl);
+        text-align: right;
+
+        &::after {
+            content: 'USD';
+            position: relative;
+            top: vw(-8px);
+            margin-left: vw(4px);
+            color: $gray-dark;
+            font-size: vw($font-xxs);
+        }
+    }
+}
+
+.form-btn {
+    text-align: center;
+}
+
+// Bet Limit page
+.bet-limit {
+    .limit-wrapper {
+        padding: vw(24px);
+
+        &:last-of-type {
+            background-color: $bg-white;
+        }
+    }
+
+    h3 {
+        color: $gray-darker;
+        font-size: vw($font-md);
+        font-weight: bold;
+    }
+
+    ul {
+        position: relative;
+        margin: vw(24px) vw(24px) vw(8px);
+        line-height: vw(24px);
+
+        span {
+            position: absolute;
+            right: 0;
+        }
+    }
+
+    table {
+        margin-bottom: vw(32px);
+        color: $black;
+
+        img {
+            width: vw(24px);
+            height: auto;
+            margin-right: vw(8px);
+            vertical-align: middle;
+        }
+    }
+
+    th {
+        width: vw(90px);
+        height: vw(32px);
+        background-color: rgba($gray-lighter, .4);
+        color: $gray-mdd;
+        font-size: vw($font-sm);
+        font-weight: normal;
+        text-align: center;
+
+        &:first-of-type {
+            width: vw(140px);
+            padding-left: vw(8px);
+            text-align: left;
+        }
+    }
+
+    tr {
+        border-bottom: 1px $gray-lighter solid;
+
+        &:last-of-type {
+            border-bottom: 0;
+        }
+    }
+
+    td {
+        height: vw(32px);
+        padding-right: vw(24px);
+        text-align: right;
+
+        &:first-child {
+            padding-right: vw(8px);
+            color: $gray-mdd;
+            font-size: vw($font-sm);
+        }
+    }
+
+    .cf-limit-th {
+        padding-left: vw(8px);
+        color: $gray-mdd;
+        font-size: vw($font-sm);
+        text-align: left;
+    }
+
+    .cf-limit-range {
+        padding-right: vw(8px);
+        color: $gray-mdd;
+        font-size: vw($font-sm);
+        text-align: right;
+    }
+
+    .limit-bk {
+        td {
+            padding-right: vw(32px);
+
+            &:first-child {
+                padding-right: vw(0);
+                color: $gray-mdd;
+                font-size: vw($font-sm);
+                text-align: right;
+            }
+        }
+
+        th {
+            background-color: $bg-gray;
+        }
+    }
+}
+
+//Match History iframe setting for gamehall page
+.match-iframe {
+    @extend %box-sizing;
+    position: absolute;
+    z-index: $zindex-match-iframe;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}

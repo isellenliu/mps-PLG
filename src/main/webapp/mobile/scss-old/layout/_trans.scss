@@ -1,0 +1,461 @@
+//Trans Report - Global element
+.trans {
+    // background: #2d2d2d;
+
+    main {
+        margin-bottom: vw(48px);
+        background: #f6f6f6;
+    }
+
+    header {
+        box-shadow: none;
+    }
+
+    h3 {
+        margin-bottom: vw(8px);
+        margin-left: vw(8px);
+    }
+
+    .scaleable-content {
+        background: #f6f6f6;
+    }
+
+    .badge-arena {
+        @include arena-number(transparent, $gray-dark, $font-sm);
+        width: vw(28px);
+        height: vw(28px);
+        padding: 0;
+        border: 1px solid $gray;
+    }
+
+    .tag {
+        padding: 0 vw(12px);
+        // font-size: vw($font-sm);
+        line-height: vw(22px);
+    }
+
+    .no-data-info {
+        margin-top: vw(40px);
+    }
+
+    .loading {
+        @include border-radius(vw-c(8px));
+        width: vw-c(48px);
+        height: vw-c(48px);
+    }
+}
+
+//Trans report header
+.trans-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: vw(80px);
+    background: #2d2d2d;
+    color: $white;
+    text-shadow: vw(2px) vw(2px) vw(4px) rgba($black, .5);
+
+    h2 {
+        font-size: vw($font-xxl);
+        line-height: vw(28px);
+    }
+
+    p {
+        width: vw(48px);
+        font-size: vw(26px);
+        text-align: center;
+    }
+}
+
+.grand-total {
+    @include gradient-y(rgba($white, 0), rgba($white, 1));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: vw(40px);
+    padding-right: vw(20px);
+    padding-left: vw(8px);
+    box-shadow: inset 0 vw(4px) vw(4px) rgba($black, .2), 0 vw(4px) vw(4px) rgba($black, .2);
+
+    dt {
+        font-size: vw($font-md);
+    }
+
+    dd {
+        font-size: vw($font-lg);
+        font-weight: bold;
+    }
+}
+
+.sub-total {
+    @include box-shadow(inset 0 vw(2px) vw(2px) 0 rgba($black, .1));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: vw(32px);
+    padding-right: vw(32px);
+    padding-left: vw(8px);
+    background: rgba($gray-lighter , .4);
+    color: $black;
+
+    dt {
+        color: $gray-mid;
+        font-size: vw($font-sm);
+    }
+}
+
+.trans-filter {
+    padding-right: vw(20px);
+    text-align: right;
+
+    .trans-filter-item {
+        @include border-radius(vw(100px));
+        display: inline-block;
+        margin-left: vw(8px);
+        padding: vw(6px) vw(16px);
+        border: 1px solid #666666;
+        font-size: vw($font-sm);
+    }
+
+    .filter-cf {
+        @include filter-reverse($bluegreen);
+    }
+
+    .filter-bk {
+        @include filter-reverse($purple);
+    }
+
+    .filter-slot,
+    .filter-day {
+        @include filter-reverse($orange);
+    }
+}
+
+.trans-date {
+    display: flex;
+    flex-direction: column;
+
+    dt {
+        margin-bottom: vw(2px);
+        font-size: vw(26px);
+        line-height: vw(26px);
+    }
+
+    dd {
+        font-size: vw(16px);
+        line-height: vw(16px);       
+    }
+}
+
+//第一層-以日期為區間，以`天`作為分類，撈出來的所有場次/回合的下注列表
+.trans-list {
+    margin-top: vw(24px);
+    margin-bottom: vw(48px);
+
+    .trans-date {
+        margin-bottom: vw(8px);
+        padding-left: vw(8px);
+    }
+
+    .cell-th {
+        height: vw(24px);
+        margin-bottom: vw(4px);
+        color: $gray-mid;
+        font-size: vw($font-sm);
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+        height: vw(64px);
+        padding-right: vw(32px);
+        list-style-type: none;
+    }
+
+    li {
+        flex: 1 0 30%;
+        text-align: right;
+
+        &:first-of-type {
+            flex: 1 0 20%;
+            text-align: center;
+        }
+
+        &:nth-of-type(3) {
+            flex: 1 0 20%;
+        }
+    }
+}
+
+//第二層-該日期該場次所有回合的下注
+.trans-by-date {
+    @extend .trans-list;
+
+    li {
+        flex: 1 0 38%;
+
+        &:first-of-type {
+            display: flex;
+            flex: 1 0 24%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &:nth-of-type(3) {
+            flex: 1 0 38%;
+        }
+    }
+}
+
+//第三層-該日期該場次該回合的下注 detail information
+.trans-card-wrapper {
+    padding: vw(24px) vw(8px) 0;
+
+    h3 {
+        margin-left: 0;
+    }
+}
+
+.trans-detail-card {
+    @include box-shadow(0 vw(4px) vw(8px) rgba($black, .2));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: vw(330px);
+    margin: vw(16px) 0 vw(40px);
+    background-color: $white;
+
+    h4 {
+        flex: 2 0 100%;
+        height: vw(36px);
+        padding-left: vw(6px);
+        border-bottom: 1px solid $gray-lighter;
+        line-height: vw(36px);
+    }
+
+    dl {
+        flex: 1 0 50%;
+        min-height: vw(72px);
+        border-bottom: 1px dashed $gray-lighter;
+
+        &:nth-last-of-type(-n+2) {
+            border-bottom: 0;
+        }
+    }
+
+    dt {
+        padding: vw(12px) vw(6px);
+        color: $gray-mid;
+        font-size: vw($font-sm);
+    }
+
+    dd {
+        padding-left: vw(24px);
+    }
+}
+
+//search function
+.trans-search {
+    @include animation(trans-search .5s ease-in 0s normal 1, forwards);
+    @include box-shadow(0 vw(-4px) vw(8px) rgba($black, .4));
+    display: block;
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+    left: 0;
+    width: 98%;
+    height: vw(530px);
+    padding: vw(16px) 1% vw(8px);
+    opacity: 0;
+    background-color: $white;
+
+    .btn-close {
+        @include border-radius(vw(100px));
+        top: vw(-24px);
+        left: vw(375px / 2px - 24px);
+        width: vw(48px);
+        height: vw(48px);
+        background-color: $white;
+        color: $gray;
+        line-height: vw(48px);
+    }
+
+    .btn-submit {
+        height: vw(48px);
+        font-size: vw($font-xl);
+    }
+
+    .trans-filter {
+        margin: vw(20px) 0;
+        padding: 0;
+        text-align: center;
+
+        .trans-filter-item {
+            margin: 0;
+            padding: vw(8px) vw(12px);
+        }
+    }
+}
+
+.search-target-date {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style-type: none;
+
+    li {
+        &:nth-child(odd) {
+            width: vw(140px);
+            height: vw(64px);
+            background: $bg-gray;
+        }
+
+        &:first-child::before {
+            content: 'From';
+            position: relative;
+            top: vw(2px);
+            left: vw(4px);
+            color: $gray-mid;
+            font-size: vw($font-sm);
+        }
+
+        &:last-child::before {
+            content: 'To';
+            position: relative;
+            top: vw(2px);
+            left: vw(4px);
+            color: $gray-mid;
+            font-size: vw($font-sm);
+        }
+
+        &.active {
+            @extend .search-date-active;
+        }
+    }
+
+    .search-date-active {
+        border: 1px $orange solid;
+    }
+
+    .trans-date {
+        margin: 0 vw(4px);
+    }
+}
+
+//force to full-screen the search function when the vh is too short
+@media screen and (max-height: 530px) {
+    .trans-search {
+        @include animation(trans-search-small-device .5s ease-in 0s normal 1, forwards);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+
+        .btn-close {
+            top: vw(4px);
+            left: vw(375px - 48px - 4px);
+            width: vw(48px);
+            height: vw(48px);
+            background: transparent;
+            line-height: vw(48px);
+        }
+    }
+
+    .search-target-date {
+        padding-top: vw(32px);
+    }
+}
+
+.search-cal {
+    width: vw(359px);
+    margin: 0 auto vw(8px);
+    empty-cells: hide;
+    border-bottom: 1px rgba($gray-lighter, .4) solid;
+    text-align: center;
+
+    .cal-title {
+        color: $gray-dark;
+        font-size: vw($font-lg);
+        font-weight: bold;
+    }
+
+    th {
+        width: vw(50px);
+        height: vw(32px);
+        border-bottom: 1px rgba($gray-lighter, .4) solid;
+        color: $gray-mid;
+        font-size: vw($font-sm);
+        font-weight: normal;
+    }
+
+    td {
+        position: relative;
+        width: vw(50px);
+        height: vw(50px);
+    }
+
+    button {
+        @include border-radius(0);
+        width: 100%;
+        height: vw(50px);
+        margin-bottom: vw(4px);
+        background: transparent;
+        color: $black;
+        font-size: vw($font-body);
+
+        &.active {
+            @extend .search-date-range;
+            @include border-radius(100px);
+        }
+    }
+
+    .has-report {
+        &::after {
+            @include border-radius(vw(1000px));
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: vw(12px);
+            left: vw(24px);
+            width: vw(4px);
+            height: vw(4px);
+            background: $orange;
+        }
+    }
+
+    .today {
+        @include border-radius(vw(100px));
+        border: 1px $orange solid;
+    }
+
+    .pre-day {
+        color: rgba($black, .3);
+    }
+
+    .next-day {
+        color: rgba($black, .1);
+    }
+
+    .search-date-range {
+        @include gradient-y(rgba($orange, .8), rgba($orange-dark, 1));
+        color: $white;
+        text-shadow: 0 0 vw(2px) rgba($black, .6);
+
+        &::after {
+            background: $white;
+        }
+    }
+
+    .start-date {
+        @extend .search-date-range;
+        @include border-right-radius(0);
+        @include border-left-radius(100px);
+    }
+
+    .end-date {
+        @extend .search-date-range;
+        @include border-right-radius(100px);
+        @include border-left-radius(0);
+    }
+}

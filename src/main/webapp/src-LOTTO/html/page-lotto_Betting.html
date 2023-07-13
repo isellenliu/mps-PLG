@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>Lotto｜Betting</title>
+
+    <link rel="stylesheet" href="../../library/icomoon/style.css"/> <!-- all icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- google icon -->
+    <link rel="stylesheet" href="../LOTTO-css/lotto.css"/>
+</head>
+<!-- 點上方標題 "Betting" demo 直播開獎 -->
+<!-- alert 通知顯示 2 秒後自動消失，移除 "show" class -->
+<!-- lotto-modal對話框存在時，點 lotto-mask 不動作，點按鈕才會消失，移除 "show" class -->
+
+<!-- 投注成功_彈窗            <div class="lotto-modal success">           添加 show 
+                            <div class="lotto-mask">                    添加 show -->
+<!-- 投注失敗_彈窗            <div class="lotto-modal error">             添加 show 
+                            <div class="lotto-mask">                    添加 show -->
+<!-- 投注關閉_彈窗            <div class="lotto-modal notifs">            添加 show 
+                            <div class="lotto-mask">                    添加 show -->
+<!-- 時間快結束_提示通知       <div class="lotto-alert notifs">            添加 show
+                            <div class="box-drawTime">                  添加 endingSoon -->
+
+<!-- 選超過六顆_提示通知       <div class="lotto-alert error">             添加 show -->
+<!-- header捲動時增加影子     <nav class="page-head">                     添加 scroll -->
+<!-- 漢堡選單                <div class="nav-hb">                        添加 show -->
+<!-- 背景遮罩                <div class="lotto-mask">                    添加 show -->
+<!-- 選號碼球                <li class="numberBall">                     添加 pick -->
+<!-- 金額選項出現             <ul class="box-betAmount">                  添加 show -->
+<!-- betting確認明細         <div class="box-betConfirm">                添加 show -->
+<!-- 開獎直播橫幅出現         <div class="box-liveDrawing">               添加 show -->
+<!-- 開獎直播橫幅倒數結束      <span class="liveDrawing-countdown">        添加 close -->
+<!-- 開獎直播橫幅的號碼球出現   <li class="winningBall font-16B">           添加 show -->
+
+<body class="page-web lotto">
+    <!-- alert success -->
+    <div class="lotto-alert success">
+        <span class="alert-icon success material-icons">task_alt</span>
+        <span class="alert-txt font-12">test</span>
+    </div>
+    <!-- alert error -->
+    <div class="lotto-alert error">
+        <span class="alert-icon error material-icons">error_outline</span>
+        <span class="alert-txt font-12">Maximum Number of Selection Exceeded.</span>
+    </div>
+    <!-- alert notifs -->
+    <div class="lotto-alert notifs">
+        <span class="alert-icon notifs material-icons">notifications</span>
+        <span class="alert-txt font-12">5 minutes left to bet.</span>
+    </div>
+    <!-- modal success -->
+    <div class="lotto-modal success">
+        <span class="modal-close material-icons">close</span>
+        <div class="modal-title">
+            <span class="title-icon success material-icons">task_alt</span>
+            <span class="title-main font-20B">Successful Bet</span>
+        </div>
+        <p class="modal-info font-14">Thank you for your bet, good luck!</p>
+        <div class="modal-btn">
+            <button class="lotto-btn btn-L font-16B">My Tickets</button>
+            <button class="lotto-btn btn-R font-16B">Home</button>
+        </div>
+        <p class="modal-subtitle font-12">You can cancel before 5/22/2023, 20:00.</p>
+    </div>
+    <!-- modal error -->
+    <div class="lotto-modal error">
+        <span class="modal-close material-icons">close</span>
+        <div class="modal-title">
+            <span class="title-icon error material-icons">error_outline</span>
+            <span class="title-main font-20B">Failed Bet</span>
+        </div>
+        <p class="modal-info font-14">Betting for this event has ended. Click the link to proceed to the next betting event.</p>
+        <div class="modal-btn">
+            <button class="lotto-btn btn-L font-16B">Home</button>
+            <button class="lotto-btn btn-R font-16B">New Bet</button>
+        </div>
+    </div>
+    <!-- modal notifs -->
+    <div class="lotto-modal notifs">
+        <span class="modal-close material-icons">close</span>
+        <div class="modal-title">
+            <span class="title-icon notifs material-icons">error_outline</span>
+            <span class="title-main font-20B">Bet is not complete</span>
+        </div>
+        <p class="modal-info font-14">Leaving now will not save your progress. Are you sure you want to leave?</p>
+        <div class="modal-btn">
+            <button class="lotto-btn btn-L font-16B">Cancel</button>
+            <button class="lotto-btn btn-R font-16B">Confirm</button>
+        </div>
+    </div>
+    <!-- mask -->
+    <div class="lotto-mask"></div>
+    <!------------------------------ main ------------------------------>
+    <div class="page-wrapper">
+        <!-- header -->
+        <nav class="page-head">
+            <span class="nav-icon back material-icons">arrow_back_ios_new</span>
+            <title class="nav-title font-20B">Betting</title>
+            <div class="nav-hb">
+                <div></div>
+                <div></div>
+            </div>
+            <ul class="nav-menu">
+                <li class="menu-item language">
+                    <select name="" id="" class="font-18B">
+                        <option value="" disabled selected hidden>Language</option>
+                        <option value="">English</option>
+                        <option value="">Filipino</option>
+                    </select>
+                </li>
+                <li class="menu-item home">
+                    <a href="">
+                        <svg class="link-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 24H9.5V15H18.5V24H23V10.5L14 3.75L5 10.5V24ZM2 27V9L14 0L26 9V27H15.5V18H12.5V27H2Z"/>
+                        </svg>
+                        <span class="link-icon home material-icons">home</span>
+                        <span class="link-txt font-18B">Home</span>
+                    </a>
+                </li>
+                <li class="menu-item Betting">
+                    <a href="">
+                        <svg class="link-icon" width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M25.4999 15C25.4999 15.9464 25.3739 16.862 25.1387 17.7328L28.3895 19.0964C28.7843 17.8 28.9999 16.4252 28.9999 15C28.9999 13.5748 28.7843 12.2 28.3895 10.9036L25.1387 12.2672C25.3739 13.138 25.4999 14.0536 25.4999 15Z" fill="white"/>
+                            <path d="M5.94501 20.3145L2.69141 21.6781C3.98221 24.0525 5.94221 26.0125 8.31941 27.3061L9.68301 24.0525C8.14021 23.1453 6.85221 21.8545 5.94501 20.3145Z" fill="white"/>
+                            <path d="M24.0554 9.68569L27.309 8.32209C26.0182 5.94769 24.0582 3.98769 21.681 2.69409L20.3174 5.94769C21.8602 6.85489 23.1482 8.14569 24.0554 9.68569Z" fill="white"/>
+                            <path d="M20.3145 24.0551L21.6781 27.3087C24.0525 26.0179 26.0125 24.0579 27.3061 21.6807L24.0525 20.3171C23.1453 21.8599 21.8545 23.1479 20.3145 24.0551Z" fill="white"/>
+                            <path d="M14.9997 25.5001C14.0533 25.5001 13.1377 25.3741 12.2669 25.1389L10.9033 28.3897C12.1997 28.7845 13.5745 29.0001 14.9997 29.0001C16.4249 29.0001 17.7997 28.7845 19.0961 28.3897L17.7325 25.1389C16.8617 25.3741 15.9461 25.5001 14.9997 25.5001Z" fill="white"/>
+                            <path d="M4.5 15C4.5 14.0536 4.626 13.138 4.8612 12.2672L1.6104 10.9036C1.2156 12.2 1 13.5748 1 15C1 16.4252 1.2156 17.8 1.6104 19.0964L4.8612 17.7328C4.626 16.862 4.5 15.9464 4.5 15Z" fill="white"/>
+                            <path d="M14.9997 4.5C15.9461 4.5 16.8617 4.626 17.7325 4.8612L19.0961 1.6104C17.7997 1.2156 16.4249 1 14.9997 1C13.5745 1 12.1997 1.2156 10.9033 1.6104L12.2669 4.8612C13.1377 4.626 14.0533 4.5 14.9997 4.5Z" fill="white"/>
+                            <path d="M9.68594 5.94476L8.32234 2.69116C5.94794 3.98196 3.98794 5.94196 2.69434 8.31916L5.94794 9.68276C6.85514 8.13996 8.14594 6.85196 9.68594 5.94476Z" fill="white"/>
+                            <path d="M14.9998 7.30005C10.7466 7.30005 7.2998 10.7468 7.2998 15C7.2998 19.2532 10.7466 22.7 14.9998 22.7C19.253 22.7 22.6998 19.2532 22.6998 15C22.6998 10.7468 19.253 7.30005 14.9998 7.30005ZM14.9998 20.6C14.0086 18.0352 11.9646 15.9912 9.3998 15C11.9646 14.0088 14.0086 11.9648 14.9998 9.40005C15.991 11.9648 18.035 14.0088 20.5998 15C18.035 15.9912 15.991 18.0352 14.9998 20.6Z"/>
+                        </svg>                        
+                        <span class="link-txt font-18B">Betting</span>
+                    </a>
+                </li>
+                <li class="menu-item myTickets">
+                    <a href="page-lotto_MyTickets.html">
+                        <svg class="link-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.72 19.2L14.5 16.365L18.2125 19.2L16.795 14.61L20.575 11.64H15.985L14.5 7.05L13.015 11.64H8.425L12.1375 14.61L10.72 19.2ZM3.7 24.6C2.9575 24.6 2.32188 24.3356 1.79313 23.8069C1.26438 23.2781 1 22.6425 1 21.9V17.3437C1 17.0962 1.07875 16.8825 1.23625 16.7025C1.39375 16.5225 1.59625 16.41 1.84375 16.365C2.38375 16.185 2.82813 15.8587 3.17688 15.3862C3.52563 14.9137 3.7 14.385 3.7 13.8C3.7 13.215 3.52563 12.6862 3.17688 12.2137C2.82813 11.7412 2.38375 11.415 1.84375 11.235C1.59625 11.19 1.39375 11.0775 1.23625 10.8975C1.07875 10.7175 1 10.5037 1 10.2562V5.7C1 4.9575 1.26438 4.32187 1.79313 3.79312C2.32188 3.26438 2.9575 3 3.7 3H25.3C26.0425 3 26.6781 3.26438 27.2069 3.79312C27.7356 4.32187 28 4.9575 28 5.7V10.2562C28 10.5037 27.9213 10.7175 27.7638 10.8975C27.6063 11.0775 27.4038 11.19 27.1563 11.235C26.6163 11.415 26.1719 11.7412 25.8231 12.2137C25.4744 12.6862 25.3 13.215 25.3 13.8C25.3 14.385 25.4744 14.9137 25.8231 15.3862C26.1719 15.8587 26.6163 16.185 27.1563 16.365C27.4038 16.41 27.6063 16.5225 27.7638 16.7025C27.9213 16.8825 28 17.0962 28 17.3437V21.9C28 22.6425 27.7356 23.2781 27.2069 23.8069C26.6781 24.3356 26.0425 24.6 25.3 24.6H3.7ZM3.7 21.9H25.3V18.4575C24.4675 17.9625 23.8094 17.3044 23.3256 16.4831C22.8419 15.6619 22.6 14.7675 22.6 13.8C22.6 12.8325 22.8419 11.9381 23.3256 11.1169C23.8094 10.2956 24.4675 9.6375 25.3 9.1425V5.7H3.7V9.1425C4.5325 9.6375 5.19063 10.2956 5.67438 11.1169C6.15813 11.9381 6.4 12.8325 6.4 13.8C6.4 14.7675 6.15813 15.6619 5.67438 16.4831C5.19063 17.3044 4.5325 17.9625 3.7 18.4575V21.9Z"/>
+                        </svg>                                             
+                        <span class="link-icon myTickets material-icons">local_activity</span>
+                        <span class="link-txt font-18B">My Tickets</span>
+                    </a>
+                </li>
+                <li class="menu-item bettingSchedule">
+                    <a href="">
+                        <span class="link-icon bettingSchedule material-icons">event_note</span>
+                        <span class="link-txt font-18B">Betting Schedule</span>
+                    </a>
+                </li>
+                <li class="menu-item drawHistory">
+                    <a href="">
+                        <span class="link-icon drawHistory material-icons">manage_search</span>
+                        <span class="link-txt font-18B">Draw History</span>
+                    </a>
+                </li>
+                <li class="menu-item memberInfo">
+                    <a href="">
+                        <!-- <span class="link-icon person material-icons">person</span> -->
+                        <span class="link-icon memberInfo material-icons">perm_identity</span>
+                        <span class="link-txt font-18B">Member Info</span>
+                    </a>
+                </li>
+                <li class="menu-item logout">
+                    <a href="">
+                        <span class="link-icon logout material-icons">logout</span>
+                        <span class="link-txt font-18B">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- 開獎橫幅 -->
+        <div class="box-liveDrawing">
+            <svg class="lotto-icon videocam" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.8 23.6C2.03 23.6 1.37083 23.3258 0.8225 22.7775C0.274167 22.2292 0 21.57 0 20.8V6.8C0 6.03 0.274167 5.37083 0.8225 4.8225C1.37083 4.27417 2.03 4 2.8 4H19.6C20.37 4 21.0292 4.27417 21.5775 4.8225C22.1258 5.37083 22.4 6.03 22.4 6.8V11.7L28 6.1V21.5L22.4 15.9V20.8C22.4 21.57 22.1258 22.2292 21.5775 22.7775C21.0292 23.3258 20.37 23.6 19.6 23.6H2.8Z"/>
+            </svg>
+            <span class="liveDrawing-title font-16B">OngoingDrawing</span>
+            <span class="liveDrawing-countdown font-14">00:00</span>
+            <ul class="winningList">
+                <li class="winningBall font-16B">10</li>
+                <li class="winningBall font-16B">13</li>
+                <li class="winningBall font-16B">23</li>
+                <li class="winningBall font-16B">34</li>
+                <li class="winningBall font-16B">35</li>
+                <li class="winningBall font-16B">37</li>
+            </ul>
+        </div>
+        <!-- body -->
+        <div class="page-body betting">
+            <!-- 場次 -->
+            <div class="box-drawTime">
+            <!-- <div class="box-drawTime endingSoon"> -->
+                <span class="lotto-icon eventNote material-icons">event_note</span>
+                <select name="" id="" class="drawTime-select font-14">
+                    <option>6/7/2023</option>
+                    <option>6/9/2023</option>
+                    <option>6/12/2023</option>
+                    <option>6/14/2023</option>
+                    <option>6/30/2023</option>
+                </select>
+                <span class="lotto-icon alarm material-icons">alarm</span>
+                <span class="drawTime-countdown font-14">03:00:00</span>
+            </div>
+            <!-- 號碼球 -->
+            <ul class="box-numberList">
+                <li class="numberBall">1</li>
+                <li class="numberBall">2</li>
+                <li class="numberBall">3</li>
+                <li class="numberBall">4</li>
+                <li class="numberBall">5</li>
+                <li class="numberBall">6</li>
+                <li class="numberBall">7</li>
+                <li class="numberBall">8</li>
+                <li class="numberBall">9</li>
+                <li class="numberBall">10</li>
+                <li class="numberBall">11</li>
+                <li class="numberBall">12</li>
+                <li class="numberBall">13</li>
+                <li class="numberBall">14</li>
+                <li class="numberBall">15</li>
+                <li class="numberBall">16</li>
+                <li class="numberBall">17</li>
+                <li class="numberBall">18</li>
+                <li class="numberBall">19</li>
+                <li class="numberBall">20</li>
+                <li class="numberBall">21</li>
+                <li class="numberBall">22</li>
+                <li class="numberBall">23</li>
+                <li class="numberBall">24</li>
+                <li class="numberBall">25</li>
+                <li class="numberBall">26</li>
+                <li class="numberBall">27</li>
+                <li class="numberBall">28</li>
+                <li class="numberBall">29</li>
+                <li class="numberBall">30</li>
+                <li class="numberBall">31</li>
+                <li class="numberBall">32</li>
+                <li class="numberBall">33</li>
+                <li class="numberBall">34</li>
+                <li class="numberBall">35</li>
+                <li class="numberBall">36</li>
+                <li class="numberBall">37</li>
+                <li class="numberBall">38</li>
+                <li class="numberBall">39</li>
+                <li class="numberBall">40</li>
+                <li class="numberBall">41</li>
+                <li class="numberBall">42</li>
+                <li class="numberBall">43</li>
+                <li class="numberBall">44</li>
+                <li class="numberBall">45</li>
+            </ul>
+            <!-- 金額 -->
+            <ul class="box-betAmount">
+                <li class="font-16">10</li>
+                <li class="font-16">25</li>
+                <li class="font-16">50</li>
+                <li class="font-16">100</li>
+                <li class="font-16">200</li>
+                <li class="font-16">300</li>
+            </ul>
+            <!-- 選號碼 -->
+            <div class="box-pickNumber">
+                <!-- 數量統計 -->
+                <div class="pickNumber-count">
+                    <div class="count-numberCount">
+                        <span class="font-14">Number Count</span>
+                        <span class="font-14">0</span>
+                    </div>
+                    <div class="count-betCount">
+                        <span class="font-14">Bet Count</span>
+                        <span class="font-14">0</span>
+                    </div>
+                </div>
+                <!-- 清除/隨機 -->
+                <div class="pickNumber-btn">
+                    <button class="btn-clear font-14">
+                        <svg class="lotto-icon clear" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12.8293 12.7485H14.8657V5.6212C14.8657 5.33271 14.7681 5.09089 14.5729 4.89574C14.3778 4.70059 14.136 4.60301 13.8475 4.60301C13.559 4.60301 13.3172 4.70059 13.122 4.89574C12.9269 5.09089 12.8293 5.33271 12.8293 5.6212V12.7485ZM6.72021 16.8212H20.9748V14.7848H6.72021V16.8212ZM5.24385 22.9303H7.7384V20.8939C7.7384 20.6054 7.83597 20.3636 8.03112 20.1685C8.22627 19.9733 8.46809 19.8757 8.75658 19.8757C9.04506 19.8757 9.28688 19.9733 9.48203 20.1685C9.67718 20.3636 9.77476 20.6054 9.77476 20.8939V22.9303H12.8293V20.8939C12.8293 20.6054 12.9269 20.3636 13.122 20.1685C13.3172 19.9733 13.559 19.8757 13.8475 19.8757C14.136 19.8757 14.3778 19.9733 14.5729 20.1685C14.7681 20.3636 14.8657 20.6054 14.8657 20.8939V22.9303H17.9202V20.8939C17.9202 20.6054 18.0178 20.3636 18.2129 20.1685C18.4081 19.9733 18.6499 19.8757 18.9384 19.8757C19.2269 19.8757 19.4687 19.9733 19.6638 20.1685C19.859 20.3636 19.9566 20.6054 19.9566 20.8939V22.9303H22.4511L21.4329 18.8576H6.26203L5.24385 22.9303ZM22.4511 24.9666H5.24385C4.58203 24.9666 4.04749 24.7036 3.64021 24.1776C3.23294 23.6515 3.11415 23.066 3.28385 22.4212L4.68385 16.8212V14.7848C4.68385 14.2248 4.88324 13.7454 5.28203 13.3466C5.68082 12.9479 6.16021 12.7485 6.72021 12.7485H10.7929V5.6212C10.7929 4.77271 11.0899 4.0515 11.6838 3.45756C12.2778 2.86362 12.999 2.56665 13.8475 2.56665C14.696 2.56665 15.4172 2.86362 16.0111 3.45756C16.6051 4.0515 16.902 4.77271 16.902 5.6212V12.7485H20.9748C21.5348 12.7485 22.0142 12.9479 22.4129 13.3466C22.8117 13.7454 23.0111 14.2248 23.0111 14.7848V16.8212L24.4111 22.4212C24.6317 23.066 24.5342 23.6515 24.1184 24.1776C23.7026 24.7036 23.1469 24.9666 22.4511 24.9666Z" />
+                        </svg>
+                        <span class="btn-txt">Clear</span>
+                    </button>
+                    <button class="btn-luckyPick font-14">
+                        <svg class="lotto-icon dice" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.64327 20.2224C10.1618 20.2224 10.6025 20.0409 10.9655 19.6779C11.3285 19.315 11.5099 18.8742 11.5099 18.3557C11.5099 17.8372 11.3285 17.3965 10.9655 17.0335C10.6025 16.6705 10.1618 16.4891 9.64327 16.4891C9.12475 16.4891 8.68401 16.6705 8.32105 17.0335C7.95809 17.3965 7.77661 17.8372 7.77661 18.3557C7.77661 18.8742 7.95809 19.315 8.32105 19.6779C8.68401 20.0409 9.12475 20.2224 9.64327 20.2224ZM9.64327 11.5113C10.1618 11.5113 10.6025 11.3298 10.9655 10.9668C11.3285 10.6039 11.5099 10.1631 11.5099 9.64461C11.5099 9.1261 11.3285 8.68536 10.9655 8.32239C10.6025 7.95943 10.1618 7.77795 9.64327 7.77795C9.12475 7.77795 8.68401 7.95943 8.32105 8.32239C7.95809 8.68536 7.77661 9.1261 7.77661 9.64461C7.77661 10.1631 7.95809 10.6039 8.32105 10.9668C8.68401 11.3298 9.12475 11.5113 9.64327 11.5113ZM13.9988 15.8668C14.5173 15.8668 14.9581 15.6854 15.321 15.3224C15.684 14.9594 15.8655 14.5187 15.8655 14.0002C15.8655 13.4817 15.684 13.0409 15.321 12.6779C14.9581 12.315 14.5173 12.1335 13.9988 12.1335C13.4803 12.1335 13.0396 12.315 12.6766 12.6779C12.3136 13.0409 12.1322 13.4817 12.1322 14.0002C12.1322 14.5187 12.3136 14.9594 12.6766 15.3224C13.0396 15.6854 13.4803 15.8668 13.9988 15.8668ZM18.3544 20.2224C18.8729 20.2224 19.3136 20.0409 19.6766 19.6779C20.0396 19.315 20.221 18.8742 20.221 18.3557C20.221 17.8372 20.0396 17.3965 19.6766 17.0335C19.3136 16.6705 18.8729 16.4891 18.3544 16.4891C17.8359 16.4891 17.3951 16.6705 17.0322 17.0335C16.6692 17.3965 16.4877 17.8372 16.4877 18.3557C16.4877 18.8742 16.6692 19.315 17.0322 19.6779C17.3951 20.0409 17.8359 20.2224 18.3544 20.2224ZM18.3544 11.5113C18.8729 11.5113 19.3136 11.3298 19.6766 10.9668C20.0396 10.6039 20.221 10.1631 20.221 9.64461C20.221 9.1261 20.0396 8.68536 19.6766 8.32239C19.3136 7.95943 18.8729 7.77795 18.3544 7.77795C17.8359 7.77795 17.3951 7.95943 17.0322 8.32239C16.6692 8.68536 16.4877 9.1261 16.4877 9.64461C16.4877 10.1631 16.6692 10.6039 17.0322 10.9668C17.3951 11.3298 17.8359 11.5113 18.3544 11.5113ZM5.28772 25.2002C4.60327 25.2002 4.01735 24.9565 3.52994 24.4691C3.04253 23.9817 2.79883 23.3957 2.79883 22.7113V5.28906C2.79883 4.60462 3.04253 4.01869 3.52994 3.53128C4.01735 3.04387 4.60327 2.80017 5.28772 2.80017H22.7099C23.3944 2.80017 23.9803 3.04387 24.4677 3.53128C24.9551 4.01869 25.1988 4.60462 25.1988 5.28906V22.7113C25.1988 23.3957 24.9551 23.9817 24.4677 24.4691C23.9803 24.9565 23.3944 25.2002 22.7099 25.2002H5.28772ZM5.28772 22.7113H22.7099V5.28906H5.28772V22.7113Z" />
+                        </svg>
+                        <span class="btn-txt">Lucky Pick</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Submit前的確認明細 -->
+            <div class="box-betConfirm">
+                <div class="betConfirm-count">
+                    <span class="font-14">Number Count</span>
+                    <span class="font-14">3</span>
+                    <span class="font-14">Bet Count</span>
+                    <span class="font-14">1</span>
+                </div>
+                <div class="betConfirm-betAmount">
+                    <span class="font-14">Bet Amount</span>
+                    <span class="font-14">₱ 10</span>
+                </div>
+                <div class="betConfirm-drawTime">
+                    <span class="font-14">Draw Time</span>
+                    <span class="font-14">5/22/2023, 21:00</span>
+                </div>
+                <div class="betConfirm-MaxPrize">
+                    <span class="font-14">Max Potential Prize</span>
+                    <span class="font-14">₱ 3,000</span>
+                </div>
+                <hr>
+                <div class="betConfirm-total">
+                    <span class="font-20B">Total Bet</span>
+                    <span class="font-20B">₱ 10</span>
+                </div>
+                <p class="betConfirm-deadline font-14">You can cancel before 5/22/2023, 20:00.</p>
+                <div class="betConfirm-btn">
+                    <button class="lotto-btn btn-L cancel font-18B">Cancel</button>
+                    <button class="lotto-btn btn-R submit font-18B">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------------------ JS ------------------------------>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="../js/lotto-Betting-min.js"></script>
+</body>
+</html>

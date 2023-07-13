@@ -1,0 +1,252 @@
+/*  ---------------
+    設定共用字型
+ --------------- */
+@mixin tit-xlarge
+    font-size: 24px 
+    line-height: normal
+    font-weight: bold
+@mixin tit-large
+    font-size: 20px
+    line-height: normal
+    font-weight: bold
+@mixin tit
+    font-size: 16px
+    line-height: normal
+    font-weight: bold
+// ------------
+@mixin txt-bigMoney
+    font: italic bold 38px / 38px arial
+    @include phone-S
+        font-size: 33px
+        line-height: 33px
+
+@mixin txt-large
+    font-size: 20px
+    line-height: normal
+    @include phone-S
+        font-size: 16px   
+
+@mixin txt  
+    font-size: 16px   
+    line-height: 16px
+    @include phone-S
+        font-size: 13px   
+
+@mixin txt-small
+    font-size: 14px
+    line-height: 14px
+    @include phone-S
+        font-size: 11px   
+
+@mixin txt-xsmall
+    font-size: 12px
+    line-height: 12px
+    @include phone-S
+        font-size: 10px   
+
+
+@mixin txt_disabled
+    color: $gray-400
+    background: none
+    background-color: $gray-000
+
+//強制不斷行
+@mixin txt_break_word
+    word-wrap: break-word
+    white-space: nowrap
+
+// ---------------------------------------------------------
+// placeholder
+@mixin placeholder
+    &::-webkit-input-placeholder
+        @content
+
+    &::-moz-placeholder
+        @content
+
+    &::-moz-placeholder
+        @content
+
+    &::-ms-input-placeholder
+        @content
+
+// ---------------------------------------------------------
+// box-shadow
+@mixin box-shadow-L
+    box-shadow: 0px 2px 20px $black
+@mixin box-shadow-M
+    box-shadow: 0px 2px 15px $black
+@mixin box-shadow-S
+    box-shadow: 0px 2px 10px $black
+
+// ---------------------------------------------------------
+// border-radius
+@mixin border-radius-L
+    border-radius: 20px
+@mixin border-radius-M
+    border-radius: 10px
+@mixin border-radius-S
+    border-radius: 5px
+// ---------------------------------------------------------
+// select-style
+@mixin select-style
+    @include txt
+    @include border-radius-S
+    display: block
+    position: relative
+    background: $white
+    text-align: left
+    line-height: 33px
+    width: 100%
+    padding-left: 10px
+    margin-bottom: 5px
+    border: 1px solid $gray-100
+// ---------------------------------------------------------
+// btn
+@mixin btn-style
+    border-radius: 5px
+    padding: 5px 10px
+    min-width: 60px
+    text-decoration: none
+    font-weight: 500
+    line-height: 24px
+    border: 1px solid $gray-100
+// ---------------------------------------------------------
+// icon
+@mixin icon-style
+    font-size: 24px
+    line-height: 24px
+    vertical-align: top
+
+@mixin icon-number
+    font-size: 11px
+    background: $highlight-color
+    color: $white
+    height: auto
+    border-radius: 50px
+    vertical-align: middle
+    min-width: 20px
+    line-height: 20px
+    width: auto
+
+// ---------------------------------------------------------
+// badge
+@mixin badge-style
+    border-radius: 100px
+    display: inline-block
+    background: $gray-400
+    padding: 3px 10px
+    margin: 0 2px 2px 2px
+    color: $white
+    vertical-align: middle
+
+// ---------------------------------------------------------
+// 使用background 背景cover
+@mixin background-cover($imgurl, $position:center, $attachment:initial)
+    background-image: url($imgurl)
+    background-repeat: no-repeat
+    background-position: center $position
+    background-size: cover
+
+// ---------------------------------------------------------
+// 漸層
+@mixin mainGradient($from, $to, $color1, $color2)
+    background: $color1
+    background: -moz-linear-gradient($from, $color1 0%, $color2 100%)
+    background: -webkit-linear-gradient($from, $color1 0%, $color2 100%)
+    background: linear-gradient(to $to, $color1 0%, $color2 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color1', endColorstr='$color2', GradientType=0)
+
+// ---------------------------------------------------------
+// Breakpoint system
+$min-pc-l-width:  1280px
+$max-pc-width:    1279px
+$min-pc-width:    1024px
+$max-pad-width:   1023px // 1024px（包含）以上是pc版
+$min-pad-width:   768px
+$max-phone-width: 767px // 767px（包含）以下是手機版
+$min-phone-width: 320px
+
+// Breakpoint-up 斷點以上
+@mixin Breakpoint-up()
+    @media screen and (min-width: $min-pc-width)
+        @content
+
+// Breakpoint-down 斷點以下
+@mixin Breakpoint-down()
+    @media screen and (min-width: $min-phone-width) and (max-width: $max-pad-width)
+        @content
+
+// pad 橫擺
+@mixin pad-landscape() 
+    @media all and (device-width: 1024px)
+        @content
+
+// pad 橫擺以上
+@mixin pad-pc()
+    @media all and (min-width: 1024px)
+        @content
+
+// 手機橫擺以上
+@mixin phone-L-up()
+    @media all and (min-width: 401px)
+        @content
+// ===========================
+// pc
+@mixin pc-M()
+    @media all and (min-width: 1281px) and (max-width: 1400px)
+        @content
+
+@mixin pc-S()
+    @media all and (min-width: 1024px) and (max-width: 1280px)
+        @content
+
+// pad
+@mixin pad-M()
+    @media all and (min-width: 768px) and (max-width: 1023px)
+        @content
+
+@mixin pad-S()
+    @media all and (min-width: 481px) and (max-width: 767px)
+        @content
+
+// 大手機 (iphoneX Max)
+@mixin phone-L()
+    @media all and (min-width: 401px) and (max-width: 480px)
+        @content
+
+// 中手機 (iphoneX)
+@mixin phone-M()
+    @media all and (min-width: 360px) and (max-width: 400px)
+        @content
+
+// 小手機 (iphoneSE)
+@mixin phone-S()
+    @media all and (min-width: 320px) and (max-width: 359px)
+        @content
+
+
+
+
+//bootstrap zindex
+$zindex-M-menu:                     900
+$zindex-dropdown:                   1000 !default
+$zindex-sticky:                     1020 !default
+$zindex-fixed:                      1030 !default
+$zindex-modal-backdrop:             1040 !default
+$zindex-modal:                      1050 !default
+$zindex-popover:                    1060 !default
+$zindex-tooltip:                    1070 !default
+
+$modal-fade-transform:              translate(0, -50px) !default
+$modal-show-transform:              none !default
+$modal-transition:                  transform .3s ease-out !default
+
+// ---------------------------------------------------------
+// 做動畫
+@mixin animation($time: all ease 0.5s) 
+    -webkit-transition: $time
+    -moz-transition: $time
+    -ms-transition: $time
+    -o-transition: $time
+    transition: $time

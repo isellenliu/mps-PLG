@@ -1,0 +1,40 @@
+//cound not do anything during the fight
+.main-disabled {
+    .pit-area {
+        color: $gray-light;
+        cursor: default;
+        pointer-events: none;
+
+        > div {
+            @include gradient-radial(rgba($black, 0), rgba($black, .5));
+            border: vw(2px) solid rgba($black, .2);
+            background-color: $gray-mid;
+        }
+    }
+
+    .btn-accept-odds {
+        @include gradient-y(rgba($black, 0), rgba($black, .3));
+        background-color: $gray;
+        color: $gray-light;
+        cursor: default;
+        pointer-events: none;
+    }
+
+    .confirm-area {
+        .btn-confirm,
+        .btn-cancel {
+            @include gradient-y(rgba($black, 0), rgba($black, .3));
+            background-color: $gray;
+            color: $gray-light;
+            cursor: default;
+            pointer-events: none;
+        }
+    }
+
+    .chip-area {
+        .chip {
+            cursor: default;
+            pointer-events: none;
+        }
+    }
+}

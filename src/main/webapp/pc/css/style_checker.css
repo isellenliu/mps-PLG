@@ -1,0 +1,244 @@
+.box1 {
+	float: left;
+	width: 392px;
+}
+
+.clear {
+	clear: both;
+}
+
+.vsBlock {
+	display: inline-flex;
+}
+
+#resultTable label {
+	display: inline-block;
+	width: 46px;
+	padding: 5px;
+	border: solid 2px #ccc;
+	transition: all 0.3s;
+	text-align: center;
+}
+
+#resultTable .win {
+	height: 80px;
+	line-height: 80px;
+}
+
+#resultTable input[type="radio"] {
+	display: none;
+}
+
+#resultTable input[type="radio"]:checked+label {
+	border: solid 2px black;
+}
+
+#resultTable .result_Banker:checked+label {
+	background-color: RED;
+}
+
+#resultTable .result_Player:checked+label {
+	background-color: BLUE;
+}
+
+#resultTable .result_BDD:checked+label {
+	background-color: GREEN;
+}
+
+#resultTable .result_FTD:checked+label {
+	background-color: CYAN;
+}
+
+.changeColor {
+	display: inline;
+	height: 15px;
+	margin: 7px 0 0 0;
+	padding: 0 20px;
+}
+
+.vsMeron .changeColor {
+	background-color: #fff;
+	border-left: 2px solid #9B9B9B;
+	margin-left: 5px;
+}
+
+.vsWala .changeColor {
+	background-color: #FFBB17;
+	border-right: 2px solid #9B9B9B;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+.resultBtn {
+	width: 100%;
+}
+
+.boxTable {
+  position: relative;
+  width: 270px;
+  background-color: #fff;
+}
+
+.boxTable table {
+  margin: 0 0 3px 0;
+  margin: 0\9;
+}
+
+.boxTable td {
+  width: 26px;
+  height: 26px;
+  border-left: 1px solid #979797;
+  border-bottom: 1px solid #979797;
+}
+
+.boxTable td:first-child {
+  border-left: none;
+}
+
+.boxTable tr:last-child td {
+  border-bottom: none;
+}
+
+.boxTable ul {
+  margin: 2px 0 0 0;
+  font-size: 15px;
+  line-height: 30px;
+  zoom: 1;
+  content: "";
+  clear: both;
+  font-family: Helvetica Neue, Arial, sans-serif;
+}
+
+.boxTable ul li {
+  margin: 0 12px 0 0;
+  padding: 0 0 0 24px;
+  display: block;
+  float: left;
+}
+
+.boxTable ul .result-P {
+  color: #09079C;
+}
+
+.boxTable ul .result-B {
+  color: #A20014;
+}
+
+.boxTable ul .result-D {
+  color: #1D5D00;
+  margin: 0;
+}
+
+.boxTable ul .last {
+  margin: 0;
+  padding: 0 20px;
+  cursor: pointer;
+  text-indent: -99999px;
+  float: right;
+}
+
+.conditionSolid .icon-P {
+  background: url(../images/iconPDB.png) no-repeat center 0px;
+}
+
+.conditionSolid .icon-B {
+  background: url(../images/iconPDB.png) no-repeat center -29px;
+}
+
+.conditionSolid .icon-D {
+  background: url(../images/iconPDB.png) no-repeat center -58px;
+}
+
+.conditionSolid .icon-W {
+  background: url(../images/iconPDB.png) no-repeat center -352px;
+}
+
+.conditionSolid .icon-M {
+  background: url(../images/iconPDB.png) no-repeat center -381px;
+}
+
+.conditionSolid .result-P {
+  background: url(../images/iconPDB.png) no-repeat left 2px;
+}
+
+.conditionSolid .result-B {
+  background: url(../images/iconPDB.png) no-repeat left -27px;
+}
+
+.conditionSolid .result-D {
+  background: url(../images/iconPDB.png) no-repeat left -56px;
+}
+
+.conditionSolid .result-W {
+  background: url(../images/iconPDB.png) no-repeat left -349px;
+}
+
+.conditionSolid .result-M {
+  background: url(../images/iconPDB.png) no-repeat left -378px;
+}
+
+.conditionSolid .last {
+  background: url(../images/iconAll.png) no-repeat left -843px;
+}
+
+.conditionSolid .last:hover {
+  background: url(../images/iconAll.png) no-repeat left -872px;
+}
+
+.conditionLine .icon-P {
+  background: url(../images/iconPDB.png) no-repeat center -88px;
+}
+
+.conditionLine .icon-B {
+  background: url(../images/iconPDB.png) no-repeat center -117px;
+}
+
+.conditionLine .icon-D, .conditionLine .icon-D1 {
+  background: url(../images/iconPDB.png) no-repeat center -146px;
+}
+
+.conditionLine .icon-D2 {
+  background: url(../images/iconPDB.png) no-repeat center -176px;
+}
+
+.conditionLine .icon-D3 {
+  background: url(../images/iconPDB.png) no-repeat center -206px;
+}
+
+.conditionLine .icon-D4 {
+  background: url(../images/iconPDB.png) no-repeat center -235px;
+}
+
+.conditionLine .icon-D5 {
+  background: url(../images/iconPDB.png) no-repeat center -265px;
+}
+
+.conditionLine .result-P {
+  background: url(../images/iconPDB.png) no-repeat left -85px;
+}
+
+.conditionLine .result-B {
+  background: url(../images/iconPDB.png) no-repeat left -114px;
+}
+
+.conditionLine .result-D {
+  background: url(../images/iconPDB.png) no-repeat left -143px;
+}
+
+.conditionLine .last {
+  background: url(../images/iconAll.png) no-repeat right -843px;
+}
+
+.conditionLine .last:hover {
+  background: url(../images/iconAll.png) no-repeat right -872px;
+}
+
+.nicescroll-rails {
+  width: 265px;
+  height: 8px;
+  border: 1px solid #BBB;
+  border-top: none\9;
+  padding: 1px 0;
+  margin: -1px 0 0 0\9;
+  float: left;
+}

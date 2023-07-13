@@ -1,0 +1,173 @@
+// Main Navigation
+header {
+    @include box-shadow(0 vw(4px) vw(4px) rgba($black, .2));
+    position: relative;
+    background-color: $gray-dark;
+
+    h1 {
+        position: absolute;
+        top: 0;
+        width: vw(375px);
+        color: $gray-lighter;
+        font-size: vw(16px);
+        line-height: vw($ht-port-header);
+        text-align: center;
+    }
+
+    .bet-credit {
+        left: vw(8px);
+        width: vw(375px - 16px - (40px + 4px) * 2);
+        text-align: left;
+
+        span:first-of-type {
+            color: $orange;
+        }
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: vw($ht-port-header);
+    }
+
+    li {
+        position: relative;
+        min-width: vw(40px);
+        margin: 0 vw(4px);
+        list-style: none;
+
+        a {
+            display: block;
+            width: 100%;
+            height: vw($ht-port-header);
+            color: $white;
+        }
+    }
+}
+
+.bk-icon {
+    margin-left: auto;
+
+    a {
+        background: url('../../images/mobile/icon-bk-navi.svg') center no-repeat;
+        background-size: vw(20px);
+     }
+}
+
+.gamehall-icon {
+    a {
+        background: svg-home('%23ffffff') center no-repeat;
+        background-size: vw(22px);
+     }
+}
+
+.close-icon {
+    a {
+        background: svg-cancel('%23ffffff') center no-repeat;
+        background-size: vw(28px);
+     }
+}
+
+.goback-icon {
+    margin-right: auto;
+
+    a {
+        background: url('../../images/mobile/profile/icon-arrow-back.svg') center no-repeat;
+        background-size: vw(24px);
+     }
+}
+
+.menu-icon {
+    a {
+        background: url('../../images/mobile/icon-menu.svg') center no-repeat;
+        background-size: vw(20px);
+     }
+}
+
+// The side navigation menu
+#mainSidenav {
+    right: 0;
+}
+
+.mainnav-in {
+    // width: 70vw !important;
+    width: 280px !important;
+}
+
+#reportSidenav {
+    left: 0;
+}
+
+.reportnav-in {
+    width: 90vw !important;
+}
+
+.mask-all {
+    @extend %fullsrn-mask;
+    // display: block;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sidenav {
+    @include transition(all .5s);
+    position: fixed;
+    z-index: $zindex-mainnav;
+    top: 0;
+    width: 0; // 0 width - change this with JavaScript
+    height: 100vh;
+    padding-top: vw(36px);
+    overflow: hidden;
+    overflow-x: hidden;
+    background-color: $gray-darker;
+
+    li {
+        list-style: none;
+    }
+
+    .sidenav-main {
+        a {
+            display: block;
+            width: 70vw;
+            padding: vw(24px) vw(8px) vw(24px) vw(32px);
+            border-bottom: 1px solid rgba($white, .2);
+            color: $gray-lighter;
+            font-size: vw($font-lg);
+
+            &.active {
+                @include transition(all .3s);
+                border-bottom: 1px solid rgba($white, 1);
+                color: $white;
+                text-shadow: 0 0 vw(4px) $gray-darker;
+            }
+        }
+    }
+}
+
+//the current record and trans history in the left sidenav
+.nav-tabs {
+    position: relative;
+    font-size: vw($font-sm);
+
+    li {
+        display: inline-block;
+
+        a,
+        label {
+            position: relative;
+            left: vw(1px);
+            margin-left: vw(8px);
+            padding: vw(8px);
+            color: $white;
+            font-weight: bold;
+
+            &.active {
+                border-bottom: vw(2px) solid $orange;
+                color: $orange;
+                font-weight: bold;
+            }
+        }
+    }
+}

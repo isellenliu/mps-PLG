@@ -1,0 +1,56 @@
+* { margin: 0; padding: 0; }
+
+html, body { height: 100%; font-family: Arial, Helvetica, sans-serif; }
+
+a { text-decoration: none; color: #444; outline: none; hlbr: expression(this.onFocus=this.blur()); }
+
+table { border-collapse: collapse; }
+
+input { background-color: #fff; font-family: Arial, Helvetica, sans-serif; }
+
+.clearfix:after { content: ""; display: block; clear: both; }
+
+.clearfix { zoom: 1; }
+
+.clear { clear: both; }
+
+.float-L { float: left; }
+
+.float-R { float: right; }
+
+.align-L { text-align: left; }
+
+.align-R { text-align: right; }
+
+.align-C { text-align: center; }
+
+.displayB { display: block; }
+
+.displayI { display: inline; }
+
+.displayIB { display: inline-block; }
+
+.displayF { display: flex; }
+
+.border-box { box-sizing: border-box; }
+
+.predict { background-image: linear-gradient(to bottom, rgba(239, 108, 0, 0.1) 0%, rgba(239, 108, 0, 0.2) 100%); background-repeat: repeat-x; display: flex; justify-content: space-between; height: 20px; margin: 4px 0; color: #ffffff; line-height: 20px; }
+.predict dt, .predict dd { padding: 0 8px; }
+
+.pit-area { height: 110px; }
+
+.betting { top: 80%; transform: translate(-50%, -80%); }
+
+@media screen and (orientation: landscape) { .pit-area { top: 81px; height: 132px; }
+  .predict { display: flex; top: 212px; right: 0; justify-content: space-between; width: 50vw; height: 20px; margin: 4px 0; line-height: 20px; }
+  .predict dd, .predict dt { padding: 0 6px; }
+  .chip-area { top: 234px; height: 68px; }
+  .betting-add { top: -20%; }
+  .betting { top: 75%; transform: translate(-50%, -75%); } }
+@media screen and (orientation: portrait) and (device-width: 360px), (device-width: 384px), (device-width: 400px), (device-width: 412px) { .arena li a { height: 32px; }
+  .status-bar { height: 18px; }
+  .predict { height: 18px; margin: 2px 8px; line-height: 18px; }
+  .pit-area { height: 100px; }
+  .pit-area .odds { margin-top: 4px; }
+  .confirm-area { height: 100px; margin: 2px 4px; }
+  .chip-area { height: 58px; margin: 2px 4px; } }

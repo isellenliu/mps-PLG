@@ -1,0 +1,22 @@
+@keyframes shineForTimeUp{
+    0%{border-color: #FFD801;}
+
+   	50%{border-color: #F90;}
+
+	100%{border-color: #FCBC00;}
+}
+
+@keyframes videoBarToFadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+		background-color: rgba(0, 0, 0, .5);
+	}
+}
+
+.videoBarToFadeIn {
+	animation: videoBarToFadeIn 0.6s ease-in forwards;
+}
+

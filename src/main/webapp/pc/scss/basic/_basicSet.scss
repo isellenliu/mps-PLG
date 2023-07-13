@@ -1,0 +1,405 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+html, body{
+	background-color: #292929;
+	font-family: Helvetica Neue, Arial, sans-serif;
+	font-size: 14px;
+}
+
+a{
+	text-decoration: none;
+	outline: none; //for Firefox
+    hlbr:expression(this.onFocus=this.blur()); //for IE
+}
+
+li{
+	list-style: none;
+}
+
+table{border-collapse: collapse;}
+
+input{border: none;}
+
+.wrapper{
+	position: relative;
+	width: $widthFull;
+	margin: 0 auto;
+}
+
+// scroll chrome & safari
+
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	border-left: 1px solid #555;
+	border-right: 1px solid #555;
+}
+
+::-webkit-scrollbar-thumb {
+	min-height: 20px;
+	margin: 1px 0;
+	background: url(../images/scrollbar-Y.png) no-repeat center center #3C3C3C;
+	&:hover{
+		background: url(../images/scrollbar-Y.png) no-repeat center center #504F4F;
+	} 
+}
+
+// scroll firefox
+.function-2, .function-1{
+	scrollbar-face-color: #3C3C3C; /* Firefox 63 compatibility */
+	scrollbar-track-color: #555; /* Firefox 63 compatibility */
+	scrollbar-color: #3C3C3C #555;
+	scrollbar-width: thin;
+}
+
+//***************************************************//
+//Clear
+.clearfix:after { 
+    content: "";
+    display: block;
+    clear: both;
+}
+.clearfix { zoom: 1; }
+.clear{clear: both;}
+
+//Float Set
+.float-L{float: left;}
+.float-R{float: right;}
+
+//Align Set
+.align-L{text-align: left;}
+.align-R{text-align: right;}
+.align-C{text-align: center;}
+
+//***************************************************//
+//header裡面div用
+.padding-1{padding: 12px 0 0 0;} 
+
+//color
+.negativeColor{color: $negativeColor;}
+
+
+//***************************************************//
+//icon
+//<span class="icon-BeenBet">BeenBet</span>
+.icon-BeenBet{
+	//display: block;
+	position: absolute;
+	z-index: 200;
+	top: -13px;
+	right: -1px;
+	width: 21px;
+	height: 21px;
+	background: url(../images/iconAll.png) no-repeat right -723px;
+	@extend %no_text;
+}
+
+.icon-InRunning{
+	padding: 0 0 0 16px;
+	background: url(../images/iconAll.png) no-repeat -1px -1220px;
+	//&:hover{background-position: 3px -1186px;}
+}
+
+.icon-Countdown{
+	position: absolute;
+	z-index: 100;
+	font-weight: bold;
+	color: #fff;
+	@extend .align-C;
+}
+
+//btn
+//popup-1的開關視窗
+.aBtn-close{
+	display: block;
+	width: 36px;
+	height: 36px;
+	background: url(../images/iconAll.png) no-repeat -9px -1054px;
+
+	&:hover{
+		background: url(../images/iconAll.png) no-repeat -67px -1054px;
+	}
+}
+
+
+//***************************************************//
+//info <p class="info-normal">
+.info-normal{
+	border-bottom: 1px solid darken($mainColor,10%);
+	background: url(../images/info-green.png) no-repeat 7px 13px #0D3D36;
+	@extend %info;
+}
+
+.info-warning{
+	border-bottom: 1px solid darken($mainColor,10%);
+	background: url(../images/info-red.png) no-repeat 7px 13px #57141D;
+	@extend %info;
+}
+
+
+//***************************************************//
+//popup
+.popupBG-BK{
+	position: absolute;
+	z-index: 9999;
+	width: 100%;
+	height: 100%;
+
+	//背景帶透png，支援IE8以上
+	// background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkmQkAAKcAn7BsJkMAAAAASUVORK5CYII=);
+}
+
+//popup：單數淺色，雙數深色
+//(單數淺色)淺色的，視窗二選一
+.popup-1{
+	width: $popupWidth-M;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+	padding: 20px 30px;
+	background-color: #e0e0e0;
+	color: #242424;
+	@extend %popupStyle-1;
+
+	p{font-size: 16px;}
+
+	h3{
+		margin: 0 0 15px 0;
+		font-size: 22px;
+	}
+
+	ul{@extend .align-C;}
+
+	li{
+		min-width: 105px;
+		padding: 15px 25px;
+		background-color: $mainColor;
+		font-size: 16px;
+		color: darken($mainColor,35%);
+		cursor: pointer;
+		&:hover{background-color: lighten($mainColor,10%);}
+		@extend .float-L;
+		margin: 0 3px\9;
+		min-width: 100px\9;
+	}
+
+	li:last-child{ margin: 0 0 0 10px;}
+
+	strong{
+		display: block;
+		margin: 3px 0 0 0;
+		border-top: 1px solid darken($mainColor,15%);
+		padding: 2px 0 0 0;
+		color: #242424;
+		font-size: 24px;
+	}
+}
+
+//最新消息的popup
+.popup-3{
+	width: $popupWidth-L;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-60%);
+	background-color: #e6e6e6;
+	@extend %popupStyle;
+
+	p{
+		padding: 2px 8px 10px;
+		height-line: 20px;
+		color: #353535;
+		background-color: #fff;
+		@extend .align-R;
+	}
+
+	input{margin: 0 6px;}
+}
+
+//(雙數深色)深色的
+//2-用於沒有任何比賽的彈跳(只用於單視窗)
+.popup-2{
+	width: $popupWidth-M;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-60%);
+	padding: 65px 30px 10px;
+	background: url(../images/icon-01.png) no-repeat center 15px #242424;
+	color: #b4b4b4;
+	@extend %popupStyle-1;
+	@extend .align-C;
+
+	p{
+		margin: 0 0 10px 0;
+		font-size: 16px;	
+	}
+
+	a{
+		color: $mainColor;
+		text-decoration: underline;
+		&:hover{text-decoration: none;}
+	}
+}
+//4-用於 ID suspend 的彈跳視窗
+.popup-4{
+	width: $popupWidth-M;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-60%);
+	padding: 65px 30px 20px;
+	background: url(../images/icon-02.png) no-repeat center 15px #242424;
+	color: #E91932;
+	@extend %popupStyle-1;
+	@extend .align-C;
+
+	h2{
+		margin: 0 0 10px 0;
+		font-size: 32px;
+		line-height: 32px;
+	}
+
+	p{
+		margin: 0 0 10px 0;
+		font-size: 18px;	
+	}
+
+	.inputBtn-betOn{
+		min-width: 180px;
+		padding: 5px 20px;
+		border: 1px solid #454545;
+	}
+}
+
+//新增因地區而不能進入的popup
+.popup-noEnter{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	font-size: 24px;
+	line-height: 34px;
+	color: #F5A623;
+
+	dl{
+		display: flex;
+	}
+
+	dt{
+		width: 160px;
+		height: 160px;
+		margin-right: 28px;
+		background: url('../images/iconNoEnter.png') no-repeat center center;
+		background-size: contain;
+		filter: drop-shadow(5px 5px 5px #111);
+	}
+
+	dd{
+		align-self: center;
+	}
+}
+//***************************************************//
+//scrollbar外框
+//Y:深色
+.aside .nicescroll-rails{
+	height: 598px;
+	width: 8px;
+	border: 1px solid #4A4A4A;
+	border-top: none;//測試機後調整
+    border-bottom: none;//測試機後調整
+    padding: 0 1px;
+	@extend .float-R;
+}
+
+//X:淺色
+.box-XS .nicescroll-rails,.box-S .nicescroll-rails{
+	width: 265px;
+	height: 8px;
+	border: 1px solid #BBB;
+	border-top: none\9;
+	padding: 1px 0;
+	@extend .float-L;
+}
+
+
+//scrollbar裡面的圖形
+.scrollbar-Y{
+	width: 8px;
+	min-height: 20px;
+	margin: 1px 0;
+	background: url(../images/scrollbar-Y.png) no-repeat center center #3C3C3C;
+	&:hover{
+		background: url(../images/scrollbar-Y.png) no-repeat center center #504F4F;
+	}
+}
+
+.scrollbar-X{
+	width: 20px;
+	height: 8px;
+	margin: 0 1px;
+	background: url(../images/scrollbar-X.png) no-repeat center center #E4E3E3;
+	&:hover{
+		background: url(../images/scrollbar-X.png) no-repeat center center #D6D6D6;
+	}
+}
+
+
+
+//***************************************************//
+//輸入文字樣式,下注區
+.inputText-1{
+	padding: 0 7px;
+	font-size: 16px;
+}
+
+.inputText-2{
+	border: 1px solid #eee;
+	padding: 5px 7px;
+	font-size: 16px;
+	&:hover{
+		border: 1px solid darken($mainColor,10%);
+	}
+}
+
+///input:送出&取消&不能點選
+.inputBtn-betOn{
+	color: #FFA543;
+	font-weight: bold;
+	cursor: pointer;
+	@extend %blackGradient;
+	@extend %inputBtn;
+	&:hover{
+		color: #000;
+		@extend %mainGradient;
+	}
+}
+
+.inputBtn-betOff{
+	color: #7A7A7A;
+	cursor: pointer;
+	@extend %blackGradient;
+	@extend %inputBtn;
+	&:hover{
+		color: #fff;
+		@extend %blackGradient;
+	}
+}
+
+.inputBtn-betNo{
+	background: #7A7878;
+	color: #242424;
+	cursor: auto;
+	@extend %inputBtn;
+	&:hover{
+		background: #7A7878;
+		color: #242424;
+	}
+}
+

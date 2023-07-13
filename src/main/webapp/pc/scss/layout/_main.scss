@@ -1,0 +1,2090 @@
+//***************************************************//
+//////videoTwo
+.videoTwo{
+	position: relative;
+	margin: 0 0 0 2px;
+	margin: 0\9;
+	@extend .float-L;
+	//////videoTwo add 防側錄code
+	// .txt-security-code {
+	// 	&.l-btm {
+	// 		bottom: 35px;
+	// 	}
+	// 	&.r-btm {
+	// 		bottom: 35px;
+	// 	}
+	// }
+}
+
+.box-M{
+	position: relative;
+	width: $widthBox-M;
+	@extend .float-L;
+	
+	.popupBG-BK{
+		bottom: 0;
+		left: 0;
+	}
+}
+
+#container_3 {
+	margin-left: 2px;
+}
+
+.box-XS{
+	position: relative;
+	height: 256px;
+
+	.info-normal,.info-warning{
+		width: 280-10-45px;
+	}
+
+	//開始下注的彈跳
+	.popupBG-BK{
+		bottom: 0;
+		left: 0;
+		width: 280px;
+		height: 220px;
+
+		img{
+			display: block;
+			width: 175px;
+			margin: 24px auto 0;
+		}
+	}
+
+	.boxTable {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+
+	.boxBet {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		bottom: 1.5px\9;
+	}
+}
+
+
+//////scrollingText
+.scrollingText{
+	position: relative;
+	width: $widthBox-M - 30px - 24px;
+	height: 20px;
+	padding:0 30px 0 24px;
+	background: url(../images/iconAll.png) no-repeat left -624px #3F3F3F;
+	font-size: 13px;
+	font-family: Arial, sans-serif;
+	line-height: 20px;
+	color: #888;
+	cursor: pointer;
+
+	a{
+		display: block;
+		position: absolute;
+		z-index: 30;
+		top: 0;
+		right: 0;
+		height: 20px;
+		width: 20px;
+		background: url(../images/iconAll.png) no-repeat left -79px #000;
+		&:hover{background-color: darken($mainColor,30%);}
+		@extend .float-L;
+	}
+}
+
+
+//////vs-two(雙視窗VS)
+.vsBox-two{
+	position: relative;
+	color: #fff;
+	height: 62px;
+	// &::before{
+	// 	content: '';
+	// 	position: absolute;
+	// 	background: #151515 url(../../pc/images/SV388_logo.png) no-repeat center;
+	// 	background-size: 70%;
+	// 	bottom: -15px;
+	// 	left: 50%;
+	// 	transform: translateX(-25%);
+	// 	width: 20px;
+	// 	height: 20px;
+	// 	border-radius: 50%;
+	// 	box-shadow: inset -1px -2px 8px #f4f4f42e, inset 1px 2px 2px #000;
+	// 	z-index: 100;
+	// }
+
+	//vs
+	dl{
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 20;
+		width: 150px;
+		height: 70px;
+		background: url(../images/icon-top.png) no-repeat center;
+		background-size: cover;
+		@extend .align-C;
+	}
+
+	dt{
+		font-size: 12px;
+		line-height: 22px;
+		color: #AAA;
+	}
+
+	dd{	
+		color: #7ED321;
+		strong{
+			margin: 0 0 1px 0;
+			font-size: 17px;
+			display: block;
+		}
+		span{
+			font-size: 14px;
+			display: block;
+		}
+	}
+
+	h2{
+		margin: 3px 0 2px 0;
+		font-size: 22px;
+		font-weight: normal;
+		span{
+			// margin:0 5px;
+			font-size: 16px;
+			color: #d3d3d3;
+			
+		}
+	}
+
+	h4{
+		font-size: 13px;
+		font-weight: normal;
+		line-height: 14px;
+	}
+
+	p{
+		max-width: 100px;
+		overflow: hidden;
+		text-overflow : ellipsis;
+		white-space: nowrap;
+	}
+
+	.changeColor{
+		width: 12px;
+		height: 14px;
+	}
+	.vsWala, .vsMeron{
+		.cockPicWide.loadingPic{
+			background-size: cover !important;
+			height: 65px !important;
+			margin: 4px 2px !important;
+		}
+	}
+	.cockPicWide{
+		position: relative;
+		width: 88px !important;
+		height: 60px !important;
+		overflow: hidden;
+		border: none;
+		background: none !important;
+		&.loadingPic{
+			img{
+				display: none !important;
+			}
+		}
+		img{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 90%;
+			object-fit: contain;
+			object-position: top center;
+			filter: drop-shadow(0 10px 8px #0000005f);
+		}
+	}
+
+	.icKingCock{
+		width: 32px;
+		height: 50px;
+	}
+
+	dt.logo{
+		position: relative;
+		width: 40px;
+		height: 40px;
+		margin: 0 auto;
+		img{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+	.raceGroup{
+		.raceInfo {
+			strong{
+				font-size: 15px;
+			}
+			span{
+				margin-left: 3px;
+				font-size: 15px;
+			}
+		}
+	}
+}
+
+.icKingCock{
+	position: absolute;
+	background: url(../images/icKingCock.png) no-repeat center center;
+	background-size: contain;
+	display: none;
+}
+
+.vsMeron{
+	position: relative;
+	width: 286px;
+	@extend %meronGradient;
+	height: 62px;
+
+	h3{background-color: darken($meronColor,10%);}
+
+	div{border: 2px solid $meronColor;}
+
+	.changeColor{
+		background-color: #fff;
+		border-left: 2px solid #9B9B9B;
+	}
+	.cockPicWide{
+		&.loadingPic{
+			background: url(../images/defaultL_Wide.webp) no-repeat center center !important;
+			border-radius: 10px;
+			img{
+				display: none !important;
+			}
+		}
+	}
+}
+
+.vsWala{
+	position: relative;
+	width: $widthBox-M - 286px;
+	@extend %walaGradient;
+	height: 62px;
+
+	h3{background-color: darken($walaColor,10%);}
+
+	div{border: 2px solid $walaColor;}
+
+	.changeColor{
+		background-color: #FFBB17;
+		border-right: 2px solid #9B9B9B;
+	}
+	.cockPicWide{
+		&.loadingPic{
+			background: url(../images/defaultR_Wide.webp) no-repeat center center !important;
+			border-radius: 8px;
+			margin: 4px 4px 0 0 !important;
+
+			img{
+				display: none !important;
+			}
+		}
+	}
+}
+
+
+//////videoSize,雙視窗影片尺寸
+.videoSize-two{
+	position: relative;
+	width: $widthBox-M;//558px(4:3)
+	height: 322px;//419px(4:3)
+	background-color: #212121;
+	box-sizing: border-box;
+	// -----------
+	&.fullScreen{
+		.videoSize{
+			video{
+				height: auto !important;
+			}
+		}
+	}
+	// -----------
+	.videoSize{
+		width: 100%;
+		video{
+			height: 322px !important;
+			object-fit: fill;
+			object-position: center bottom;
+		}
+	}
+
+
+	.videoBar {
+		width: 100%;
+		height: 30px;
+	}
+
+	.vcp-player{
+		height: 322px;
+		video{
+			height: 100% !important;
+			object-fit: fill;
+			object-position: center bottom;
+		}
+	}
+
+	.icon-Live {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+	}
+
+	.icon-Countdown {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		color: #ffffff;
+		font-size: 16px;
+		line-height: 18px;
+	}
+
+	.popupBG-BK {
+		z-index: 200;
+	}
+}
+.videoBar {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 110;
+	display: flex;
+	justify-content: space-between;
+	opacity: 0;
+}
+
+.videoMsg {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 36px;
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 36px;
+	text-align: center;
+
+	&.msg-danger { background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, transparent 100%); background-repeat: repeat-x; background-color: #C62828; }
+
+	&.msg-info { background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, transparent 100%); background-repeat: repeat-x; background-color: #1564BF; }
+
+	&.msg-meron { background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, transparent 100%); background-repeat: repeat-x; background-color: #C62828; }
+
+	&.msg-wala { background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, transparent 100%); background-repeat: repeat-x; background-color: #1564BF; }
+
+	&.msg-inrunning { background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, transparent 100%); background-repeat: repeat-x; background-color: #9061E2; }
+
+	&.msg-ftd { background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, transparent 100%); background-repeat: repeat-x; background-color: #44A08D; }
+
+	&.msg-bdd { background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, transparent 100%); background-repeat: repeat-x; background-color: #4CAF50; }
+}
+
+.videoBar-L,
+.videoBar-R {
+	display: flex;
+}
+
+.icon-Live {
+	display: inline-block;
+	padding: 0 10px;
+	background-color: #e52325;
+	color: #ffffff;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 30px;
+}
+
+.videoLoading {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	//z-index: 200;
+	//background-color: rgba(0, 0, 0, .8);
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 50%;
+	    left: 50%;
+	    transform: translate(-50%,-50%);
+	    width: 40px;
+	    height: 40px;
+	    background-image: url(../images/loading.svg);
+	    background-size: cover;
+	}
+}
+
+//左邊：videoBar-L
+.btnVideo-play {
+	position: relative;
+	width: 36px;
+	border: 0;
+	border-right: 1px solid rgba(250, 250, 250, .15);
+	background-color: rgba(0, 0, 0, 0);
+	cursor: pointer;
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 50%;
+	    left: 50%;
+	    transform: translate(-50%,-50%);
+		width: 13px;
+		height: 16px;
+		background-image: url('data:image/svg+xml,<svg width="15" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M0 0v18l15-9z" fill="%23FFFFFF" fill-rule="evenodd"/></svg>');
+		background-size: cover;
+	}
+
+	&.stop {
+		&:after {
+			width: 12px;
+			height: 14px;
+			background-image: url('data:image/svg+xml,<svg width="12" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M0 14h4V0H0v14zM8 0v14h4V0H8z" fill="%23FFFFFF" fill-rule="evenodd"/></svg>');
+		}		
+	}
+}
+
+.btnVideo-voice {
+	position: relative;
+	width: 36px;
+	border: 0;
+	background-color: rgba(0, 0, 0, 0);
+	cursor: pointer;
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 50%;
+	    left: 50%;
+	    transform: translate(-50%,-50%);
+		width: 17px;
+		height: 17px;
+		background-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M0 5.77v6h4l5 5v-16l-5 5H0zm13.5 3A4.5 4.5 0 0011 4.74v8.05c1.48-.73 2.5-2.25 2.5-4.02zM11 0v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77C18 4.49 15.01.91 11 0z" fill="%23FFFFFF" fill-rule="evenodd"/></svg>');
+		background-size: cover;
+	}
+
+	&.off {
+		&:after {
+			background-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 9A4.5 4.5 0 0011 4.97v2.21l2.45 2.45c.03-.2.05-.41.05-.63zM16 9c0 .94-.2 1.82-.54 2.64l1.51 1.51A8.796 8.796 0 0018 9c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM1.27 0L0 1.27 4.73 6H0v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06a8.99 8.99 0 003.69-1.81L16.73 18 18 16.73l-9-9L1.27 0zM9 1L6.91 3.09 9 5.18V1z" fill="%23FFFFFF" fill-rule="evenodd"/></svg>');
+		}		
+	}
+}
+
+.voicebar {
+	position: relative;
+	display: flex;
+	width: 120px;
+	
+	dt {
+		position: absolute;
+		top: 50%;
+	    transform: translateY(-50%);
+		width: 120px;
+		height: 4px;
+		border-radius: 99rem;
+		background-image: linear-gradient(-90deg, #EEEEEE 0%, #D8D8D8 100%);
+	}
+
+	dd {
+		position: absolute;
+		top: 50%;
+	    transform: translateY(-50%);
+	    width: 14px;
+	    height: 14px;
+	    background-image: url(../images/voicebar-point.svg);
+	    background-size: cover;
+	    background-repeat: no-repeat;
+	    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+	}
+}
+
+//右邊：videoBar-R
+.selectVideo-quality {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	border: 0;
+	border-radius: 0;
+	width: 58px;
+	padding: 0 15px 0 6px;
+	border-left: 1px solid rgba(250, 250, 250, .15);
+	background-color: #000000;
+	background-image: url('data:image/svg+xml,<svg width="7" height="6" xmlns="http://www.w3.org/2000/svg"><path d="M.5 5.5h6l-3-5z" fill="%23E2E2E2" fill-rule="evenodd"/></svg>');
+	background-repeat: no-repeat;
+	background-position: 42px center;
+	color: #ffffff;
+	font-size: 14px;
+}
+
+.dropdownVideo {
+	position: relative;
+
+	&:hover {
+		.dropdownVideo-open {display: block;}
+	}
+
+	.dropdownVideo-open {
+		position: absolute;
+		bottom: 30px;
+		display: none;
+
+		button {
+			height: 30px;
+			background-image: none;
+			border-bottom: 1px solid rgba(250, 250, 250, .3);
+			border-left: 0;
+		}
+	}
+
+	button {
+		position: relative;
+		width: 56px !important;
+		height: 100%;
+		padding: 0 15px 0 5px;
+		border: 0;
+		border-left: 1px solid rgba(250, 250, 250, .15);
+		background-color: #000000;
+		background-image: url('data:image/svg+xml,<svg width="7" height="6" xmlns="http://www.w3.org/2000/svg"><path d="M.5 5.5h6l-3-5z" fill="%23E2E2E2" fill-rule="evenodd"/></svg>');
+		background-repeat: no-repeat;
+		background-position: 42px center;
+		color: #ffffff;
+		cursor: pointer;
+
+		&:hover {
+			background-color: #3b3b3b;
+		}
+
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 52%;
+			left: 12px;
+			transform: translateY(-50%);
+			width: 21px;
+			height: 19px;
+			background-image: url('data:image/svg+xml,<svg width="20" height="19" xmlns="http://www.w3.org/2000/svg"><path d="M18.182 0H1.818C.81 0 0 .94 0 2.111v12.667c0 1.16.81 2.11 1.818 2.11h4.546V19h7.272v-2.111h4.546c1 0 1.809-.95 1.809-2.111L20 2.11C20 .94 19.182 0 18.182 0zM18 15H2V2h16v13z" fill="%23FFFFFF" fill-rule="evenodd"/></svg>');
+			background-size: cover;
+		}
+	}
+}
+
+.btnVideo-fullScreen {
+	position: relative;
+	width: 36px;
+	border: 0;
+	border-left: 1px solid rgba(250, 250, 250, .15);
+	background-color: #000000;
+	cursor: pointer;
+
+	&:hover {
+		background-color: #1f1f1f;
+	}
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 50%;
+	    left: 50%;
+	    transform: translate(-50%,-50%);
+	    width: 18px;
+	    height: 16px;
+	    background-image: url('data:image/svg+xml,<svg width="22" height="20" xmlns="http://www.w3.org/2000/svg"><g fill="%23FFFFFF" fill-rule="evenodd"><path d="M7 0v2H3.414l3.414 3.414-1.414 1.414L2 3.413 2 7H0V0h7zM15 0v2h3.586l-3.414 3.414 1.414 1.414L20 3.413 20 7h2V0h-7zM7 20v-2H3.414l3.414-3.414-1.414-1.414L2 16.587 2 13H0v7h7zM15 20v-2h3.586l-3.414-3.414 1.414-1.414L20 16.587 20 13h2v7h-7z"/></g></svg>');
+	    background-size: cover;
+	}
+
+	&.active {
+		&:after {
+			background-image: url('data:image/svg+xml,<svg width="22" height="20" xmlns="http://www.w3.org/2000/svg"><g fill="%23FFFFFF" fill-rule="evenodd"><path d="M0 7V5h3.586L.172 1.586 1.586.172 5 3.587 5 0h2v7H0zM22 7V5h-3.586l3.414-3.414L20.414.172 17 3.587 17 0h-2v7h7zM0 13v2h3.586L.172 18.414l1.414 1.414L5 16.413 5 20h2v-7H0zM22 13v2h-3.586l3.414 3.414-1.414 1.414L17 16.413 17 20h-2v-7h7z"/></g></svg>');
+		}
+	}
+}
+
+
+//////下注區域 for two
+.arenaTwo {
+	position: relative;
+
+	ul {
+		position: absolute;
+		top: -10px;
+		display: flex;
+		width: 100%;
+		color: #fff;
+		font-size: 16px;
+		font-weight: bold;
+		line-height: 36-7-1px;
+		@extend .align-C;
+
+		li {
+			position: relative;
+			flex: 1 0 70.5px;
+			margin-top: 10px;
+
+			&:not(:last-child) {
+				margin-right: 1px;
+			}
+		}
+	}
+
+
+	ol {
+		display: none;
+	}
+
+	.now{color:#fff;}
+
+	.icon-InRunning{
+		width: 68 - 15px;
+	}
+}
+
+//***************************************************//
+//狀態
+//eventReady(灰)-eventOpening(綠)-eventBetClosed(紅)-eventInRunning(紫)
+//eventClosed(暗黑)
+.eventReady{
+	border-top: 7px solid $eventColor-0-light;
+	&:hover{color:$eventColor-0;}
+	@extend %event;
+}
+
+.eventOpening{
+	border-top: 7px solid $eventColor-1-light;
+	&:hover{color: $eventColor-1;}
+	&.timeUp{animation: shineForTimeUp 0.24s step-start infinite;}
+	@extend %event;
+}
+
+.eventBetClosed{
+	border-top: 7px solid $eventColor-2-light;
+	&:hover{color: $eventColor-2;}
+	@extend %event;
+}
+
+.eventInRunning{
+	border-top: 7px solid $eventColor-3-light;
+	&:hover{color: $eventColor-3;}
+	@extend %event;
+	
+	.icon-InRunning{
+		&:hover{background-position: 0px -1191px;}
+	}
+}
+
+.eventClosed{
+	border-top: 7px solid #191919;
+	background-color: #303030;
+	color: #191919;
+	cursor: auto;
+}
+
+//狀態+now
+.eventReady.now{
+	color:$eventColor-0;
+	@extend %eventGradient;
+}
+.eventOpening.now{
+	color:$eventColor-1;
+	@extend %eventGradient;
+}
+.eventBetClosed.now{
+	color:$eventColor-2;
+	@extend %eventGradient;
+}
+.eventInRunning.now{
+	color:$eventColor-3;
+	@extend %eventGradient;
+
+	.icon-InRunning{
+		background-position: -1px -1191px;
+	}
+}
+
+//歷史紀錄表格-實心圓,空心圓
+.boxTable{
+	position: relative;
+	width: 269px;
+	padding: 6px 5px 5px 6px;//測試機後調整
+	padding: 6px 5px 6px 6px\9;
+	background-color: #fff;
+	@extend .float-L;
+
+	//table
+	table{
+		margin: 0 0 3px 0;
+		margin: 0\9;
+	}
+
+	td{
+		width: 26px;
+		height: 26px;
+		border-left: 1px solid #979797;
+		border-bottom: 1px solid #979797;
+		@extend %no_text;
+	}
+	td:first-child{border-left: none;}
+	tr:last-child{td{border-bottom: none;}}
+
+	//ul
+	ul{
+		margin: 3px 0 0 0;
+		font-size: 15px;
+		line-height: 30px;
+		@extend %Hori_list;
+
+		li{
+			margin: 0 12px 0 0;
+			padding: 0 0 0 24px;
+		}
+
+		.result-P{color:$walaColor;}
+		.result-B{color:$meronColor;}
+		.result-D{
+			color:$bddColor;
+			margin: 0;
+		}
+
+		.last{
+			margin: 0;
+			padding: 0 20px;
+			cursor: pointer;
+			@extend .float-R;
+			@extend %no_text;
+		}
+	}
+}
+
+//size:26*26 (Two)
+.conditionSolid{
+	.icon-P{background: url(../images/iconPDB.png) no-repeat center 0px;}
+	.icon-B{background: url(../images/iconPDB.png) no-repeat center -29px;}
+	.icon-D{background: url(../images/iconPDB.png) no-repeat center -29-29px;}
+	.icon-W{background: url(../images/iconPDB.png) no-repeat center -352px;}
+	.icon-M{background: url(../images/iconPDB.png) no-repeat center -381px;}
+
+	.result-P{background: url(../images/iconPDB.png) no-repeat left 2px;}
+	.result-B{background: url(../images/iconPDB.png) no-repeat left 2-29px;}
+	.result-D{background: url(../images/iconPDB.png) no-repeat left 2-29-29px;}
+	.result-W{background: url(../images/iconPDB.png) no-repeat left -349px;}
+	.result-M{background: url(../images/iconPDB.png) no-repeat left -378px;}
+	.last{
+		background: url(../images/iconAll.png) no-repeat left -843px;
+		&:hover{
+			background: url(../images/iconAll.png) no-repeat left -843-29px;
+		}
+	}
+}
+
+.conditionLine{
+	.icon-P{background: url(../images/iconPDB.png) no-repeat center -88px;}
+	.icon-B{background: url(../images/iconPDB.png) no-repeat center -88-29px;}
+	.icon-D,.icon-D1{background: url(../images/iconPDB.png) no-repeat center -146px;}
+	.icon-D2{background: url(../images/iconPDB.png) no-repeat center -176px;}
+	.icon-D3{background: url(../images/iconPDB.png) no-repeat center -206px;}
+	.icon-D4{background: url(../images/iconPDB.png) no-repeat center -235px;}
+	.icon-D5{background: url(../images/iconPDB.png) no-repeat center -265px;}
+
+	.result-P{background: url(../images/iconPDB.png) no-repeat left -56-29px;}
+	.result-B{background: url(../images/iconPDB.png) no-repeat left -56-29-29px;}
+	.result-D{background: url(../images/iconPDB.png) no-repeat left -56-29-29-29px;}
+	.last{
+		background: url(../images/iconAll.png) no-repeat right -843px;
+		&:hover{
+			background: url(../images/iconAll.png) no-repeat right -843-29px;
+		}
+	}
+}
+
+//下注處,選擇後的下注狀態
+.boxBet{
+	position: relative;
+	background-color: #2F2F2F;
+	width: 293px\9;
+	@extend .float-L;
+
+	//ul下注三選單
+	ul{
+		@extend .align-C;
+		@extend %Hori_list;
+
+		li{
+			padding: 2px 11px;
+			background-color: #D1D1D1;
+			cursor: pointer;
+			&:hover{
+				background-color: #E7E7E7;
+			}
+		}
+
+		strong{
+			display: block;
+			width: 75px;
+			padding: 3px 0 3px;
+			border-bottom: 1px solid #9B9B9B;
+			font-size: 20px;
+			line-height: 20px;
+		}
+
+		span{
+			display: block;//在沒有資訊時產生空間
+			height: 20px;//在沒有資訊時產生空間
+			font-weight: bold;
+			line-height: 20px;
+			letter-spacing: 1px;
+		}
+	}
+	.meron{color: $meronColor;}
+	.wala{color: $walaColor;}
+	.bdd{
+		margin: 0 1px;
+		color: $bddColor;
+	}
+	
+	//<h4>Bet Slip<span class="check">Accept...</span></h4>
+	h4{
+		padding: 0 10px;
+		background-color: #000;
+		color: #D1D1D1;
+		font-weight: normal;
+		font-size: 13px;
+		line-height: 25px;
+		line-height: 27px\9;
+		
+		span{
+			padding: 0 0 0 18px;
+			background: url(../images/iconAll.png) no-repeat left -908px;
+			cursor: pointer;
+			@extend .float-R;
+		}
+
+		.check{background: url(../images/iconAll.png) no-repeat left -939px;}
+	}
+
+	//<h4 class="notice"><strong>Suspend : Meron / Wala</strong></h4>
+	.notice{
+		font-size: 15px;
+		background-color: #444;
+		color: #fff;
+		@extend .align-C;
+
+		strong{
+			background: url(../images/iconAll.png) no-repeat left -1097px;
+			padding: 0 0 0 20px;
+		}	
+	}
+
+	//籌碼下注區
+	ol{
+		padding: 4px;
+		padding: 6px 7px\9;
+		color: #fff;
+		font-size: 13px;
+		@extend .align-C;
+		@extend %Hori_list;
+
+		li{
+			margin: 0 0 0 4px;
+			width: 56px;
+			line-height: 58px;	
+			cursor: pointer;
+			&:last-child{
+				margin: 10px 0 0 0;
+			}
+		}
+	}
+	.chip-setting,.chip-reBet,.chip-maxBet,.chip-symbol-orange,.chip-maxBet-noMoney,.chip-reBet-noMoney{
+		width: 40px;
+		height: 40px;
+		line-height: 40px;
+	}
+	.chip-reBet,.chip-maxBet,.chip-symbol-orange,.chip-maxBet-noMoney,.chip-reBet-noMoney{
+		margin: 10px 7px 0 10px;
+		margin: 10px 7px 0 10px\9;
+	}
+}
+
+//下注三狀態
+.betMeron{
+	.meron{
+		color: #fff;
+		@extend %meronGradient;
+		&:hover{
+			@extend %meronGradient;
+		}
+
+		strong{
+		 border-bottom: 1px solid lighten($meronColor,20%);
+		}
+	}
+
+
+	h4{background-color: darken($meronColor,10%);}
+	.bettingArea{@extend %meronGradient;}
+}
+
+.betBdd{
+	.bdd{
+		color: #fff;
+		@extend %bddGradient;
+		&:hover{
+			@extend %bddGradient;
+		}
+
+		strong{
+			border-bottom: 1px solid lighten($bddColor,20%);
+		}
+	}
+
+	h4{background-color: darken($bddColor,5%);}
+	.bettingArea{@extend %bddGradient;}
+}
+
+.betWala{
+	.wala{
+		color: #fff;
+		@extend %walaGradient;
+		&:hover{
+			@extend %walaGradient;
+		}
+
+		strong{
+			border-bottom: 1px solid lighten($walaColor,20%);
+		}
+	}
+
+	h4{background-color: darken($walaColor,5%);}
+	.bettingArea{@extend %walaGradient;}
+}
+
+//數字籌碼(9種)
+.chip-green{
+	background: url(../images/iconChip.png) no-repeat center -2px;
+	&:hover{
+		background: url(../images/iconChip-over.png) no-repeat center -2px;
+	}
+}
+.chip-blue{
+	background: url(../images/iconChip.png) no-repeat center -71px;
+	&:hover{
+		background: url(../images/iconChip-over.png) no-repeat center -71px;
+	}
+}
+.chip-purple{
+	background: url(../images/iconChip.png) no-repeat center -139px;
+	&:hover{
+		background: url(../images/iconChip-over.png) no-repeat center -139px;
+	}
+}
+.chip-purpleLight{
+	background: url(../images/iconChip.png) no-repeat center -207px;
+	&:hover{
+		background: url(../images/iconChip-over.png) no-repeat center -207px;
+	}
+}
+.chip-red{
+	background: url(../images/iconChip.png) no-repeat center -275px;
+	&:hover{
+		background: url(../images/iconChip-over.png) no-repeat center -275px;
+	}
+}
+.chip-brown{
+	background: url(../images/iconChip.png) no-repeat center -343px;
+	&:hover{
+		background: url(../images/iconChip-over.png) no-repeat center -343px;
+	}
+}
+.chip-black{
+	background: url(../images/iconChip.png) no-repeat center -411px;
+	&:hover{
+		background: url(../images/iconChip-over.png) no-repeat center -411px;
+	}
+}
+.chip-yellow{
+	background: url(../images/iconChip.png) no-repeat center -481px;
+	&:hover{
+		background: url(../images/iconChip-over.png) no-repeat center -481px;
+	}
+}
+.chip-orange{
+	background: url(../images/iconChip.png) no-repeat center -548px;
+	&:hover{
+		background: url(../images/iconChip-over.png) no-repeat center -548px;
+	}
+}
+//自訂籌碼
+.chip-number{
+	background: url(../images/iconChip.png) no-repeat center -1131px;
+	&:hover{
+		background: url(../images/iconChip-over.png) no-repeat center -1131px;
+	}
+}
+//
+.chip-gray{background: url(../images/iconChip.png) no-repeat center -616px;}
+
+//功能籌碼(共用)
+.chip-setting{
+	background: url(../images/iconChip.png) no-repeat center -788px;
+	@extend %no_text;
+	&:hover{
+		background: url(../images/iconChip.png) no-repeat center -719px;
+	}
+}
+.chip-reBet{
+	background: url(../images/iconChip.png) no-repeat center -1062px;
+	@extend %no_text;
+	&:hover{
+		background: url(../images/iconChip.png) no-repeat center -993px;
+	}
+}
+.chip-maxBet{
+	background: url(../images/iconChip.png) no-repeat center -925px;
+	@extend %no_text;
+	&:hover{
+		background: url(../images/iconChip.png) no-repeat center -856px;
+	}
+}
+
+.chip-reBet-noMoney{
+	background-position: center -212px;
+	background-repeat: no-repeat;
+	background-image: url(../images/iconChip-small.png);
+	@extend %no_text;
+	&:hover{
+		background-position: center -143px;
+	}
+}
+.chip-maxBet-noMoney{
+	background-position: center -350px;
+	@extend .chip-reBet-noMoney;
+	&:hover{
+		background-position: center -281px;
+	}
+}
+
+.chip-symbol-orange{
+	background-position: center -75px;
+	background-repeat: no-repeat;
+	background-image: url(../images/iconChip-small.png);
+	font-size: 13px;
+	&:hover{
+		background-position: center -6px;
+	}
+}
+
+
+//.chip+.select = 籌碼被選取狀態
+.chip-green.select{background: url(../images/iconChip.png) no-repeat center -2px;cursor:auto;}
+.chip-blue.select{background: url(../images/iconChip.png) no-repeat center -71px;cursor:auto;}
+.chip-purple.select{background: url(../images/iconChip.png) no-repeat center -139px;cursor:auto;}
+.chip-purpleLight.select{background: url(../images/iconChip.png) no-repeat center -207px;cursor:auto;}
+.chip-red.select{background: url(../images/iconChip.png) no-repeat center -275px;cursor:auto;}
+.chip-brown.select{background: url(../images/iconChip.png) no-repeat center -343px;cursor:auto;}
+.chip-black.select{background: url(../images/iconChip.png) no-repeat center -411px;cursor:auto;}
+.chip-yellow.select{background: url(../images/iconChip.png) no-repeat center -481px;cursor:auto;}
+.chip-orange.select{background: url(../images/iconChip.png) no-repeat center -548px;cursor:auto;}
+//
+.chip-number.select{background: url(../images/iconChip.png) no-repeat center -1131px;cursor:auto;}
+//
+.chip-reBet.select{background: url(../images/iconChip.png) no-repeat center -993px;cursor:auto;}
+.chip-maxBet.select{background: url(../images/iconChip.png) no-repeat center -856px;cursor:auto;}
+
+
+//boxChip-籌碼選擇區(popup)
+.boxChips{
+	position: absolute;
+	z-index: 40;
+	bottom: 0;
+	width: $widthBox-M;
+	color: #fff;
+	background-color: #242424;
+	border-bottom: 1px solid darken($mainColor,10%);
+
+	h3{
+		position: relative;
+		padding: 0 0 0 10px;
+		background-color: darken($mainColor,10%);
+		color: #fff;
+		font-size: 16px;
+		line-height: 27px;
+	}
+
+	a{
+		display: block;
+		height: 27px;
+		width: 27px;
+		background: url(../images/iconAll.png) no-repeat 3px -76px darken($mainColor,25%);
+		@extend .float-R;
+		&:hover{background-color: darken($mainColor,35%);}
+	}
+
+	//div
+	.box-1st{
+		width: 373px;
+		padding: 3px 15px;
+		border-right: 1px dotted darken($mainColor,30%);
+		@extend .float-L;
+	}
+
+	.box-2nd{
+		width: 573-373-30-1px;
+		@extend .float-L;
+	}
+
+	//籌碼選三
+	ol{
+		@extend .float-L;
+
+		li{
+			width: 56px;
+			margin: 2px 3px;
+			line-height: 58px;	
+			cursor: pointer;
+			@extend .float-L;
+			@extend .align-C;
+			@extend .chip-gray;			
+		}
+	}
+
+	//自訂錢幣
+	dl{	
+		@extend .float-L;
+	}
+
+	dt{
+		width: 56px;
+		height: 58px;
+		margin: 2px 3px;
+		line-height: 55px;
+		@extend .chip-gray;
+		@extend .float-L;
+		@extend .align-C;
+	}
+	dd{
+		margin: 15px 0 0 10px;
+		@extend .float-L;
+	}
+
+	.inputText-2{
+		width: 150px;
+		background-color: #d8d8d8;
+		@extend .align-C;
+	}
+	
+	//二選一.chip-reBet .chip-maxBet
+	ul{
+		width: 169px;
+		margin: 0 0 25px 0;
+		border-bottom: 1px dotted darken($mainColor,30%);
+		padding: 15px 0;
+		@extend .float-L;
+		li{
+			width: 38px;
+			height: 40px;
+			cursor: pointer;
+			@extend .float-L;
+		}
+	}
+	.chip-reBet{margin:0 15px 0 35px}
+
+	//input
+	.inputBtn-betOn,.inputBtn-betOff{
+		width: 117px;
+		margin: 0 0 5px 25px;
+		border:1px solid #414141;
+		padding: 4px 0;
+	}
+	
+	//<p><span>Choose up to three chips</span></p>
+	p{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 573-2px;
+		border: 1px solid #D0021B;
+		padding: 3px 0;
+		background-color: #7D0000;
+		font-size: 15px;
+		line-height: 20px;
+		@extend .align-C;
+		span{
+			padding: 0 0 0 23px;
+			background: url(../images/iconAll.png) no-repeat left -1123px;
+
+		}
+	}
+}
+
+
+//下注區,最後步驟input
+.bettingArea{
+	padding: 7px 10px;
+	padding: 5px 10px\9;
+	background-color: #535353;
+	p{
+		color: #D1D1D1;
+		font-size: 12px;
+		line-height: 15px
+	}
+
+	input{
+		display: block;
+		height: 30px;
+		font-weight: bold;
+	}
+
+	div{
+		@extend .float-L;
+	}
+
+	.inputText-1{
+		width: 152-14px;
+		margin: 0 4px 4px 0;
+	}
+
+	.inputBtn-betOn,.inputBtn-betOff,.inputBtn-betNo{
+		width: 117px;
+	}
+
+	.inputBtn-betOn,.inputBtn-betNo{margin: 0 0 4px 0;}
+	.inputBtn-betOff{margin: 0;}
+}
+
+//***************************************************//
+//////videoOne
+.videoOne{
+	margin: 0 0 0 2px;
+	@extend .float-L;
+
+	//ol籌碼專用
+	ol{
+		li{
+			width: 62px;
+			height: 62px;
+			line-height: 59px;
+		}
+	}
+
+	.scrollingText{
+		width: $widthBox-L - 24px - 14px;
+		height: 30px;
+		padding: 0 14px 0 24px;
+		background: url(../images/iconAll.png) no-repeat left -618px #3F3F3F;
+		font-size: 15px;
+		line-height: 30px;		
+	}
+
+	//
+	.boxBet{
+		width: 287px\9;
+
+		ul{
+			li{
+				padding: 5px 6px;
+			}
+
+			strong{
+				width: 83px;
+				font-size: 23px;
+				line-height: 26px;
+			}
+
+			span{
+				height: 22px;
+				font-size: 16px;
+				line-height: 22px;
+			}
+		}
+
+		h4{
+			font-size: 14px;
+			line-height: 35px;
+
+			span{
+				background: url(../images/iconAll.png) no-repeat left -903px;
+			}
+
+			.check{background: url(../images/iconAll.png) no-repeat left -934px;}
+		}
+
+		.notice{
+			font-size: 16px;
+			strong{
+				background: url(../images/iconAll.png) no-repeat left -1123px;
+				padding: 0 0 0 24px;
+			}
+		}
+
+		ol{
+			padding: 7px 5px;
+			font-size: 14px;
+
+			li{
+				margin: 0;
+				&:last-child{
+					margin: 11px 0 0 0;
+				}
+			}
+
+			.chip-setting,.chip-reBet,.chip-maxBet,.chip-symbol-orange,.chip-maxBet-noMoney,.chip-reBet-noMoney{
+				width: 40px;
+				height: 40px;
+				line-height: 40px;
+				font-size: 13px;
+			}
+		}
+		.chip-reBet,.chip-maxBet,.chip-symbol-orange,.chip-maxBet-noMoney,.chip-reBet-noMoney{margin: 11px 5px 0 5px}
+	}
+
+	//
+	.bettingArea{
+		padding: 7px 10px;
+
+		.inputText-1{
+			width: 155-14px;
+		}
+
+		.inputBtn-betOn,.inputBtn-betOff,.inputBtn-betNo{
+			width: 108px;
+		}
+
+		.inputBtn-betOff{margin: 0;}
+	}
+
+	.boxBet{
+		float: none;
+	}
+
+	.boxTable{
+		float: none;
+		padding: 6px 9px 2px;
+		padding: 8px 9px 3px\9;
+
+		td{
+			width: 26-2px;
+			height: 26-2px;
+		}
+
+		ul{margin: 2px 0 0 0;}
+
+		.nicescroll-rails{
+			margin: -1px 0 0 0\9;
+		}
+	}
+
+	//info
+	.info-warning,.info-normal{
+		bottom: 127px;
+		width: $widthBox-S - 10px - 45px;
+	}
+}
+
+//videoOne/chips收納用
+.videoOne{
+	//chip
+	.chip-green{
+		background: url(../images/iconChip-big.png) no-repeat center -9px;
+		&:hover{
+			background: url(../images/iconChip-bigOver.png) no-repeat center -9px;
+		}
+	}
+	.chip-blue{
+		background: url(../images/iconChip-big.png) no-repeat center -134px;
+		&:hover{
+			background: url(../images/iconChip-bigOver.png) no-repeat center -134px;
+		}
+	}
+	.chip-purple{
+		background: url(../images/iconChip-big.png) no-repeat center -257px;
+		&:hover{
+			background: url(../images/iconChip-bigOver.png) no-repeat center -257px;
+		}
+	}
+	.chip-purpleLight{
+		background: url(../images/iconChip-big.png) no-repeat center -380px;
+		&:hover{
+			background: url(../images/iconChip-bigOver.png) no-repeat center -380px;
+		}
+	}
+	.chip-red{
+		background: url(../images/iconChip-big.png) no-repeat center -503px;
+		&:hover{
+			background: url(../images/iconChip-bigOver.png) no-repeat center -503px;
+		}
+	}
+	.chip-brown{
+		background: url(../images/iconChip-big.png) no-repeat center -627px;
+		&:hover{
+			background: url(../images/iconChip-bigOver.png) no-repeat center -627px;
+		}
+	}
+	.chip-black{
+		background: url(../images/iconChip-big.png) no-repeat center -750px;
+		&:hover{
+			background: url(../images/iconChip-bigOver.png) no-repeat center -750px;
+		}
+	}
+	.chip-yellow{
+		background: url(../images/iconChip-big.png) no-repeat center -874px;
+		&:hover{
+			background: url(../images/iconChip-bigOver.png) no-repeat center -874px;
+		}
+	}
+	.chip-orange{
+		background: url(../images/iconChip-big.png) no-repeat center -997px;
+		&:hover{
+			background: url(../images/iconChip-bigOver.png) no-repeat center -997px;
+		}
+	}
+	.chip-gray{background: url(../images/iconChip-big.png) no-repeat center -1121px;}
+	//
+	.chip-number{
+		background: url(../images/iconChip-big.png) no-repeat center -1234px;
+		&:hover{
+			background: url(../images/iconChip-bigOver.png) no-repeat center -1234px;
+		}
+	}
+	//
+	.chip-setting{
+		background: url(../images/iconChip.png) no-repeat center -788px;
+		@extend %no_text;
+		&:hover{
+			background: url(../images/iconChip.png) no-repeat center -719px;
+		}
+	}
+	.chip-maxBet{
+		background: url(../images/iconChip.png) no-repeat center -925px;
+		@extend %no_text;
+		&:hover{
+			background: url(../images/iconChip.png) no-repeat center -856px;
+		}
+	}
+	.chip-reBet{
+		background: url(../images/iconChip.png) no-repeat center -1062px;
+		@extend %no_text;
+		&:hover{
+			background: url(../images/iconChip.png) no-repeat center -993px;
+		}
+	}
+
+	//籌碼選擇區
+	.chip-green.select{background: url(../images/iconChip-big.png) no-repeat center -9px;}
+	.chip-blue.select{background: url(../images/iconChip-big.png) no-repeat center -134px;}
+	.chip-purple.select{background: url(../images/iconChip-big.png) no-repeat center -257px;}
+	.chip-purpleLight.select{background: url(../images/iconChip-big.png) no-repeat center -380px;}
+	.chip-red.select{background: url(../images/iconChip-big.png) no-repeat center -503px;}
+	.chip-brown.select{background: url(../images/iconChip-big.png) no-repeat center -627px;}
+	.chip-black.select{background: url(../images/iconChip-big.png) no-repeat center -750px;}
+	.chip-yellow.select{background: url(../images/iconChip-big.png) no-repeat center -874px;}
+	.chip-orange.select{background: url(../images/iconChip-big.png) no-repeat center -997px;}
+	//
+	.chip-number.select{background: url(../images/iconChip-big.png) no-repeat center -1234px;}
+	//
+	.chip-maxBet.select{background: url(../images/iconChip.png) no-repeat center -856px;}
+	.chip-reBet.select{background: url(../images/iconChip.png) no-repeat center -993px;}
+
+
+	//size:24*24 (One)
+	.conditionSolid{
+		.icon-P{background: url(../images/iconPDB.png) no-repeat center -1px;}
+		.icon-B{background: url(../images/iconPDB.png) no-repeat center -1-29px;}
+		.icon-D{background: url(../images/iconPDB.png) no-repeat center -1-29-29px;}
+	}
+
+	.conditionLine{
+		.icon-P{background: url(../images/iconPDB.png) no-repeat center -89px;}
+		.icon-B{background: url(../images/iconPDB.png) no-repeat center -89-29px;}
+		.icon-D,.icon-D1{background: url(../images/iconPDB.png) no-repeat center -147px;}
+		.icon-D2{background: url(../images/iconPDB.png) no-repeat center -177px;}
+		.icon-D3{background: url(../images/iconPDB.png) no-repeat center -207px;}
+		.icon-D4{background: url(../images/iconPDB.png) no-repeat center -236px;}
+		.icon-D5{background: url(../images/iconPDB.png) no-repeat center -266px;}
+	}
+}
+
+//
+.box-L{
+	position: relative;
+	width: $widthBox-L;
+	background-color: #000;
+	@extend .float-L;
+
+	//用於沒有任何比賽的彈跳(只用於單視窗)
+	.popupBG-BK{
+		z-index: 50;
+		bottom: 0;
+		left: 0;
+		height: 483px;
+		background: rgba(0, 0, 0, 0);
+	}
+}
+
+.box-S{
+	position: relative;
+	width: $widthBox-S;
+	margin: 0 0 0 2px;
+	background-color: #fff;
+	@extend .float-L;
+
+	//圓形彈跳
+	.popupBG-BK{
+		bottom: 127px;
+		left: 0;
+		height: 205px;
+
+		img{
+			display: block;
+			width: 180px;
+			margin: 14px auto 0;
+		}
+	}
+
+	//籌碼選擇區(one)
+	.boxChips{
+		top: 75px;
+		width: $widthBox-S;
+
+		h3{
+			line-height: 34px;
+		}
+
+		a{
+			height: 34px;
+			width: 34px;
+			background: url(../images/iconAll-big.png) no-repeat 2px -141px #7f4301;
+			&:hover{background-color: darken($mainColor,35%);}
+		}
+
+		.box-1st{
+			width: $widthBox-S - 12px;
+			padding: 20px 6px;
+			border-right: none;
+			border-bottom: 1px dotted darken($mainColor,30%);
+		}
+
+		.box-2nd{
+			width: $widthBox-S;
+			//@extend %widthBox-S;
+		}
+
+		ol{
+			li{
+				margin: 8px 3px;
+			}
+		}
+
+		dt{
+			width: 62px;
+			height: 62px;
+			margin: 8px 3px;
+			line-height: 59px;
+		}
+
+		dd{margin: 23px 0 0 12px;}
+
+		ul{
+			width: $widthBox-S;
+			padding: 25px 0;
+			//@extend %widthBox-S;
+		}
+
+		.chip-reBet{margin: 0 12px;}
+		.inputBtn-betOff{margin: 0 0 0 25px;}
+		.inputBtn-betOn{margin: 0;}
+
+		.inputText-2{width: 170px;}
+
+		p{
+			width: $widthBox-S - 2px;
+			padding: 6px 0;
+		}
+	}
+}
+
+//////vs-one(單視窗VS)
+.vsBox-one{
+	position: relative;
+	color: #fff;
+	// &::before{
+	// 	content: '';
+	// 	position: absolute;
+	// 	background: #151515 url(../../pc/images/SV388_logo.png) no-repeat center;
+	// 	background-size: 70%;
+	// 	bottom: -25px;
+	// 	left: 50%;
+	// 	transform: translateX(-50%);
+	// 	width: 40px;
+	// 	height: 40px;
+	// 	border-radius: 50%;
+	// 	box-shadow: inset -1px -2px 8px #f4f4f42e, inset 1px 2px 2px #000;
+	// 	z-index: 100;
+	// }
+
+	//dl場次
+	dl{
+		position: absolute;
+		z-index: 40;
+		top: 0;
+		left: 310px;
+		width: 250px;
+		height: 95px;
+		background: url(../images/icon-top.png) no-repeat center;
+		background-size: contain;
+		@extend .align-C;
+	}
+
+	dt{
+		margin: 0 0 5px 0; 
+		font-size: 18px;
+		line-height: 34px;
+		color:#AAA;
+	}
+
+	dd{
+		color: #7ED321;
+		strong{
+			display: block;
+			font-size: 23px;
+		}
+		span{
+			display: block;
+			font-size: 22px !important;
+		}
+	}
+
+	//雞的介紹
+	h2{
+		font-size: 25px;
+		font-weight: normal;
+		line-height: normal;
+		padding-top: 10px;
+		span{
+			// margin: 0 5px;
+			font-size: 20px;
+			color: #d3d3d3;
+			padding: 0 5px;
+		}
+	}
+
+	p{
+		float: none;
+		height: 33px;//沒有資訊時不用硬塞
+		font-size: 15px;
+		line-height: 33px;
+		//hackChrome
+		//&:nth-of-type(1){margin: 0 0 11px 0;}
+	}	
+	img{
+		width: 83-4px;
+		height: 83-4px;
+	}
+
+	h3{
+		height: 34px;//沒有資訊時不用硬塞
+		padding: 0 10px;
+		font-size: 17px;
+		font-weight: normal;
+		line-height: 34px;
+		margin-top: 10px;
+	}
+
+	dt.logo {
+		margin-top: 10px;
+		img {
+			height: auto;
+			width: 50px;
+		}
+	}
+	.changeColor{
+		display: block;
+		height: 15px;
+		margin: 7px 0 0 0;
+		padding: 0 10px;
+	}
+	.changeWeight{margin: 0 5px;}
+
+	.vsMeron{
+		width: 429px;
+		height: 117px;
+	}
+	.vsWala{
+		width: $widthBox-L - 429px;
+		height: 117px;
+	}
+	.cockPicWide{
+		position: relative;
+		width: 120px;
+		height: 79px;
+		overflow: hidden;
+		border: none;
+		margin: 4px 0 0 0 !important;
+		background: none !important;
+		&.loadingPic{
+			background-size: cover !important;
+
+			img{
+				display: none !important;
+			}
+		}
+		img{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 90%;
+			object-fit: contain;
+			object-position: top center;
+			filter: drop-shadow(0 10px 8px #0000005f);
+
+		}
+	}
+	.icKingCock{
+		position: absolute;
+		width: 54px;
+		height: 78px;
+	}
+	.raceGroup{
+		.arenaCode{
+			font-size: 15px;
+		}
+		.raceInfo {
+			span{
+				margin-left: 3px;
+				font-size: 30px;
+			}
+		}
+	}
+}
+
+//////videoSize,單一畫面影片大小
+.videoSize-one{
+	position: relative;
+	width: $widthBox-L;//766px(4:3)
+	height: 483px;//576px(4:3)
+	background-color: #212121;
+	box-sizing: border-box;
+
+	button {
+		width: 40px;
+	}
+
+	.videoSize{
+		width: 100%;
+	}
+	
+	// video{
+	// 	object-fit: fill;
+	// 	object-position: center bottom;
+	// }
+	.videoBar {
+		width: 100%;
+		height: 36px;
+		background-color: rgba(0, 0, 0, .5);
+	}
+
+	.icon-Live {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+	}
+
+	.icon-Countdown {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		padding: 0 5px;
+		border-radius: 3px;
+		background-color: rgba(0, 0, 0, .75);
+		color: #ffffff;
+		font-size: 16px;
+		line-height: 20px;
+	}
+
+	// .icon-Countdown {
+	// 	position: absolute;
+	// 	bottom: 0;
+	// 	right: 120px;
+	// 	width: 144px;
+	// 	height: 78px;
+	// 	background: url(../images/iconAll-big.png) no-repeat center -214px;
+	// 	line-height: 87px;
+	// 	font-size: 54px;
+	// }
+
+
+	.dropdownVideo-open {
+		bottom: 36px;
+
+		button {height: 36px;}
+	}
+}
+
+.videoMark {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	color: #ff0000;
+	font-size: 12px;
+	pointer-events: none;
+}
+
+
+//////影片下面的黑框
+.vsBoxBottom{
+	height: 30px;
+	background-color: #000;
+}
+
+//////場次
+.arenaOne{
+	border-bottom: 1px solid #D1D1D1;
+	background-color: #292929;
+
+	ul{
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 1px;
+		color: #fff;
+		font-size: 16px;
+		font-weight: bold;
+		line-height: 29px;//依測試機調整
+		@extend .align-C;
+
+		&:nth-child(3) {
+			display: none;
+		}
+	}
+
+	li{
+		flex: 1;
+		position: relative;
+		&:not(:last-child) {
+			margin-right: 1px;
+		}
+	}
+}
+
+//////banner
+.banner{
+	img{
+		width: $widthBox-S;
+	    height: 127px;
+	    background-color: #3F3F3F;
+	}
+}
+
+
+//***************************************************//
+//狀態循環<div class="box-M inRunning mode-1">
+/*
+1.readyAndClosed
+2.opening(開始下注狀態，先不寫=no class)
+3.readyAndClosed
+4.inRunning(比賽進行中，可以下注)
+5.readyAndClosed
+*/
+
+//.readyAndClosed(灰色)
+.readyAndClosed{
+	.boxBet{
+		.meron,.bdd,.wala{
+			background-color: #7E7E7E;
+			color: #4A4A4A;
+			cursor: auto;
+			&:hover{background-color: #7E7E7E;}
+			strong{border-bottom: 1px solid #4A4A4A;}
+		}
+
+		h4{
+			background-color: #444;
+			span{cursor: auto;}
+		}
+
+		ol{
+			li{
+				cursor: auto;
+				color: #d4d4d4;
+			}
+		}
+
+		.chip-green,
+		.chip-blue, 
+		.chip-purple,
+		.chip-purpleLight,
+		.chip-red,
+		.chip-brown,
+		.chip-black,
+		.chip-yellow,
+		.chip-orange{
+			@extend .chip-gray;
+		}
+
+		.chip-reBet{background: url(../images/iconChip.png) no-repeat center -1062px;}
+		.chip-maxBet{background: url(../images/iconChip.png) no-repeat center -925px;}
+		.chip-setting{
+			cursor: pointer;
+			background: url(../images/iconChip.png) no-repeat center -788px;
+			&:hover{
+				background: url(../images/iconChip.png) no-repeat center -719px;
+			}
+		}
+		.chip-reBet-noMoney{
+			background-position: center -212px;
+			&:hover{background-position: center -212px;}
+		}
+		.chip-maxBet-noMoney{
+			background-position: center -350px;
+			&:hover{background-position: center -350px;}
+		}
+	}
+
+	.bettingArea{
+		background-color: #4A4A4A;
+		input{
+			background-image: none;
+			background-color: #7A7878;//#6F6F6F;
+			color: #4A4A4A;
+			cursor: auto;
+		}
+
+		p{color: #6F6F6F;}
+	}
+}
+
+.box-S.readyAndClosed{
+	.boxBet ol{
+		.chip-maxBet{background: url(../images/iconChip.png) no-repeat center -925px;}
+		.chip-reBet{background: url(../images/iconChip.png) no-repeat center -1062px;}
+		.chip-setting{
+			cursor: pointer;
+			background: url(../images/iconChip.png) no-repeat center -788px;
+			&:hover{
+				background: url(../images/iconChip.png) no-repeat center -719px;
+			}
+		}
+	}
+}
+
+//.opening(開始下注狀態，先不寫=no class)
+
+//.inRunning(比賽在進行中 可下注)(紫色)
+.inRunning{
+	.boxBet ol{@extend %eventInRunning;}
+}
+
+
+//***************************************************//
+//idSuspend(header下)
+.idSuspend{
+	h2{
+		padding: 0 0 0 30px;
+		background: url(../images/iconAll.png) no-repeat left -1153px;
+		color: #E91932;
+	}
+}
+
+//suspend狀態:<li class="Bdd suspend">
+.boxBet{
+	.suspend{
+		background-color: #7E7E7E;
+		color: #4A4A4A;
+		cursor: auto;
+		&:hover{background-color: #7E7E7E;}
+		strong{border-bottom: 1px solid #4A4A4A;}
+	}
+}
+
+//***************************************************//
+//language:body_en body_jp body_ch body_vn
+//<body class="body_vi">
+.body_vi{
+	.function-2 h2{
+		width: 280-2-10-18-1px;
+		padding: 0 5px;
+		font-size: 14px;
+
+		strong{
+			padding: 0 0 0 18px;
+			font-size: 17px;
+		}
+	}
+}
+
+.body_jp{
+	.boxBet strong{font-size: 14px;}
+	.boxBet .bdd strong{font-size: 18px;}
+
+	//videoOne
+	.videoOne .boxBet strong{font-size: 15px;}
+	.videoOne .boxBet .bdd strong{font-size: 20px;}
+}
+//***************************************************//
+// PC新增共用防側錄
+.txt-security-code {
+	font-size: 10px;
+	color: #ffffffc2;
+	font-weight: 300;
+	text-align: left;
+	text-shadow: 0 0 3px #000;
+	transform: scale(.8);
+	opacity: .8;
+	position: absolute;
+	z-index: 550;
+	width: 60%;
+	word-break: break-all;
+	&.l-top {
+		top: 40%;
+	}
+	&.r-top {
+		right: 5%;
+		top: 40%;
+		text-align: right;
+	}
+	&.l-btm {
+		bottom: 50%;
+		left: 5%;
+	}
+	&.r-btm {
+		bottom: 50%;
+		right: 10%;
+		text-align: right;
+	}
+}
+.raceGroup {
+	display: inline-flex;
+	float: none !important;
+	align-items: center;
+	.arenaCode {
+		background-color: #000;
+		border-radius: 5px;
+		color: #AAA;
+		font-size: 12px;
+		padding: 3px;
+	}
+	.raceInfo{
+		margin-left: 3px;
+		display: inline-flex;
+	}
+}

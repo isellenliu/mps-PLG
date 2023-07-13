@@ -1,0 +1,73 @@
+@import "mainSetting";
+@import "playerSetting";
+@import "calendar";
+
+table{ 
+	border-collapse: collapse;
+	td{	
+		line-height: 16px\9;
+	}
+}
+.month{ 
+	margin-top: 0;
+	h2{ line-height: 37px;}
+	a{
+		background-position: 5px -1550px;
+		padding: 5px;
+		height: 25px;
+	}
+	.arrowRight{
+		background-position: 5px -1602px;
+	}
+	.arrowLnostatus{
+		background-position: 4px -2071px;
+	}
+	.arrowRnostatus{
+		background-position: 4px -2153px;
+	}
+	input{
+		font-size: 15px;
+		padding: 5px 10px;
+		float: left;
+		margin: 2px 0 0 10px;
+		margin-top: 4px\9;
+		cursor: pointer;
+		font-weight: bold;
+		border: 1px solid #C7C7C7;
+		background-color: #ececec;
+		border-radius: 4px;
+		color: #656565;
+		@media screen and (-webkit-min-device-pixel-ratio:0) {
+		   margin-top: 4px;
+		} /* google chrome*/
+	}
+}
+
+.calendar{
+	th{ 
+		font-size: 18px;
+		font-weight: bold;
+		height: 0;
+	}
+	td{	
+		width: 14.28%;
+	}
+	dl{
+		font-size: 12px;
+	}
+	dt{
+		margin-top: 3px;
+		margin-left: 0;
+	}
+	dd{ margin-left: 0;}
+	p{ 
+		font-size: 18px;
+		color: #000;
+	}
+}
+.datepast{
+	p{ opacity: 0.6;}
+}
+.nextmonth{
+	p{ opacity: 0.4;}
+}

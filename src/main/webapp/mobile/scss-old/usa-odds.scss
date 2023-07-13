@@ -1,0 +1,110 @@
+// Core variables and mixins
+@import 'basic/variables';
+@import 'basic/mixin';
+@import 'basic/basicSet';
+@import 'basic/placeholders';
+
+// predict the bet if the user win this game
+.predict {
+    // @include border-radius(vw(2px));
+    @include gradient-y(rgba($orange-dark, .1), rgba($orange-dark, .2));
+    display: flex;
+    justify-content: space-between;
+    height: vw(20px);
+    margin: vw(4px) 0;
+    color: #ffffff;
+    line-height: vw(20px);
+
+    dt,
+    dd {
+        padding: 0 vw(8px);
+    }
+}
+
+//the pit area, including Meron, BDD and Wala
+.pit-area {
+    height: vw(130px - 20px);
+}
+
+.betting {
+    top: 80%;
+    transform: translate(-50%, -80%);
+}
+
+//USA for landscape mode
+@media screen and (orientation: landscape) {
+    .pit-area {
+        top: vmax($ht-header) + vmax($ht-arena) + vmax(1px);
+        height: vmax($ht-pit - 20px);
+    }
+
+    .predict {
+        display: flex;
+        top: vmax($ht-header) + vmax($ht-arena) + vmax($ht-pit - 20px);
+        right: 0;
+        justify-content: space-between;
+        width: 50vw;
+        height: vmax($ht-predict);
+        margin: vmax(4px) 0;
+        line-height: vmax($ht-predict);
+
+        dd,
+        dt {
+            padding: 0 vmax(6px);
+        }
+    }
+
+    .chip-area {
+        top: vmax($ht-header) + vmax($ht-arena) + vmax($ht-pit - 20px) + vmax($ht-predict) + vmax(2px);
+        height: vmax(68px);
+    }
+
+    .betting-add {
+        top: -20%;
+    }
+
+    .betting {
+        top: 75%;
+        transform: translate(-50%, -75%);
+    }
+}
+
+//For Android devices
+@media screen and (orientation: portrait) and (device-width: 360px), (device-width: 384px), (device-width: 400px), (device-width: 412px) {
+
+    .arena {
+        li {
+            a {
+                height: vw(32px);
+            }
+        }
+    }
+
+    .status-bar {
+        height: vw(18px);
+    }
+
+    .predict {
+        height: vw(18px);
+        margin: 2px 8px;
+        line-height: vw(18px);
+    }
+
+    .pit-area {
+        height: vw(100px);
+
+        .odds {
+            margin-top: vw(4px);
+        }
+    }
+
+    .confirm-area {
+        height: vw(96px + 4px);
+        margin: vw(2px) vw(4px);
+    }
+
+    .chip-area {
+        height: vw(58px);
+        margin: vw(2px) vw(4px);
+    }
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="22px" viewBox="0 0 19 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
+    <title>ios-upload-outline</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-16.7%" y="-8.3%" width="133.3%" height="133.3%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Login/Logout/Profile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="login" transform="translate(-151.000000, -586.000000)">
+            <g id="Group-8" transform="translate(0.000000, 571.000000)">
+                <g id="Group-37" transform="translate(32.000000, 12.000000)">
+                    <g id="ios-upload-outline" filter="url(#filter-1)" transform="translate(116.000000, 0.000000)">
+                        <polygon id="Shape" fill="#FFFFFF" fill-rule="nonzero" points="13.5576923 7.84615385 13.5576923 8.53846154 18.4038462 8.53846154 18.4038462 20.3076923 5.94230769 20.3076923 5.94230769 8.53846154 10.7884615 8.53846154 10.7884615 7.84615385 5.25 7.84615385 5.25 21 19.0961538 21 19.0961538 7.84615385"></polygon>
+                        <polygon id="Shape" fill="#FFFFFF" fill-rule="nonzero" points="9.45144231 6.72548077 8.94951923 6.22355769 12.1730769 3 15.3966346 6.22355769 14.8947115 6.72548077 12.5278846 4.35865385 12.5278846 14.8730769 11.8182692 14.8730769 11.8182692 4.35865385"></polygon>
+                        <rect id="Rectangle-28" x="0" y="0" width="24" height="24"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

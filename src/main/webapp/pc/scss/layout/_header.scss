@@ -1,0 +1,196 @@
+//Logo
+h1{
+	width: 150px;
+	height: 47px;
+	background: url(../images/logo.png) no-repeat left bottom;
+	@extend .float-L;
+	@extend %no_text;
+}
+
+//header
+.header{
+	h2{
+		margin: 0 8px 0 0;//修改maring-top
+		padding: 0 0 0 25px;
+		background: url(../images/iconAll.png) no-repeat left -45px;
+		font-size: 14px;
+		line-height: 25px;
+		color: #fff;
+		letter-spacing: 1px;
+		@extend .float-L;
+	}
+
+	dl{
+		margin: 0 20px 0 0;//修改maring-top
+		line-height: 25px;
+		@extend .float-L;
+	}
+
+	dt{
+		padding: 0 10px;
+		background-color: #fff;
+		font-weight: bold;
+		@extend .float-L;
+	}
+
+	dd{
+		padding: 0 20px;
+		background-color: #4F4F4F;
+		color: #fff;
+		letter-spacing: 1px;
+		@extend .float-L;
+	}
+
+	h3{
+		margin: 0 8px 0 0;
+		padding: 0;
+		background: none;
+		font-weight: normal;
+		line-height: 25px;
+		color: darken($mainColor,10%);
+		letter-spacing: normal; 
+		@extend .float-L;
+	}
+}
+
+/*
+.ulVideoMode{
+	margin: 0 16px 0 0;//修改maring-top
+	border-right: 1px solid darken($mainColor,10%);
+	padding: 0 10px 0 0;
+	@extend .float-L;
+
+	li{
+		margin: 0 3px 0 0;
+		@extend .float-L;
+	}
+
+	a{
+		display: block;
+		width: 25px;
+		height: 25px;
+		@extend %no_text;
+	}
+}
+
+.aBtnOne{
+	background: url(../images/iconAll.png) no-repeat -35px -77px;
+	&:hover{
+		background: url(../images/iconAll.png) no-repeat -35px -114px;
+	}
+}
+.aBtnTwo{
+	background: url(../images/iconAll.png) no-repeat -73px -77px;
+	&:hover{
+		background: url(../images/iconAll.png) no-repeat -73px -114px;
+	}
+}
+.aBtnTwo-now{background: url(../images/iconAll.png) no-repeat -73px -114px;}
+.aBtnOne-now{background: url(../images/iconAll.png) no-repeat -35px -114px;}
+*/
+
+//
+.dropdownLanguage{
+	margin: 2px 16px 0 0;//修改maring-top
+	border: 1px solid darken($mainColor,10%);
+	background-color: #292929;
+	font-size: 12px;
+	color: darken($mainColor,10%);
+	@extend .float-L;
+
+	li{
+		position: relative;
+		z-index: 300;
+		min-width: 120-30px;
+		padding: 0 20px 0 10px;
+		background: url(../images/iconAll.png) no-repeat right -153px;
+		line-height: 20px;
+		cursor: pointer;
+
+		&:hover{
+			background: url(../images/iconAll.png) no-repeat right -182px #000;
+			ul{display: block;}
+		}
+	}
+
+	ul{
+		position: absolute;
+		z-index: 30;
+		display: none;
+		top: 19px;
+		left: -1px;
+		border-top: 1px solid darken($mainColor,10%);
+		background-color: #292929;
+
+		li{
+			border: 1px solid darken($mainColor,10%);
+			border-top:none;
+			background-image: none;
+
+			&:hover{
+				color: #fff;
+				background-image: none;
+			}
+		}
+	}
+}
+
+//
+.dropdownMenu{
+	position: relative;
+	z-index: 210;
+	border-bottom: 1px solid #242424;
+	padding: 21px 23px;
+	background: url(../images/iconAll.png) no-repeat -5px -208px;
+	cursor: pointer;
+	@extend .float-R;
+	&:hover{
+		background: url(../images/iconAll.png) no-repeat -60px -208px;
+		ul{display: block;}
+	}
+
+	ul{
+		display: none;
+		position: absolute;
+		z-index: 200;
+		top: 43px;
+		right: 0px;
+		font-size: 15px;
+		color: #fff;
+		box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
+		@extend .align-C;
+
+		li{
+			padding: 0;
+			border-bottom: 1px solid darken($mainColor,20%);
+			background-image: none;
+			&:hover{
+				background-image: none;
+			}
+		}
+
+		a{
+			display: block;
+			min-width: 184-10px;
+			padding: 10px 5px;
+			background-color: darken($mainColor,10%);
+			color: #fff;
+			&:hover{
+				background-color: darken($mainColor,20%);
+			}			
+		}
+
+		.last{
+			border-bottom: none;
+
+			a{
+				color: $mainColor;
+				background-color: darken($mainColor,40%);
+
+				&:hover{
+					background-color: darken($mainColor,30%);
+				}	
+			}
+		}
+	}
+}

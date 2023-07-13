@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<title>CF mobile - Match History</title>
+	<link href="css/mobile/profile.css" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+</head>
+
+<body class="mps" id="txnBody">
+
+	<div class="full-screen" id="swipeup" style="visibility:hidden;">
+		<a href="javascript:void(0)" class="swipe-up-link">
+			<div class="swipe-up">
+				<div id="fullScreenImage" class=""></div>
+			</div>
+			<dl class="swipe-up-intro">
+				<dt id="fullScreenTip"></dt>
+				<dd>to start betting.</dd>
+			</dl>
+		</a>
+	</div>
+	
+	<div id="ancBannerBox" class="overlay" style="display:none">
+		<div class="news-wrap intro">
+			<div id="ancBannerContent">
+			</div>
+			<div class="intro-check">
+				<input id="ancBannerNeverShow" type="checkbox" class="have-read">
+				<label>我已读过本公告。下次不再显示。</label>
+			</div>
+			<a id="ancBannerExit" class="btn btn-primary" href="#">确认</a>
+		</div>
+	</div>
+	
+	
+	
+	<div id="scaleable-wrapper" class="scaleable-wrapper ui-resizable" style="display: block;">
+	
+		<div id="sizableDiv" class="scaleable-content safari-only open-matchIframe" >
+	
+			<div id="matchHistoryDiv" class="match-iframe" style="">
+				
+	
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Match History</title>
+	<script type="text/javaScript" src="/js/jquery.js?v=20180403"></script>
+	<script type="text/javaScript" src="/js/const/Const.js?v=20230113"></script>
+	<script type="text/javaScript" src="/js/util/JSUtil.js?v=20230113"></script>
+	<script type="text/javaScript" src="/js/util/DOMUtil.js?v=20230113"></script>
+	<script type="text/javascript" src="/js/util/Trace.js?v=20230113"></script>
+	<script type="text/javascript" src="/js/util/DateUtil.js?v=20230113"></script>
+	<script type="text/javascript" src="/js/util/MatchUtils.js?v=20230113"></script>
+	<script type="text/javascript" src="/js/calendar/SimpleCalendar.js?v=20230113"></script>
+	<script type="text/javascript" src="/js/member/reports/mobileMatchResults.js?v=20230113"></script>
+	<!-- 
+	<link rel="stylesheet" type="text/css" href="/css/mobile/profile.css?v=20230113" />
+	 -->
+	<script type="text/javaScript">
+	
+	
+	$j(document).ready(function () {
+		if (typeof PageConfig == 'undefined') {
+			console.log('PageConfig reset by matchHistory')
+			PageConfig = {};
+		}
+	
+		PageConfig.today = '13/01/2023';
+		PageConfig.yesterday = '12/01/2023';
+		PageConfig.reportLimit = '1';
+		PageConfig.isRedirect = false;
+		PageConfig.layer = 1;
+		matchResultsHandlerInit();
+	});
+	</script>
+	
+		<div id="matchResultDiv">
+			<div id="matchResultReportDiv">
+		<input type="hidden" id="matchDate" value="13/01/2023">
+		<input type="hidden" id="arenaID">
+		<input type="hidden" id="arenaCode">
+		
+		<header class="subtitle">
+			<h1>比赛历史</h1>
+			<ul>
+				<li id="goBack" class="goback-icon">
+					<a href="javascript:void(0)"></a>
+				</li>
+				<li class="close-icon">
+					<a href="javascript:void(0)" onclick="matchHistoryCloseAction()"></a>
+				</li>
+			</ul>
+		</header>
+		 
+		<nav class="sidenav">
+		</nav>
+		
+		<div id="searchDiv">
+			<ul class="match-tab">
+				<li id="yesterdayTab">
+					<dl class="trans-date">
+						<dt id="yesterdayDayMonth">12/01</dt>
+						<dd id="yesterdayYear">2023</dd>
+					</dl>
+				</li>
+				<li id="todayTab" class="active">
+					<dl class="trans-date">
+						<dt id="todayDayMonth">13/01</dt>
+						<dd id="todayYear">2023</dd>
+					</dl>
+				</li>
+				<li id="calendarTab" class="match-cal-tab"></li>
+			</ul>
+	
+			<h3 id="searchTitle" class="match-arena-title">今天</h3>
+			
+			<div id="chosenDateArena" class="match-cal" style="display:none">
+				<ul id="chosenDateTitle" class="chosen-date">
+					<li id="chosenDateBack" class="prev"></li>
+					<li id="chosenDate" class="current"></li>
+					<li class="next"></li>
+				</ul>
+			</div>
+		
+			<h3 id="searchResultMsg" class="match-arena-title" style="display:none"></h3>
+			<ul id="matchHistoryArenaList" class="match-arena">
+			<li onclick="matchResultsHandlerClickArena(this);" value="878">_AH1</li><li onclick="matchResultsHandlerClickArena(this);" value="932">_FI2</li></ul>
+		
+			<div id="calendarContent" class="match-cal" style="display:none">
+				
+			<ul class="months">
+				<li id="prevMonth" class="prev"></li>
+				<li id="currentMonth" class="current"></li>
+				<li id="nextMonth" class="next"></li>
+			</ul>
+	
+			<ul class="weekdays">
+				<li>周日</li>
+				<li>周一</li>
+				<li>周二</li>
+				<li>周三</li>
+				<li>周四</li>
+				<li>周五</li>
+				<li>周六</li>		
+			</ul>
+			
+			<ul id="calendarDays" class="days">
+			</ul>
+		</div>
+		</div>
+		
+		<div id="resultDiv" style="display:none">
+			<div class="match-title">
+				<dl class="trans-date">
+					<dt id="titleDayMonth"></dt>
+					<dd id="titleYear"></dd>
+				</dl>
+				<h2 id="titleArenaCode"></h2>
+			</div>
+	
+			<ul id="matchDetailTemplate" class="match-detail" style="display: none">
+				<li id="sequence"></li>
+				<li id="vs"></li>
+				<li id="matchResult"><span class="tag"></span></li>
+				<li id="replayLink" class=""></li>
+			</ul>
+	
+			<div class="match-detail-list">
+				<ul class="match-detail-th">
+					<li>#</li>
+					<li>赛局</li>
+					<li>结果</li>
+					<li>重播</li>
+				</ul>
+				<h3 id="messageTitle" class="match-arena-title" style="display:none"></h3>
+				<div id="detailList"></div>
+			</div>
+	
+		</div>
+	
+		<footer class="match-footer">只提供最近30天的回放纪录</footer>
+		</div>
+		
+			<div id="matchResultReplayDiv" style="display:none">
+				<span id="matchResultReplayMsg"></span>
+				<div class="match-video fullsrn">
+					<ul class="match-video-th">
+						<li id="matchResultReplayArenaCode"></li>
+						<li id="matchResultReplayRowCount"></li>
+						<li id="matchResultReplayDate"></li>
+						<li id="closeBtn" class="btn-close">X</li>
+					</ul>
+					<div class="video-replay">
+						<video id="replayVideo" controls="" autoplay="" name="media" width="100%"> 
+							
+						</video>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	
+	
+	
+			</div>
+			<div id="transactionHistoryDiv" class="match-iframe trans" style="display:none">
+				 
+	
+	
+	
+	
+	<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<script type="text/javascript" src="/js/jquery.js?v=20180403"></script>
+	
+	<script type="text/javaScript" src="/js/util/JSUtil.js?v=20230113"></script>
+	<script type="text/javaScript" src="/js/util/I18N.js?v=20230113"></script>
+	<script type="text/javaScript" src="/js/const/Const.js?v=20230113"></script>
+	<script type="text/javascript" src="/js/util/Trace.js?v=20230113"></script>
+	<script type="text/javaScript" src="/js/util/CurrencyUtil.js?v=20230113"></script>
+	<script type="text/javaScript" src="/js/util/DateUtil.js?v=20230113"></script>
+	<script type="text/javaScript" src="/js/util/MessageBoxUtil.js?v=20230113"></script>
+	<script type="text/javaScript" src="/js/member/reports/EmbeddedMobileTransactionHistory.js?v=20230113"></script>
+	<script type="text/javascript" src="/js/calendar/date.js?v=20230113"></script>
+	<script type="text/javascript" src="/js/calendar/SimpleCalendar.js?v=20230113"></script>
+	<!-- <script type="text/javascript" src="/js/member/MobileUIHandler.js?v=20230113"></script> -->
+	<script type="text/javascript" src="/js/plugins/perfect-scroll.min.js?v=20230113"></script>
+	<script type="text/javascript" src="/js/plugins/jquery-ui1.11.4.min.js?v=20230113"></script>
+	<script type="text/javaScript">
+	var $j = jQuery.noConflict();
+	
+	/* [CF-632] 暫時註解掉重新宣告影響合併頁面功能的多語系參數
+	I18N.setResource({
+		'calendar.text.month.1' : "一月",
+		'calendar.text.month.2' : "二月",
+		'calendar.text.month.3' : "三月",
+		'calendar.text.month.4' : "四月",
+		'calendar.text.month.5' : "五月",
+		'calendar.text.month.6' : "六月",
+		'calendar.text.month.7' : "七月",
+		'calendar.text.month.8' : "八月",
+		'calendar.text.month.9' : "九月",
+		'calendar.text.month.10' : "十月",
+		'calendar.text.month.11' : "十一月",
+		'calendar.text.month.12' : "十二月",
+		'form.text.transfer.weekly.0' : "周日",
+		'form.text.transfer.weekly.1' : "周一",
+		'form.text.transfer.weekly.2' : "周二",
+		'form.text.transfer.weekly.3' : "周三",
+		'form.text.transfer.weekly.4' : "周四",
+		'form.text.transfer.weekly.5' : "周五",
+		'form.text.transfer.weekly.6' : "周六",
+		'form.text.transfer.weekly.weekNumber' : "週",
+		'form.text.oddsType.banker' : "庄",
+		'form.text.oddsType.bdd' : "双亡和",
+		'form.text.oddsType.ftd' : "双活和",
+		'form.text.oddsType.player' : "闲",  
+		'calendar.form.text.Today' : "今天",
+		'form.button.yesterday' : "昨天",
+		'calendar.form.text.Clear' : "清除",
+		'calendar.form.text.Close' : "关闭",
+		'MERON'                    : "庄",
+		'WALA'                     : "闲",
+		'BDD' 					   : "双亡和",
+		'FTD' 					   : "双活和",
+		'nodata' 				   : "无资料",
+		'form.text.matchResult.void' : "退款",
+		'form.text.matchResult.cancel' : "取消",
+		'warning' 	               : "警告",
+		'error.invalid.data' 	   : "错误:数据错误",
+		'msg.error.info.noData'    : "无资料",
+		'form.text.match'          : "赛局",
+		'form.text.result'         : "结果",
+		'form.text.replay'         : "重播",
+		'form.text.swipe'         : "Swipe Up",
+	});*/
+	
+	if (typeof PageConfig == 'undefined') {
+		console.log('PageConfig reset by mobileTransationHistory')
+		PageConfig = {};
+	}
+	
+	PageConfig.queryDate = '13/01/2023';
+	PageConfig.queryEndDate = '13/01/2023';
+	PageConfig.today = '13/01/2023';
+	PageConfig.yesterday = '12/01/2023';
+	PageConfig.arenaID = '-1';
+	PageConfig.reportLimit_TransactionHistory = 100;
+	PageConfig.winLossDaysLimit = 60;
+	PageConfig.queryTodayOnFirstLoad = true;
+	PageConfig.layer_TransactionHistory = 1;
+	PageConfig.isIPad                      = "0";
+	PageConfig.isIPhone                    = "1";
+	PageConfig.isIOSMobileDevice  = PageConfig.isIPad == "1" || PageConfig.isIPhone == "1";
+	PageConfig.isFromWebPage                    = false;
+	//PageConfig.enableFullScreen                    = '0';
+	//PageConfig.currencySymbol = '$';
+	
+	//USE JsonUtil instead(in JSUtil)
+	if (typeof (JSON) == 'undefined') { //Fix IE6, 7 json bug.
+		$j.getScript('/js/json/json2.js');
+	}
+	
+	$j(document).ready(function() {
+		MobileTransactionHistoryHandler.init();
+		//[CF-632] 被embedded的頁面init頁面應交給父頁面進行
+		/*
+		UIHandler.init();
+		if (true) {
+			UIHandler.initTxnHistoryPage();
+		} else {
+			UIHandler.doResize();
+		}
+		UIHandler.monitorHeightChange();*/
+	});
+	
+	</script>
+	
+	<title>下注记录报表</title>
+	<!-- [CF-632] 因為改成嵌入頁面，嵌入時才載入CSS
+	<link href="/css/mobile/profile.css" rel="stylesheet" type="text/css">
+	<link id="scrollCss" rel="stylesheet" type="text/css" href="/css/mobile/perfect-scrollbar.css" />
+	 -->
+	
+	
+		<div class="loading-wrapper" id="loading" style="display: none;">
+			<div class="loading"></div>
+		</div>
+	
+		<div class="overlay" id="warningPopWindow" style="display: none;">
+			<div class="news-wrap">
+				<h3>Warning</h3>
+				<p>
+					Warning
+				</p>
+				<a onclick="MobileTransactionHistoryHandler.hideElement('warningPopWindow')" class="btn btn-primary">OK</a>
+			</div>
+		</div>
+	
+		<div class="full-screen" id="swipeup" style="display:none;">
+		<a href="javascript:void(0)" class="swipe-up-link">
+			<div class="swipe-up">
+				<div id="fullScreenImage" class=""></div>
+			</div>
+			<dl class="swipe-up-intro">
+				<dt id="fullScreenTip"></dt>
+			</dl>
+		</a>
+	</div>
+	
+		   <div id="transReport" class="scrollable-body">
+		<header>
+			
+			<h1>下注记录报表</h1>
+			<ul>
+			 
+				<li id="goBackLink" class="goback-icon" onclick="MobileTransactionHistoryHandler.goBack()">
+					<a href="javascript:void(0)"></a>
+				</li>
+				 
+				<li class="close-icon">
+					<a href="javascript:void(0)" onclick="transactionHistoryCloseAction()"></a>
+				</li>
+				<!-- 
+				<li class="menu-icon" onclick="openNav()">
+					<a href="#"></a>
+				</li>
+				 -->
+			</ul>
+	
+		</header>
+		
+		<div id="queryDateTitle" class="trans-title"><h2>Today</h2></div>
+			
+		<dl id="titleDateTemplate" class="trans-date" style="display:none">
+				<dt id="titleDay"></dt>
+				<dd>
+					<span id="titleMonth"></span>
+					<span id="titleYear"></span>
+				</dd>
+		</dl>
+		<!-- 
+		<nav id="mainSidenav" class="sidenav">
+			<a href="javascript:void(0)" class="btn-close" onclick="closeNav()">&times;</a>
+			<ul class="sidenav-main">
+				<li>
+					<a href="trans-report.html">Transaction Report</a>
+				</li>
+				<li>
+					<a href="login.html">Logout</a>
+				</li>
+			</ul>
+		</nav>
+	 -->
+		<main>
+			
+			<dl class="grand-total">
+				<dt>总计</dt>
+				<dd id="grandTotal">0</dd>
+			</dl>
+	
+			<dl class="no-data-info" id="noDataDL" style="display: flex;"> 
+				<dt></dt>
+				<dd>There is no data</dd> 
+						
+			</dl>
+	<!-- 
+			<div class="trans-filter">
+				<a href="trans-filter-cf.html" class="trans-filter-item filter-cf">Cockfighting</a>
+				<a href="trans-filter-bk.html"  class="trans-filter-item filter-bk">BikiMex</a>
+			</div>
+	 -->		
+	<!--  		<img id='loading' src="/images/mobile/icon-loading.svg" alt="loading animation" class="loading" style='display:none;'/> -->
+	 
+			<div id="statisticList" class="trans-list"></div>
+			
+			<div id="statisticTemplate" style="display:none" class="trans-list">
+					<dl class="trans-date">
+						<dt id="date"></dt>
+						<dd>
+							<span id="month"></span>
+							<span id="year"></span>
+						</dd>
+					</dl>
+					<ul class="cell-th">
+						<li>竞赛场</li>
+						<li>总计</li>
+						<li>佣金</li>
+						<li>赢／输</li>
+					</ul>
+					<div id="statisticCellTemplate" style="display:none">
+						<ul id="arenaStatistic" class="cell">
+							<li id="arena"></li>
+							<li id="amount"></li>
+							<li id="commission"></li>
+							<li id="winLoss"></li>
+						</ul>
+	<!-- 					<div id='arenaStatistic' class="cell cell-cf"> -->
+	<!-- 						<dl> -->
+	
+	<!-- 							<dd id='arena'></dd> -->
+	<!-- 						</dl> -->
+	<!-- 						<dl> -->
+	
+	<!-- 							<dd id='amount'></dd> -->
+	<!-- 						</dl> -->
+	<!-- 						<dl> -->
+	
+	<!-- 							<dd id='commission'></dd> -->
+	<!-- 						</dl> -->
+	<!-- 						<dl> -->
+	
+	<!-- 							<dd id='winLoss'></dd> -->
+	<!-- 						</dl>			 -->
+	<!-- 					</div> -->
+					</div>
+					<dl class="sub-total" id="sub-total-dl">
+						<dt>小计</dt>
+						<dd id="subTotal"></dd>
+					</dl>						
+				</div>
+			
+			
+		
+		
+		<input type="hidden" id="arenaDate" name="arenaDate" value="">
+		<input type="hidden" id="arenaCode" name="arenaCode" value="">
+		<input type="hidden" id="queryDate" name="querydDate" value="13/01/2023">
+		<input type="hidden" id="endDate" name="endDate" value="13/01/2023">
+		
+		<div id="arenaTxnList" style="display:none">
+				
+				
+		</div>
+		
+		<div id="arenaTxnTemplate" style="display:none">
+			<div id="arenaTxn" class="trans-by-date">
+	<!-- 				<h3 id='arenaCode'> -->
+					
+	<!-- 				</h3> -->
+					<ul class="cell-th">
+						<li>场次</li>
+						<!--<li>Bet</li>-->
+						<li>总计</li>
+						<li>赢／输</li>
+					</ul>
+					
+					
+					<!-- 				
+					<dl class="sub-total">
+						<dt>Subtotal</dt>
+						<dd id='arenaTxnSubTotal'>$ 456.00</dd>
+					</dl>
+					 -->
+			</div>
+		</div>
+		<div id="arenaTxnDetailTemplate" style="display:none">
+			<ul id="arenaTxnDetail" class="cell">
+				<li><span id="arenaTxnMatchNo" class="badge-arena">0</span></li>
+		   <!-- <li><span id='arenaTxnChoice' class="tag tag-wala">Wala</span></li> -->
+				<li id="arenaTxnAmount">0</li>
+				<li id="arenaTxnWinLoss">0</li>		
+			</ul>
+		</div>
+		</main>
+		
+		<main id="txnContainer" style="display:none">
+			<div class="trans-card-wrapper">
+				<a id="replayLink_TransactionHistory" href="javascript:void(0)" class="btn-primary btn-replay">重播</a>
+				<h3>
+					<span id="txnArenaCode"></span> 
+					<span id="txnMatchNo" class="badge-arena"></span>
+				</h3>
+				<div id="txnList">
+				
+				</div>
+			</div>
+		</main>
+		
+			<div id="txnTemplate" class="trans-detail-card" style="display:none">
+	
+				<h4><span class="tag status-win" id="resultStatus">Win</span><span id="betTime">00:00:00</span></h4>
+				<dl>
+					<dt>投注</dt>
+					<dd><span id="betChoice" class="tag tag-wala">Wala</span></dd>
+				</dl>
+				<dl>
+					<dt>结果</dt>
+					<dd id="matchResult" class="is-wala">Wala WIN</dd>
+				</dl>
+				<dl>
+					<dt>赔率</dt>
+					<dd id="odds"></dd>
+				</dl>
+				<dl>
+					<dt>总计</dt>
+					<dd id="amount"></dd>
+				</dl>
+				<dl>
+					<dt>佣金</dt>
+					<dd id="commission"></dd>
+				</dl>
+				<dl>
+					<dt>赢／输</dt>
+					<dd id="winLoss"></dd>
+				</dl>
+				<dl>
+					<dt>IP</dt>
+					<dd id="ip"></dd>
+				</dl>
+				<dl>
+					<dt>参照码：TXN</dt>
+					<dd id="txnId"></dd>
+				</dl>
+			</div>
+		
+		
+	
+			<div id="txnHistoryReplayDiv" style="display:none">
+				<span id="txnHistoryReplayMsg"></span>
+				<div class="match-video fullsrn">
+					<ul class="match-video-th">
+						<li id="txnHistoryReplayArenaCode"></li>
+						<li id="txnHistoryReplayRowCount"></li>
+						<li id="txnHistoryReplayDate"></li>
+						<li id="txnHistoryCloseBtn" class="btn-close">X</li>
+					</ul>
+					<video id="replayVideo" controls="" autoplay="" name="media" width="100%"> 
+						
+					</video>
+				</div>
+			</div>
+		
+		</div><!-- end of class:scrollable-body -->
+		
+		<!-- calendar button -->
+		<a id="calendarOpenBut" href="javascript:void(0)" class="btn-search"><img src="/images/mobile/profile/icon-search.svg" alt=""></a>
+		
+		<!-- calendar -->
+		<div id="searchCalendar" class="trans-search" style="display : none">
+			<a id="calendarCloseBut" href="javascript:void(0)" class="btn-close">×</a>
+			<ul class="search-target-date">
+				<li class="search-date">
+					<dl class="trans-date">
+						<dt id="calFromDay">13</dt>
+						<dd>
+							<span id="calFromMonth">Jan</span>
+							<span id="calFromYear">2023</span>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<svg height="22" width="22">
+					  <line x1="22" y1="0" x2="0" y2="22" style="stroke:#979797;stroke-width:1;"></line>
+					</svg>
+				</li>
+				<li>
+					<dl class="trans-date">
+						<dt id="calToDay">13</dt>
+						<dd>
+							<span id="calToMonth">Jan</span>
+							<span id="calToYear">2023</span>
+						</dd>
+					</dl>
+				</li>
+			</ul>
+	
+			<div id="transFilter" class="trans-filter">
+				<a id="calToday" href="javascript:void(0)" class="trans-filter-item filter-day active">今天</a>
+				<a id="calYesterday" href="javascript:void(0)" class="trans-filter-item filter-day">昨天</a>
+				<a id="calThisWeek" href="javascript:void(0)" class="trans-filter-item filter-day">本周</a>
+				<a id="calLastWeek" href="javascript:void(0)" class="trans-filter-item filter-day">上周</a>
+			</div>
+	
+			<table class="search-cal">
+				<thead>
+					<tr>
+						<th id="prevMonth_transationHistory">
+							<a href="javascript:void(0)"><img src="/images/mobile/profile/icon-arrow-left.svg" alt=""></a>
+						</th>
+						<th id="calSelMonthYear" colspan="5" class="cal-title">一月 2023</th>
+						<th id="nextMonth_transationHistory">
+							<img src="/images/mobile/profile/icon-arrow-right.svg" alt="">
+						</th>
+					</tr>
+					<tr>
+						<th>周日</th>
+						<th>周一</th>
+						<th>周二</th>
+						<th>周三</th>
+						<th>周四</th>
+						<th>周五</th>
+						<th>周六</th>
+					</tr>
+				</thead>
+				<tbody id="calDays"><tr></tr><tr><td><button id="days_01012023" class="" onclick="MobileTransactionHistoryHandler.dateClick('01/01/2023')">01</button></td><td><button id="days_01022023" class="" onclick="MobileTransactionHistoryHandler.dateClick('01/02/2023')">02</button></td><td><button id="days_01032023" class="" onclick="MobileTransactionHistoryHandler.dateClick('01/03/2023')">03</button></td><td><button id="days_01042023" class="" onclick="MobileTransactionHistoryHandler.dateClick('01/04/2023')">04</button></td><td><button id="days_01052023" class="" onclick="MobileTransactionHistoryHandler.dateClick('01/05/2023')">05</button></td><td><button id="days_01062023" class="" onclick="MobileTransactionHistoryHandler.dateClick('01/06/2023')">06</button></td><td><button id="days_01072023" class="" onclick="MobileTransactionHistoryHandler.dateClick('01/07/2023')">07</button></td></tr><tr><td><button id="days_01082023" class="" onclick="MobileTransactionHistoryHandler.dateClick('01/08/2023')">08</button></td><td><button id="days_01092023" class="" onclick="MobileTransactionHistoryHandler.dateClick('01/09/2023')">09</button></td><td><button id="days_01102023" class="" onclick="MobileTransactionHistoryHandler.dateClick('01/10/2023')">10</button></td><td><button id="days_01112023" class="" onclick="MobileTransactionHistoryHandler.dateClick('01/11/2023')">11</button></td><td><button id="days_01122023" class="" onclick="MobileTransactionHistoryHandler.dateClick('01/12/2023')">12</button></td><td><button id="days_01132023" class="today active" onclick="MobileTransactionHistoryHandler.dateClick('01/13/2023')">13</button></td><td><button id="days_" class="next-day">14</button></td></tr><tr><td><button id="days_" class="next-day">15</button></td><td><button id="days_" class="next-day">16</button></td><td><button id="days_" class="next-day">17</button></td><td><button id="days_" class="next-day">18</button></td><td><button id="days_" class="next-day">19</button></td><td><button id="days_" class="next-day">20</button></td><td><button id="days_" class="next-day">21</button></td></tr><tr><td><button id="days_" class="next-day">22</button></td><td><button id="days_" class="next-day">23</button></td><td><button id="days_" class="next-day">24</button></td><td><button id="days_" class="next-day">25</button></td><td><button id="days_" class="next-day">26</button></td><td><button id="days_" class="next-day">27</button></td><td><button id="days_" class="next-day">28</button></td></tr><tr><td><button id="days_" class="next-day">29</button></td><td><button id="days_" class="next-day">30</button></td><td><button id="days_" class="next-day">31</button></td><td><button id="days_" class="next-day">01</button></td><td><button id="days_" class="next-day">02</button></td><td><button id="days_" class="next-day">03</button></td><td><button id="days_" class="next-day">04</button></td></tr></tbody>
+			</table>
+			<span id="calSearchSubmit_transationHistory">
+				<a href="javascript:void(0)" class="btn btn-primary btn-submit">提交</a>
+			</span>
+		</div>
+	
+	
+			</div>
+			<div id="mask-all"></div>
+			<div class="overlay" style="display: none;">
+				<div id="suspendedMsg" class="news-wrap">
+					<h3>Warning</h3>
+					<p></p>
+					<a id="clickOk" href="javascript:void(0)" class="btn btn-primary" onclick="PlayerInfoHandler.hideErrorMsg()">OK</a>
+				</div>
+			</div>
+	
+			<header id="gameHallHeader" style="display:none">
+				<h1 class="bet-credit">
+					<span>可下注额</span>
+					<span id="memberCredit">$USD25.89</span>
+				</h1>
+				<ul>
+					<li class="bk-icon"></li>
+					
+	
+					<li id="openMenu" class="menu-icon" style="display:none;">
+						<a href="javascript:void(0)"></a>
+					</li>
+				</ul>
+			</header>
+	
+			<nav id="mainSidenav" class="sidenav">
+				<a id="closeMenu" href="javascript:void(0)" class="btn-close">×</a>
+				<ul class="sidenav-main">
+					
+					<li>
+						<a id="logout" onclick="MemberPage.logout()">登出</a>
+					</li>
+				</ul>
+			</nav>
+			<div id="container_1" class="container" style="display: none;">
+				<div id="infoMsg" class="msg msg-danger betmsg" style="" windownum="1"><p id="message" windownum="1">停止下注</p></div>
+	
+				<div id="streamContainer_1" class="video">
+					<div id="msgLeave2_msg" class="news-wrap" style="display:none;">
+						<p>目前未有进行任何赛事。谢谢
+						</p>
+					</div>
+					<div id="showNotifyMessage_1" class="news-wrap" style="display: none">
+					</div>
+					<div id="canvasDiv_1">
+						<div id="streamMessage_1" style="" class="msg"><p>NEW MATCH</p></div>
+						<div class="video-container" id="mobileVideoDiv">
+							<div id="streamLoading" class="loading" style="display: none;"></div>
+							<div class="video-func" id="videoFuncDiv_1">
+								<a class="txt-security-code" id="watermark"></a>
+								<div id="timer_1" class="video-countdown" style="">00:00:00</div>
+								<!-- 					<div class="video-logo"><img src="/images/login-logo.png" alt=""></div>		remove streaming logo -->
+								<div id="live_1" class="video-live" style="display: block; opacity: 0.00575306;"></div>
+								<div id="videoFunBtns_1" style="display: none;">
+									<ul class="fade-in">
+										<li id="streamAudio_1" class="video-volume"></li>
+										<li id="streamLine_1" class="video-switch1"></li>
+									</ul>
+									<ul class="fade-in">
+										<li id="btn_infoMenu" class="video-info"></li>
+										<li id="streamFcn_1" class="video-expand" style="display: none"></li>
+									</ul>
+								</div>
+	
+	
+							</div>
+							<!-- 			<canvas id="playerContent_1"  ></canvas>	-->
+							<video id="playerContent_1" muted="" playsinline="" autoplay="" height="290" width="390" poster="">
+								<source src="" type="application/x-mpegURL">
+							</video>
+							<canvas id="canvas_1" hidden="true" style="width:100%; height:100%;" autoplay=""></canvas>
+						</div>
+					</div>
+	
+				</div>
+	
+				<div id="arenaContainer" class="arena">
+					<span>Coming soon</span>
+					<ul id="arenaList">
+						<li id="arena_0" arena_id="878" arena_code="_AH1" arena_status="0" arena_rtmpcode="" arena_sbp="0" arena_locationtype="1" arena_livestatus="0" class="active">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>_AH1</span>
+							</a>
+						</li>
+						<li id="arena_1" arena_id="932" arena_code="_FI2" arena_status="0" arena_rtmpcode="" arena_sbp="0" arena_locationtype="1" arena_livestatus="0" class="">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>_FI2</span>
+							</a>
+						</li>
+						
+						
+						
+						
+						
+						
+					<li id="arena_2" style="">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>-</span>
+							</a>
+						</li><li id="arena_3" style="">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>-</span>
+							</a>
+						</li><li id="arena_4" style="">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>-</span>
+							</a>
+						</li></ul>
+					<ul style="display: none">
+						<li id="arenaTemplate" style="display: none">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>-</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+	
+				<div class="status-bar">
+					
+						<div class="logo">
+							<img src="/images/SV388_logo.png" alt="">
+						</div>
+						<div class="raceGroup">
+							<strong id="raceLocationType">Arena</strong>
+							<span id="raceMatchID"></span>
+						</div>
+						<div class="date-time">
+							<p id="dateTime">12:49:39 GMT+8</p>
+						</div>
+					
+	
+					<!-- 		<input id="betStake" class="inputText-1" type="text" placeholder="$" windowNum="1"/> -->
+					<p id="maxMinBet" windownum="1" style="display:none;" maxbet="2999"></p>
+					<ul id="statusBarVsCon" class="status-name">
+						<li id="statusBarBankerName">Meron</li>
+						<li id="statusBarPlayerName">Wala</li>
+					</ul>
+				</div>
+	
+				<!--main class="main-disabled"-->
+				<div id="bettingStatus" class="betting-status main-disabled">
+					<div id="vscon" class="pit-area" windownum="1">
+						<div id="meron" class="pit-meron" windownum="1">
+							<div id="meronCoinBetPrompt" class="betting-add" style="display:none;">0</div>
+							<div id="meronCoinBetChip" class="betting" style="display:none;"><span>0</span></div>
+							<div id="meronCoinBetted" class="betting betting-confirmed" style="display:none;">
+								<span id="meronCoinBettedAppend" class="betting-add-tbc" style="display:none;">0</span>
+								<span id="meronCoinBettedStake" style="display:none;">0</span>
+							</div>
+							<div id="bankerKingCock" class="kingcock" style="display: none;"></div>
+							<div id="bankerLoadingPic" class="loadingPic">
+								<img id="bankerImg" src="/images/defaultL_Wide.webp" alt="meron avatar" class="avatar" style="border-color: rgb(255, 0, 0);">
+							</div>
+							<div id="bankerWeight" class="chicken-weight"></div>
+							<dl>
+								<dt id="bankerName">庄</dt>
+								<dd id="meronOdds" class="odds" status="" betstatus="1" accountsuspended="" livestatus="" matchid="951896"></dd>
+							</dl>
+						</div>
+						<div id="bdd" class="pit-bdd" windownum="1">
+							<div id="bddCoinBetPrompt" class="betting-add" style="display:none;">0</div>
+							<div id="bddCoinBetChip" class="betting" style="display:none;"><span>0</span></div>
+							<div id="bddCoinBetted" class="betting betting-confirmed" style="display:none;">
+								<span id="bddCoinBettedAppend" class="betting-add-tbc" style="display:none;">0</span>
+								<span id="bddCoinBettedStake" style="display:none;">0</span>
+							</div>
+							<dl>
+								<dt>双亡和</dt>
+								<dd id="bddOdds" class="odds" status="" betstatus="1" accountsuspended="" livestatus="" matchid="951896"></dd>
+							</dl>
+						</div>
+						<div id="wala" class="pit-wala" windownum="1">
+							<div id="walaCoinBetPrompt" class="betting-add" style="display:none;">0</div>
+							<div id="walaCoinBetChip" class="betting" style="display:none;"><span>0</span></div>
+							<div id="walaCoinBetted" class="betting betting-confirmed" style="display:none;">
+								<span id="walaCoinBettedAppend" class="betting-add-tbc" style="display:none;">0</span>
+								<span id="walaCoinBettedStake" style="display:none;">0</span>
+							</div>
+							<div id="playerKingCock" class="kingcock" style="display: none;"></div>
+							<div id="playerLoadingPic" class="loadingPic">
+								<img id="playerImg" src="/images/defaultR_Wide.webp" alt="wala avatar" class="avatar" style="border-color: rgb(0, 102, 255);">
+							</div>
+							<div id="playerWeight" class="chicken-weight"></div>
+							<dl>
+								<dt id="playerName">闲</dt>
+								<dd id="walaOdds" class="odds" status="" betstatus="1" accountsuspended="" livestatus="" matchid="951896"></dd>
+							</dl>
+						</div>
+					</div>
+	
+					<ul id="coinSelector" class="chip-area" windownum="1">
+						<li>
+							<a href="javascript:void(0)" id="myCoin_1" class="chip chip-1 chip-no-select" coinvalue="10">10</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)" id="myCoin_2" class="chip chip-2 active chip-no-select" coinvalue="25" select="1">25</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)" id="myCoin_3" class="chip chip-3 chip-no-select" coinvalue="50">50</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)" id="userCoin" class="chip chip-all chip-no-select">
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)" id="acceptAnyOdds" class="btn btn-accept-odds" windownum="1">
+								任何赔率
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)" id="coinSetBtn" class="btn btn-setting" enable="1" windownum="1"></a>
+	
+						</li>
+					</ul>
+	
+					<div id="coinList" class="setting-area">
+						<a href="javascript:void(0)" id="listExit" class="btn-close" windownum="1">×</a>
+						<dl>
+							<dt>选择筹码</dt>
+	
+							<dd><a href="javascript:void(0)" id="coin_1" class="chip chip-1 active" select="1" windownum="1">10</a></dd>
+							<dd><a href="javascript:void(0)" id="coin_2" class="chip chip-2 active" select="1" windownum="1">25</a></dd>
+							<dd><a href="javascript:void(0)" id="coin_3" class="chip chip-3 active" select="1" windownum="1">50</a></dd>
+							<dd><a href="javascript:void(0)" id="coin_4" class="chip chip-4 chip-no-select" select="0" windownum="1">100</a></dd>
+							<dd><a href="javascript:void(0)" id="coin_5" class="chip chip-5 chip-no-select" select="0" windownum="1">250</a></dd>
+	
+							<dd><a href="javascript:void(0)" id="coin_6" class="chip chip-6 chip-no-select" select="0" windownum="1">500</a></dd>
+							<dd><a href="javascript:void(0)" id="coin_7" class="chip chip-7 chip-no-select" select="0" windownum="1">1000</a></dd>
+							<dd><a href="javascript:void(0)" id="coin_8" class="chip chip-8 chip-no-select" select="0" windownum="1">2000</a></dd>
+							<dd><a href="javascript:void(0)" id="coin_9" class="chip chip-9 chip-no-select" select="0" windownum="1">3000</a></dd>
+	
+							<dd class="setting-customize">
+								<a href="javascript:void(0)" id="amountSetBtn" class="chip chip-customize chip-no-select" select="0" windownum="1">$</a>
+								<p class="chip-input"><span id="userSetChip"></span><span id="chipPlaceHolder" style="font-size:16px;">自订筹码</span></p>
+								<span class="chip-remark">上限 $5,000</span>
+							</dd>
+	
+						</dl>
+						<a href="javascript:void(0)" id="coinSelectSubmit" class="btn btn-confirm btn-primary" windownum="1">提交</a>
+	
+	
+						<div class="keyboard" id="keyboard" style="display: none;">
+							<ol>
+								<li name="keyboard-number">1</li>
+								<li name="keyboard-number">2</li>
+								<li name="keyboard-number">3</li>
+								<li name="keyboard-number">4</li>
+								<li name="keyboard-number">5</li>
+								<li name="keyboard-number">6</li>
+								<li name="keyboard-number">7</li>
+								<li name="keyboard-number">8</li>
+								<li name="keyboard-number">9</li>
+								<li name="keyboard-number" class="kb-zero">0</li>
+								<li class="kb-del" id="keyboard-del"></li>
+							</ol>
+							<div class="kb-btn">
+								<a href="javascript:void(0)" class="btn btn-md" id="keyboard-cancel"></a>
+								<a href="javascript:void(0)" class="btn btn-md btn-primary" id="keyboard-submit"></a>
+							</div>
+						</div>
+					</div>
+	
+					<div class="confirm-area">
+						<ul class="road-table-info">
+							<li id="bankerList" class="road-table-meron">1</li>
+							<li id="drawList" class="road-table-bdd">0</li>
+							<li id="playerList" class="road-table-wala">1</li>
+							<li id="changeBacarat" class="road-table-switcher" windownum="1">
+								<span id="road-table-switcher" class="badge meron-win-reverse">B</span>
+							</li>
+						</ul>
+						<div id="bacarat" class="road-wrapper" windownum="1" prevwinner="1" lianla="0">
+							<div class="start-betting" style="display: none;"></div>
+	
+							<div id="bacarat_road" class="road-table">
+								<table id="bacarat_table">
+									<tbody><tr>
+										<td id="0_0" result="2" matchno="1"><span class="badge wala-win">P</span></td>
+										<td id="1_0" result="1" matchno="2"><span class="badge meron-win">B</span></td>
+										<td id="2_0"></td>
+										<td id="3_0"></td>
+										<td id="4_0"></td>
+										<td id="5_0"></td>
+										<td id="6_0"></td>
+										<td id="7_0"></td>
+										<td id="8_0"></td>
+										<td id="9_0"></td>
+										<td id="10_0"></td>
+										<td id="11_0"></td>
+										<td id="12_0"></td>
+										<td id="13_0"></td>
+										<td id="14_0"></td>
+										<td id="15_0"></td>
+									</tr>
+									<tr>
+										<td id="0_1"></td>
+										<td id="1_1"></td>
+										<td id="2_1"></td>
+										<td id="3_1"></td>
+										<td id="4_1"></td>
+										<td id="5_1"></td>
+										<td id="6_1"></td>
+										<td id="7_1"></td>
+										<td id="8_1"></td>
+										<td id="9_1"></td>
+										<td id="10_1"></td>
+										<td id="11_1"></td>
+										<td id="12_1"></td>
+										<td id="13_1"></td>
+										<td id="14_1"></td>
+										<td id="15_1"></td>
+									</tr>
+									<tr>
+										<td id="0_2"></td>
+										<td id="1_2"></td>
+										<td id="2_2"></td>
+										<td id="3_2"></td>
+										<td id="4_2"></td>
+										<td id="5_2"></td>
+										<td id="6_2"></td>
+										<td id="7_2"></td>
+										<td id="8_2"></td>
+										<td id="9_2"></td>
+										<td id="10_2"></td>
+										<td id="11_2"></td>
+										<td id="12_2"></td>
+										<td id="13_2"></td>
+										<td id="14_2"></td>
+										<td id="15_2"></td>
+									</tr>
+									<tr>
+										<td id="0_3"></td>
+										<td id="1_3"></td>
+										<td id="2_3"></td>
+										<td id="3_3"></td>
+										<td id="4_3"></td>
+										<td id="5_3"></td>
+										<td id="6_3"></td>
+										<td id="7_3"></td>
+										<td id="8_3"></td>
+										<td id="9_3"></td>
+										<td id="10_3"></td>
+										<td id="11_3"></td>
+										<td id="12_3"></td>
+										<td id="13_3"></td>
+										<td id="14_3"></td>
+										<td id="15_3"></td>
+									</tr>
+									<tr>
+										<td id="0_4"></td>
+										<td id="1_4"></td>
+										<td id="2_4"></td>
+										<td id="3_4"></td>
+										<td id="4_4"></td>
+										<td id="5_4"></td>
+										<td id="6_4"></td>
+										<td id="7_4"></td>
+										<td id="8_4"></td>
+										<td id="9_4"></td>
+										<td id="10_4"></td>
+										<td id="11_4"></td>
+										<td id="12_4"></td>
+										<td id="13_4"></td>
+										<td id="14_4"></td>
+										<td id="15_4"></td>
+									</tr>
+									<tr>
+										<td id="0_5"></td>
+										<td id="1_5"></td>
+										<td id="2_5"></td>
+										<td id="3_5"></td>
+										<td id="4_5"></td>
+										<td id="5_5"></td>
+										<td id="6_5"></td>
+										<td id="7_5"></td>
+										<td id="8_5"></td>
+										<td id="9_5"></td>
+										<td id="10_5"></td>
+										<td id="11_5"></td>
+										<td id="12_5"></td>
+										<td id="13_5"></td>
+										<td id="14_5"></td>
+										<td id="15_5"></td>
+									</tr>
+	
+								</tbody></table>
+							</div>
+						</div>
+						<div id="rightChart" class="road-wrapper" windownum="1" style="display: none;  z-index:2;">
+							<div class="start-betting" style="display: none;"></div>
+	
+							<div id="rightChart_road" class="road-table" style="">
+								<table id="rightChart_table">
+									<tbody><tr>
+										<td id="r_0_0"><span class="badge wala-win-reverse">P</span></td>
+										<td id="r_1_0"></td>
+										<td id="r_2_0"></td>
+										<td id="r_3_0"></td>
+										<td id="r_4_0"></td>
+										<td id="r_5_0"></td>
+										<td id="r_6_0"></td>
+										<td id="r_7_0"></td>
+										<td id="r_8_0"></td>
+										<td id="r_9_0"></td>
+										<td id="r_10_0"></td>
+										<td id="r_11_0"></td>
+										<td id="r_12_0"></td>
+										<td id="r_13_0"></td>
+										<td id="r_14_0"></td>
+										<td id="r_15_0"></td>
+									</tr>
+									<tr>
+										<td id="r_0_1"><span class="badge meron-win-reverse">B</span></td>
+										<td id="r_1_1"></td>
+										<td id="r_2_1"></td>
+										<td id="r_3_1"></td>
+										<td id="r_4_1"></td>
+										<td id="r_5_1"></td>
+										<td id="r_6_1"></td>
+										<td id="r_7_1"></td>
+										<td id="r_8_1"></td>
+										<td id="r_9_1"></td>
+										<td id="r_10_1"></td>
+										<td id="r_11_1"></td>
+										<td id="r_12_1"></td>
+										<td id="r_13_1"></td>
+										<td id="r_14_1"></td>
+										<td id="r_15_1"></td>
+									</tr>
+									<tr>
+										<td id="r_0_2"></td>
+										<td id="r_1_2"></td>
+										<td id="r_2_2"></td>
+										<td id="r_3_2"></td>
+										<td id="r_4_2"></td>
+										<td id="r_5_2"></td>
+										<td id="r_6_2"></td>
+										<td id="r_7_2"></td>
+										<td id="r_8_2"></td>
+										<td id="r_9_2"></td>
+										<td id="r_10_2"></td>
+										<td id="r_11_2"></td>
+										<td id="r_12_2"></td>
+										<td id="r_13_2"></td>
+										<td id="r_14_2"></td>
+										<td id="r_15_2"></td>
+									</tr>
+									<tr>
+										<td id="r_0_3"></td>
+										<td id="r_1_3"></td>
+										<td id="r_2_3"></td>
+										<td id="r_3_3"></td>
+										<td id="r_4_3"></td>
+										<td id="r_5_3"></td>
+										<td id="r_6_3"></td>
+										<td id="r_7_3"></td>
+										<td id="r_8_3"></td>
+										<td id="r_9_3"></td>
+										<td id="r_10_3"></td>
+										<td id="r_11_3"></td>
+										<td id="r_12_3"></td>
+										<td id="r_13_3"></td>
+										<td id="r_14_3"></td>
+										<td id="r_15_3"></td>
+									</tr>
+									<tr>
+										<td id="r_0_4"></td>
+										<td id="r_1_4"></td>
+										<td id="r_2_4"></td>
+										<td id="r_3_4"></td>
+										<td id="r_4_4"></td>
+										<td id="r_5_4"></td>
+										<td id="r_6_4"></td>
+										<td id="r_7_4"></td>
+										<td id="r_8_4"></td>
+										<td id="r_9_4"></td>
+										<td id="r_10_4"></td>
+										<td id="r_11_4"></td>
+										<td id="r_12_4"></td>
+										<td id="r_13_4"></td>
+										<td id="r_14_4"></td>
+										<td id="r_15_4"></td>
+									</tr>
+									<tr>
+										<td id="r_0_5"></td>
+										<td id="r_1_5"></td>
+										<td id="r_2_5"></td>
+										<td id="r_3_5"></td>
+										<td id="r_4_5"></td>
+										<td id="r_5_5"></td>
+										<td id="r_6_5"></td>
+										<td id="r_7_5"></td>
+										<td id="r_8_5"></td>
+										<td id="r_9_5"></td>
+										<td id="r_10_5"></td>
+										<td id="r_11_5"></td>
+										<td id="r_12_5"></td>
+										<td id="r_13_5"></td>
+										<td id="r_14_5"></td>
+										<td id="r_15_5"></td>
+									</tr>
+								</tbody></table>
+							</div>
+						</div>
+						<div class="btns-area">
+							<a class="btn btn-confirm btn-primary" id="betSubmit" windownum="1">确认</a>
+							<a id="openRecordArena" href="javascript:void(0)" class="btn-record">
+								<span id="unread" class="unread" style="display:none;">-</span>
+								</a><a href="javascript:void(0)"></a>
+							
+							<a href="javascript:void(0)" id="betCancel" class="btn btn-cancel" windownum="1"></a>
+						</div>
+					</div>
+	
+					
+						<footer class="copyright">
+							Copyright © 2022 SV.All Rights Reserved.
+						</footer>
+					
+				</div>
+			</div>
+			<div class="record-area" id="record-area" style="display: none;">
+				<a id="closeRecordArena" href="javascript:void(0)" class="btn-close">×</a>
+				<ul class="nav-tabs">
+					<li id="currentBetArena">
+						<a id="currentBetsTitle" href="javascript:void(0)" class="active">现有注单</a>
+						<div id="slideRecord" class="record-detail " style="z-index: 6;">
+							<dl id="slideNoData" class="no-data-info">
+								<dt></dt>
+								<dd>无资料</dd>
+							</dl>
+							<table id="match_tableTemplate" class="tab-current-record" style="display:none;">
+								<thead>
+								<tr>
+									<th></th>
+									<th></th>
+									<th class="th-arena">竞赛场</th>
+									<th class="th-odds">下注(赔率)</th>
+									<th>$</th>
+									<th></th>
+								</tr>
+								</thead>
+	
+								<tbody id="currentBetBoard">
+	
+								</tbody>
+	
+								<tbody><tr id="betIdTemplate" class="ref-line" style="display: none">
+									<td></td>
+									<td colspan="2"></td>
+									<td colspan="2" id="txid"></td>
+									<td></td>
+								</tr>
+								<tr id="betTemplate" style="display: none">
+									<td></td>
+									<td></td>
+									<td id="arena">
+										<span id="code">-</span>
+										<span id="matchNo" class="badge-arena">-</span>
+									</td>
+									<td id="oddsAndType">
+										<span id="oddsType" class="tag tag-wala">-</span>
+										<span id="odds">-</span>
+									</td>
+									<td id="stake" class="unit-money">$-</td>
+									<td></td>
+								</tr>
+							</tbody></table>
+						</div>
+					</li>
+					<li id="transhistoryArena">
+						<!--input type="radio" id="tans-history" name="navtabs-group">
+						<label for="tans-history">Trans History</label-->
+						<a href="javascript:void(0)" id="todayReportTitle">今日注单</a>
+						<div id="slideTransHistory" class="record-detail">
+							<dl id="transHistoryNoData" class="no-data-info">
+								<dt></dt>
+								<dd>无资料</dd>
+							</dl>
+							<table id="tableTransTemplate" class="tab-history" style="display:none;">
+								<thead>
+								<tr>
+									<th></th>
+									<th class="th-arena">竞赛场</th>
+									<th class="th-odds">下注(赔率)</th>
+									<th>赢／输</th>
+									<th class="th-time">时间</th>
+									<th></th>
+								</tr>
+								</thead>
+	
+								<tbody id="todayReportBoard">
+								</tbody>
+	
+								<tbody><tr id="reportIdTemplate" class="ref-line" style="display: none">
+									<td></td>
+									<td colspan="2"></td>
+									<td colspan="2" id="txid"></td>
+									<td></td>
+								</tr>
+								<tr id="reportTemplate" style="display: none">
+									<td></td>
+									<td id="arena">
+										<span id="code">-</span>
+										<span id="matchNo" class="badge-arena">-</span>
+									</td>
+									<td id="oddsAndType">
+										<span id="oddsType" class="tag tag-wala">-</span>
+										<span id="odds">-</span>
+									</td>
+									<td id="payout" class="unit-money">$-</td>
+									<td class="align-R">
+										<span id="time" class="time">-</span>
+									</td>
+									<td></td>
+								</tr>
+							</tbody></table>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="popup-bg-black popup-menu" id="popup-menu" style="display: none;">
+		<ul>
+			<li><a href="#" class="btn-menu-close"></a></li>
+			<li id="matchHistoryInfo">比赛历史</li>
+			
+			<li id="announceInfo" onclick="MemberPage.openInfo('./mobile/allAnnouncements.jsp;jsessionid=3AC9FAD3B617D2F107CD1D0783EFE7E0?srw=1&amp;fromMobile=1&amp;scale='+PageConfig.mobileScale)">公告</li>
+	
+			<li id="scheduleInfo" onclick="MemberPage.openInfo('./mobile/schedule.jsp;jsessionid=3AC9FAD3B617D2F107CD1D0783EFE7E0?srw=1&amp;fromMobile=1&amp;scale='+PageConfig.mobileScale)">时程表</li>
+	
+			<li id="guideInfo" onclick="MemberPage.openInfo('/member/mobile/guide/guide.jsp;jsessionid=3AC9FAD3B617D2F107CD1D0783EFE7E0?srw=1&amp;fromMobile=1&amp;scale='+PageConfig.mobileScale)">指南</li>
+	
+			<li id="termsAndConditionsInfo" onclick="MemberPage.openInfo('/member/mobile/termsAndConditions/termsAndConditions.jsp;jsessionid=3AC9FAD3B617D2F107CD1D0783EFE7E0?srw=1&amp;scale='+PageConfig.mobileScale)">条款与规则</li>
+			
+	
+		</ul>
+	</div>
+	
+	
+	</body>
+
+</html>

@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<title>CF mobile - side menu</title>
+<link href="css/mobile/game-hall.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div id="mask-all"></div>
+	<header>
+		<h1 class="bet-credit">
+			<span>Bet Credit</span>
+			<span>USD 8899.92</span>
+		</h1>
+		<ul>
+ 			<li class="gamehall-icon"><a href="#"></a></li>
+			<li class="menu-icon" onclick="openNav()">
+				<a href="#"></a>
+			</li>
+		</ul>
+	</header>
+	<nav id="mainSidenav" class="sidenav">
+		<a href="javascript:void(0)" class="btn-close" onclick="closeNav()">&times;</a>
+		<ul class="sidenav-main">
+			<li>
+				<a href="profile.html">Profile</a>
+			</li>
+			<li>
+				<a href="trans-report.html">Transaction Report</a>
+			</li>
+			<li>
+				<a href="pwd.html">Change Password</a>
+			</li>
+			<li>
+				<a href="login.html">Logout</a>
+			</li>
+		</ul>
+	</nav>
+	
+	<!--main class="main-disabled"-->
+
+	<div class="video">
+		<div class="video-func">
+			<div class="video-countdown">21:25:53</div>
+			<div class="video-logo"><img src="images/mobile/profile/login-logo.png" alt=""></div>
+			<div class="video-live"></div>
+			<ul class="fade-in">
+				<li class="video-volume"></li>
+				<li class="video-switch"></li>
+	<!-- 				<li class="video-switch1"></li>
+				<li class="video-switch2 active"></li>
+	-->			<a href="index-fullsrn.html"><li class="video-expand"></li></a>
+			</ul>
+		</div>
+	</div>
+	<div class="arena">
+		<ul>
+			<li>
+				<a href="#">
+					<span class="countdown-notice"></span>
+					<span>TL2</span>
+				</a>
+			</li>
+			<li class="arena-betting betted">
+				<a href="#">
+					<span class="countdown-notice"></span>
+					<span>NT1</span>
+				</a>
+			</li>
+			<li class="arena-countdown">
+				<a href="#">
+					<span class="countdown-notice"></span>
+					<span>MX3C</span>
+				</a>
+			</li>
+			<li class="arena-betting betted">
+				<a href="#">
+					<span>CPC1</span>
+				</a>
+			</li>
+			<li class="arena-fighting">
+				<a href="#">
+					<span>RK1</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<span>MX5B</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<span>PA1</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<div class="status-bar status-countdown">
+		Round 20
+	</div>
+<div class="main-disabled">
+	<div class="pit-area">
+		<div class="pit-meron">
+			<div class="betting-add">200</div>
+			<div class="betting"><span>10K</span></div>	
+			<img src="images/mobile/chicken-meron.jpg" alt="meron avatar" class="avatar">
+			<dl>
+				<dt>Meron</dt>
+				<dd class="odds">0.83</dd>
+				<dd class="chicken-weight">2,500 g</dd>
+			</dl>
+		</div>
+		<div class="pit-bdd">
+			<div class="betting-add">1,000</div>
+			<div class="betting"><span>999</span></div>
+			<dl>
+				<dt>BDD</dt>
+				<dd class="odds">1:8</dd>
+			</dl>
+		</div>
+		<div class="pit-wala">
+			<div class="betting-add">999</div>
+			<div class="betting betting-confirmed"><span>1,688</span></div>		
+			<img src="images/mobile/chicken-wala.jpg" alt="wala avatar" class="avatar">
+			<dl>
+				<dt>Wala</dt>
+				<dd class="odds">-0.93</dd>
+				<dd class="chicken-weight">2,300 g</dd>
+			</dl>
+		</div>
+	</div>
+
+	<ul class="chip-area">
+		<li>
+			<a href="#" class="chip chip-1">10</a>
+		</li>
+		<li>
+			<a href="#" class="chip chip-4">100</a>
+		</li>
+		<li>
+			<a href="#" class="chip chip-5">250</a>
+		</li>
+		<li>
+			<a href="#" class="chip chip-all"></a>	
+		</li>
+		<li>
+			<a href="#" class="btn btn-accept-odds">
+				Any Odds
+			</a>	
+		</li>
+		<li>
+			<a href="javascript:void(0)" class="btn btn-setting" onclick="openSetting()"></a>
+		</li>
+	</ul>
+
+	<div class="confirm-area">
+		<ul class="road-table-info">
+			<li class="road-table-meron">10</li>
+			<li class="road-table-bdd">3</li>
+			<li class="road-table-wala">2</li>
+			<li class="road-table-switcher">
+				<span id="road-table-switcher" class="badge meron-win-reverse">B</span>
+			</li>
+		</ul>
+		<div class="road-table" onclick="switchRecord()">
+			<table>
+				<tr>
+					<td><span class="badge meron-win">B</span></td>
+					<td><span class="badge meron-win">B</span></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><span class="badge wala-win reverse">P</span></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><span class="badge bdd-win">T</span></td>
+					<td><span class="badge bdd-wins">2</span></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><span class="badge meron-win-reverse">B</span></td>
+					<td><span class="badge wala-win-reverse">P</span></td>
+					<td><span class="badge meron-win-reverse">B</span></td>
+					<td><span class="badge meron-win-reverse">B</span></td>
+					<td><span class="badge bdd-win-reverse">T</span></td>
+					<td><span class="badge meron-win-reverse">B</span></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+		<div class="btns-area">
+			<a href="index-msg.html" class="btn btn-confirm btn-primary">Confirm</a>
+			<a href="javascript:void(0)" class="btn-record" onclick="openRecord()">
+				<span class="unread">10</span>
+			</a>
+			<a href="#" class="btn btn-cancel"></a>			
+		</div>
+	</div>
+</div>
+	<!--/main--><!-- main-disabled -->
+
+	<div class="record-area" id="record-area">
+		<a href="javascript:void(0)" class="btn-close" onclick="closeRecord()">&times;</a>
+		<ul class="nav-tabs">
+		<li>
+			<a href="#" class="active">Record</a>
+			<div class="record-detail" style="z-index: 6;">
+			<table class="tab-current-record">
+				<thead>
+					<tr>
+						<th>Arena</th>
+						<th>Odds</th>
+						<th class="unit-money">$</th>
+						<th></th>
+					</tr>	
+				</thead>
+				<tbody>
+
+					<tr>
+						<td>
+							<span>NT1</span>
+							<span class="badge-arena">15</span>
+						</td>
+						<td>
+							<span class="tag tag-wala">Wala</span>
+							<span>0.93</span>
+						</td>
+						<td class="unit-money">$1,688</td>
+						<td></td>
+					</tr>
+					<tr class="bet-fail">
+						<td>
+							<span>NT1</span>
+							<span class="badge-arena">15</span>
+						</td>
+						<td>
+							<span class="tag tag-wala">Wala</span>
+							<span>0.93</span>
+						</td>
+						<td class="unit-money">$1,688</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>
+							<span>CPC1</span>
+							<span class="badge-arena">21</span>
+						</td>
+						<td>
+							<span class="tag tag-meron tag-countdown">Meron</span>
+							<span>0.83</span>
+						</td>
+						<td class="unit-money">$10K</td>
+						<td></td>
+					</tr>
+					<tr class="bet-fail">
+						<td>
+							<span>CPC1</span>
+							<span class="badge-arena">21</span>
+						</td>
+						<td>
+							<span class="tag tag-meron tag-countdown">Meron</span>
+							<span>0.83</span>
+						</td>
+						<td class="unit-money">$10K</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>
+							<span>NT1</span>
+							<span class="badge-arena">15</span>
+						</td>
+						<td>
+							<span class="tag tag-bdd">BDD</span>
+							<span>1:8</span>
+						</td>
+						<td class="unit-money">$999</td>
+						<td></td>
+					</tr>
+					<tr class="bet-fail">
+						<td>
+							<span>NT1</span>
+							<span class="badge-arena">15</span>
+						</td>
+						<td>
+							<span class="tag tag-bdd">BDD</span>
+							<span>1:8</span>
+						</td>
+						<td class="unit-money">$999</td>
+						<td></td>
+					</tr>
+				
+					<tr>
+						<td>
+							<span>NT1</span>
+							<span class="badge-arena">15</span>
+						</td>
+						<td>
+							<span class="tag tag-wala">Wala</span>
+							<span>0.93</span>
+						</td>
+						<td class="unit-money">$1,688</td>
+						<td></td>
+					</tr>
+					<tr class="bet-fail">
+						<td>
+							<span>NT1</span>
+							<span class="badge-arena">15</span>
+						</td>
+						<td>
+							<span class="tag tag-wala">Wala</span>
+							<span>0.93</span>
+						</td>
+						<td class="unit-money">$1,688</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>
+							<span>CPC1</span>
+							<span class="badge-arena">21</span>
+						</td>
+						<td>
+							<span class="tag tag-meron tag-countdown">Meron</span>
+							<span>0.83</span>
+						</td>
+						<td class="unit-money">$10K</td>
+						<td></td>
+					</tr>
+					<tr class="bet-fail">
+						<td>
+							<span>CPC1</span>
+							<span class="badge-arena">21</span>
+						</td>
+						<td>
+							<span class="tag tag-meron tag-countdown">Meron</span>
+							<span>0.83</span>
+						</td>
+						<td class="unit-money">$10K</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>
+							<span>NT1</span>
+							<span class="badge-arena">15</span>
+						</td>
+						<td>
+							<span class="tag tag-bdd">BDD</span>
+							<span>1:8</span>
+						</td>
+						<td class="unit-money">$999</td>
+						<td></td>
+					</tr>
+					<tr class="bet-fail">
+						<td>
+							<span>NT1</span>
+							<span class="badge-arena">15</span>
+						</td>
+						<td>
+							<span class="tag tag-bdd">BDD</span>
+							<span>1:8</span>
+						</td>
+						<td class="unit-money">end</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>		
+			</div>
+		</li>
+		<li>
+			<a href="#">Trans History</a>
+				<div class="record-detail">
+					<table class="tab-history">
+						<thead>
+							<tr>
+								<th>Time</th>
+								<th>Loc</th>
+								<th>Odds</th>
+								<th class="unit-money">Amt.</th>
+								<th class="unit-money">W/L</th>
+							</tr>	
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<span class="time">17:52:44</span>
+								</td>
+								<td>
+									<span>TA1</span>
+									<span class="badge-arena">29</span>
+								</td>
+								<td>
+									<span class="tag tag-wala">Wala</span>
+									<span>0.93</span>
+								</td>
+								<td class="unit-money">8,000</td>
+								<td class="unit-money minus">-12345.67</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="time">17:52:22</span>
+								</td>
+								<td>
+									<span>CPC1</span>
+									<span class="badge-arena">21</span>
+								</td>
+								<td>
+									<span class="tag tag-meron tag-countdown">Meron</span>
+									<span>0.83</span>
+								</td>
+								<td class="unit-money">999</td>
+								<td class="unit-money minus"> -99999.00</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="time">17:52:22</span>
+								</td>
+								<td>
+									<span>NT1</span>
+									<span class="badge-arena">15</span>
+								</td>
+								<td>
+									<span class="tag tag-bdd">BDD</span>
+									<span>1:8</span>
+								</td>
+								<td class="unit-money">10K</td>
+								<td class="unit-money">+16888.00</td>
+							</tr>
+
+							<tr>
+								<td>
+									<span class="time">17:52:44</span>
+								</td>
+								<td>
+									<span>TA1</span>
+									<span class="badge-arena">29</span>
+								</td>
+								<td>
+									<span class="tag tag-wala">Wala</span>
+									<span>0.93</span>
+								</td>
+								<td class="unit-money">8,000</td>
+								<td class="unit-money minus">-12345.67</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="time">17:52:22</span>
+								</td>
+								<td>
+									<span>CPC1</span>
+									<span class="badge-arena">21</span>
+								</td>
+								<td>
+									<span class="tag tag-meron tag-countdown">Meron</span>
+									<span>0.83</span>
+								</td>
+								<td class="unit-money">999</td>
+								<td class="unit-money minus"> -99999.00</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="time">17:52:22</span>
+								</td>
+								<td>
+									<span>NT1</span>
+									<span class="badge-arena">15</span>
+								</td>
+								<td>
+									<span class="tag tag-bdd">BDD</span>
+									<span>1:8</span>
+								</td>
+								<td class="unit-money">10K</td>
+								<td class="unit-money">+16888.00</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="time">17:52:44</span>
+								</td>
+								<td>
+									<span>TA1</span>
+									<span class="badge-arena">29</span>
+								</td>
+								<td>
+									<span class="tag tag-wala">Wala</span>
+									<span>0.93</span>
+								</td>
+								<td class="unit-money">8,000</td>
+								<td class="unit-money minus">-12345.67</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="time">17:52:22</span>
+								</td>
+								<td>
+									<span>CPC1</span>
+									<span class="badge-arena">21</span>
+								</td>
+								<td>
+									<span class="tag tag-meron tag-countdown">Meron</span>
+									<span>0.83</span>
+								</td>
+								<td class="unit-money">999</td>
+								<td class="unit-money minus"> -99999.00</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="time">17:52:22</span>
+								</td>
+								<td>
+									<span>NT1</span>
+									<span class="badge-arena">15</span>
+								</td>
+								<td>
+									<span class="tag tag-bdd">BDD</span>
+									<span>1:8</span>
+								</td>
+								<td class="unit-money">10K</td>
+								<td class="unit-money">+16888.00</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="time">17:52:44</span>
+								</td>
+								<td>
+									<span>TA1</span>
+									<span class="badge-arena">29</span>
+								</td>
+								<td>
+									<span class="tag tag-wala">Wala</span>
+									<span>0.93</span>
+								</td>
+								<td class="unit-money">8,000</td>
+								<td class="unit-money minus">-12345.67</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="time">17:52:22</span>
+								</td>
+								<td>
+									<span>CPC1</span>
+									<span class="badge-arena">21</span>
+								</td>
+								<td>
+									<span class="tag tag-meron tag-countdown">Meron</span>
+									<span>0.83</span>
+								</td>
+								<td class="unit-money">999</td>
+								<td class="unit-money minus"> -99999.00</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="time">17:52:22</span>
+								</td>
+								<td>
+									<span>NT1</span>
+									<span class="badge-arena">15</span>
+								</td>
+								<td>
+									<span class="tag tag-bdd">BDD</span>
+									<span>1:8</span>
+								</td>
+								<td class="unit-money">10K</td>
+								<td class="unit-money">END</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</li>
+
+		</ul>
+	</div>
+
+	<div class="setting-area" id="setting-area">
+		<a href="javascript:void(0)" class="btn-close" onclick="closeSetting()">&times;</a>
+		<dl>
+			<dt>Choose up to three chips</dt>
+
+			<dd><a href="javascript:void(0)" class="chip chip-1 active">10</a></dd>
+			<dd><a href="javascript:void(0)" class="chip chip-2 chip-no-select">25</a></dd>
+			<dd><a href="javascript:void(0)" class="chip chip-3 chip-no-select">50</a></dd>
+			<dd><a href="javascript:void(0)" class="chip chip-4 active">100</a></dd>
+			<dd><a href="javascript:void(0)" class="chip chip-5 chip-no-select">250</a></dd>
+			
+			<dd><a href="javascript:void(0)" class="chip chip-6 chip-no-select">500</a></dd>
+			<dd><a href="javascript:void(0)" class="chip chip-7 chip-no-select">1000</a></dd>
+			<dd><a href="javascript:void(0)" class="chip chip-8 chip-no-select">2000</a></dd>
+			<dd><a href="javascript:void(0)" class="chip chip-9 chip-no-select">3000</a></dd>
+			<dd class="setting-customize">
+				<a href="javascript:void(0)" class="chip chip-customize active">$</a>
+				<span class="chip-input"><span>999</span></span>
+				<span class="chip-remark">Maxium $9,999.</span>
+			</dd>
+		</dl>
+		<a href="index.html" class="btn btn-confirm btn-primary">Submit</a>
+	</div>
+
+	<script src="js/main.js"></script>
+</body>
+</html>

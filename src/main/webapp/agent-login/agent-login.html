@@ -1,0 +1,83 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta charset="utf-8">
+	<title>Agent List</title>
+	<link rel="stylesheet" type="text/css" media="all" href="../css/login.css" />
+	<link rel="stylesheet" href="../library/icomoon/style.css"><!--icomoon-->
+	<link rel="stylesheet" href="../css/login-2FA-page.css">
+</head>
+
+<body class="agentLogin">
+	<div class="main">
+		<div class="header">
+			<h1>SV388</h1>
+			<ul id="selectLang" class="langes">
+				<li><a href="" onclick="loginHandler.changeLang(event, 'en')" class="" alt="en" title="en"></a></li>
+
+				<li><a href="" onclick="loginHandler.changeLang(event, 'cn')" class="cn" alt="cn" title="cn"></a></li>
+
+				<li><a href="" onclick="loginHandler.changeLang(event, 'vi')" class="vn" alt="vi" title="vi"></a></li>
+
+				<li><a href="" onclick="loginHandler.changeLang(event, 'jp')" class="jp" alt="jp" title="jp"></a></li>
+
+				<li><a href="" onclick="loginHandler.changeLang(event, 'th')" class="th" alt="th" title="th"></a></li>
+
+				<li><a href="" onclick="loginHandler.changeLang(event, 'es')" class="es" alt="es" title="es"></a></li>
+
+				<li><a href="" onclick="loginHandler.changeLang(event, 'ms')" class="ms" alt="ms" title="ms"></a></li>
+
+				<li><a href="" onclick="loginHandler.changeLang(event, 'id')" class="" alt="id" title="id"></a></li>
+			</ul>
+		</div>
+		<div class="banner">
+			<div class="loginBox">
+				<form id="agentLoginForm" name="agentLoginForm" action="#" method="post"
+					onsubmit="javascript: return loginHandler.check(event);">
+					<input name="valid" type="hidden" id="valid" value="d8e15fe6-8b6f-4648-aa6c-25ca522f7ac2">
+					<ul>
+						<li>
+							<input id="uidText" class="usericon" type="text" autocomplete="off"
+								value="Username/Nickname" onclick="usernameOnClick();" onkeyup="usernameOnClick();"
+								style="display: inline-block;">
+							<input style="display: none;" id="loginName" class="usericon" type="text" maxlength="50"
+								autocomplete="off">
+						</li>
+						<li>
+							<input id="passText" type="text" class="passwicon" autocomplete="off" value="Password"
+								onclick="passTextOnClick()" onkeyup="passTextOnClick();">
+							<input style="display:none;" id="password" type="password" class="passwicon" maxlength="20"
+								autocomplete="off">
+						</li>
+						<li class="clearfix">
+							<input id="code2Text" type="text" class="vcode" autocomplete="off" value="Validation Code"
+								onclick="validationOnClick();" onkeyup="validationOnClick();">
+							<input style="display:none;" id="code" type="text" class="vcode" autocomplete="off"
+								maxlength="4">
+							<div class="verify">
+								<img alt="auth" id="authenticateImage" src="verifycode.gr">
+								<a id="refresh_authenticate_img" href="#">refresh</a>
+							</div>
+						</li>
+						<li><input type="submit" class="loginBtn" value="Login" onclick="javascript: return loginHandler.check(event);"></li>
+					</ul>
+					<p id="errorMsg" class="errormsg">Incorrect entered, Please try again.</p>
+
+					<input name="trafficStatistics" id="trafficStatistics" type="hidden" value="1059801967">
+					<input name="trafficStatisticsCanvas" id="trafficStatisticsCanvas" type="hidden" value="540270121">
+					<input name="trafficStatisticsActivex" id="trafficStatisticsActivex" type="hidden"
+						value="1059801967">
+					<input name="trafficStatisticsResolution" id="trafficStatisticsResolution" type="hidden"
+						value="3093570254">
+					<input name="trafficStatistics2" id="trafficStatistics2" type="hidden"
+						value="3af6e66c23e159865e4a5469c0134628">
+				</form>
+			</div>
+		</div>
+	</div>
+	<div id="ads"></div>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+.btn-box
+    text-align: center
+    position: relative
+    &.rt
+        text-align: right
+    &.lt
+        text-align: left
+    .btn-link
+        border-radius: 10px
+        padding: 10px
+        text-decoration: unset
+        border: none
+        background: none
+        color: $primary
+        i
+            margin: 0 5px
+            font-size: 110%
+        &:active
+            background: #fff
+.btn
+    @include btn-style
+    background-color: #1d5827
+    transition: all .3s ease-in-out
+    .icon
+        @include icon-style
+    &.on-focus
+        opacity: 1
+
+// 正向
+.btn-primary
+    opacity: 1
+    border-radius: 5px
+    box-shadow: none
+    font-size: 120%
+    line-height: 34px
+    width: 70%
+    margin: 0 auto
+    padding: 5px
+    color: #fff
+    background-image: linear-gradient(#7ad359, #3b8f2d)
+    text-shadow: 0 1px 2px #1d5827
+    border: 2px solid #37d05b
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3), inset 0 0.0625rem 0.125rem 0 rgba(79, 115, 168, 0.7)
+    i
+        color: #fff
+    &:focus,
+    &:active
+        border-color: #158416
+        outline: none
+        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3), inset 0 0.0625rem 0.125rem 0 rgba(79, 115, 168, 0.7) !important
+        // outline: 2px solid #37d05b
+    &:hover
+        border-color: #158416 !important
+        // filter:: brightness(1.1)
+    &.on-focus
+        // background-image: linear-gradient(to bottom, #7ad359, #3b8f2d)
+        background-image: linear-gradient(#0dccea, #0d70ea)
+        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3), inset 0 0.0625rem 0.125rem 0 rgba(79, 115, 168, 0.7)
+        border-color: #37d05b
+        color: #fff
+ 
+
+.btn-play
+    width: 22px
+    height: 22px
+    border-radius: 100px
+    background-image: linear-gradient(to bottom, #3b8f2d, #7ad359)
+    text-shadow: 0 1px 2px #333
+    color: #6eb980
+    text-align: center
+    i
+        line-height: 22px
+        color: #fff

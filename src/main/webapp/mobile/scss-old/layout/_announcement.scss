@@ -1,0 +1,39 @@
+//announcement
+.announcement {
+    height: 100%;
+    background-color: #ffffff;
+
+    .prevNext-select {
+        margin: 0;
+        padding: vw(16px) 0 vw(14px);
+        background-color: #F6F6F6;
+    }
+
+    dl {
+        background-color: #ffffff;
+        color: $gray-mid;
+    }
+
+    dt {
+        padding: 0 vw(20px);
+        border-top: 1px solid #dddddd;
+        box-shadow: 0 (2px) (3px) 0 rgba(0,0,0,.3);
+        color: #EF6D02;
+        line-height: vw(46px);
+        font-size: vw(18px);
+    }
+
+    dd {
+        padding: vw(16px) vw(20px);
+
+        strong {
+            display: block;
+            margin-bottom: vw(6px);
+            font-size: vw(18px);
+        }
+
+        span {
+            font-size: vw(14px);
+        }
+    }
+}

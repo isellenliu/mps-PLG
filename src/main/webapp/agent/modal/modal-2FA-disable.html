@@ -1,0 +1,49 @@
+<link rel="stylesheet" type="text/css" media="all" href="../../library/icomoon/style.css" />
+<link rel="stylesheet" href="../css/agentAll.css">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div class="modal-tit">Disable 2FA Setting</div>
+        </div>
+        <div class="modal-body">
+            <form class="form-edit">
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" class="inputL">
+                    <div class="form-control-btn">
+                        <!-- <i class="icon-eye-opened"></i> -->
+                        <i class="icon-eye-closed"></i>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="">OTP</label>
+                    <input type="password" class="inputL">
+                    <div class="form-control-btn">
+                        <!-- <i class="icon-eye-opened"></i> -->
+                        <i class="icon-eye-closed"></i>
+                    </div>
+                </div>
+            </form>
+            <div class="txt-error mb-10px">
+                <i class="icon-alert"></i>
+                Paswword error
+            </div>
+            <div class="box-gray">
+                <div class="modal-btnbox">
+                    <a class="btn btn-primary" href="#">Submit</a>
+                </div>
+                <ul class="info-list">
+                    <li>Password must have 8 to 15 alphanumeric without space or special characters.</li>
+                    <li>Must contain at least 1 capital letter, 1 small letter and 1 number.</li>
+                </ul>
+            </div><!-- box-gray -->
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $('[data-action]').on('click', function () {
+        parent.closeIFrame();
+    });
+</script>

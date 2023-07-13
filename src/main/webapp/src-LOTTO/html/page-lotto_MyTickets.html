@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>Lotto｜My Tickets</title>
+
+    <link rel="stylesheet" href="../../library/icomoon/style.css"/> <!-- all icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- google icon -->
+    <link rel="stylesheet" href="../LOTTO-css/lotto.css"/>
+</head>
+<!-- 點上方標題 "My Tickets" demo 直播開獎 -->
+<!-- alert 通知顯示 2 秒後自動消失，移除 "show" class -->
+<!-- lotto-modal對話框存在時，點 lotto-mask 不動作，點按鈕才會消失，移除 "show" class -->
+
+<!-- 訂單的號碼數                         <li class="ticket">                     添加 num-6/num-5/num-4/num-3 -->
+<!-- 被點擊到>展開的訂單                   <li class="ticket">                     添加 show -->
+<!-- 距離開獎時間在一小時內的 pending 訂單   <li class="ticket pending">             添加 overtime -->
+<!-- 有中獎的 drawn 訂單                  <li class="ticket drawn">               添加 win -->
+<!-- drawn 訂單中獎的號碼球                <li class="numberBall">                 添加 hit -->
+<!-- drawn 訂單有中獎的號碼組              <li class="bet">                         添加 hit -->
+
+<!-- header捲動時增加影子                  <nav class="page-head">                 添加 scroll -->
+<!-- 漢堡選單                             <div class="nav-hb">                    添加 show -->
+<!-- 背景遮罩                             <div class="lotto-mask">                添加 show -->
+<!-- 開獎直播橫幅出現                      <div class="box-liveDrawing">           添加 show -->
+<!-- 開獎直播橫幅倒數結束                   <span class="liveDrawing-countdown">    添加 close -->
+<!-- 開獎直播橫幅的號碼球出現                <li class="winningBall font-16B">       添加 show -->
+
+<body class="page-web lotto">
+    <!-- alert success -->
+    <div class="lotto-alert success">
+        <span class="alert-icon success material-icons">task_alt</span>
+        <span class="alert-txt font-12">test</span>
+    </div>
+    <!-- alert error -->
+    <div class="lotto-alert error">
+        <span class="alert-icon error material-icons">error_outline</span>
+        <span class="alert-txt font-12">Maximum Number of Selection Exceeded.</span>
+    </div>
+    <!-- alert notifs -->
+    <div class="lotto-alert notifs">
+        <span class="alert-icon notifs material-icons">notifications</span>
+        <span class="alert-txt font-12">5 minutes left to bet.</span>
+    </div>
+    <!-- modal success -->
+    <div class="lotto-modal success">
+        <span class="modal-close material-icons">close</span>
+        <div class="modal-title">
+            <span class="title-icon success material-icons">task_alt</span>
+            <span class="title-main font-20B">Successful Bet</span>
+        </div>
+        <p class="modal-info font-14">Thank you for your bet, good luck!</p>
+        <div class="modal-btn">
+            <button class="lotto-btn btn-L font-16B">My Tickets</button>
+            <button class="lotto-btn btn-R font-16B">Home</button>
+        </div>
+        <p class="modal-subtitle font-12">You can cancel before 5/22/2023, 20:00.</p>
+    </div>
+    <!-- modal error -->
+    <div class="lotto-modal error">
+        <span class="modal-close material-icons">close</span>
+        <div class="modal-title">
+            <span class="title-icon error material-icons">error_outline</span>
+            <span class="title-main font-20B">Failed Bet</span>
+        </div>
+        <p class="modal-info font-14">Betting for this event has ended. Click the link to proceed to the next betting event.</p>
+        <div class="modal-btn">
+            <button class="lotto-btn btn-L font-16B">Home</button>
+            <button class="lotto-btn btn-R font-16B">New Bet</button>
+        </div>
+    </div>
+    <!-- modal notifs -->
+    <div class="lotto-modal notifs">
+        <span class="modal-close material-icons">close</span>
+        <div class="modal-title">
+            <span class="title-icon notifs material-icons">error_outline</span>
+            <span class="title-main font-20B">Confirmation</span>
+        </div>
+        <p class="modal-info font-14">Are you sure you want to delete this order?</p>
+        <div class="modal-btn">
+            <button class="lotto-btn btn-L font-16B">Cancel</button>
+            <button class="lotto-btn btn-R font-16B">Delete</button>
+        </div>
+    </div>
+    <!-- mask -->
+    <div class="lotto-mask"></div>
+    <!------------------------------ main ------------------------------>
+    <div class="page-wrapper">
+        <!-- header -->
+        <nav class="page-head">
+            <span class="nav-icon back material-icons">arrow_back_ios_new</span>
+            <title class="nav-title font-20B">My Tickets</title>
+            <div class="nav-hb">
+                <div></div>
+                <div></div>
+            </div>
+            <ul class="nav-menu">
+                <li class="menu-item language">
+                    <select name="" id="" class="font-18B">
+                        <option value="" disabled selected hidden>Language</option>
+                        <option value="">English</option>
+                        <option value="">Filipino</option>
+                    </select>
+                </li>
+                <li class="menu-item home">
+                    <a href="page-lotto_Betting.html">
+                        <svg class="link-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 24H9.5V15H18.5V24H23V10.5L14 3.75L5 10.5V24ZM2 27V9L14 0L26 9V27H15.5V18H12.5V27H2Z"/>
+                        </svg>
+                        <span class="link-icon home material-icons">home</span>
+                        <span class="link-txt font-18B">Home</span>
+                    </a>
+                </li>
+                <li class="menu-item Betting">
+                    <a href="page-lotto_Betting.html">
+                        <svg class="link-icon" width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M25.4999 15C25.4999 15.9464 25.3739 16.862 25.1387 17.7328L28.3895 19.0964C28.7843 17.8 28.9999 16.4252 28.9999 15C28.9999 13.5748 28.7843 12.2 28.3895 10.9036L25.1387 12.2672C25.3739 13.138 25.4999 14.0536 25.4999 15Z" fill="white"/>
+                            <path d="M5.94501 20.3145L2.69141 21.6781C3.98221 24.0525 5.94221 26.0125 8.31941 27.3061L9.68301 24.0525C8.14021 23.1453 6.85221 21.8545 5.94501 20.3145Z" fill="white"/>
+                            <path d="M24.0554 9.68569L27.309 8.32209C26.0182 5.94769 24.0582 3.98769 21.681 2.69409L20.3174 5.94769C21.8602 6.85489 23.1482 8.14569 24.0554 9.68569Z" fill="white"/>
+                            <path d="M20.3145 24.0551L21.6781 27.3087C24.0525 26.0179 26.0125 24.0579 27.3061 21.6807L24.0525 20.3171C23.1453 21.8599 21.8545 23.1479 20.3145 24.0551Z" fill="white"/>
+                            <path d="M14.9997 25.5001C14.0533 25.5001 13.1377 25.3741 12.2669 25.1389L10.9033 28.3897C12.1997 28.7845 13.5745 29.0001 14.9997 29.0001C16.4249 29.0001 17.7997 28.7845 19.0961 28.3897L17.7325 25.1389C16.8617 25.3741 15.9461 25.5001 14.9997 25.5001Z" fill="white"/>
+                            <path d="M4.5 15C4.5 14.0536 4.626 13.138 4.8612 12.2672L1.6104 10.9036C1.2156 12.2 1 13.5748 1 15C1 16.4252 1.2156 17.8 1.6104 19.0964L4.8612 17.7328C4.626 16.862 4.5 15.9464 4.5 15Z" fill="white"/>
+                            <path d="M14.9997 4.5C15.9461 4.5 16.8617 4.626 17.7325 4.8612L19.0961 1.6104C17.7997 1.2156 16.4249 1 14.9997 1C13.5745 1 12.1997 1.2156 10.9033 1.6104L12.2669 4.8612C13.1377 4.626 14.0533 4.5 14.9997 4.5Z" fill="white"/>
+                            <path d="M9.68594 5.94476L8.32234 2.69116C5.94794 3.98196 3.98794 5.94196 2.69434 8.31916L5.94794 9.68276C6.85514 8.13996 8.14594 6.85196 9.68594 5.94476Z" fill="white"/>
+                            <path d="M14.9998 7.30005C10.7466 7.30005 7.2998 10.7468 7.2998 15C7.2998 19.2532 10.7466 22.7 14.9998 22.7C19.253 22.7 22.6998 19.2532 22.6998 15C22.6998 10.7468 19.253 7.30005 14.9998 7.30005ZM14.9998 20.6C14.0086 18.0352 11.9646 15.9912 9.3998 15C11.9646 14.0088 14.0086 11.9648 14.9998 9.40005C15.991 11.9648 18.035 14.0088 20.5998 15C18.035 15.9912 15.991 18.0352 14.9998 20.6Z"/>
+                        </svg>                        
+                        <span class="link-txt font-18B">Betting</span>
+                    </a>
+                </li>
+                <li class="menu-item myTickets">
+                    <a href="page-lotto_MyTickets.html">
+                        <svg class="link-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.72 19.2L14.5 16.365L18.2125 19.2L16.795 14.61L20.575 11.64H15.985L14.5 7.05L13.015 11.64H8.425L12.1375 14.61L10.72 19.2ZM3.7 24.6C2.9575 24.6 2.32188 24.3356 1.79313 23.8069C1.26438 23.2781 1 22.6425 1 21.9V17.3437C1 17.0962 1.07875 16.8825 1.23625 16.7025C1.39375 16.5225 1.59625 16.41 1.84375 16.365C2.38375 16.185 2.82813 15.8587 3.17688 15.3862C3.52563 14.9137 3.7 14.385 3.7 13.8C3.7 13.215 3.52563 12.6862 3.17688 12.2137C2.82813 11.7412 2.38375 11.415 1.84375 11.235C1.59625 11.19 1.39375 11.0775 1.23625 10.8975C1.07875 10.7175 1 10.5037 1 10.2562V5.7C1 4.9575 1.26438 4.32187 1.79313 3.79312C2.32188 3.26438 2.9575 3 3.7 3H25.3C26.0425 3 26.6781 3.26438 27.2069 3.79312C27.7356 4.32187 28 4.9575 28 5.7V10.2562C28 10.5037 27.9213 10.7175 27.7638 10.8975C27.6063 11.0775 27.4038 11.19 27.1563 11.235C26.6163 11.415 26.1719 11.7412 25.8231 12.2137C25.4744 12.6862 25.3 13.215 25.3 13.8C25.3 14.385 25.4744 14.9137 25.8231 15.3862C26.1719 15.8587 26.6163 16.185 27.1563 16.365C27.4038 16.41 27.6063 16.5225 27.7638 16.7025C27.9213 16.8825 28 17.0962 28 17.3437V21.9C28 22.6425 27.7356 23.2781 27.2069 23.8069C26.6781 24.3356 26.0425 24.6 25.3 24.6H3.7ZM3.7 21.9H25.3V18.4575C24.4675 17.9625 23.8094 17.3044 23.3256 16.4831C22.8419 15.6619 22.6 14.7675 22.6 13.8C22.6 12.8325 22.8419 11.9381 23.3256 11.1169C23.8094 10.2956 24.4675 9.6375 25.3 9.1425V5.7H3.7V9.1425C4.5325 9.6375 5.19063 10.2956 5.67438 11.1169C6.15813 11.9381 6.4 12.8325 6.4 13.8C6.4 14.7675 6.15813 15.6619 5.67438 16.4831C5.19063 17.3044 4.5325 17.9625 3.7 18.4575V21.9Z"/>
+                        </svg>                                             
+                        <span class="link-icon myTickets material-icons">local_activity</span>
+                        <span class="link-txt font-18B">My Tickets</span>
+                    </a>
+                </li>
+                <li class="menu-item bettingSchedule">
+                    <a href="">
+                        <span class="link-icon bettingSchedule material-icons">event_note</span>
+                        <span class="link-txt font-18B">Betting Schedule</span>
+                    </a>
+                </li>
+                <li class="menu-item drawHistory">
+                    <a href="">
+                        <span class="link-icon drawHistory material-icons">manage_search</span>
+                        <span class="link-txt font-18B">Draw History</span>
+                    </a>
+                </li>
+                <li class="menu-item memberInfo">
+                    <a href="">
+                        <!-- <span class="link-icon person material-icons">person</span> -->
+                        <span class="link-icon memberInfo material-icons">perm_identity</span>
+                        <span class="link-txt font-18B">Member Info</span>
+                    </a>
+                </li>
+                <li class="menu-item logout">
+                    <a href="">
+                        <span class="link-icon logout material-icons">logout</span>
+                        <span class="link-txt font-18B">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- 開獎橫幅 -->
+        <div class="box-liveDrawing">
+            <svg class="lotto-icon videocam" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.8 23.6C2.03 23.6 1.37083 23.3258 0.8225 22.7775C0.274167 22.2292 0 21.57 0 20.8V6.8C0 6.03 0.274167 5.37083 0.8225 4.8225C1.37083 4.27417 2.03 4 2.8 4H19.6C20.37 4 21.0292 4.27417 21.5775 4.8225C22.1258 5.37083 22.4 6.03 22.4 6.8V11.7L28 6.1V21.5L22.4 15.9V20.8C22.4 21.57 22.1258 22.2292 21.5775 22.7775C21.0292 23.3258 20.37 23.6 19.6 23.6H2.8Z"/>
+            </svg>
+            <span class="liveDrawing-title font-16B">OngoingDrawing</span>
+            <span class="liveDrawing-countdown font-14">00:00</span>
+            <ul class="winningList">
+                <li class="winningBall font-16B">10</li>
+                <li class="winningBall font-16B">13</li>
+                <li class="winningBall font-16B">23</li>
+                <li class="winningBall font-16B">34</li>
+                <li class="winningBall font-16B">35</li>
+                <li class="winningBall font-16B">37</li>
+            </ul>
+        </div>
+        <!-- body -->
+        <div class="page-body myTickets">
+            <div class="box-categories">
+                <ul class="categories-list">
+                    <li class="categories all font-20B">All</li>
+                    <li class="categories pending font-20B">Pending</li>
+                    <li class="categories drawn font-20B">Drawn</li>
+                </ul>
+            </div>
+            <div class="box-tickets">
+                <ul class="tickets-list">
+                    <!-- pending -->
+                    <li class="ticket pending num-3 overtime">
+                        <div class="ticket-title">
+                            <span class="lotto-icon expandMore material-icons">expand_more</span>
+                            <span class="lotto-icon expandLess material-icons">expand_less</span>
+                            <p class="drawDate font-18B">5/29/2023</p>
+                            <div class="box-icon">
+                                <svg class="lotto-icon videocam" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.8 23.6C2.03 23.6 1.37083 23.3258 0.8225 22.7775C0.274167 22.2292 0 21.57 0 20.8V6.8C0 6.03 0.274167 5.37083 0.8225 4.8225C1.37083 4.27417 2.03 4 2.8 4H19.6C20.37 4 21.0292 4.27417 21.5775 4.8225C22.1258 5.37083 22.4 6.03 22.4 6.8V11.7L28 6.1V21.5L22.4 15.9V20.8C22.4 21.57 22.1258 22.2292 21.5775 22.7775C21.0292 23.3258 20.37 23.6 19.6 23.6H2.8Z"/>
+                                </svg>
+                            </div>
+                            <div class="winning">
+                                <!-- <span class="font-14">win</span> -->
+                                <span class="font-14">+</span>
+                                <span class="font-14">₱ 12,000</span>
+                            </div>
+                            <span class="lotto-icon alarm material-icons">alarm</span>
+                            <span class="drawTime-countdown font-14">00:24:36</span>
+                            <span class="deleted font-14">deleted</span>
+                        </div>
+                        <hr>
+                        <ul class="ticket-numbers">
+                            <li class="numberBall">10</li>
+                            <li class="numberBall">13</li>
+                            <li class="numberBall">23</li>
+                        </ul>
+                        <ul class="ticket-detail">
+                            <li class="orderID">
+                                <span class="font-14">Order ID</span>
+                                <span class="font-14">NO.202305290001</span>
+                            </li>
+                            <li class="betPlaced">
+                                <span class="font-14">Bet placed</span>
+                                <span class="font-14">5/29/2023 18:30</span>
+                            </li>
+                            <li class="deletedOn">
+                                <span class="font-14">Deleted on</span>
+                                <span class="font-14">5/29/2023 19:30</span>
+                            </li>
+                            <li class="numberCount">
+                                <span class="font-14">Number Count</span>
+                                <span class="font-14">3</span>
+                            </li>
+                            <li class="betCount">
+                                <span class="font-14">Bet Count</span>
+                                <!-- <span class="lotto-icon arrow_dropDown material-icons">arrow_drop_down</span> -->
+                                <!-- <span class="lotto-icon arrow_dropUp material-icons">arrow_drop_up</span> -->
+                                <span class="font-14">1</span>
+                                <ul class="bet-list">
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">33</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">33</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="betAmount">
+                                <span class="font-14">Bet Amount</span>
+                                <span class="font-14">₱ 10</span>
+                            </li>
+                            <li class="MaxPrize">
+                                <span class="font-14">Max Potential Prize</span>
+                                <span class="font-14">₱ 3,000</span>
+                            </li>
+                            <li class=""><hr></li>
+                            <li class="totalBet">
+                                <span class="font-16B">Total Bet</span>
+                                <span class="font-16B">₱ 10</span>
+                            </li>
+                            <li class="winningPrize">
+                                <span class="font-16B">Winning</span>
+                                <span class="font-16B">₱ 12,000</span>
+                            </li>
+                            <li class="subTitle font-12 font-12">Cannot delete order. Time limit exceeded.</li>
+                            <li class="btn-box">
+                                <button class="btn-delete font-18B">Delete</button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="ticket pending num-4">
+                        <div class="ticket-title">
+                            <span class="lotto-icon expandMore material-icons">expand_more</span>
+                            <span class="lotto-icon expandLess material-icons">expand_less</span>
+                            <p class="drawDate font-18B">5/26/2023</p>
+                            <div class="box-icon">
+                                <svg class="lotto-icon videocam" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.8 23.6C2.03 23.6 1.37083 23.3258 0.8225 22.7775C0.274167 22.2292 0 21.57 0 20.8V6.8C0 6.03 0.274167 5.37083 0.8225 4.8225C1.37083 4.27417 2.03 4 2.8 4H19.6C20.37 4 21.0292 4.27417 21.5775 4.8225C22.1258 5.37083 22.4 6.03 22.4 6.8V11.7L28 6.1V21.5L22.4 15.9V20.8C22.4 21.57 22.1258 22.2292 21.5775 22.7775C21.0292 23.3258 20.37 23.6 19.6 23.6H2.8Z"/>
+                                </svg>
+                            </div>
+                            <div class="winning">
+                                <!-- <span class="font-14">win</span> -->
+                                <span class="font-14">+</span>
+                                <span class="font-14">₱ 12,000</span>
+                            </div>
+                            <span class="lotto-icon alarm material-icons">alarm</span>
+                            <span class="drawTime-countdown font-14">02:24:36</span>
+                            <span class="deleted font-14">deleted</span>
+                        </div>
+                        <hr>
+                        <ul class="ticket-numbers">
+                            <li class="numberBall">10</li>
+                            <li class="numberBall">13</li>
+                            <li class="numberBall">23</li>
+                            <li class="numberBall">34</li>
+                        </ul>
+                        <ul class="ticket-detail">
+                            <li class="orderID">
+                                <span class="font-14">Order ID</span>
+                                <span class="font-14">NO.202305260001</span>
+                            </li>
+                            <li class="betPlaced">
+                                <span class="font-14">Bet placed</span>
+                                <span class="font-14">5/26/2023 18:30</span>
+                            </li>
+                            <li class="deletedOn">
+                                <span class="font-14">Deleted on</span>
+                                <span class="font-14">5/26/2023 19:30</span>
+                            </li>
+                            <li class="numberCount">
+                                <span class="font-14">Number Count</span>
+                                <span class="font-14">4</span>
+                            </li>
+                            <li class="betCount">
+                                <span class="font-14">Bet Count</span>
+                                <!-- <span class="lotto-icon arrow_dropDown material-icons">arrow_drop_down</span> -->
+                                <!-- <span class="lotto-icon arrow_dropUp material-icons">arrow_drop_up</span> -->
+                                <span class="font-14">4</span>
+                                <ul class="bet-list">
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">33</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">33</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="betAmount">
+                                <span class="font-14">Bet Amount</span>
+                                <span class="font-14">₱ 10</span>
+                            </li>
+                            <li class="MaxPrize">
+                                <span class="font-14">Max Potential Prize</span>
+                                <span class="font-14">₱ 12,000</span>
+                            </li>
+                            <li class=""><hr></li>
+                            <li class="totalBet">
+                                <span class="font-16B">Total Bet</span>
+                                <span class="font-16B">₱ 40</span>
+                            </li>
+                            <li class="winningPrize">
+                                <span class="font-16B">Winning</span>
+                                <span class="font-16B">₱ 12,000</span>
+                            </li>
+                            <li class="subTitle font-12">You can delete up to 1 hour before the draw.</li>
+                            <li class="btn-box">
+                                <button class="btn-delete font-18B">Delete</button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="ticket pending num-5">
+                        <div class="ticket-title">
+                            <span class="lotto-icon expandMore material-icons">expand_more</span>
+                            <span class="lotto-icon expandLess material-icons">expand_less</span>
+                            <p class="drawDate font-18B">5/24/2023</p>
+                            <div class="box-icon">
+                                <svg class="lotto-icon videocam" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.8 23.6C2.03 23.6 1.37083 23.3258 0.8225 22.7775C0.274167 22.2292 0 21.57 0 20.8V6.8C0 6.03 0.274167 5.37083 0.8225 4.8225C1.37083 4.27417 2.03 4 2.8 4H19.6C20.37 4 21.0292 4.27417 21.5775 4.8225C22.1258 5.37083 22.4 6.03 22.4 6.8V11.7L28 6.1V21.5L22.4 15.9V20.8C22.4 21.57 22.1258 22.2292 21.5775 22.7775C21.0292 23.3258 20.37 23.6 19.6 23.6H2.8Z"/>
+                                </svg>
+                            </div>
+                            <div class="winning">
+                                <!-- <span class="font-14">win</span> -->
+                                <span class="font-14">+</span>
+                                <span class="font-14">₱ 12,000</span>
+                            </div>
+                            <span class="lotto-icon alarm material-icons">alarm</span>
+                            <span class="drawTime-countdown font-14">02:24:36</span>
+                            <span class="deleted font-14">deleted</span>
+                        </div>
+                        <hr>
+                        <ul class="ticket-numbers">
+                            <li class="numberBall">10</li>
+                            <li class="numberBall">13</li>
+                            <li class="numberBall">23</li>
+                            <li class="numberBall">34</li>
+                            <li class="numberBall">35</li>
+                        </ul>
+                        <ul class="ticket-detail">
+                            <li class="orderID">
+                                <span class="font-14">Order ID</span>
+                                <span class="font-14">NO.202305240001</span>
+                            </li>
+                            <li class="betPlaced">
+                                <span class="font-14">Bet placed</span>
+                                <span class="font-14">5/24/2023 18:30</span>
+                            </li>
+                            <li class="deletedOn">
+                                <span class="font-14">Deleted on</span>
+                                <span class="font-14">5/24/2023 19:30</span>
+                            </li>
+                            <li class="numberCount">
+                                <span class="font-14">Number Count</span>
+                                <span class="font-14">5</span>
+                            </li>
+                            <li class="betCount">
+                                <span class="font-14">Bet Count</span>
+                                <!-- <span class="lotto-icon arrow_dropDown material-icons">arrow_drop_down</span> -->
+                                <!-- <span class="lotto-icon arrow_dropUp material-icons">arrow_drop_up</span> -->
+                                <span class="font-14">10</span>
+                                <ul class="bet-list">
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="betAmount">
+                                <span class="font-14">Bet Amount</span>
+                                <span class="font-14">₱ 10</span>
+                            </li>
+                            <li class="MaxPrize">
+                                <span class="font-14">Max Potential Prize</span>
+                                <span class="font-14">₱ 30,000</span>
+                            </li>
+                            <li class=""><hr></li>
+                            <li class="totalBet">
+                                <span class="font-16B">Total Bet</span>
+                                <span class="font-16B">₱ 100</span>
+                            </li>
+                            <li class="winningPrize">
+                                <span class="font-16B">Winning</span>
+                                <span class="font-16B">₱ 12,000</span>
+                            </li>
+                            <li class="subTitle font-12">You can delete up to 1 hour before the draw.</li>
+                            <li class="btn-box">
+                                <button class="btn-delete font-18B">Delete</button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="ticket pending num-6">
+                        <div class="ticket-title">
+                            <span class="lotto-icon expandMore material-icons">expand_more</span>
+                            <span class="lotto-icon expandLess material-icons">expand_less</span>
+                            <p class="drawDate font-18B">5/22/2023</p>
+                            <div class="box-icon">
+                                <svg class="lotto-icon videocam" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.8 23.6C2.03 23.6 1.37083 23.3258 0.8225 22.7775C0.274167 22.2292 0 21.57 0 20.8V6.8C0 6.03 0.274167 5.37083 0.8225 4.8225C1.37083 4.27417 2.03 4 2.8 4H19.6C20.37 4 21.0292 4.27417 21.5775 4.8225C22.1258 5.37083 22.4 6.03 22.4 6.8V11.7L28 6.1V21.5L22.4 15.9V20.8C22.4 21.57 22.1258 22.2292 21.5775 22.7775C21.0292 23.3258 20.37 23.6 19.6 23.6H2.8Z"/>
+                                </svg>
+                            </div>
+                            <div class="winning">
+                                <!-- <span class="font-14">win</span> -->
+                                <span class="font-14">+</span>
+                                <span class="font-14">₱ 12,000</span>
+                            </div>
+                            <span class="lotto-icon alarm material-icons">alarm</span>
+                            <span class="drawTime-countdown font-14">02:24:36</span>
+                            <span class="deleted font-14">deleted</span>
+                        </div>
+                        <hr>
+                        <ul class="ticket-numbers">
+                            <li class="numberBall">10</li>
+                            <li class="numberBall">13</li>
+                            <li class="numberBall">23</li>
+                            <li class="numberBall">34</li>
+                            <li class="numberBall">35</li>
+                            <li class="numberBall">37</li>
+                        </ul>
+                        <ul class="ticket-detail">
+                            <li class="orderID">
+                                <span class="font-14">Order ID</span>
+                                <span class="font-14">NO.202305220001</span>
+                            </li>
+                            <li class="betPlaced">
+                                <span class="font-14">Bet placed</span>
+                                <span class="font-14">5/22/2023 18:30</span>
+                            </li>
+                            <li class="deletedOn">
+                                <span class="font-14">Deleted on</span>
+                                <span class="font-14">5/22/2023 19:30</span>
+                            </li>
+                            <li class="numberCount">
+                                <span class="font-14">Number Count</span>
+                                <span class="font-14">6</span>
+                            </li>
+                            <li class="betCount">
+                                <span class="font-14">Bet Count</span>
+                                <!-- <span class="lotto-icon arrow_dropDown material-icons">arrow_drop_down</span> -->
+                                <!-- <span class="lotto-icon arrow_dropUp material-icons">arrow_drop_up</span> -->
+                                <span class="font-14">20</span>
+                                <ul class="bet-list">
+                                    <li class="bet hit">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet hit">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet hit">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">35</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet hit">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">35</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">35</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">35</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="betAmount">
+                                <span class="font-14">Bet Amount</span>
+                                <span class="font-14">₱ 10</span>
+                            </li>
+                            <li class="MaxPrize">
+                                <span class="font-14">Max Potential Prize</span>
+                                <span class="font-14">₱ 60,000</span>
+                            </li>
+                            <li class=""><hr></li>
+                            <li class="totalBet">
+                                <span class="font-16B">Total Bet</span>
+                                <span class="font-16B">₱ 200</span>
+                            </li>
+                            <li class="winningPrize">
+                                <span class="font-16B">Winning</span>
+                                <span class="font-16B">₱ 12,000</span>
+                            </li>
+                            <li class="subTitle font-12">You can delete up to 1 hour before the draw.</li>
+                            <li class="btn-box">
+                                <button class="btn-delete font-18B">Delete</button>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- drawn -->
+                    <li class="ticket drawn num-3">
+                        <div class="ticket-title">
+                            <span class="lotto-icon expandMore material-icons">expand_more</span>
+                            <span class="lotto-icon expandLess material-icons">expand_less</span>
+                            <p class="drawDate font-18B">5/19/2023</p>
+                            <div class="box-icon">
+                                <svg class="lotto-icon videocam" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.8 23.6C2.03 23.6 1.37083 23.3258 0.8225 22.7775C0.274167 22.2292 0 21.57 0 20.8V6.8C0 6.03 0.274167 5.37083 0.8225 4.8225C1.37083 4.27417 2.03 4 2.8 4H19.6C20.37 4 21.0292 4.27417 21.5775 4.8225C22.1258 5.37083 22.4 6.03 22.4 6.8V11.7L28 6.1V21.5L22.4 15.9V20.8C22.4 21.57 22.1258 22.2292 21.5775 22.7775C21.0292 23.3258 20.37 23.6 19.6 23.6H2.8Z"/>
+                                </svg>
+                            </div>
+                            <div class="winning">
+                                <!-- <span class="font-14">lose</span> -->
+                                <span class="font-14">-</span>
+                                <span class="font-14">10</span>
+                            </div>
+                            <span class="lotto-icon alarm material-icons">alarm</span>
+                            <span class="drawTime-countdown font-14">00:24:36</span>
+                            <span class="deleted font-14">deleted</span>
+                        </div>
+                        <hr>
+                        <ul class="ticket-numbers">
+                            <li class="numberBall">10</li>
+                            <li class="numberBall">13</li>
+                            <li class="numberBall">23</li>
+                        </ul>
+                        <ul class="ticket-detail">
+                            <li class="winningNumbers">
+                                <span class="font-14">Winning Numbers</span>
+                                <span class="font-14">11</span>
+                                <span class="font-14">22</span>
+                                <span class="font-14">33</span>
+                                <span class="font-14">39</span>
+                                <span class="font-14">40</span>
+                                <span class="font-14">45</span>
+                            </li>
+                            <li class="orderID">
+                                <span class="font-14">Order ID</span>
+                                <span class="font-14">NO.202305190001</span>
+                            </li>
+                            <li class="betPlaced">
+                                <span class="font-14">Bet placed</span>
+                                <span class="font-14">5/19/2023 18:30</span>
+                            </li>
+                            <li class="deletedOn">
+                                <span class="font-14">Deleted on</span>
+                                <span class="font-14">5/19/2023 19:30</span>
+                            </li>
+                            <li class="numberCount">
+                                <span class="font-14">Number Count</span>
+                                <span class="font-14">3</span>
+                            </li>
+                            <li class="betCount">
+                                <span class="font-14">Bet Count</span>
+                                <!-- <span class="lotto-icon arrow_dropDown material-icons">arrow_drop_down</span> -->
+                                <!-- <span class="lotto-icon arrow_dropUp material-icons">arrow_drop_up</span> -->
+                                <span class="font-14">1</span>
+                                <ul class="bet-list">
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">33</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">33</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="betAmount">
+                                <span class="font-14">Bet Amount</span>
+                                <span class="font-14">₱ 10</span>
+                            </li>
+                            <li class="MaxPrize">
+                                <span class="font-14">Max Potential Prize</span>
+                                <span class="font-14">₱ 3,000</span>
+                            </li>
+                            <li class=""><hr></li>
+                            <li class="totalBet">
+                                <span class="font-16B">Total Bet</span>
+                                <span class="font-16B">₱ 10</span>
+                            </li>
+                            <li class="winningPrize">
+                                <span class="font-16B">Losing</span>
+                                <span class="font-16B">₱ 10</span>
+                            </li>
+                            <li class="subTitle font-12 font-12">Looks like you missed out on this one.</li>
+                            <li class="btn-box">
+                                <button class="btn-delete font-18B">Delete</button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="ticket drawn num-4">
+                        <div class="ticket-title">
+                            <span class="lotto-icon expandMore material-icons">expand_more</span>
+                            <span class="lotto-icon expandLess material-icons">expand_less</span>
+                            <p class="drawDate font-18B">5/17/2023</p>
+                            <div class="box-icon">
+                                <svg class="lotto-icon videocam" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.8 23.6C2.03 23.6 1.37083 23.3258 0.8225 22.7775C0.274167 22.2292 0 21.57 0 20.8V6.8C0 6.03 0.274167 5.37083 0.8225 4.8225C1.37083 4.27417 2.03 4 2.8 4H19.6C20.37 4 21.0292 4.27417 21.5775 4.8225C22.1258 5.37083 22.4 6.03 22.4 6.8V11.7L28 6.1V21.5L22.4 15.9V20.8C22.4 21.57 22.1258 22.2292 21.5775 22.7775C21.0292 23.3258 20.37 23.6 19.6 23.6H2.8Z"/>
+                                </svg>
+                            </div>
+                            <div class="winning">
+                                <!-- <span class="font-14">lose</span> -->
+                                <span class="font-14">-</span>
+                                <span class="font-14">40</span>
+                            </div>
+                            <span class="lotto-icon alarm material-icons">alarm</span>
+                            <span class="drawTime-countdown font-14">02:24:36</span>
+                            <span class="deleted font-14">deleted</span>
+                        </div>
+                        <hr>
+                        <ul class="ticket-numbers">
+                            <li class="numberBall">10</li>
+                            <li class="numberBall">13</li>
+                            <li class="numberBall hit">23</li>
+                            <li class="numberBall">34</li>
+                        </ul>
+                        <ul class="ticket-detail">
+                            <li class="winningNumbers">
+                                <span class="font-14">Winning Numbers</span>
+                                <span class="font-14">11</span>
+                                <span class="font-14">22</span>
+                                <span class="font-14">33</span>
+                                <span class="font-14">39</span>
+                                <span class="font-14">40</span>
+                                <span class="font-14">45</span>
+                            </li>
+                            <li class="orderID">
+                                <span class="font-14">Order ID</span>
+                                <span class="font-14">NO.202305170001</span>
+                            </li>
+                            <li class="betPlaced">
+                                <span class="font-14">Bet placed</span>
+                                <span class="font-14">5/17/2023 18:30</span>
+                            </li>
+                            <li class="deletedOn">
+                                <span class="font-14">Deleted on</span>
+                                <span class="font-14">5/17/2023 19:30</span>
+                            </li>
+                            <li class="numberCount">
+                                <span class="font-14">Number Count</span>
+                                <span class="font-14">4</span>
+                            </li>
+                            <li class="betCount">
+                                <span class="font-14">Bet Count</span>
+                                <!-- <span class="lotto-icon arrow_dropDown material-icons">arrow_drop_down</span> -->
+                                <!-- <span class="lotto-icon arrow_dropUp material-icons">arrow_drop_up</span> -->
+                                <span class="font-14">4</span>
+                                <ul class="bet-list">
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">33</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">33</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="betAmount">
+                                <span class="font-14">Bet Amount</span>
+                                <span class="font-14">₱ 10</span>
+                            </li>
+                            <li class="MaxPrize">
+                                <span class="font-14">Max Potential Prize</span>
+                                <span class="font-14">₱ 3,000</span>
+                            </li>
+                            <li class=""><hr></li>
+                            <li class="totalBet">
+                                <span class="font-16B">Total Bet</span>
+                                <span class="font-16B">₱ 40</span>
+                            </li>
+                            <li class="winningPrize">
+                                <span class="font-16B">Losing</span>
+                                <span class="font-16B">₱ 40</span>
+                            </li>
+                            <li class="subTitle font-12">Better luck next time!</li>
+                            <li class="btn-box">
+                                <button class="btn-delete font-18B">Delete</button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="ticket drawn num-5 win">
+                        <div class="ticket-title">
+                            <span class="lotto-icon expandMore material-icons">expand_more</span>
+                            <span class="lotto-icon expandLess material-icons">expand_less</span>
+                            <p class="drawDate font-18B">5/15/2023</p>
+                            <div class="box-icon">
+                                <svg class="lotto-icon videocam" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.8 23.6C2.03 23.6 1.37083 23.3258 0.8225 22.7775C0.274167 22.2292 0 21.57 0 20.8V6.8C0 6.03 0.274167 5.37083 0.8225 4.8225C1.37083 4.27417 2.03 4 2.8 4H19.6C20.37 4 21.0292 4.27417 21.5775 4.8225C22.1258 5.37083 22.4 6.03 22.4 6.8V11.7L28 6.1V21.5L22.4 15.9V20.8C22.4 21.57 22.1258 22.2292 21.5775 22.7775C21.0292 23.3258 20.37 23.6 19.6 23.6H2.8Z"/>
+                                </svg>
+                            </div>
+                            <div class="winning">
+                                <!-- <span class="font-14">lose</span> -->
+                                <span class="font-14">-</span>
+                                <span class="font-14">100</span>
+                            </div>
+                            <span class="lotto-icon alarm material-icons">alarm</span>
+                            <span class="drawTime-countdown font-14">02:24:36</span>
+                            <span class="deleted font-14">deleted</span>
+                        </div>
+                        <hr>
+                        <ul class="ticket-numbers">
+                            <li class="numberBall">10</li>
+                            <li class="numberBall">13</li>
+                            <li class="numberBall">23</li>
+                            <li class="numberBall hit">34</li>
+                            <li class="numberBall hit">35</li>
+                        </ul>
+                        <ul class="ticket-detail">
+                            <li class="winningNumbers">
+                                <span class="font-14">Winning Numbers</span>
+                                <span class="font-14">11</span>
+                                <span class="font-14">22</span>
+                                <span class="font-14">33</span>
+                                <span class="font-14">39</span>
+                                <span class="font-14">40</span>
+                                <span class="font-14">45</span>
+                            </li>
+                            <li class="orderID">
+                                <span class="font-14">Order ID</span>
+                                <span class="font-14">NO.202305150001</span>
+                            </li>
+                            <li class="betPlaced">
+                                <span class="font-14">Bet placed</span>
+                                <span class="font-14">5/15/2023 18:30</span>
+                            </li>
+                            <li class="deletedOn">
+                                <span class="font-14">Deleted on</span>
+                                <span class="font-14">5/15/2023 19:30</span>
+                            </li>
+                            <li class="numberCount">
+                                <span class="font-14">Number Count</span>
+                                <span class="font-14">5</span>
+                            </li>
+                            <li class="betCount">
+                                <span class="font-14">Bet Count</span>
+                                <!-- <span class="lotto-icon arrow_dropDown material-icons">arrow_drop_down</span> -->
+                                <!-- <span class="lotto-icon arrow_dropUp material-icons">arrow_drop_up</span> -->
+                                <span class="font-14">10</span>
+                                <ul class="bet-list">
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="betAmount">
+                                <span class="font-14">Bet Amount</span>
+                                <span class="font-14">₱ 10</span>
+                            </li>
+                            <li class="MaxPrize">
+                                <span class="font-14">Max Potential Prize</span>
+                                <span class="font-14">₱ 3,000</span>
+                            </li>
+                            <li class=""><hr></li>
+                            <li class="totalBet">
+                                <span class="font-16B">Total Bet</span>
+                                <span class="font-16B">₱ 100</span>
+                            </li>
+                            <li class="winningPrize">
+                                <span class="font-16B">Losing</span>
+                                <span class="font-16B">₱ 100</span>
+                            </li>
+                            <li class="subTitle font-12">Jackpot slipped away!</li>
+                            <li class="btn-box">
+                                <button class="btn-delete font-18B">Delete</button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="ticket drawn num-6 win">
+                        <div class="ticket-title">
+                            <span class="lotto-icon expandMore material-icons">expand_more</span>
+                            <span class="lotto-icon expandLess material-icons">expand_less</span>
+                            <p class="drawDate font-18B">5/12/2023</p>
+                            <div class="box-icon">
+                                <svg class="lotto-icon videocam" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.8 23.6C2.03 23.6 1.37083 23.3258 0.8225 22.7775C0.274167 22.2292 0 21.57 0 20.8V6.8C0 6.03 0.274167 5.37083 0.8225 4.8225C1.37083 4.27417 2.03 4 2.8 4H19.6C20.37 4 21.0292 4.27417 21.5775 4.8225C22.1258 5.37083 22.4 6.03 22.4 6.8V11.7L28 6.1V21.5L22.4 15.9V20.8C22.4 21.57 22.1258 22.2292 21.5775 22.7775C21.0292 23.3258 20.37 23.6 19.6 23.6H2.8Z"/>
+                                </svg>
+                            </div>
+                            <div class="winning">
+                                <!-- <span class="font-14">win</span> -->
+                                <span class="font-14">+</span>
+                                <span class="font-14">12,000</span>
+                            </div>
+                            <span class="lotto-icon alarm material-icons">alarm</span>
+                            <span class="drawTime-countdown font-14">02:24:36</span>
+                            <span class="deleted font-14">deleted</span>
+                        </div>
+                        <hr>
+                        <ul class="ticket-numbers">
+                            <li class="numberBall hit">10</li>
+                            <li class="numberBall hit">13</li>
+                            <li class="numberBall hit">23</li>
+                            <li class="numberBall">34</li>
+                            <li class="numberBall hit">35</li>
+                            <li class="numberBall">37</li>
+                        </ul>
+                        <ul class="ticket-detail">
+                            <li class="winningNumbers">
+                                <span class="font-14">Winning Numbers</span>
+                                <span class="font-14">10</span>
+                                <span class="font-14">13</span>
+                                <span class="font-14">23</span>
+                                <span class="font-14">33</span>
+                                <span class="font-14">35</span>
+                                <span class="font-14">45</span>
+                            </li>
+                            <li class="orderID">
+                                <span class="font-14">Order ID</span>
+                                <span class="font-14">NO.202305120001</span>
+                            </li>
+                            <li class="betPlaced">
+                                <span class="font-14">Bet placed</span>
+                                <span class="font-14">5/12/2023 18:30</span>
+                            </li>
+                            <li class="deletedOn">
+                                <span class="font-14">Deleted on</span>
+                                <span class="font-14">5/12/2023 19:30</span>
+                            </li>
+                            <li class="numberCount">
+                                <span class="font-14">Number Count</span>
+                                <span class="font-14">6</span>
+                            </li>
+                            <li class="betCount">
+                                <span class="font-14">Bet Count</span>
+                                <!-- <span class="lotto-icon arrow_dropDown material-icons">arrow_drop_down</span> -->
+                                <!-- <span class="lotto-icon arrow_dropUp material-icons">arrow_drop_up</span> -->
+                                <span class="font-14">20</span>
+                                <ul class="bet-list">
+                                    <li class="bet hit">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet hit">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet hit">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">35</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet hit">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">35</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">35</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">35</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="betAmount">
+                                <span class="font-14">Bet Amount</span>
+                                <span class="font-14">₱ 10</span>
+                            </li>
+                            <li class="MaxPrize">
+                                <span class="font-14">Max Potential Prize</span>
+                                <span class="font-14">₱ 3,000</span>
+                            </li>
+                            <li class=""><hr></li>
+                            <li class="totalBet">
+                                <span class="font-16B">Total Bet</span>
+                                <span class="font-16B">₱ 100</span>
+                            </li>
+                            <li class="winningPrize">
+                                <span class="font-16B">Winning</span>
+                                <span class="font-16B">₱ 12,000</span>
+                            </li>
+                            <li class="subTitle font-12">Congratulations on your win!</li>
+                            <li class="btn-box">
+                                <button class="btn-delete font-18B">Delete</button>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- deleted -->
+                    <li class="ticket deleted num-3">
+                        <div class="ticket-title">
+                            <span class="lotto-icon expandMore material-icons">expand_more</span>
+                            <span class="lotto-icon expandLess material-icons">expand_less</span>
+                            <p class="drawDate font-18B">5/19/2023</p>
+                            <div class="box-icon">
+                                <svg class="lotto-icon videocam" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.8 23.6C2.03 23.6 1.37083 23.3258 0.8225 22.7775C0.274167 22.2292 0 21.57 0 20.8V6.8C0 6.03 0.274167 5.37083 0.8225 4.8225C1.37083 4.27417 2.03 4 2.8 4H19.6C20.37 4 21.0292 4.27417 21.5775 4.8225C22.1258 5.37083 22.4 6.03 22.4 6.8V11.7L28 6.1V21.5L22.4 15.9V20.8C22.4 21.57 22.1258 22.2292 21.5775 22.7775C21.0292 23.3258 20.37 23.6 19.6 23.6H2.8Z"/>
+                                </svg>
+                            </div>
+                            <div class="winning">
+                                <!-- <span class="font-14">win</span> -->
+                                <span class="font-14">+</span>
+                                <span class="font-14">₱ 12,000</span>
+                            </div>
+                            <span class="lotto-icon alarm material-icons">alarm</span>
+                            <span class="drawTime-countdown font-14">00:24:36</span>
+                            <span class="deleted font-14">deleted</span>
+                        </div>
+                        <hr>
+                        <ul class="ticket-numbers">
+                            <li class="numberBall">10</li>
+                            <li class="numberBall">13</li>
+                            <li class="numberBall">23</li>
+                        </ul>
+                        <ul class="ticket-detail">
+                            <li class="orderID">
+                                <span class="font-14">Order ID</span>
+                                <span class="font-14">NO.202305190002</span>
+                            </li>
+                            <li class="betPlaced">
+                                <span class="font-14">Bet placed</span>
+                                <span class="font-14">5/19/2023 18:30</span>
+                            </li>
+                            <li class="deletedOn">
+                                <span class="font-14">Deleted on</span>
+                                <span class="font-14">5/19/2023 19:30</span>
+                            </li>
+                            <li class="numberCount">
+                                <span class="font-14">Number Count</span>
+                                <span class="font-14">3</span>
+                            </li>
+                            <li class="betCount">
+                                <span class="font-14">Bet Count</span>
+                                <!-- <span class="lotto-icon arrow_dropDown material-icons">arrow_drop_down</span> -->
+                                <!-- <span class="lotto-icon arrow_dropUp material-icons">arrow_drop_up</span> -->
+                                <span class="font-14">1</span>
+                                <ul class="bet-list">
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">33</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">33</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="betAmount">
+                                <span class="font-14">Bet Amount</span>
+                                <span class="font-14">₱ 10</span>
+                            </li>
+                            <li class="MaxPrize">
+                                <span class="font-14">Max Potential Prize</span>
+                                <span class="font-14">₱ 3,000</span>
+                            </li>
+                            <li class=""><hr></li>
+                            <li class="totalBet">
+                                <span class="font-16B">Total Bet</span>
+                                <span class="font-16B">₱ 10</span>
+                            </li>
+                            <li class="winningPrize">
+                                <span class="font-16B">Winning</span>
+                                <span class="font-16B">₱ 12,000</span>
+                            </li>
+                            <li class="subTitle font-12 font-12">Jackpot slipped away!</li>
+                            <li class="btn-box">
+                                <button class="btn-delete font-18B">Delete</button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="ticket deleted num-4">
+                        <div class="ticket-title">
+                            <span class="lotto-icon expandMore material-icons">expand_more</span>
+                            <span class="lotto-icon expandLess material-icons">expand_less</span>
+                            <p class="drawDate font-18B">5/17/2023</p>
+                            <div class="box-icon">
+                                <svg class="lotto-icon videocam" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.8 23.6C2.03 23.6 1.37083 23.3258 0.8225 22.7775C0.274167 22.2292 0 21.57 0 20.8V6.8C0 6.03 0.274167 5.37083 0.8225 4.8225C1.37083 4.27417 2.03 4 2.8 4H19.6C20.37 4 21.0292 4.27417 21.5775 4.8225C22.1258 5.37083 22.4 6.03 22.4 6.8V11.7L28 6.1V21.5L22.4 15.9V20.8C22.4 21.57 22.1258 22.2292 21.5775 22.7775C21.0292 23.3258 20.37 23.6 19.6 23.6H2.8Z"/>
+                                </svg>
+                            </div>
+                            <div class="winning">
+                                <!-- <span class="font-14">win</span> -->
+                                <span class="font-14">+</span>
+                                <span class="font-14">₱ 12,000</span>
+                            </div>
+                            <span class="lotto-icon alarm material-icons">alarm</span>
+                            <span class="drawTime-countdown font-14">02:24:36</span>
+                            <span class="deleted font-14">deleted</span>
+                        </div>
+                        <hr>
+                        <ul class="ticket-numbers">
+                            <li class="numberBall">10</li>
+                            <li class="numberBall">13</li>
+                            <li class="numberBall">23</li>
+                            <li class="numberBall">34</li>
+                        </ul>
+                        <ul class="ticket-detail">
+                            <li class="orderID">
+                                <span class="font-14">Order ID</span>
+                                <span class="font-14">NO.202305170002</span>
+                            </li>
+                            <li class="betPlaced">
+                                <span class="font-14">Bet placed</span>
+                                <span class="font-14">5/17/2023 18:30</span>
+                            </li>
+                            <li class="deletedOn">
+                                <span class="font-14">Deleted on</span>
+                                <span class="font-14">5/17/2023 19:30</span>
+                            </li>
+                            <li class="numberCount">
+                                <span class="font-14">Number Count</span>
+                                <span class="font-14">3</span>
+                            </li>
+                            <li class="betCount">
+                                <span class="font-14">Bet Count</span>
+                                <!-- <span class="lotto-icon arrow_dropDown material-icons">arrow_drop_down</span> -->
+                                <!-- <span class="lotto-icon arrow_dropUp material-icons">arrow_drop_up</span> -->
+                                <span class="font-14">1</span>
+                                <ul class="bet-list">
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">33</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">33</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="betAmount">
+                                <span class="font-14">Bet Amount</span>
+                                <span class="font-14">₱ 10</span>
+                            </li>
+                            <li class="MaxPrize">
+                                <span class="font-14">Max Potential Prize</span>
+                                <span class="font-14">₱ 3,000</span>
+                            </li>
+                            <li class=""><hr></li>
+                            <li class="totalBet">
+                                <span class="font-16B">Total Bet</span>
+                                <span class="font-16B">₱ 10</span>
+                            </li>
+                            <li class="winningPrize">
+                                <span class="font-16B">Winning</span>
+                                <span class="font-16B">₱ 12,000</span>
+                            </li>
+                            <li class="subTitle font-12">Jackpot slipped away!</li>
+                            <li class="btn-box">
+                                <button class="btn-delete font-18B">Delete</button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="ticket deleted num-5">
+                        <div class="ticket-title">
+                            <span class="lotto-icon expandMore material-icons">expand_more</span>
+                            <span class="lotto-icon expandLess material-icons">expand_less</span>
+                            <p class="drawDate font-18B">5/15/2023</p>
+                            <div class="box-icon">
+                                <svg class="lotto-icon videocam" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.8 23.6C2.03 23.6 1.37083 23.3258 0.8225 22.7775C0.274167 22.2292 0 21.57 0 20.8V6.8C0 6.03 0.274167 5.37083 0.8225 4.8225C1.37083 4.27417 2.03 4 2.8 4H19.6C20.37 4 21.0292 4.27417 21.5775 4.8225C22.1258 5.37083 22.4 6.03 22.4 6.8V11.7L28 6.1V21.5L22.4 15.9V20.8C22.4 21.57 22.1258 22.2292 21.5775 22.7775C21.0292 23.3258 20.37 23.6 19.6 23.6H2.8Z"/>
+                                </svg>
+                            </div>
+                            <div class="winning">
+                                <!-- <span class="font-14">win</span> -->
+                                <span class="font-14">+</span>
+                                <span class="font-14">₱ 12,000</span>
+                            </div>
+                            <span class="lotto-icon alarm material-icons">alarm</span>
+                            <span class="drawTime-countdown font-14">02:24:36</span>
+                            <span class="deleted font-14">deleted</span>
+                        </div>
+                        <hr>
+                        <ul class="ticket-numbers">
+                            <li class="numberBall">10</li>
+                            <li class="numberBall">13</li>
+                            <li class="numberBall">23</li>
+                            <li class="numberBall">34</li>
+                            <li class="numberBall">35</li>
+                        </ul>
+                        <ul class="ticket-detail">
+                            <li class="orderID">
+                                <span class="font-14">Order ID</span>
+                                <span class="font-14">NO.202305150002</span>
+                            </li>
+                            <li class="betPlaced">
+                                <span class="font-14">Bet placed</span>
+                                <span class="font-14">5/15/2023 18:30</span>
+                            </li>
+                            <li class="deletedOn">
+                                <span class="font-14">Deleted on</span>
+                                <span class="font-14">5/15/2023 19:30</span>
+                            </li>
+                            <li class="numberCount">
+                                <span class="font-14">Number Count</span>
+                                <span class="font-14">3</span>
+                            </li>
+                            <li class="betCount">
+                                <span class="font-14">Bet Count</span>
+                                <!-- <span class="lotto-icon arrow_dropDown material-icons">arrow_drop_down</span> -->
+                                <!-- <span class="lotto-icon arrow_dropUp material-icons">arrow_drop_up</span> -->
+                                <span class="font-14">1</span>
+                                <ul class="bet-list">
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="betAmount">
+                                <span class="font-14">Bet Amount</span>
+                                <span class="font-14">₱ 10</span>
+                            </li>
+                            <li class="MaxPrize">
+                                <span class="font-14">Max Potential Prize</span>
+                                <span class="font-14">₱ 3,000</span>
+                            </li>
+                            <li class=""><hr></li>
+                            <li class="totalBet">
+                                <span class="font-16B">Total Bet</span>
+                                <span class="font-16B">₱ 10</span>
+                            </li>
+                            <li class="winningPrize">
+                                <span class="font-16B">Winning</span>
+                                <span class="font-16B">₱ 12,000</span>
+                            </li>
+                            <li class="subTitle font-12">Jackpot slipped away!</li>
+                            <li class="btn-box">
+                                <button class="btn-delete font-18B">Delete</button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="ticket deleted num-6">
+                        <div class="ticket-title">
+                            <span class="lotto-icon expandMore material-icons">expand_more</span>
+                            <span class="lotto-icon expandLess material-icons">expand_less</span>
+                            <p class="drawDate font-18B">5/17/2023</p>
+                            <div class="box-icon">
+                                <svg class="lotto-icon videocam" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.8 23.6C2.03 23.6 1.37083 23.3258 0.8225 22.7775C0.274167 22.2292 0 21.57 0 20.8V6.8C0 6.03 0.274167 5.37083 0.8225 4.8225C1.37083 4.27417 2.03 4 2.8 4H19.6C20.37 4 21.0292 4.27417 21.5775 4.8225C22.1258 5.37083 22.4 6.03 22.4 6.8V11.7L28 6.1V21.5L22.4 15.9V20.8C22.4 21.57 22.1258 22.2292 21.5775 22.7775C21.0292 23.3258 20.37 23.6 19.6 23.6H2.8Z"/>
+                                </svg>
+                            </div>
+                            <div class="winning">
+                                <!-- <span class="font-14">win</span> -->
+                                <span class="font-14">+</span>
+                                <span class="font-14">₱ 12,000</span>
+                            </div>
+                            <span class="lotto-icon alarm material-icons">alarm</span>
+                            <span class="drawTime-countdown font-14">02:24:36</span>
+                            <span class="deleted font-14">deleted</span>
+                        </div>
+                        <hr>
+                        <ul class="ticket-numbers">
+                            <li class="numberBall">10</li>
+                            <li class="numberBall">13</li>
+                            <li class="numberBall">23</li>
+                            <li class="numberBall">34</li>
+                            <li class="numberBall">35</li>
+                            <li class="numberBall">37</li>
+                        </ul>
+                        <ul class="ticket-detail">
+                            <li class="orderID">
+                                <span class="font-14">Order ID</span>
+                                <span class="font-14">NO.202305170003</span>
+                            </li>
+                            <li class="betPlaced">
+                                <span class="font-14">Bet placed</span>
+                                <span class="font-14">5/17/2023 18:30</span>
+                            </li>
+                            <li class="deletedOn">
+                                <span class="font-14">Deleted on</span>
+                                <span class="font-14">5/17/2023 19:30</span>
+                            </li>
+                            <li class="numberCount">
+                                <span class="font-14">Number Count</span>
+                                <span class="font-14">3</span>
+                            </li>
+                            <li class="betCount">
+                                <span class="font-14">Bet Count</span>
+                                <!-- <span class="lotto-icon arrow_dropDown material-icons">arrow_drop_down</span> -->
+                                <!-- <span class="lotto-icon arrow_dropUp material-icons">arrow_drop_up</span> -->
+                                <span class="font-14">1</span>
+                                <ul class="bet-list">
+                                    <li class="bet hit">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet hit">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet hit">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">10</span>
+                                        <span class="numberBall">35</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">34</span>
+                                    </li>
+                                    <li class="bet hit">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">13</span>
+                                        <span class="numberBall">35</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">35</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">23</span>
+                                        <span class="numberBall">35</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                    <li class="bet">
+                                        <span class="numberBall">34</span>
+                                        <span class="numberBall">35</span>
+                                        <span class="numberBall">37</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="betAmount">
+                                <span class="font-14">Bet Amount</span>
+                                <span class="font-14">₱ 10</span>
+                            </li>
+                            <li class="MaxPrize">
+                                <span class="font-14">Max Potential Prize</span>
+                                <span class="font-14">₱ 3,000</span>
+                            </li>
+                            <li class=""><hr></li>
+                            <li class="totalBet">
+                                <span class="font-16B">Total Bet</span>
+                                <span class="font-16B">₱ 10</span>
+                            </li>
+                            <li class="winningPrize">
+                                <span class="font-16B">Winning</span>
+                                <span class="font-16B">₱ 12,000</span>
+                            </li>
+                            <li class="subTitle font-12">Jackpot slipped away!</li>
+                            <li class="btn-box">
+                                <button class="btn-delete font-18B">Delete</button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!------------------------------ JS ------------------------------>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="../js/lotto-MyTickets-min.js"></script>
+</body>
+</html>

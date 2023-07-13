@@ -1,0 +1,149 @@
+//***************************************************//
+//Hide Text Set
+%no_text{
+	font-size: 0;
+	text-indent: -99999px;
+}
+
+//***************************************************//
+//Horizontal List
+%Hori_list-B{
+	display: block;
+	@extend .clearfix;
+
+	li{
+		display: block;
+		float: left;
+	}
+}
+
+%Hori_list-F{
+	display: flex;
+	li{list-style: none;}
+}
+
+//***************************************************//
+%ulBox{
+	align-items: center;
+	@extend %Hori_list-F;
+	li:last-child{margin: 0;}
+}
+
+//***************************************************//
+%dropdown{
+	position: relative;
+
+	&:hover{
+		ul{display: block;}
+	}
+
+	ul{
+		position: absolute;
+		z-index: 600;
+		display: none;
+	}
+
+	li{list-style: none;}
+
+	a{display: block;}
+}
+
+//***************************************************//
+%fixedBottom{
+	position: fixed;
+	bottom: 0;
+	z-index: 500;
+	width: 100%;
+	padding: 4px 6%;
+	background-color: #ffffff;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+//***************************************************//
+%btnSetAfter{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&:after{
+		content: "";
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+}
+
+//***************************************************//
+//漸層色
+%gradientMain{background-image: linear-gradient(-90deg, #FFA713 0%, #FF6D00 100%);}
+%gradientSec{background-image: linear-gradient(90deg, #311D0B 0%, #5D3816 100%);}
+
+//按鈕立體感
+%btnSD-T{
+	box-shadow: inset 0 -2px 0 0 rgba(0,0,0,0.30);
+	&:hover{box-shadow: inset 0 2px 0 0 rgba(0,0,0,0.30);}
+}
+%btnSD-U{
+	box-shadow: inset 0 2px 0 0 rgba(0,0,0,0.30);
+	&:hover{box-shadow: inset 0 -2px 0 0 rgba(0,0,0,0.30);}
+}
+%btnSD-U-blur{
+	box-shadow: inset 0 1px 1px 0 rgba(0,0,0,0.30);
+	&:hover{box-shadow: inset 0 -2px 0 0 rgba(0,0,0,0.30);}
+}
+
+//按鈕色
+%btnMainColor{
+	background-color: $colorMain;
+	&:hover{background-color: darken($colorMain,5%);}
+}
+%btnSecColor{
+	background-color: $colorSec;
+	&:hover{background-color: darken($colorSec,10%);}
+}
+
+//btnStatus
+%btnOpenColor{
+	background-color: $colorOpen;
+	&:hover{background-color: darken($colorOpen,5%);}
+}
+%btnSuspendColor{
+	background-color: $colorSuspend;
+	&:hover{background-color: darken($colorSuspend,10%);}
+}
+%btnLockedColor{
+	background-color: $colorLocked;
+	&:hover{background-color: darken($colorLocked,10%);}
+}
+%btnCloseColor{
+	background-color: $colorClose;
+	&:hover{background-color: darken($colorClose,10%);}
+}
+
+//
+%btnCancelColor{
+	background-color: $colorCancel;
+	&:hover{background-color: darken($colorCancel,10%);}
+}
+
+//***************************************************//
+%icClose{
+	background-image: url('data:image/svg+xml,<svg width="14" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M0 3.003A3.002 3.002 0 0 1 3.003 0h7.994A3.002 3.002 0 0 1 14 3.003v7.994A3.002 3.002 0 0 1 10.997 14H3.003A3.002 3.002 0 0 1 0 10.997V3.003zm1 0v7.994C1 12.104 1.896 13 3.003 13h7.994A2.002 2.002 0 0 0 13 10.997V3.003A2.002 2.002 0 0 0 10.997 1H3.003A2.002 2.002 0 0 0 1 3.003zM4 8V6h6v2H4z" fill="%23DDDDDD" fill-rule="nonzero"/></svg>');
+}
+%icOpen{
+	background-image: url('data:image/svg+xml,<svg width="14" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M0 3.003A3.002 3.002 0 0 1 3.003 0h7.994A3.002 3.002 0 0 1 14 3.003v7.994A3.002 3.002 0 0 1 10.997 14H3.003A3.002 3.002 0 0 1 0 10.997V3.003zm1 0v7.994C1 12.104 1.896 13 3.003 13h7.994A2.002 2.002 0 0 0 13 10.997V3.003A2.002 2.002 0 0 0 10.997 1H3.003A2.002 2.002 0 0 0 1 3.003zM10 8H8v2H6V8H4V6h2V4h2v2h2v2z" fill="%23DDDDDD" fill-rule="nonzero"/></svg>');
+}
+
+
+/*--Hide Text Set--*/
+
+%no_text {
+    font-size: 0;
+    text-indent: -99999px;
+}
+
+
+
+
+
+
+
+

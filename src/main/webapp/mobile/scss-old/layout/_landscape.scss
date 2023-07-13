@@ -1,0 +1,1424 @@
+html,
+body {
+    max-width: 100%;
+    overflow: hidden;
+    font-size: vmax($font-body);
+    // max-width: 100vw;
+    // max-height: 100%;
+}
+
+// All element position
+header {
+    height: vmax($ht-header);
+}
+
+.status-bar {
+    position: absolute;
+    top: vmax($ht-header) + vmax(3px);
+    width: 50%;
+    height: vmax($ht-status);
+    line-height: vmax($ht-status);
+
+    &::before {
+        height: vmax(1px);
+    }
+}
+
+.video {
+    position: fixed;
+    top: vmax($ht-header) + vmax(3px) + vmax($ht-status);
+    width: vmax(333px);
+    height: vmax(333px) * 9 / 16;
+    // width: 50vw;
+    // height: 50vw * 9 / 16;
+
+    video,
+    canvas {
+        width: 100%;
+        max-width: vmax(333px);
+        height: 100%;
+        max-height: vmax(333px) * 9 / 16;
+        // max-width: 50vw;
+        // max-height: 50vw * 9 / 16;
+    }
+
+    .msg {
+        bottom: vmax(-48px);
+        height: vmax(32px);
+    }
+}
+
+.loading {
+    @include border-radius(vmax(8px));
+    width: vmax(48px);
+    height: vmax(48px);
+}
+
+.video-container {
+    width: vmax(333px);
+    height: vmax(333px) * 9 / 16;
+    // width: 50vw;
+    // height: 50vw * 9 / 16;
+}
+
+.video-func {
+    width: 98%;
+    height: 98%;
+    // width: calc(100% - 1.6vmax);
+    // height: calc(100% - 1vmax);
+    margin: vmax(6px);
+
+    ul {
+        width: vmax(30px);
+    }
+
+    li {
+        @include border-radius(vmax(6px));
+        width: vmax(30px);
+        height: vmax(30px);
+        margin-top: vmax(4px);
+    }
+}
+
+.video-countdown {
+    @include border-radius(vmax(4px));
+    padding: vmax(2px) vmax(4px);
+    font-size: vmax($font-sm);
+}
+
+.video-logo {
+    width: vmax(90px);
+}
+
+.video-live {
+    top: vmax(38px);
+    padding: vmax(2px) vmax(6px);
+
+    &::before {
+        font-size: vmax($font-sm);
+        letter-spacing: vmax(1px);
+    }
+}
+
+.fullsrn {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: rgba($black, .9) url('../../images/mobile/video-default.jpg') no-repeat center;
+    background-size: cover;
+
+    video,
+    canvas {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        max-height: 100%;
+    }
+
+    .video-container {
+        // width: 100%;
+        width: vmax(667px);
+        height: vw(340px);
+        max-height: vw(340px);
+        // height: calc(100vh - 5vmax);
+        // max-height: calc(100vh - 5vmax);
+        background: none;
+    }
+
+    .video-func {
+        top: calc(50% - 6px);
+        left: calc((667px - 580px - 12px ) / 2);
+        width: vw(580px);
+        height: vw(340px - 12px);
+        // top: calc(50% - 1vmax);
+        // left: calc( ( 100vw - (100vh - 6vmax) * 16 / 9 ) / 2 );
+        // width: calc( (100vh - 7vmax) * 16 / 9 );
+        // height: calc(100vh - 7vmax);
+    }
+}
+
+//Swipe-up
+.swipe-up-intro {
+    letter-spacing: vmax(1px);
+
+    dt {
+        margin-bottom: vmax(8px);
+        font-size: vmax($font-xxxl);
+    }
+
+    dd {
+        font-size: vmax($font-lg);
+    }
+}
+
+.swipeup-img {
+    width: vmax(64px);
+    height: vmax(80px);
+    margin-bottom: vmax(8px);
+}
+
+//the area of road-table, switcher, confirm and cancel btn
+.confirm-area {
+    position: absolute;
+    top: vmax($ht-header) + vmax(3px) + vmax($ht-status) + vmax(188px) + vmax(2px);
+    width: 50%;
+    height: vmax($ht-port-confirm + 4px);
+    margin: 0;
+}
+
+.road-wrapper {
+    width: vmax(292px);
+}
+
+.road-table {
+    width: vmax(290px);
+    min-width: vmax(290px);
+    // max-width: vmax(290px);
+    height: vmax($ht-port-confirm + 5px);
+
+    &::-webkit-scrollbar {
+        // height: vmax(2px);
+    }
+}
+
+.start-betting {
+    top: vmax(-1px);
+    left: vmax(-1px);
+    width: vmax(292px);
+    max-width: vmax(292px);
+    height: vmax($ht-port-confirm + 6px);
+}
+
+.btns-area {
+    display: flex;
+    position: absolute;
+    left: 100%;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-confirm {
+    flex: 0 1 57%;
+    order: 1;
+    height: vmax($ht-btn);
+    margin-left: vmax(2px);
+    font-size: vmax($font-lg);
+    letter-spacing: vmax(.8px);
+}
+
+.btn-cancel {
+    position: relative;
+    flex: 0 1 20%;
+    order: 2;
+    height: vmax($ht-btn);
+}
+
+.btn-record {
+    flex: 0 1 20%;
+    order: 3;
+    height: vmax($ht-btn);
+    border-radius: vmax(4px);
+    background-size: 50%;
+
+    .unread {
+        @include box-shadow(0 0 vmax(4px) $black);
+        bottom: vmax(6px);
+        left: vmax(34px);
+        width: vmax(20px);
+        height: vmax(20px);
+        font-size: vmax($font-sm);
+        letter-spacing: vmax(-1px);
+    }
+}
+
+.btn-loading {
+    flex-direction: row;
+    justify-content: center;
+
+    &::before {
+        width: vmax(32px);
+        height: vmax(32px);
+        margin-top: 0;
+        margin-right: vmax(4px);
+        margin-bottom: 0;
+    }
+}
+
+.arena {
+    position: absolute;
+    top: vmax($ht-header);
+    right: 0;
+    width: 50%;
+    height: vmax($ht-arena);
+}
+
+.pit-area {
+    position: absolute;
+    top: vmax($ht-header) + vmax($ht-arena) + vmax(1px);
+    right: 0;
+    width: 50%;
+    height: vmax($ht-pit);
+}
+
+.predict {
+    display: flex;
+    position: absolute;
+    top: vmax($ht-header) + vmax($ht-arena) + vmax($ht-pit);
+    right: 0;
+    justify-content: space-between;
+    width: 50%;
+    height: vmax($ht-predict);
+    margin: vmax(4px) 0;
+    line-height: vmax($ht-predict);
+
+    dd,
+    dt {
+        padding: 0 vmax(6px);
+    }
+}
+
+.chip-area {
+    position: absolute;
+    z-index: $zindex-setting-area;
+    top: vmax($ht-header) + vmax($ht-arena) + vmax($ht-pit);
+    right: 0;
+    width: 50%;
+    height: vmax($ht-chip);
+    margin: 0;
+}
+
+.chip-repeat {
+    border: vmax(2px) solid rgba($gray-darker, 0);
+
+    &::before {
+        width: vmax(24px);
+        height: vmax(24px);
+    }
+}
+
+//Status bar - Round and countdown
+.status-bar {
+    font-size: vmax($font-sm);
+}
+
+.status-name {
+    display: flex;
+    position: absolute;
+    top: 0;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: vmax(1px);
+    list-style-type: none;
+
+    li {
+        width: vmax(112px);
+        text-shadow: 0 0 vmax(2px) rgba(#000000, .8);
+
+        &:first-of-type {
+            @include gradient-x(rgba($meron-dark, 1), rgba($meron-dark, 0));
+            padding-left: vmax(4px);
+            text-align: left;
+        }
+
+        &:last-of-type {
+            @include gradient-x(rgba($wala-dark, 0), rgba($wala-dark, 1));
+            padding-right: vmax(4px);
+            text-align: right;
+        }
+    }
+}
+
+// Main Navigation
+header {
+    @include box-shadow(0 vmax(4px) vmax(4px) rgba($black, .2));
+
+    h1 {
+        width: vmax(375px);
+        font-size: vmax(16px);
+        line-height: vmax($ht-header);
+    }
+
+    .bet-credit {
+        left: vmax(8px);
+        width: vmax(667px - 16px - (40px + 4px) * 2);
+    }
+
+    ul {
+        height: vmax($ht-header);
+    }
+
+    li {
+        min-width: vmax($ht-header);
+        margin: 0 vmax(4px);
+
+        a {
+            height: vmax($ht-header);
+        }
+    }
+}
+
+.bk-icon {
+    a {
+        background: url('../../images/mobile/icon-bk-navi.svg') center no-repeat;
+        background-size: vmax(20px);
+     }
+}
+
+.gamehall-icon {
+    a {
+        background: svg-home('%23ffffff') center no-repeat;
+        background-size: vmax(22px);
+     }
+}
+
+.close-icon {
+    a {
+        background: svg-cancel('%23ffffff') center no-repeat;
+        background-size: vmax(28px);
+     }
+}
+
+.goback-icon {
+    margin-right: auto;
+
+    a {
+        background: url('../../images/mobile/profile/icon-arrow-back.svg') center no-repeat;
+        background-size: vmax(24px);
+     }
+}
+
+.menu-icon {
+    a {
+        background: url('../../images/mobile/icon-menu.svg') center no-repeat;
+        background-size: vmax(20px);
+     }
+}
+
+// The side navigation menu
+.mask-all {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: rgba($black, .8);
+}
+
+.sidenav {
+    height: 100vh;
+    padding-top: vmax(36px);
+
+    .sidenav-main {
+        a {
+            width: 70vw;
+            padding: vmax(24px);
+            font-size: vmax($font-lg);
+        }
+    }
+}
+
+.mainnav-in {
+    // width: 50vw !important;
+    width: 320px !important;
+}
+
+//the current record and trans history in the left sidenav
+.nav-tabs {
+    width: 100%;
+    height: vmax(32px);
+    font-size: vmax($font-body);
+
+    li {
+        a,
+        label {
+            left: vmax(1px);
+            margin-left: vmax(8px);
+            padding: vmax(8px);
+
+            &.active {
+                border-bottom: vmax(2px) solid $orange;
+            }
+        }
+
+        [type=radio] {
+            &:checked ~ label {
+                border-bottom: vmax(2px) solid $orange;
+            }
+        }
+    }
+}
+
+// Arena
+.arena {
+    ul {
+        padding-top: vmax(4px);
+        padding-bottom: vmax(2px);
+    }
+
+    li {
+        min-width: vmax(64px);
+        margin: 0 vmax(2px);
+
+        a {
+            height: vmax($ht-arena - 10px);
+            padding-top: vmax(4px);
+
+            &.active {
+                text-shadow: 0 vmax(2px) vmax(4px) rgba($black, .8);
+            }
+        }
+    }
+
+    .arena-betting {
+        &::after {
+            height: vmax(4px);
+        }
+    }
+
+    .arena-fighting {
+        &::after {
+            height: vmax(4px);
+        }
+    }
+
+    .arena-countdown {
+        &::after {
+            height: vmax(4px);
+        }
+    }
+}
+
+.countdown-notice {
+    bottom: vmax(1px);
+    left: vmax(2px);
+    width: vmax(12px);
+    height: vmax(12px);
+}
+
+.betted {
+    &::before {
+        top: vmax(-4px);
+        right: vmax(2px);
+        width: vmax(20px);
+        height: vmax(20px);
+    }
+}
+
+.arena-scroll {
+    ul {
+        padding-top: vmax(4px);
+        padding-bottom: vmax(2px);
+    }
+
+    li {
+        min-width: vmax(70px);
+        margin: 0 vmax(2px);
+    }
+}
+
+.arena-nogame {
+    height: vmax(44px);
+    margin-top: vmax(4px);
+    font-size: vmax($font-lg);
+    line-height: vmax(44px);
+    text-align: center;
+}
+
+.arena-empty::after {
+    line-height: vmax(44px);
+}
+
+//Main pit area
+.pit-area {
+    > div {
+        border: vmax(2px) solid rgba($black, 0);
+
+        &.active {
+            border: vmax(2px) solid $yellow;
+        }
+
+        &.disabled {
+            border: vmax(2px) solid rgba(#ffffff, .1);
+        }
+    }
+
+    .avatar {
+        @include border-radius(vmax(4px));
+        top: vmax(1px);
+        width: vmax(48px);
+        height: vmax(48px);
+        margin: 0;
+    }
+
+    dt {
+        font-size: vmax($font-xl);
+    }
+
+    .odds {
+        margin-top: vmax(8px);
+        font-size: vmax($font-md);
+    }
+
+    .chicken-weight {
+        font-size: vmax($font-xs);
+    }
+}
+
+.kingcock {
+    &::before {
+        top: vmax(-2px);
+        width: vmax(50px);
+        height: vmax(54px);
+    }
+}
+
+.pit-meron {
+    width: 36%;
+
+    dd {
+        padding-left: vmax(48px + 4px + 8px);
+    }
+
+    .avatar {
+        left: 0;
+        border: vmax(2px) solid $white;
+    }
+}
+
+.pit-bdd {
+    width: 28%;
+}
+
+.pit-wala {
+    width: 36%;
+
+    dd {
+        padding-right: vmax(48px + 4px + 8px);
+    }
+
+    .avatar {
+        right: 0;
+        border: vmax(2px) solid $yellow;
+    }
+}
+
+//switch the order of pit area
+.pit-swtich {
+    //status bar
+    .status-name {
+        flex-direction: row-reverse;
+
+        li {
+            &:first-of-type {
+                @include gradient-x(rgba($meron-dark, 0), rgba($meron-dark, 1));
+                padding-right: vmax(4px);
+                padding-left: 0;
+                text-align: right;
+            }
+
+            &:last-of-type {
+                @include gradient-x(rgba($wala-dark, 1), rgba($wala-dark, 0));
+                padding-right: 0;
+                padding-left: vmax(4px);
+                text-align: left;
+            }
+        }
+    }
+
+    //pit area
+    .pit-meron {
+
+        dd {
+            padding-right: vmax(48px + 4px + 8px);
+        }
+
+        .avatar {
+            right: 0;
+            left: auto;
+        }
+    }
+
+    .pit-wala {
+        dd {
+            padding-left: vmax(48px + 4px + 8px);
+        }
+
+        .avatar {
+            left: 0;
+        }
+    }
+}
+
+.betting {
+    top: 75%;
+    left: 50%;
+    min-width: vmax(54px);
+    height: vmax(54px);
+    min-height: vmax(54px);
+    transform: translate(-50%, -75%);
+
+    &::before {
+        width: vmax(54px);
+        height: vmax(54px);
+    }
+
+    span {
+        @include border-radius(vmax(4px));
+        width: 100%;
+        font-size: vmax($font-body);
+    }
+
+    .betting-add-tbc {
+        bottom: -3px;
+
+        &::before {
+            font-size: vmax($font-xs);
+        }
+    }
+}
+
+.betting-add {
+    @include border-radius(vmax(2px));
+    position: absolute;
+    top: 23%;
+    left: 50%;
+    padding: vmax(2px) vmax(8px);
+    transform: translate(-50%, 10%);
+    letter-spacing: vmax(-.4px);
+    -webkit-filter: drop-shadow(0 vmax(2px) vmax(2px) $black);
+    filter: drop-shadow(0 vmax(2px) vmax(2px) $black);
+
+    &::before {
+        content: '';
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-right: vmax(4px);
+        border-right: vmax(6px) solid transparent;
+        border-bottom: vmax(6px) solid $orange;
+        border-left: vmax(6px) solid transparent;
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 95%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        transform: translate(-50%, 0%);
+        border-top: vmax(8px) solid $white;
+        border-right: vmax(8px) solid transparent;
+        border-left: vmax(8px) solid transparent;
+    }
+}
+
+//the area of chips, rebet and setting btn
+.chip-area {
+    li {
+        &:first-child,
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4) {
+            width: vmax(60px);
+        }
+    }
+}
+
+//the detail information of road-table and the switcher on the bottom
+.road-table-info {
+    width: vmax(38px);
+    margin: vmax(2px);
+    font-size: vmax($font-xs);
+
+    li {
+        flex: 0 0 96%;
+        height: vmax(12px);
+
+        &::before {
+            @include border-radius(9999px);
+            content: '';
+            width: vmax(9px);
+            height: vmax(10px);
+        }
+    }
+
+    .road-table-switcher {
+        @include border-radius(vmax(12px));
+        @include box-shadow(0 vmax(2px) vmax(2px) 0 rgba($black, .5));
+        width: vmax(38px);
+        height: vmax(18px);
+        padding-top: vmax(2px);
+        padding-bottom: vmax(2px);
+
+        &::before {
+            display: none;
+        }
+
+        .badge {
+            width: vmax(18px);
+            height: vmax(18px);
+            font-size: vmax(12px);
+            line-height: vmax(18px);
+        }
+    }
+}
+
+.road-table-meron::before {
+    background: $meron;
+}
+
+.road-table-bdd::before {
+    background: $bdd;
+}
+
+.road-table-wala::before {
+    background: $wala;
+}
+
+//road-table and the style of badges, including meron/wala/bdd win(實心圓 BEAD ROAD/空心圓 BIG ROAD)
+.confirm-area {
+    table {
+        font-size: vmax(6px);
+
+        td {
+            width: 16px;
+            height: 16px;
+            // width: vmax(17px);
+            // height: vmax(17px);
+        }
+    }
+}
+
+.badge {
+    width: 14px;
+    height: 14px;
+    font-size: 12px;
+    line-height: 14px;
+    text-indent: 0;
+    // width: vmax(16px);
+    // height: vmax(16px);
+    // font-size: vmax($font-xs);
+    // line-height: vmax(16px);
+}
+
+.meron-win {
+    border-color: $meron;
+    color: transparent;
+}
+
+.wala-win {
+    border-color: $wala;
+    color: transparent;
+}
+
+.bdd-win {
+    border-color: $bdd;
+    font-size: vmax($font-xxxs);
+}
+
+.meron-win-reverse {
+    @include bg-reverse($meron);
+}
+
+.wala-win-reverse {
+    @include bg-reverse($wala);
+}
+
+.bdd-win-reverse {
+    @include bg-reverse($bdd);
+}
+
+//the bottom sheet of chips setting
+.setting-area {
+    @include box-shadow(0 vmax(-4px) vmax(-4px) rgba($black, .6));
+    position: fixed;
+    top: 0;
+    left: 120%;
+    width: 50% - 2%;
+    height: 96%;
+    padding: 4% 1% 0;
+    // left: 106vw;
+    // top: 0;
+    // width: 50vw - 2vw;
+    // height: 96vh;
+    // padding: 4vh 1vw 0 1vw;
+
+    &.active {
+        left: 50%;
+        // left: 50vw;
+    }
+
+    dl {
+        margin-bottom: vmax(16px);
+    }
+
+    dt {
+        margin-bottom: vmax(4px);
+        font-size: vmax($font-body);
+    }
+
+    dd {
+        order: 2;
+        width: vmax(62px);
+        height: vmax(62px);
+        margin: vmax(10px) vmax(1px);
+    }
+
+    .chip {
+        width: vmax(56px);
+        height: vmax(56px);
+    }
+
+    .chip-remark {
+        width: vmax(64px);
+        font-size: vmax($font-sm);
+    }
+
+    .chip-input {
+        @include border-radius(vmax(2px));
+        width: vmax(170px);
+        height: vmax(40px);
+        margin: 0 vmax(8px + 4px) 0 vmax(8px);
+        padding-left: vmax(8px);
+
+        span {
+            font-size: vmax($font-lg);
+            line-height: vmax(40px);
+        }
+    }
+
+    .btn-close {
+        top: vmax(4px);
+    }
+
+    .btn-confirm {
+        width: calc(100% - 2vw);
+        height: vmax(48px);
+        margin: 0 1vw;
+        font-size: vmax($font-lg);
+    }
+}
+
+//virtual keyboard for chips
+.keyboard {
+    height: vmax(210px);
+    padding-bottom: vmax(50px);
+
+    li {
+        border-radius: vmax(4px);
+        font-size: vmax($font-xl);
+    }
+
+    .btn {
+        font-size: vmax($font-lg);
+    }
+
+    .kb-del::before {
+        width: vmax(17px);
+        height: vmax(16px);
+    }
+}
+
+.kb-btn {
+    a {
+        &:first-of-type {
+            &::after {
+                width: vmax(32px);
+                height: vmax(32px);
+            }
+        }
+
+        &:last-of-type {
+            &::after {
+                width: vmax(32px);
+                height: vmax(32px);
+            }
+        }
+    }
+}
+
+//the styles of chips
+.chip {
+    width: vmax(54px);
+    height: vmax(54px);
+    border: 2px solid rgba($gray-darker, 0);
+    font-size: vmax($font-body);
+    letter-spacing: vmax(-1px);
+    line-height: vmax($font-md);
+
+    &.active {
+        @include border-radius(vmax(100px));
+        width: vmax(54px);
+        height: vmax(54px);
+        border: 2px solid rgba($yellow, 1);
+    }
+}
+
+.chip-repeat {
+    img {
+        width: vmax(20px);
+    }
+}
+
+//General link btn in gamehall
+.btn {
+    @include border-radius(vmax(4px));
+}
+
+//close btn in navigation
+.btn-close {
+    top: vmax(4px);
+    right: vmax(8px);
+    width: vmax(32px);
+    height: vmax(32px);
+    font-size: vmax($font-xxxl);
+}
+
+.btn-accept-odds {
+    width: vmax(44px);
+    height: vmax(60px);
+    margin: 0 vmax(2px);
+    font-size: vmax($font-xs);
+
+    &::before {
+        width: vmax(12px);
+        height: vmax(12px);
+        margin-bottom: vmax(4px);
+        margin-left: vmax(-24px);
+        border: vmax(1px) solid $gray;
+    }
+}
+
+.btn-setting {
+    width: vmax(44px);
+    height: vmax(60px);
+
+    &::after {
+        width: vmax(24px);
+        height: vmax(24px);
+     }
+}
+
+.btn-cancel {
+    // width: vmax(48px);
+
+    &::after {
+        width: vmax(20px);
+        height: vmax(20px);
+        background: url('../../images/mobile/icon-cancel.svg') center no-repeat;
+        background-size: cover;
+     }
+}
+
+//Gernaral btn style for forms
+button {
+    @include border-radius(vmax(4px));
+}
+
+.btn-primary {
+    text-shadow: 0 vmax(2px) vmax(2px) rgba($black, .4);
+
+    &.active {
+        text-shadow: 0 vmax(-2px) vmax(2px) rgba($black, .4);
+    }
+}
+
+.btn-md {
+    width: vmax(160px);
+    height: vmax(48px);
+    font-size: vmax($font-xl);
+    text-shadow: 0 vmax(2px) vmax(2px) rgba($black, .4);
+}
+
+//login btn in login page
+.btn-login {
+    width: vmax(288px);
+    height: vmax(48px);
+    font-size: vmax($font-xl);
+}
+
+.btn-replay {
+    width: vmax(108px);
+    height: vmax(30px);
+    margin-right: vmax(8px);
+    font-size: vmax($font-body);
+    line-height: vmax(30px);
+
+    &::after {
+        top: vmax(4px);
+        left: vmax(4px);
+        width: vmax(16px);
+        height: vmax(16px);
+        background: url('../../images/mobile/profile/icon-replay.svg') center no-repeat;
+        background-size: vmax(16px);
+    }
+}
+
+.btn-search {
+    @include box-shadow(0 0 vmax(8px) rgba($black, .4));
+    bottom: vmax(-12px);
+    left: vmax(160px);
+    width: vmax(56px);
+    height: vmax(56px);
+
+    img {
+        width: vmax(28px);
+        margin-top: vmax(6px);
+    }
+}
+
+//the detail information of current record and trans history in left sidenav
+.record-area {
+    position: fixed;
+    z-index: $zindex-record-area;
+    top: 0;
+    bottom: 0;
+    left: 50% + 70%;
+    width: 70% - 2%;
+    height: vmax(375px - 24px);
+    padding: vmax(24px) 1% 0;
+    // left: 50vw + 70vw;
+    // top: 0;
+    // bottom: 0;
+    // height: 96vh;
+    // width: 70vw - 2vw;
+    // padding: 4vh 1vw 0 1vw;
+
+    &.active {
+        left: 30%;
+        width: 70% - 2%;
+        // left: 30vw;
+        // width: 70vw - 2vw;
+    }
+
+    .btn-close {
+        z-index: $zindex-record-area + 1;
+        top: vmax(4px);
+    }
+}
+
+.no-data-info {
+    dt {
+        width: vmax(48px);
+        height: vmax(48px);
+        margin-bottom: vmax(16px);
+    }
+
+    dd {
+        font-size: vmax($font-lg);
+    }
+}
+
+.record-detail {
+    top: vmax(32px);
+    // top: 8vh;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: vmax(375px - 32px - 24px);
+    // padding-right: vmax(8px);
+    // padding-left: vmax(8px);
+    // padding-bottom: vmax(56px);
+
+    table {
+        width: 100%;
+
+        tr {
+            height: vmax(48px);
+        }
+    }
+
+    .tag {
+        min-width: vmax(58px);
+        margin: 0 vmax(2px) 0 vmax(4px);
+        padding: vmax(2px) vmax(6px);
+        border-left: vmax(6px) solid $gray-mid;
+    }
+
+    .tag-countdown {
+        border-left: vmax(6px) solid $purple;
+    }
+
+    .badge-arena {
+        width: vmax(16px);
+        height: vmax(16px);
+        float: none;
+        font-size: vmax(14px);
+        line-height: vmax(16px);
+    }
+}
+
+.tab-basic{
+    th {
+        &:first-child, &:last-child{
+            width: vmax(20px);
+        }
+    }
+
+    tr{
+        height: vmax(35px) !important;
+
+        td{
+            height: vmax(35px) !important;
+            background-size: vmax(20px) !important;
+        }
+
+    }
+}
+
+.tab-current-record {
+
+    tr{
+        td{
+            &:nth-child(2){
+                width: vmax(35px);
+                background: url('../../images/mobile/icon-success.svg') 0 vmax(8px) no-repeat;
+            }
+        }
+
+        &.bet-fail td:nth-child(2) {
+            background: url('../../images/mobile/icon-fail.svg') 0 vmax(8px) no-repeat;
+        }
+    }
+
+    .th-arena {
+        width: vmax(80px);
+    }
+
+    .th-odds {
+        width: vmax(120px);
+    }
+}
+
+.tab-history {
+
+    .th-arena {
+        width: vmax(70px);
+    }
+
+    .th-odds {
+        width: vmax(110px);
+    }
+
+    .ref-line {
+        height: vmax(25px) !important;
+
+        td{
+            height: vmax(25px) !important;
+
+            &:nth-child(2) {
+                background: url('../../images/mobile/icon-success.svg') 0 vmax(2px) no-repeat;
+                border-bottom: vmax(1px) solid #808080;
+            }
+
+            &:nth-child(3){
+                border-bottom: vmax(1px) solid #808080;
+            }
+        }
+
+        &.bet-fail td:nth-child(2) {
+            background: url('../../images/mobile/icon-fail.svg') 0 vmax(2px) no-repeat;
+        }
+    }
+
+    td {
+        height: vmax(60px);
+    }
+
+    .th-time {
+        width: vmax(70px);
+    }
+
+    .tag {
+        margin-bottom: vmax(2px);
+    }
+}
+
+
+
+//msg
+.msg {
+    @include box-shadow(0 vmax(4px) vmax(4px) rgba($black, .4));
+    top: vmax(-48px);
+    width: 96%;
+    height: vmax($ht-header);
+    padding-right: 2%;
+    padding-left: 2%;
+    font-size: vmax($font-md);
+
+    dl {
+        flex: 1.5 0 0;
+
+        &:first-of-type {
+            flex: 1 0 0;
+        }
+
+        &:nth-of-type(2) {
+            flex: 1 0 0;
+            font-size: vmax($font-lg);
+            text-shadow: 0 0 vmax(4px) $black;
+        }
+    }
+
+    dt {
+        margin-right: vmax(4px);
+        font-size: vmax($font-md);
+    }
+
+
+    .badge-arena {
+        width: vmax(13px);
+        height: vmax(13px);
+        font-size: vmax($font-sm);
+        letter-spacing: vmax(-1px);
+        line-height: vmax(13px);
+    }
+
+    .btn-close {
+        top: 0;
+        right: vmax(4px);
+        height: vmax($ht-header);
+    }
+}
+
+//popup window
+.news-wrap {
+    @include box-shadow(0 0 vmax(8px) 0 rgba($white, .6));
+    padding: vmax(15px) vmax(15px) vmax(24px);
+    border-top: vmax(6px) solid $red;
+
+    &::before {
+        width: vmax(48px);
+        height: vmax(48px);
+    }
+
+    h3 {
+        font-size: vmax($font-xl);
+    }
+
+    .btn {
+        height: vmax(35px);
+        margin-top: vmax(20px);
+    }
+
+    .video & {
+        width: 70%;
+        padding: vmax(8px) vmax(16px) vmax(16px);
+
+        &::before {
+            width: vmax(36px);
+            height: vmax(36px);
+        }
+    }
+}
+
+.intro {
+    padding-bottom: vmax(16px);
+
+    p {
+        margin-bottom: vmax(8px);
+        font-size: vmax(13px);
+    }
+
+    .have-read {
+        padding: vmax(8px);
+    }
+
+    .intro-img {
+        width: vmax(80px);
+        margin: vmax(4px) vmax(8px);
+    }
+
+    .intro-check {
+        margin: vmax(10px) 0;
+        font-size: vmax(12px);
+    }
+
+    .btn {
+        margin-top: vmax(16px);
+    }
+}
+
+//popup menu(當拿掉header時的處理)
+.popup-menu {
+    ul {
+        top: vmax(90px);
+    }
+
+    li {
+        @include border-radius(vmax(6px));
+        width: vmax(220px);
+        height: vmax(38px);
+        padding-left: vmax(10px);
+        box-shadow: inset 0 vmax(-1px) 0 0 rgba(0,0,0,0.50);
+        font-size: vmax(18px);
+        line-height: vmax(38px);        
+    }
+
+    .btn-menu-close {
+        position: absolute;
+        top: vmax(-5px);
+        left: vmax(210px);
+    }
+}
+
+//animation
+//setting-area
+@keyframes setting-show {
+    0%   {left: 120%; opacity: 0;}
+    100% {left: 50%; opacity: 1;}
+}
+@-webkit-keyframes setting-show {
+    0%   {left: 120%; opacity: 0;}
+    100% {left: 50%; opacity: 1;}
+}
+
+@keyframes setting-hide {
+    0%   {left: 50%; opacity: 1;}
+    100% {left: 120%; opacity: 0;}
+}
+@-webkit-keyframes setting-hide {
+    0%   {left: 50%; opacity: 1;}
+    100% {left: 120%; opacity: 0;}
+}
+
+//record-area
+@keyframes record-show {
+    0%   {left: 120%; opacity: 0;}
+    100% {left: 30%; opacity: 1;}
+}
+@-webkit-keyframes record-show {
+    0%   {left: 120%; opacity: 0;}
+    100% {left: 30%; opacity: 1;}
+}
+@keyframes record-hide {
+    0%   {left: 30%; opacity: 1;}
+    100% {left: 120%; opacity: 0;}
+}
+@-webkit-keyframes record-hide {
+    0%   {left: 30%; opacity: 1;}
+    100% {left: 120%; opacity: 0;}
+}
+
+//The animation for the system msg box for MPS
+@keyframes mps-msg-show {
+    0%   {top: vmax(-($ht-header) - 4px);}
+    100% {top: vmax($ht-header);}
+}
+@-webkit-keyframes mps-msg-show {
+    0%   {top: vmax(-($ht-header) - 4px);}
+    100% {top: vmax($ht-header);}
+}
+
+@keyframes mps-msg-hide {
+    0%   {top: vmax($ht-header);}
+    100% {top: vmax(-($ht-header) - 4px);}
+}
+@-webkit-keyframes mps-msg-hide {
+    0%   {top: vmax($ht-header);}
+    100% {top: vmax(-($ht-header) - 4px);}
+}

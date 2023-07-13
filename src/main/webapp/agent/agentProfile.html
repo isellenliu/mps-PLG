@@ -1,0 +1,324 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <title>PROFILE</title>
+    <link rel="stylesheet" type="text/css" media="all" href="css/agentAll.css" />
+    <link rel="stylesheet" href="../library/icomoon/style.css">
+    <!--icomoon-->
+</head>
+
+<body class="body_bg" style="overflow:hidden">
+    <div class="box_black" style="display: none;">
+        <div class="popup_1">
+            <div class="popup_top clearfix">
+                <h4>Disable 2FA Setting</h4>
+                <a href="#">close</a>
+            </div>
+            <div class="box_1 clearfix">
+                <dl class="dl_1">
+                    <dt>
+                        <span class="star_off">*</span>Password
+                    </dt>
+                    <dd>
+                        <input id="password" type="password" name="password" maxlength="15"><span
+                            id="isPasswordValid">&nbsp;</span><!-- have to add &nbsp; -->
+                    </dd>
+                    <dt>
+                        <span class="star_off">*</span>OTP
+                    </dt>
+                    <dd>
+                        <input id="firstName" name="firstName" type="text" maxlength="30">
+                    </dd>
+                </dl>
+            </div>
+            <div class="box_input">
+                <input class="input_off" type="button" value="CANCEL">
+                <input class="input_on" type="button" value="Confirm">
+            </div>
+        </div>
+    </div>
+
+    <div class="header clearfix">
+        <h1>SV388</h1>
+        <ul class="headerBtn">
+            <li style="display: none"><a class="btnLive">LIVE</a></li>
+            <li><a class="btnLogout" id="logout">LOGOUT</a></li>
+        </ul>
+        <ul class="language">
+            <li>English
+                <ul id="selectLang">
+
+                    <li>English<span style="display: none">en</span></li>
+
+                    <li>中文<span style="display: none">cn</span></li>
+
+                    <li>Tiếng Việt<span style="display: none">vi</span></li>
+
+                    <li>日本語<span style="display: none">jp</span></li>
+
+                    <li>ไทย<span style="display: none">th</span></li>
+
+                    <li>ESPAÑOL<span style="display: none">es</span></li>
+
+                    <li>Malay<span style="display: none">ms</span></li>
+
+                    <li>Indonesia<span style="display: none">id</span></li>
+
+                    <li>Khmer<span style="display: none">kh</span></li>
+
+                </ul>
+            </li>
+        </ul>
+        <div id="mrqContainer" class="scrollingText" style="overflow: hidden; position: relative; height: 27px;">
+            <ul id="mrqParent" style="position: absolute; margin: 0px; padding: 0px;">
+                <li style="margin: 0px; padding: 0px; height: 27px;">-</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="nav" id="leftMenu">
+        <div class="userID com">
+            <p><strong>ID:one</strong></p>
+            <p>Nick.:<span id="loginNameTitle">one</span></p>
+        </div>
+        <h3 name="agentReport">Reports</h3>
+        <ul name="agentReport">
+
+            <li id="topWinnerLoser" onclick="agentHandler.link(this,'./reports/topWinnerLoser.jsp?first=true')"
+                class="">Top Winner / Loser</li>
+
+            <li id="winLossSimple" onclick="agentHandler.link(this,'./reports/winLossSimple.jsp')" class="">Win / Loss
+                Simple</li>
+            <li id="winLossDetails" onclick="agentHandler.link(this,'./reports/winLossDetails_v2.jsp?first=true')"
+                class="">Downline Win / Loss</li>
+
+            <li id="transactionHistory" onclick="agentHandler.link(this,'./reports/transactionHistory.jsp')" class="">
+                Transaction&nbsp;History</li>
+
+            <li id="currentBets" onclick="agentHandler.link(this,'./reports/currentBets.jsp')" class="">
+                Current&nbsp;Bets</li>
+
+            <li id="matchResults" onclick="agentHandler.link(this,'./reports/matchResults.jsp')" class="">
+                Match&nbsp;Results</li>
+
+            <li id="matchWinLoss" onclick="agentHandler.link(this,'./reports/matchWinLoss.jsp?first=true')" class="">
+                Match Win / Loss</li>
+
+            <li id="dailyWinLoss" onclick="agentHandler.link(this,'./reports/dailyWinLoss_v2.jsp?first=true')" class="">
+                Daily Win / Loss</li>
+
+            <li id="transferLog" onclick="agentHandler.link(this,'./reports/transferLog.jsp')" class="">Statement</li>
+
+
+        </ul>
+
+        <h3>Downline Info</h3>
+        <ul>
+
+
+
+            <li id="createAgent" onclick="agentHandler.link(this,'./membersInfo/createAgent.jsp')" class="">New Downline
+            </li>
+
+            <li id="searchDownline" onclick="agentHandler.link(this,'./membersInfo/searchDownline.jsp')" class="">
+                Downline List</li>
+
+
+            <li id="searchDownlineForOne" onclick="agentHandler.link(this,'./membersInfo/searchDownlineForOne.jsp')"
+                class="">Downline List For One</li>
+
+
+            <li id="balanceMeun" onclick="agentHandler.link(this,'./membersInfo/searchCreditBalance.jsp')" class="">
+                Credit&nbsp;/&nbsp;Balance</li>
+
+
+            <li id="createSubAccount" onclick="agentHandler.link(this,'./membersInfo/createSubAccount.jsp')" class="">
+                New Sub Account</li>
+
+            <li id="searchSubAccount" onclick="agentHandler.link(this,'./membersInfo/searchSubAccount.jsp')" class="">
+                Sub&nbsp;Account&nbsp;List</li>
+
+            <li id="transfer" onclick="agentHandler.link(this,'./membersInfo/searchTransfer.jsp')" class="">Transfer
+            </li>
+
+
+            <li id="password" onclick="agentHandler.link(this,'./security/password.jsp')" class="">Security</li>
+        </ul>
+
+
+    </div>
+
+    <div class="title clearfix">
+        <a href="#">Home</a>
+        <h3>Credit / Balance</h3>
+        <p>10:57:55 AM Sep 24, 2015 UTC+8</p>
+    </div>
+
+    <!-- PROFILE -->
+    <div class="main agentProfile" id="profile">
+
+        <!-- nick Name -->
+        <h3 id="nickName" class="mg30">Nickname:<span class="color_Red">one</span></h3>
+        <div class="box_1" id="createNickName" style="display: none;">
+            <div class="clearfix">
+                <input class="inputText_2" type="text" id="loginName" value="">
+                <input class="inputBtn_gray" type="button" value="Check Availability" id="checkExist"
+                    onclick="profileHandler.checkLoginNamePost()">
+                <input class="inputBtn_orange" type="button" value="Update" id="updateLoginName"
+                    onclick="profileHandler.updateLoginNamePost()">
+            </div>
+            <div class="text_1">
+                <div class="text_1">
+                    <ul>
+                        <li>Create your personal login id (Nickname) for easy login</li>
+                        <li>Nickname must contain 6-15 chracters without white space and special characters</li>
+                        <li>Once nickname is created, no further change is allowed</li>
+                        <li>Once created, user can only use Nickname to login</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- PROFILE -->
+        <!-- ================================== -->
+        <div class="card card-action">
+            <div class="card-tit">Action</div>
+            <div class="card-body">
+                <div class="setting-box">
+                    <a class="btn btn-2FA" href="javascript:void(0)" data-btn="modal-dis-2FA">
+                        <i class="icon icon-shield-2FA"></i>
+                        Enable 2FA Setting
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- ================================== -->
+        <h3>PROFILE
+        </h3>
+        <div class="box_2 clearfix">
+            <ul>
+                <li><strong>Currency : </strong><span id="cruuency">USD</span></li>
+                <li><strong>Given Credit : </strong><span id="givenCredit">0.00</span></li>
+
+                <li><strong>Total SH Credit : </strong><span id="agentCredit">23,421,050.00</span></li>
+            </ul>
+
+            <ul>
+                <li><strong>Remaining Credit : </strong><span id="balance">0.00</span></li>
+
+                <!--<li><strong>Win Loss : </strong><span id="winLoss"></span></li>-->
+                <li><strong>Yesterday Balance : </strong><span id="ytdWinLoss">
+                        <font color="red">-68,351.17</font>
+                    </span></li>
+                <li><strong>User Type : </strong><span id="userType">COM</span></li>
+            </ul>
+        </div>
+        <table id="locationTable">
+            <thead>
+                <tr>
+                    <th>Country
+                    </th>
+                    <th>Game Setting
+                    </th>
+                    <th>Commission
+                    </th>
+                    <th>Position Taking (%)
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <th rowspan="2">PHI
+                    </th>
+                    <td>Pre-fight
+                    </td>
+                    <td id="givenComm1">--</td>
+                    <td id="position1">--</td>
+                </tr>
+                <tr>
+                    <td>Live
+                    </td>
+                    <td id="givenCommLive1">--</td>
+                    <td id="positionLive1">--</td>
+                </tr>
+
+
+                <tr class="trcolor">
+                    <th rowspan="2">CAM
+                    </th>
+                    <td>Pre-fight
+                    </td>
+                    <td id="givenComm2">--</td>
+                    <td id="position2">--</td>
+                </tr>
+                <tr class="trcolor">
+                    <td>Live
+                    </td>
+                    <td id="givenCommLive2">--</td>
+                    <td id="positionLive2">--</td>
+                </tr>
+
+
+                <tr>
+                    <th rowspan="2">TH
+                    </th>
+                    <td>Pre-fight
+                    </td>
+                    <td id="givenComm3">--</td>
+                    <td id="position3">--</td>
+                </tr>
+                <tr>
+                    <td>Live
+                    </td>
+                    <td id="givenCommLive3">--</td>
+                    <td id="positionLive3">--</td>
+                </tr>
+
+
+                <tr class="trcolor">
+                    <th rowspan="2">MX
+                    </th>
+                    <td>Pre-fight
+                    </td>
+                    <td id="givenComm4">--</td>
+                    <td id="position4">--</td>
+                </tr>
+                <tr class="trcolor">
+                    <td>Live
+                    </td>
+                    <td id="givenCommLive4">--</td>
+                    <td id="positionLive4">--</td>
+                </tr>
+
+
+            </tbody>
+        </table>
+
+    </div>
+    <div style="">
+		<iframe style="border: none; height: 819px; width: 961px;" name="mainFrame" id="mainFrame" allowtransparency="true" frameborder="0" scrolling-y="auto" onload="IFrameUtil.calcHeight('mainFrame');" height="819" src="./profile.jsp"> </iframe>
+    </div>
+    <!-- ＝＝＝＝＝＝＝＝＝ modal target ＝＝＝＝＝＝＝＝＝＝＝ -->
+    <div class="bgBlack setFlex-center target">
+        <!--  modal-pop_guide target -->
+        <div class="popup popup-M modal-dialog" data-id="modal-2FA">
+            <a class="close" href="javascript:void(0)" onclick="HeaderConfig.closeCurrentWindow()"></a>
+            <iframe src="modal/modal-2FA.html" frameborder="0" width="100%" height="700"></iframe>
+        </div>
+        <div class="popup popup-M modal-dialog" data-id="modal-dis-2FA">
+            <a class="close" href="javascript:void(0)" onclick="HeaderConfig.closeCurrentWindow()"></a>
+            <iframe src="modal/modal-2FA-disable.html" frameborder="0" width="100%" height="700"></iframe>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

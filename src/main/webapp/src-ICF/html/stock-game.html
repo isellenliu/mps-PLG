@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="zh_TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Cockfight</title>
+
+    <script src="../../library/jquery/jquery-3.3.1.min.js"></script>
+    <script src="../../library/jquery/jquery.marquee.min.js"></script>
+    <script src="../../library/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../library/owlcarousel/js/owl.carousel.min.js"></script>
+    <script src="../js/base.js"></script>
+
+    <link rel="stylesheet" href="../../library/bootstrap/css/bootstrap.min.css" /> <!-- bootstrap -->
+    <link rel="stylesheet" href="../../library/owlcarousel/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="../../library/icomoon/style.css" /> <!-- all icon -->
+    <link rel="stylesheet" href="../ICF-css/ICF.css" />
+</head>
+<style>
+	.game-site-part{
+		background: none !important;
+	}
+</style>
+<body class="page-web stock">
+    
+    <div class="toast fade msg-bet-success hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+        <div class="toast-body">
+            <span class="txt">下注成功</span>
+        </div>
+    </div>
+
+    <div class="page-backdrop"></div>
+    <div class="page-wrapper">
+
+        <div class="page-video">
+            <!-- <div class="txt-country">
+                <span>220</span>
+            </div> -->
+            <!-- <div class="video-btnbox btm">
+                <span class="txt-online-number meron">65458</span>
+                <span class="txt-online-number wala">15458</span>
+            </div> -->
+            <div class="tag-live blink-1">LIVE</div>
+            <div class="txt-time">00:00:30</div>
+            
+            <div class="video">
+                <a class="txt-security-code l-top">UThYtcOeaK/PeiwSyR65b8kSRitVRPfp</a>
+                <a class="txt-security-code l-btm">UThYtcOeaK/PeiwSyR65b8kSRitVRPfp</a>
+                <a class="txt-security-code r-top">UThYtcOeaK/PeiwSyR65b8kSRitVRPfp</a>
+                <a class="txt-security-code r-btm">UThYtcOeaK/PeiwSyR65b8kSRitVRPfp</a>
+                
+                <div class="video-btnbox">
+                    <!-- <div class="num-arena">
+                        <span>220</span>
+                    </div> -->
+                    <a class="volume off" href="javascript:void(0);"></a>
+                    <!-- <a class="monitor" href="javascript:void(0);">1</a> -->
+                    <a class="btn-menu" href="javascript:void(0);" data-toggle="modal" data-target="#modal_info_menu"></a>
+                </div>
+                <!-- <div class="img-video-loading"></div> -->
+                <img src="../ICF-img/temp/stock-video.jpg" alt="">
+
+                <div class="toast fade msg-meron-win" role="alert" aria-live="assertive" aria-atomic="true" data-delay="22000">
+                    <div class="toast-body">
+                        <div class="msg">
+                            <div class="img color-yellow">
+                                <img src="../ICF-img/temp/meron.jpg" alt=""><!-- 鬥雞照 -->
+                            </div>
+                            <span class="txt">MERON WIN</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="toast fade msg-wala-win" role="alert" aria-live="assertive" aria-atomic="true" data-delay="22000">
+                    <div class="toast-body">
+                        <div class="msg">
+                            <div class="img color-red">
+                                <img src="../ICF-img/temp/wala.jpg" alt=""><!-- 鬥雞照 -->
+                            </div>
+                            <span class="txt">WALA WIN</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="toast fade msg-match-ended" role="alert" aria-live="assertive" aria-atomic="true" data-delay="10000">
+                    <div class="toast-body">
+                        <span class="txt">
+                            <i class="icon-info"></i>
+                            Match: 20 has been voided. <br>
+                            Reason: odds under 130%.
+                        </span>
+                    </div>
+                </div>
+                <div class="toast fade msg-no-event" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" >
+                    <div class="toast-body">
+                        <span class="txt">
+                            <i class="icon-alert-triangle "></i>
+                            There is no enent available now.
+                        </span>
+                    </div>
+                </div>
+                <div class="toast fade msg-streaming" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" >
+                    <div class="toast-body">
+                        <span class="txt">
+                            <i class="icon-alert-triangle "></i>
+                            Live streaming interrupted,
+                            we are fixing it.
+                            Stay tuned.
+                        </span>
+                    </div>
+                </div>
+                <div class="toast fade msg-suspend" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                    <div class="toast-body">
+                        <span class="txt">Match Suspend</span>
+                    </div>
+                </div>
+                <div class="toast fade msg-betstart" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                    <div class="toast-body">
+                        <span class="txt">Bet Start</span>
+                    </div>
+                </div>
+                <div class="toast fade msg-close" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                    <div class="toast-body">
+                        <span class="txt">Bet Closed</span>
+                    </div>
+                </div>
+                <div class="toast fade msg-newmatch" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                    <div class="toast-body">
+                        <span class="txt">New Match</span>
+                    </div>
+                </div>
+                <div class="toast fade msg-lastcall" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                    <div class="toast-body">
+                        <span class="txt">Last Call</span>
+                    </div>
+                </div>
+
+                <div class="toast fade msg-success" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                    <div class="toast-body">
+                        <span class="txt">
+                            MERON WIN ,
+                            You won
+                            <span class="txt-money">
+                                <i class="icon-PHP"></i>2,400
+                            </span>
+                        </span>
+                    </div>
+                </div>
+
+                
+
+
+            </div>
+            
+            <ul class="marquee-txt">
+                <li>
+                    <i class="icon-announce"></i>
+                    <a href="javascript:void(0);">Fight with Odds below 107 will be CANCELLEDT</a>
+                </li>
+                <li>
+                    <i class="icon-announce"></i>
+                    <a href="javascript:void(0);">Fight with Odds below 107 will be CANCELLEDT</a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-body">
+
+            
+            <div class="game-site-tab-content">
+                <div class="txt-disabled">Betting Closed</div>
+                <div class="game-site-part">
+                    <!-- <a class="btn btn-menu" href="javascript:void(0);" data-toggle="modal" data-target="#modal_info_menu">
+                        <i class="icon-btn-view"></i>
+                    </a> -->
+                </div>
+                <ul class="user-info">
+                    <li class="user-id">
+                        <span class="txt">seandesign</span>
+                    </li>
+                    <li class="user-balance">
+                        <span class="txt PHP">54,500,596.15</span>
+                    </li>
+                </ul>
+                <!-- no-draw -->
+                <div class="main-bet no-draw">
+                    <div class="main-bet-lt ">
+                        
+                        <div class="bet-meron">
+                            <div class="tit">
+                                <span class="farmName">ODD</span>
+                                
+                            </div>
+                            <div class="txt-rate">
+                                <span>191.58%</span>
+                            </div>
+                            
+                            <div class="txt-money">
+                                <i class="icon-PHP"></i>
+                                <span>1,293,173</span>
+                            </div>
+                        </div>
+                        <div class="main-bet-input" >
+                            <span class="bet-tit farmName">ODD</span>
+                            <!-- <div class="txt-online-number">65458</div> -->
+                            <div class="txt-increase">+ <span id="output">1</span>00</div>
+                            <div id="btn" class="chip">999,999</div>
+                            <div class="chip-img"></div>
+                            <div class="txt-max-bet">Max 1,000,000</div>
+                        </div>
+                    </div>
+                    <div class="main-bet-ct">
+                        <div class="bet-draw">
+                            <div class="tit">Odds</div>
+                            <div class="txt-rate">1:8</div>
+                        </div>
+                        <div class="main-bet-input" >
+                            <span class="bet-tit farmName">DRAW</span>
+                            <div class="txt-increase">+ <span id="output">1</span>00</div>
+                            <div id="btn" class="chip">100</div>
+                            <div class="chip-img"></div>
+                            <div class="txt-max-bet">Max 99,000,000</div>
+                        </div>
+                    </div>
+                    <div class="main-bet-rt">
+                        
+                        <div class="bet-wala">
+                            
+                            <div class="txt-rate">
+                                <span>188.44%</span>
+                                
+                            </div>
+                            <div class="txt-money">
+                                <i class="icon-PHP"></i>
+                                <span>1,314,738</span>
+                            </div>
+                        </div>
+                        <div class="main-bet-input" >
+                            <span class="bet-tit farmName">EVEN</span>
+                            <!-- <div class="txt-online-number">65458</div> -->
+                            <div class="txt-increase">+ <span id="output">1</span>00</div>
+                            <div id="btn" class="chip">500</div>
+                            <div class="chip-img is-notyetBet"></div>
+                            <div class="txt-max-bet">Max 1,000,000</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bet-sel-chipBox">
+                    <ul>
+                        
+                        <li class="chipBox active">
+                            <a class="btn-chip" href="javascript:void(0);">100</a>
+                        </li>
+                        <li class="chipBox">
+                            <a class="btn-chip" href="javascript:void(0);">500</a>
+                        </li>
+                        <li class="chipBox">
+                            <a class="btn-chip" href="javascript:void(0);">1K</a>
+                        </li>
+                        <li class="bet-allin" onclick="focusMethod()">
+                            <a class="btn-chip" href="javascript:void(0);">All in</a>
+                        </li>
+                        <li class="bet-set">
+                            <a class="btn btn-set" href="javascript:void(0);" data-toggle="modal" data-target="#modal_settings">
+                                <i class="icon-chip-setting"></i>
+                            </a>
+                        </li>
+                        <li class="bet-set">
+                            <a class="btn btn-report" href="javascript:void(0);" data-toggle="modal" data-target="#modal_report">
+                                <i class="icon-file-text"></i>
+                                <span class="txt-num">31</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+               
+                <div class="bet-function-box">
+                    <div class="confirm-area">
+                        <ul class="road-table-info">
+                            <li id="changeBacarat" class="road-table-switcher" windownum="1">
+                                <span id="road-table-switcher" class="badge meron-win-reverse">B</span>
+                                <!-- <span id="road-table-switcher" class="badge meron-win">B</span> -->
+                            </li>
+                            <li id="bankerList" class="road-table-meron">2</li>
+                            <!-- <li id="drawList" class="road-table-bdd">0</li> -->
+                            <li id="playerList" class="road-table-wala">5</li>
+                        </ul>
+                        <div id="bacarat" class="road-wrapper show" windownum="1" prevwinner="2" lianla="0">
+                            <div class="start-betting"></div>
+
+                            <div id="bacarat_road" class="road-table">
+                                <table id="bacarat_table">
+                                    <tbody>
+                                        <tr>
+                                            <td id="0_0" matchno="1" result="2"><span class="badge wala-win">P</span>
+                                            </td>
+                                            <td id="1_0" matchno="2" result="1"><span class="badge meron-win">B</span>
+                                            </td>
+                                            <td id="2_0" matchno="3" result="2">
+                                            </td>
+                                            <td id="3_0" matchno="5" result="1"><span class="badge meron-win">B</span>
+                                            </td>
+                                            <td id="4_0" matchno="6" result="2"><span class="badge wala-win">P</span>
+                                            </td>
+                                            <td id="5_0"></td>
+                                            <td id="6_0"></td>
+                                            <td id="7_0"></span></td>
+                                            <td id="8_0"></span></td>
+                                            <td id="9_0"></td>
+                                            <td id="10_0"></td>
+                                            <td id="11_0"></td>
+                                            <td id="12_0"></td>
+                                            <td id="13_0"></td>
+                                            <td id="14_0"></td>
+                                            <td id="15_0"></td>
+                                        </tr>
+                                        <tr>
+                                            <td id="0_1"></td>
+                                            <td id="1_1"></td>
+                                            <td id="2_1" matchno="4" result="2"><span class="badge wala-win">P</span>
+                                            </td>
+                                            <td id="3_1"></td>
+                                            <td id="4_1" matchno="7" result="2"><span class="badge wala-win">P</span>
+                                            </td>
+                                            <td id="5_1"></td>
+                                            <td id="6_1"></td>
+                                            <td id="7_1"></td>
+                                            <td id="8_1"></td>
+                                            <td id="9_1"></td>
+                                            <td id="10_1"></td>
+                                            <td id="11_1"></td>
+                                            <td id="12_1"></td>
+                                            <td id="13_1"></td>
+                                            <td id="14_1"></td>
+                                            <td id="15_1"></td>
+                                        </tr>
+                                        <tr>
+                                            <td id="0_2"></td>
+                                            <td id="1_2"></td>
+                                            <td id="2_2"></td>
+                                            <td id="3_2"></td>
+                                            <td id="4_2"></td>
+                                            <td id="5_2"></td>
+                                            <td id="6_2"></td>
+                                            <td id="7_2"></td>
+                                            <td id="8_2"></td>
+                                            <td id="9_2"></td>
+                                            <td id="10_2"></td>
+                                            <td id="11_2"></td>
+                                            <td id="12_2"></td>
+                                            <td id="13_2"></td>
+                                            <td id="14_2"></td>
+                                            <td id="15_2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td id="0_3"></td>
+                                            <td id="1_3"></td>
+                                            <td id="2_3"></td>
+                                            <td id="3_3"></td>
+                                            <td id="4_3"></td>
+                                            <td id="5_3"></td>
+                                            <td id="6_3"></td>
+                                            <td id="7_3"></td>
+                                            <td id="8_3"></td>
+                                            <td id="9_3"></td>
+                                            <td id="10_3"></td>
+                                            <td id="11_3"></td>
+                                            <td id="12_3"></td>
+                                            <td id="13_3"></td>
+                                            <td id="14_3"></td>
+                                            <td id="15_3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td id="0_4"></td>
+                                            <td id="1_4"></td>
+                                            <td id="2_4"></td>
+                                            <td id="3_4"></td>
+                                            <td id="4_4"></td>
+                                            <td id="5_4"></td>
+                                            <td id="6_4"></td>
+                                            <td id="7_4"></td>
+                                            <td id="8_4"></td>
+                                            <td id="9_4"></td>
+                                            <td id="10_4"></td>
+                                            <td id="11_4"></td>
+                                            <td id="12_4"></td>
+                                            <td id="13_4"></td>
+                                            <td id="14_4"></td>
+                                            <td id="15_4"></td>
+                                        </tr>
+                                        <tr>
+                                            <td id="0_5"></td>
+                                            <td id="1_5"></td>
+                                            <td id="2_5"></td>
+                                            <td id="3_5"></td>
+                                            <td id="4_5"></td>
+                                            <td id="5_5"></td>
+                                            <td id="6_5"></td>
+                                            <td id="7_5"></td>
+                                            <td id="8_5"></td>
+                                            <td id="9_5"></td>
+                                            <td id="10_5"></td>
+                                            <td id="11_5"></td>
+                                            <td id="12_5"></td>
+                                            <td id="13_5"></td>
+                                            <td id="14_5"></td>
+                                            <td id="15_5"></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="rightChart" class="road-wrapper" windownum="1">
+                            <div class="start-betting"></div>
+
+                            <div id="rightChart_road" class="road-table" style="">
+                                <table id="rightChart_table">
+                                    <tbody>
+                                        <tr>
+                                            <td id="r_0_0"><span class="badge wala-win-reverse">P</span></td>
+                                            <td id="r_1_0"><span class="badge wala-win-reverse">P</span></td>
+                                            <td id="r_2_0"></td>
+                                            <td id="r_3_0"></td>
+                                            <td id="r_4_0"></td>
+                                            <td id="r_5_0"></td>
+                                            <td id="r_6_0"></td>
+                                            <td id="r_7_0"></td>
+                                            <td id="r_8_0"></td>
+                                            <td id="r_9_0"></td>
+                                            <td id="r_10_0"></td>
+                                            <td id="r_11_0"></td>
+                                            <td id="r_12_0"></td>
+                                            <td id="r_13_0"></td>
+                                            <td id="r_14_0"></td>
+                                            <td id="r_15_0"></td>
+                                        </tr>
+                                        <tr>
+                                            <td id="r_0_1"><span class="badge meron-win-reverse">B</span></td>
+                                            <td id="r_1_1"></td>
+                                            <td id="r_2_1"></td>
+                                            <td id="r_3_1"></td>
+                                            <td id="r_4_1"></td>
+                                            <td id="r_5_1"></td>
+                                            <td id="r_6_1"></td>
+                                            <td id="r_7_1"></td>
+                                            <td id="r_8_1"></td>
+                                            <td id="r_9_1"></td>
+                                            <td id="r_10_1"></td>
+                                            <td id="r_11_1"></td>
+                                            <td id="r_12_1"></td>
+                                            <td id="r_13_1"></td>
+                                            <td id="r_14_1"></td>
+                                            <td id="r_15_1"></td>
+                                        </tr>
+                                        <tr>
+                                            <td id="r_0_2"><span class="badge draw-win-reverse">D</span></td>
+                                            <td id="r_1_2"></td>
+                                            <td id="r_2_2"></td>
+                                            <td id="r_3_2"></td>
+                                            <td id="r_4_2"></td>
+                                            <td id="r_5_2"></td>
+                                            <td id="r_6_2"></td>
+                                            <td id="r_7_2"></td>
+                                            <td id="r_8_2"></td>
+                                            <td id="r_9_2"></td>
+                                            <td id="r_10_2"></td>
+                                            <td id="r_11_2"></td>
+                                            <td id="r_12_2"></td>
+                                            <td id="r_13_2"></td>
+                                            <td id="r_14_2"></td>
+                                            <td id="r_15_2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td id="r_0_3"><span class="badge wala-win-reverse">P</span></td>
+                                            <td id="r_1_3"></td>
+                                            <td id="r_2_3"></td>
+                                            <td id="r_3_3"></td>
+                                            <td id="r_4_3"></td>
+                                            <td id="r_5_3"></td>
+                                            <td id="r_6_3"></td>
+                                            <td id="r_7_3"></td>
+                                            <td id="r_8_3"></td>
+                                            <td id="r_9_3"></td>
+                                            <td id="r_10_3"></td>
+                                            <td id="r_11_3"></td>
+                                            <td id="r_12_3"></td>
+                                            <td id="r_13_3"></td>
+                                            <td id="r_14_3"></td>
+                                            <td id="r_15_3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td id="r_0_4"><span class="badge meron-win-reverse">B</span></td>
+                                            <td id="r_1_4"></td>
+                                            <td id="r_2_4"></td>
+                                            <td id="r_3_4"></td>
+                                            <td id="r_4_4"></td>
+                                            <td id="r_5_4"></td>
+                                            <td id="r_6_4"></td>
+                                            <td id="r_7_4"></td>
+                                            <td id="r_8_4"></td>
+                                            <td id="r_9_4"></td>
+                                            <td id="r_10_4"></td>
+                                            <td id="r_11_4"></td>
+                                            <td id="r_12_4"></td>
+                                            <td id="r_13_4"></td>
+                                            <td id="r_14_4"></td>
+                                            <td id="r_15_4"></td>
+                                        </tr>
+                                        <tr>
+                                            <td id="r_0_5"><span class="badge wala-win-reverse">P</span></td>
+                                            <td id="r_1_5"></td>
+                                            <td id="r_2_5"></td>
+                                            <td id="r_3_5"></td>
+                                            <td id="r_4_5"></td>
+                                            <td id="r_5_5"></td>
+                                            <td id="r_6_5"></td>
+                                            <td id="r_7_5"></td>
+                                            <td id="r_8_5"></td>
+                                            <td id="r_9_5"></td>
+                                            <td id="r_10_5"></td>
+                                            <td id="r_11_5"></td>
+                                            <td id="r_12_5"></td>
+                                            <td id="r_13_5"></td>
+                                            <td id="r_14_5"></td>
+                                            <td id="r_15_5"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="btns-area">
+                            <a  class="btn btn-primary" href="javascript:void(0);">
+                                <i class="icon-check"></i>
+                            </a>
+                            <a class="btn btn-cancel" href="javascript:void(0);">
+                                <i class="icon-close"></i>
+                            </a>
+                            <!-- <a class="btn btn-set" href="javascript:void(0);" data-toggle="modal" data-target="#modal_settings">
+                                <i class="icon-chip-setting"></i>
+                            </a> -->
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- / game-site-tab-content -->
+
+
+
+            <!-- 錯誤訊息 -->
+            <div class="alert alert-danger fade show" role="alert">
+                <a href="javascript:void(0);" class="close" data-dismiss="alert" aria-label="Close">
+                    <i class="icon icon-close"></i>
+                </a>
+                A simple danger alert with .Give it a click if you like.
+            </div>
+            <!-- 錯誤訊息 -->
+        </div>
+
+
+    </div>
+    <!---->
+    <!-- Demo -->
+    <div class="demolink">
+        <!-- - toast -  -->
+        <a class="msg-meron-win" href="javascript:void(0);" >msg-meron-win</a>
+        <a class="msg-wala-win" href="javascript:void(0);" >msg-wala-win</a>
+        <a class="msg-no-event" href="javascript:void(0);" >msg-no-event</a>
+        <a class="msg-streaming" href="javascript:void(0);" >msg-streaming</a>
+        <a class="msg-match-ended" href="javascript:void(0);" >msg-match-ended</a>
+        <a class="msg-betstart" href="javascript:void(0);" >msg-betstart</a>
+        <a class="msg-close" href="javascript:void(0);" > msg-close</a>
+        <a class="msg-newmatch" href="javascript:void(0);" >msg-newmatch</a>
+        <a class="msg-lastcall" href="javascript:void(0);" >msg-lastcall</a>
+        <a class="msg-success" href="javascript:void(0);" >msg-success</a>
+        <a class="msg-bet-success" href="javascript:void(0);" >msg-bet-success</a>
+
+        <a href="javascript:void(0);" data-toggle="modal" data-target="#modal-welcome">modal-welcome</a>
+        <!-- <br>
+        <a class="no-draw" href="javascript:void(0);">No draw</a>
+        <a class="pop-announce" href="javascript:void(0);" >Announcement</a> -->
+        <!-- - modal -  -->
+        <!-- <a href="javascript:void(0);" data-toggle="modal" data-target="#new-match">NEW MATCH</a>
+        <a href="javascript:void(0);" data-toggle="modal" data-target="#close-match">CLOSE MATCH</a>
+        <a href="javascript:void(0);" data-toggle="modal" data-target="#match-error">MATCH+ERROR</a>
+        <a href="javascript:void(0);" data-toggle="modal" data-target="#bet-error">下注失敗</a>
+        <a href="javascript:void(0);" data-toggle="modal" data-target="#bet-success">下注成功</a>
+        <a href="javascript:void(0);" data-toggle="modal" data-target="#error-alert">ERROR</a>
+        <a href="javascript:void(0);" data-toggle="modal" data-target="#alert-msg">Win Messages</a>
+        <a href="javascript:void(0);" data-toggle="modal" data-target="#meron-win">meron win</a>
+        <a href="javascript:void(0);" data-toggle="modal" data-target="#wala-win">wala win</a> -->
+    </div>
+    <!-- Note a custom script is used to activate toasts:
+    $('.toast').toast();
+    -->
+    <!-- Announcement -->
+    <div class="modal fade modal-announcement" id="modal-announcement">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <a class="btn-mail" href="javascript:void(0);"></a>
+                <div class="modal-header">
+                    <label class="inputCheckbox" for="check_01">
+                        <input id="check_01" type="checkbox" checked="">
+                        <span>I've Read</span>
+                    </label>
+                    <a href="javascript:void(0);" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="icon icon-close"></i>
+                    </a>
+                </div>
+                <div class="modal-body">
+                    <div class="pop_up-box">
+                        <div class="pop_up-box-list">
+                            <dl class="announce">
+                                <dt>
+                                    <span>The brand-new game provider: ICONIC (11/5/2020)</span>
+                                </dt>
+                                <dd>
+                                    <a href="javascript:void(0)">
+                                        <object src="../../src-gameHall/gameHall-img/banner/AE-banner.png"><img src="../../src-gameHall/gameHall-img/banner/AE-banner.png" alt="announcemet-img" usemap="#announcemet-img"></object>
+                                    </a>
+                                    <p>
+                                        <map name="announcemet-img" id="announcemet-img">
+                                            <area name="AE01" shape="rect" coords="62,60,130,123" href="https://test.tmtplay.com/" target="_blank" alt="AE01">
+                                            <area name="AE02" shape="rect" coords="160,60,230,123" href="https://test.sv388.com/" target="_blank" alt="AE02">
+                                        </map>
+                                    </p>
+                                    <div class="game-message">
+                                        With the certified Random Number Generator, ICONIC will
+                                        provide you better game view and exciting gaming experience
+                                    </div>
+                                    <div class="game-tit">
+                                        2 Fishing games:
+                                    </div>
+                                    <ul class="game-list">
+                                        <li>Certified by GLI, the most credible organization in gambling market.</li>
+                                        <li>Multiplayer: more player, more EXCITING and FUN!</li>
+                                        <li>Richness of content: High multiplier fish, weapons and bonus games.</li>
+                                    </ul>
+                                    <div class="game-tit">
+                                        Newest 25 SLOTS
+                                    </div>
+                                    <ul class="game-list">
+                                        <li>Highest 16200x winnings wait for you!</li>
+                                        <li>Beautiful screen and fast paced game play will provide you the best gaming
+                                            experience!
+                                        </li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <span>KINGMAKER New Game</span>
+                                </dt>
+                                <dd>
+                                    <a href="javascript:void(0)">
+                                        <object data="images/MPS_SITE_mobile/announcement/02_KM-VN.png" alt="announce"></object>
+                                    </a>
+                                    <div class="game-tit">拉神的恩赐</div>
+                                    <ol class="game-list">
+                                        <li>Max Win 1,000x</li>
+                                        <li>WHEEL BONUS to multiplier your winnings</li>
+                                        <li>Enter the HOUSE OF RA to win 800x</li>
+                                    </ol>
+                                    <div class="game-btnbox">
+                                        <a href="javascript:void(0)" class="game-btn">Play now</a>
+                                    </div>
+                                </dd>
+                                <!-- <hr> -->
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <span>例行維護公告</span>
+                                </dt>
+                                <dd>
+                                    <div class="txt">
+                                        <p>
+                                            敬爱的客户您好:<br>
+                                            为了提供更好的服务，我们会在以下的时间进行维护<br>
+                                            日期：11th FEB 2020<br>
+                                            时间： 9:00 am (GMT+8) -10:00 am (GMT+8)<br>
+                                            在维护期间，前台和后台都不能登录，谢谢您一直以来的支持。
+                                        </p>
+                                        <div class="tit">
+                                            後台更新項目：
+                                        </div>
+                                        <ol>
+                                            <li>
+                                                会员资料
+                                                <ul>
+                                                    <li>用户操作纪录：現在可以查詢下線資料變更資訊</li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                报表
+                                                <ul>
+                                                    <li>输赢报表：「待定」的日期增加(i)图标，当您将鼠标光标移至最早的待定日期上，将会显示未结算产品列表</li>
+                                                    <li>在线会员：增加"余额"字段</li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                遊戲
+                                                <ul>
+                                                    <li>KINGMAKER现在支持港币</li>
+                                                </ul>
+                                            </li>
+                                        </ol>
+                                        <hr>
+                                        <div class="tit">
+                                            前台更新項目：
+                                        </div>
+                                        <ol>
+                                            <li>
+                                                公告
+                                                <ul>
+                                                    <li>当有新游戏上线时，可以于游戏上线公告内开启游戏。</li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                游戏大厅
+                                                <ul>
+                                                    <li>游戏名称现在会显示在游戏图标下方</li>
+                                                    <li>街机预设为JDB，桌面游戏预设为RT</li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                遊戲
+                                                <ul>
+                                                    <li>现在356可以提供红包玩法，请联系您的上线</li>
+                                                </ul>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+
+    <!-- Modal_new-match -->
+    <div class="modal fade" id="new-match">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="game-status new-match">
+                <span class="txt">NEW MATCH</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal_close-match -->
+    <div class="modal fade" id="close-match">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="game-status close-match">
+                <span class="txt">CLOSE MATCH</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal_match-error -->
+    <div class="modal fade" id="match-error">
+        <div class="modal-dialog modal-dialog-colum" role="document">
+            <div class="game-status error-alert">
+                <span class="txt">This round has already closed.
+                    Please wait for next round.</span>
+            </div>
+            <div class="game-status new-match">
+                <span class="txt">NEW MATCH</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal_bet-error -->
+    <div class="modal fade" id="bet-error">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="game-status bet-error">
+                <span class="txt">下注失敗</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal_bet-sucess -->
+    <div class="modal fade" id="bet-success">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="game-status bet-success">
+                <span class="txt">下注成功</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal_error-alert -->
+    <div class="modal fade modal-1st" id="error-alert" data-backdrop="static">
+        <div class="modal-dialog modal-dialog-colum" role="document">
+            <div class="game-status error-alert">
+                <span class="txt">This round has already closed.
+                    Please wait for next round.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal_error-alert -->
+    <div class="modal fade" id="alert-msg">
+        <div class="modal-dialog modal-dialog-colum" role="document">
+            <div class="game-status alert-msg">
+                <span class="txt">
+                    MERON WIN ,
+                    You won
+                        <span class="txt-money">
+                            <i class="icon-PHP"></i>2,400
+                        </span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal_meron-win -->
+    <div class="modal fade" id="meron-win">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="game-status meron-win">
+                <div class="img color-yellow">
+                    <img src="../ICF-img/temp/meron.jpg" alt=""><!-- 鬥雞照 -->
+                </div>
+                <div class="msg">
+                    <span class="txt">MERON WIN</span>
+                    <!-- <span class="txt">
+                        You won
+                        <span class="PHP">2,400</span>
+                    </span> -->
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal_wala-win -->
+    <div class="modal fade" id="wala-win">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="game-status wala-win">
+                <div class="img color-red">
+                    <img src="../ICF-img/temp/wala.jpg" alt=""><!-- 鬥雞照 -->
+                </div>
+                <div class="msg">
+                    <span class="txt">WALA WIN</span>
+                    <!-- <span class="txt">
+                        You won
+                        <span class="PHP">2,400</span>
+                    </span> -->
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal_info_menu -->
+    <div class="modal fade pos-btm" id="modal_info_menu" data-backdrop="">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <!-- load html / id="XXX" for demo 用-->
+                <div id="game-menu"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal_settings -->
+    <div class="modal fade pos-btm" id="modal_settings" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="exampleModalLabel" data-backdrop="">
+        <div class="modal-dialog sel-chips" role="document">
+            <div class="modal-content">
+                <!-- load html / id="XXX" for demo 用-->
+                <div id="chips-settings"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal_schedule -->
+    <div class="modal fade pos-btm" id="modal_schedule" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="exampleModalLabel" data-backdrop="">
+        <div class="modal-dialog sel-chips" role="document">
+            <div class="modal-content">
+                <div id="schedule"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal_report -->
+    <div class="modal fade pos-btm" id="modal_report" data-backdrop="">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <!-- load html / id="XXX" for demo 用-->
+                <div id="bet-report"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal_history -->
+    <div class="modal fade pos-btm" id="modal_history" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="exampleModalLabel" data-backdrop="">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div id="history"></div>
+                <div id="matchresult"></div>
+                <div id="video"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal_matchresult -->
+    <!-- <div class="modal fade pos-btm" id="modal_matchresult" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="exampleModalLabel" data-backdrop="">
+        <div class="modal-dialog sel-chips" role="document">
+            <div class="modal-content">
+                
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Modal_video -->
+    <!-- <div class="modal fade pos-btm" id="modal_video" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="exampleModalLabel" data-backdrop="">
+        <div class="modal-dialog sel-chips" role="document">
+            <div class="modal-content">
+                
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Modal_announcement -->
+    <div class="modal fade pos-btm" id="modal_announcement" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="exampleModalLabel" data-backdrop="">
+        <div class="modal-dialog sel-chips" role="document">
+            <div class="modal-content">
+                <div id="announcement"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal_guide -->
+    <div class="modal fade pos-btm" id="modal_guide" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="exampleModalLabel" data-backdrop="">
+        <div class="modal-dialog sel-chips" role="document">
+            <div class="modal-content">
+                <div id="guide"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal-welcome -->
+    <div class="modal fade modal-welcome show" id="modal-welcome" data-backdrop="">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <!-- <div class="icf-welcome-img"></div> -->
+                <div class="txt">
+                    Welcome to <b>International Cock Fight</b>
+                </div>
+                
+                <div class="btn-box">
+                    <a href="javascript:void(0)" class="btn btn-primary" data-dismiss="modal" aria-label="Close">
+                        PLAY NOW
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(window).ready(function () {
+            $("#game-menu").load('modal/game-menu.html');
+            $("#chips-settings").load('modal/chips-settings.html');
+            $("#bet-report").load('modal/bet-report.html');
+
+            $("#schedule").load('modal/schedule.html');
+            $("#history").load('modal/history.html');
+            $("#announcement").load('modal/announcement.html');
+            $("#guide").load('modal/guide.html');
+            $("#matchresult").load('modal/matchresult.html');
+            $("#video").load('modal/video.html');
+
+            $(function () {
+				$('.modal-announcement .modal-header .close').click(function () {
+					$('.modal-announcement').fadeOut();
+				});
+			});
+        });
+    </script>
+</body>
+
+</html>

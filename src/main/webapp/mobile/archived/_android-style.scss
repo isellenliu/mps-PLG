@@ -1,0 +1,72 @@
+header {
+    h1 {
+        line-height: vw(42px);
+    }
+    ul {
+        height: vw(42px);
+    }
+}
+
+.arena {
+    li {
+        a {
+            height: vw(38px);
+        }
+    }
+}
+
+.pit-area {
+    height: vw(104px);
+}
+
+.betting {
+    top: 90%;
+    min-width: vw(50px);
+    height: vw(50px);
+    transform: translate(-50%, -90%);
+}
+
+.btn-accept-odds,
+.btn-setting {
+    height: vw(54px); 
+}
+
+.confirm-area {
+    height: vw(96px+4px);
+}
+
+.road-table {
+    height: vw(96px+8px);
+}
+
+.chip-area {
+    height: vw(58px);
+}
+
+.badge {
+    border-width: 1.4px;
+    max-width: vw(11px);
+    max-height: vw(11px);
+}
+.bdd-win {
+    background-size: vw(12px);
+    background-position: 20% 30%;
+}
+
+//Profile login page
+@media screen and (max-height: 600px) {
+    input, select {
+        height: vw(40px);
+    }
+    .login {
+        header {
+            padding: vw(16px) vw(40px);
+        }
+    }
+    .login-form {
+        margin-bottom: vw(16px);
+        .form-group {
+            margin-bottom: vw(32px);
+        }
+    }
+}

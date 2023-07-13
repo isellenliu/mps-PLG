@@ -1,0 +1,660 @@
+body {
+    background: $gray-darker;
+    color: $white;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.container {
+    height: calc(100% - 10.66667vw);
+}
+
+.betting-status {
+    height: calc(100% - 10.66667vw - 56.25vw - 11.73333vw - 5.33333vw);
+}
+
+//Status bar - Round and countdown
+.status-bar {
+    position: relative;
+    width: 100%;
+    height: vw($ht-port-status);
+    font-size: vw($font-sm);
+    line-height: vw($ht-port-status);
+    text-align: center;
+
+    &::before {
+        @include gradient-radial(rgba($white, .6), transparent);
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: vw(1px);
+    }
+}
+
+.status-countdown {
+    @include gradient-radial(#3023AE, #C96DD8);
+    text-shadow: 0 0 vw(8px) #BD0FE1;
+}
+
+.status-name {
+    display: none;
+}
+
+//the pit area, including Meron, BDD and Wala
+.pit-area {
+    display: flex;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    height: vw($ht-port-pit);
+    -webkit-transform: translate3d(0, 0, 0);
+
+    > div {
+        @extend %box-sizing;
+        @include gradient-radial(rgba($black, 0), rgba($black, .6));
+        position: relative;
+        border: vw(2px) solid rgba($black, 0);
+        cursor: pointer;
+
+        &.active {
+            @include transition(all .2s);
+            border: vw(2px) solid $yellow;
+        }
+
+        &.disabled {
+            border: vw(2px) solid rgba(#ffffff, .1);
+            background: $gray-dark;
+            pointer-events: none;
+        }
+    }
+
+    .avatar {
+        @extend %box-sizing;
+        @include border-radius(vw(4px));
+        position: absolute;
+        top: vw(0);
+        width: vw(48px);
+        height: vw(48px);
+    }
+
+    dt {
+        position: absolute;
+        right: 0;
+        bottom: -1%;
+        left: 0;
+        margin-right: auto;
+        margin-left: auto;
+        font-size: vw($font-xl);
+        font-weight: normal;
+        text-align: center;
+    }
+
+    .odds {
+        margin-top: vw(8px);
+        font-size: vw($font-md);
+    }
+
+    .chicken-weight {
+        color: rgba($white, .5);
+        font-size: vw($font-xs);
+    }
+}
+
+//for kingcock img in front of the avatar
+.kingcock {
+    display: none;
+
+    &::before {
+        @include animation(flip 2.4s ease-in 0s normal infinite, forwards);
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: 999;
+        top: vw(-3px);
+        width: vw(50px);
+        height: vw(54px);
+        background: url('../../images/mobile/kingcock.png') no-repeat center;
+        background-size: cover;
+    }
+}
+
+.pit-meron {
+    order: 1;
+    width: vw(136px);
+    background: rgba($meron-dark, .6);
+
+    &.active {
+        background: saturate($meron, 20%);
+
+        .chicken-weight {
+            color: rgba($white, .6);
+        }
+    }
+
+    dd {
+        padding-left: vw(48px + 4px + 8px);
+    }
+
+    .avatar {
+        left: 0;
+        border: vw(2px) solid $white;
+    }
+
+    .kingcock::before {
+        left: 0;
+    }
+}
+
+.pit-bdd {
+    order: 2;
+    width: vw(104px);
+    background: rgba($bdd-dark, .6);
+    text-align: center;
+
+    &.active {
+        background: saturate($bdd, 20%);
+    }
+}
+
+.pit-wala {
+    order: 3;
+    width: vw(136px);
+    background: rgba($wala-dark, .6);
+    text-align: right;
+
+    &.active {
+        background: saturate($wala, 20%);
+
+        .chicken-weight {
+            color: rgba($white, .6);
+        }
+    }
+
+    dd {
+        padding-right: vw(48px + 4px + 8px);
+    }
+
+    .avatar {
+        right: vw(0);
+        border: vw(2px) solid $yellow;
+    }
+
+    .kingcock::before {
+        right: 0;
+        left: auto;
+    }
+}
+
+//switch the order of pit area
+.pit-swtich {
+    .pit-meron {
+        order: 3;
+        text-align: right;
+
+        dd {
+            padding-right: vw(48px + 4px + 8px);
+            padding-left: 0;
+        }
+
+        .avatar {
+            right: 0;
+            left: auto;
+        }
+
+        .kingcock::before {
+            right: 0;
+            left: auto;
+        }
+    }
+
+    .pit-wala {
+        order: 1;
+        text-align: left;
+
+        dd {
+            padding-right: 0;
+            padding-left: vw(48px + 4px + 8px);
+        }
+
+        .avatar {
+            right: 0;
+            left: 0;
+        }
+
+        .kingcock::before {
+            right: 0;
+            left: 0;
+        }
+    }
+}
+
+//the chips including confirmed, not confirmed and add-on popup dialog on pit-area
+.betting {
+    display: flex;
+    position: absolute;
+    z-index: $zindex-betting;
+    top: 70%;
+    left: 50%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    min-width: vw(54px);
+    height: vw(54px);
+    min-height: vw(54px);
+    transform: translate(-50%, -70%);
+
+    &::before {
+        @include chip-sprite(chip-set);
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: vw(54px);
+        height: vw(54px);
+        transform: translate(-50%, 0);
+        background-size: cover;
+        -webkit-filter: drop-shadow(0 vw(2px) vw(2px) $black);
+        filter: drop-shadow(0 vw(2px) vw(2px) $black);
+    }
+
+    span {
+        @include border-radius(vw(4px));
+        display: table;
+        z-index: $zindex-betting + 1;
+        width: 100%;
+        border: 1px solid $black;
+        background: $gray-darker;
+        color: $white;
+        font-size: vw($font-body);
+        text-align: center;
+    }
+
+    .betting-add-tbc {
+        position: relative;
+        bottom: -3px;
+        align-self: flex-end;
+        background: $bg-gray;
+
+        &::before {
+            content: '+';
+            font-size: vw($font-xs);
+        }
+    }
+}
+
+.betting-add {
+    @include border-radius(vw(2px));
+    position: absolute;
+    z-index: $zindex-betting + 1;
+    top: -20%;
+    left: 50%;
+    padding: vw(2px) vw(8px);
+    transform: translate(-50%, 10%);
+    opacity: 0;
+    background: $white;
+    color: $black;
+    letter-spacing: vw(-.4px);
+    text-align: center;
+    white-space: nowrap;
+    -webkit-filter: drop-shadow(0 vw(2px) vw(2px) $black);
+    filter: drop-shadow(0 vw(2px) vw(2px) $black);
+
+    &::before {
+        content: '';
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-right: vw(4px);
+        border-right: vw(6px) solid transparent;
+        border-bottom: vw(6px) solid $orange;
+        border-left: vw(6px) solid transparent;
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 95%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        transform: translate(-50%, 0%);
+        border-top: vw(8px) solid $white;
+        border-right: vw(8px) solid transparent;
+        border-left: vw(8px) solid transparent;
+    }
+}
+
+.betting-confirmed {
+    span {
+        border: 1px solid $black;
+        background: #FFC300;
+        color: $gray-darker;
+        font-weight: bold;
+    }
+}
+
+//the area of chips, rebet and setting btn
+.chip-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: vw($ht-port-chip);
+    margin: vw(4px);
+    list-style: none;
+
+    li {
+        &:first-child,
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4) {
+            width: vw(60px);
+        }
+    }
+}
+
+//the area of road-table, switcher, confirm and cancel btn
+.confirm-area {
+    display: flex;
+    justify-content: space-around;
+    height: vw($ht-port-confirm + 5px);
+    margin: vw(4px);
+}
+
+.road-wrapper {
+    position: relative;
+}
+
+.road-table {
+    @extend %box-sizing;
+    position: relative;
+    width: vw(180px);
+    max-width: vw(180px);
+    height: vw($ht-port-confirm + 5px);
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.start-betting {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: vw(-1px);
+    width: vw(182px);
+    max-width: vw(182px);
+    height: vw($ht-port-confirm + 6px);
+    //for ipad z-index issue
+    -webkit-transform: translate3d(0, 0, 0);
+    opacity: 0;
+    background: rgba(0, 0, 0, .6) url('../../images/mobile/start-betting.png') no-repeat center;
+    background-size: contain;
+}
+
+.btns-area {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    width: vw(80px + 48px + 4px);
+}
+
+//the detail information of road-table and the switcher on the bottom
+.road-table-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    width: vw(40px);
+    margin-bottom: vw(2px);
+    font-size: vw($font-xs);
+
+    li {
+        display: flex;
+        flex: 0 0 100%;
+        align-items: center;
+        justify-content: space-between;
+        order: 2;
+        height: vw(12px);
+
+        &::before {
+            @include border-radius(vw(100px));
+            content: '';
+            position: relative;
+            left: 0;
+            width: vw(9px);
+            height: vw(9px);
+        }
+    }
+
+    .road-table-switcher {
+        @include border-radius(vw(16px));
+        @include gradient-y(rgba($white, 1), rgba($gray-light, 1));
+        @include box-shadow(0 vw(2px) vw(2px) 0 rgba($black, .5));
+        display: flex;
+        align-items: center;
+        align-self: flex-start;
+        justify-content: center;
+        order: 1;
+        height: vw(18px);
+        padding-top: vw(2px);
+        padding-bottom: vw(2px);
+
+        &::before {
+            display: none;
+        }
+    }
+
+    .badge {
+        width: vw(18px);
+        height: vw(18px);
+        font-size: vw(12px);
+        line-height: vw(18px);
+    }
+}
+
+.road-table-meron::before {
+    background: $meron;
+}
+
+.road-table-bdd::before {
+    background: $bdd;
+}
+
+.road-table-wala::before {
+    background: $wala;
+}
+
+//the bottom sheet of chips setting
+.setting-area {
+    @include box-shadow(0 vw(-4px) vw(4px) rgba($black, .6));
+    position: fixed;
+    z-index: $zindex-setting-area;
+    bottom: -100%;
+    // bottom: vw(-380px - 4px - 16px - 16px);
+    left: 0;
+    height: vw(340px);
+    padding: vw(16px) vw(16px) 0;
+    overflow: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    opacity: 0;
+    background: rgba($black, .9);
+
+    dl {
+        display: inline-flex;
+        flex-wrap: wrap;
+        margin-bottom: vw(4px);
+    }
+
+    dt {
+        flex: 0 0 100%;
+        margin: 0;
+        color: $orange;
+        font-size: vw($font-body);
+    }
+
+    dd {
+        order: 2;
+        width: vw(64px);
+        height: vw(64px);
+        margin: vw(8px) vw(2px);
+
+    }
+
+    &.active {
+        bottom: 0;
+        opacity: 1;
+    }
+
+    .chip {
+        width: vw(58px);
+        height: vw(58px);
+    }
+
+    .setting-customize {
+        display: inline-flex;
+        flex: 0 0 100%;
+        align-items: center;
+        order: 1;
+    }
+
+    .chip-remark {
+        width: vw(64px);
+        color: $gray;
+        font-size: vw($font-sm);
+        font-weight: normal;
+        word-break: break-word;
+    }
+
+    .chip-input {
+        @include border-radius(vw(2px));
+        @include gradient-y(rgba($gray-lighter, 1), rgba($gray-light, 1));
+        width: vw(180px);
+        height: vw(40px);
+        margin: 0 vw(8px + 4px) 0 vw(8px);
+        padding-left: vw(8px);
+        border: 1px solid $white;
+        background: $gray-light;
+
+        span {
+            color: $black;
+            font-size: vw($font-lg);
+            line-height: vw(40px);
+        }
+    }
+
+    .btn-close {
+        top: vw(8px);
+    }
+
+    .btn-confirm {
+        width: 100%;
+        height: vw(56px);
+        margin: 0 auto;
+        font-size: vw($font-lg);
+    }
+}
+
+//virtual keyboard for chips
+.keyboard {
+    display: inline-flex;
+    position: fixed;
+    z-index: $zindex-setting-area + 1;
+    bottom: 0;
+    left: 0;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: space-evenly;
+    width: 100%;
+    height: vw(205px);
+    padding-bottom: vw(40px);
+    background: $black;
+
+    ol {
+        display: flex;
+        flex: 0 1 75%;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        justify-content: space-around;
+        height: 100%;
+    }
+
+    li {
+        @include gradient-y(rgba($bg-gray, 1), rgba($gray-light, 1));
+        display: flex;
+        flex: 0 1 32%;
+        align-items: center;
+        justify-content: center;
+        height: 24%;
+        margin-bottom: 1%;
+        border: 1px solid $gray;
+        border-radius: vw(4px);
+        color: $gray-mdd;
+        font-size: vw($font-xl);
+        box-sizing: border-box;
+    }
+
+    .btn {
+        width: 100%;
+        height: 49%;
+        color: #ffffff;
+        font-size: vw($font-lg);
+    }
+
+    .kb-zero {
+        flex: 0 1 65%;
+    }
+
+    .kb-del::before {
+        content: '';
+        display: block;
+        width: vw(17px);
+        height: vw(16px);
+        background: svg-kbdel('%23444444') center no-repeat;
+        background-size: cover;
+    }
+}
+
+.kb-btn {
+    display: flex;
+    flex: 0 1 22%;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+    a {
+        &:first-of-type {
+            &::after {
+                content: '';
+                display: block;
+                width: vw(32px);
+                height: vw(32px);
+                background: svg-cancel('%232d2d2d') center no-repeat;
+                background-size: cover;
+            }
+        }
+
+        &:last-of-type {
+            &::after {
+                content: '';
+                display: block;
+                width: vw(32px);
+                height: vw(32px);
+                background: svg-kbsubmit('%232d2d2d') center no-repeat;
+                background-size: cover;
+            }
+        }
+    }
+}
+
+//For large-size device portarit (iphone X / Galaxy S8)
+@media screen and (min-height: 700px) {
+    background: $gray-darker url('../../images/mobile/fullsrn-bg.jpg') left bottom fixed no-repeat;
+    background-size: contain;
+
+    .betting-status {
+        height: calc(100% - 58vw - 13vw  - 8vw - 20vw);
+    }
+}// For large-size device portarit

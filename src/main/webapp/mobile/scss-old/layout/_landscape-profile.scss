@@ -1,0 +1,810 @@
+html,
+body {
+    max-width: 100vw;
+    font-size: vmax($font-body);
+    // overflow: hidden;
+    // max-height: 100%;
+}
+
+// All element position
+header {
+    height: vmax($ht-mps-subheader);
+}
+
+//Swipe-up
+.swipe-up-intro {
+    letter-spacing: vmax(1px);
+
+    dt {
+        margin-bottom: vmax(8px);
+        font-size: vmax($font-xxxl);
+    }
+
+    dd {
+        font-size: vmax($font-lg);
+    }
+}
+
+.swipeup-img {
+    width: vmax(64px);
+    height: vmax(80px);
+    margin-bottom: vmax(8px);
+}
+
+.video {
+    position: fixed;
+    top: vmax($ht-header) + vmax(3px) + vmax($ht-status);
+    width: 50vw;
+    height: 50vw * 9 / 16;
+
+    .msg {
+        bottom: vmax(-48px);
+        height: vmax(32px);
+    }
+}
+
+.loading {
+    @include border-radius(vmax(8px));
+    width: vmax(48px);
+    height: vmax(48px);
+}
+
+.fullsrn {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    video,
+    canvas {
+        max-height: 100%;
+    }
+}
+
+.video-func {
+    margin: vmax(6px);
+
+    ul {
+        width: vmax(30px);
+    }
+
+    li {
+        @include border-radius(vmax(6px));
+        width: vmax(30px);
+        height: vmax(30px);
+        margin-top: vmax(4px);
+    }
+}
+
+.video-countdown {
+    @include border-radius(vmax(4px));
+    padding: vmax(2px) vmax(4px);
+    font-size: vmax($font-sm);
+}
+
+.video-logo {
+    width: vmax(90px);
+}
+
+.video-live {
+    top: vmax(38px);
+    padding: vmax(2px) vmax(6px);
+
+    &::before {
+        font-size: vmax($font-sm);
+        letter-spacing: vmax(1px);
+    }
+}
+
+// Main Navigation
+header {
+    @include box-shadow(0 vmax(4px) vmax(4px) rgba($black, .2));
+
+    h1 {
+        width: 100%;
+        font-size: vmax(16px);
+        line-height: vmax($ht-header);
+    }
+
+    .bet-credit {
+        left: vmax(8px);
+        width: vmax(667px - 16px - (40px + 4px) * 2);
+    }
+
+    ul {
+        height: vmax($ht-header);
+    }
+
+    li {
+        min-width: vmax($ht-header);
+        margin: 0 vmax(4px);
+
+        a {
+            height: vmax($ht-header);
+        }
+    }
+}
+
+.gamehall-icon {
+    a {
+        background: svg-home('%23ffffff') center no-repeat;
+        background-size: vmax(22px);
+     }
+}
+
+.close-icon {
+    a {
+        background: svg-cancel('%23ffffff') center no-repeat;
+        background-size: vmax(28px);
+     }
+}
+
+.goback-icon {
+    margin-right: auto;
+
+    a {
+        background: url('../../images/mobile/profile/icon-arrow-back.svg') center no-repeat;
+        background-size: vmax(24px);
+     }
+}
+
+.menu-icon {
+    a {
+        background: url('../../images/mobile/icon-menu.svg') center no-repeat;
+        background-size: vmax(20px);
+     }
+}
+
+// The side navigation menu
+.mask-all {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: rgba($black, .8);
+}
+
+.sidenav {
+    height: 100vh;
+    padding-top: vmax(36px);
+
+    .sidenav-main {
+        a {
+            width: 70vw;
+            padding: vmax(24px);
+            font-size: vmax($font-lg);
+        }
+    }
+}
+
+.mainnav-in {
+    // width: 50vw !important;
+    width: 320px !important;
+}
+
+//General link btn in gamehall
+.btn {
+    @include border-radius(vmax(4px));
+}
+
+//close btn in navigation
+.btn-close {
+    top: vmax(4px);
+    right: vmax(8px);
+    width: vmax(32px);
+    height: vmax(32px);
+    font-size: vmax($font-xxxl);
+}
+
+.btn-accept-odds {
+    width: vmax(44px);
+    height: vmax(60px);
+    margin: 0 vmax(2px);
+    font-size: vmax($font-xs);
+
+    &::before {
+        width: vmax(12px);
+        height: vmax(12px);
+        margin-bottom: vmax(4px);
+        margin-left: vmax(-24px);
+        border: vmax(1px) solid $gray;
+    }
+}
+
+.btn-setting {
+    width: vmax(44px);
+    height: vmax(60px);
+
+    &::after {
+        width: vmax(24px);
+        height: vmax(24px);
+    }
+}
+
+.btn-cancel {
+    // width: vmax(48px);
+
+    &::after {
+        width: vmax(20px);
+        height: vmax(20px);
+        background: url('../../images/mobile/icon-cancel.svg') center no-repeat;
+        background-size: cover;
+    }
+}
+
+//Gernaral btn style for forms
+button {
+    @include border-radius(vmax(4px));
+}
+
+.btn-primary {
+    text-shadow: 0 vmax(2px) vmax(2px) rgba($black, .4);
+
+    &.active {
+        text-shadow: 0 vmax(-2px) vmax(2px) rgba($black, .4);
+    }
+}
+
+.btn-md {
+    width: vmax(160px);
+    height: vmax(48px);
+    font-size: vmax($font-xl);
+    text-shadow: 0 vmax(2px) vmax(2px) rgba($black, .4);
+}
+
+//login btn in login page
+.btn-login {
+    width: vmax(288px);
+    height: vmax(48px);
+    font-size: vmax($font-xl);
+}
+
+.btn-replay {
+    width: vmax(108px);
+    height: vmax(30px);
+    font-size: vmax($font-body);
+    line-height: vmax(30px);
+
+    &::after {
+        top: vmax(4px);
+        left: vmax(4px);
+        width: vmax(16px);
+        height: vmax(16px);
+        background: url('../../images/mobile/profile/icon-replay.svg') center no-repeat;
+        background-size: vmax(16px);
+    }
+}
+
+.btn-search {
+    @include box-shadow(0 0 vmax(8px) rgba($black, .4));
+    bottom: vmax(-12px);
+    width: vmax(56px);
+    height: vmax(56px);
+    left: calc(50% - #{vmax(56px)} / 2);
+
+    img {
+        width: vmax(28px);
+        margin-top: vmax(6px);
+    }
+}
+
+.cell {
+    height: vmax(72px);
+
+    &::after {
+        content: '';
+        right: vmax(4px);
+        width: vmax(24px);
+        height: vmax(24px);
+        background: svg-arrow-right('%23444444') center no-repeat;
+        background-size: cover;
+    }
+}
+
+//Match History - Global element
+.match-tab {
+    @include box-shadow(inset 0 vmax(4px) vmax(4px) rgba($black, .2));
+    height: vmax(56px);
+
+    li {
+        height: vmax(56px);
+
+        &.active {
+            border-bottom: vmax(4px) solid $orange-dark;
+            color: $orange-dark;
+        }
+    }
+
+    .match-cal-tab {
+        height: vmax(56px);
+        background: svg-calendar('%23000000') center center no-repeat;
+        background-size: vmax(40px);
+
+        &.active {
+            background: svg-calendar('%23EF6C00') center center no-repeat;
+            background-size: vmax(40px);
+        }
+    }
+}
+
+.match-arena-title {
+    margin: vmax(24px) 0;
+    font-size: vmax($font-lg);
+}
+
+.match-arena {
+    padding-left: vmax(18px);
+
+    li {
+        width: vmax(144px);
+        height: vmax(64px);
+        margin: vmax(6px);
+        font-size: vmax($font-lg);
+        line-height: vmax(64px);
+
+        &.active {
+            text-shadow: 0 0 vmax(2px) rgba($black, .6);
+        }
+    }
+}
+
+.match-footer {
+    padding: vmax(48px) 0 vmax(24px);
+    font-size: vmax($font-xs);
+}
+
+.match-cal {
+    padding: 0 vmax(33px);
+
+    li {
+        width: vmax(80px);
+        margin-right: vmax(6px);
+        margin-bottom: vmax(8px);
+    }
+}
+
+.months {
+    margin: vmax(24px) 0;
+
+    .prev {
+        margin-right: 0;
+        margin-bottom: 0;
+        padding-left: vmax(24px);
+        background: svg-arrow-left('%23666666') left center no-repeat;
+        background-size: vmax(24px);
+        line-height: vmax(24px);
+    }
+
+    .next {
+        margin-right: 0;
+        margin-bottom: 0;
+        padding-right: vmax(24px);
+        background: svg-arrow-right('%23666666') right center no-repeat;
+        background-size: vmax(24px);
+        line-height: vmax(24px);
+        text-align: right;
+    }
+}
+
+.weekdays {
+    border-bottom: vmax(1px) solid $gray-light;
+
+    li {
+        height: vmax(32px);
+    }
+}
+
+.days {
+    li {
+        height: vmax(80px);
+
+        &.active {
+            @include border-radius(vmax(999px));
+            text-shadow: 0 0 vmax(2px) rgba($black, .6);
+        }
+    }
+}
+
+.match-title {
+    height: vmax(56px);
+    text-shadow: vmax(2px) vmax(2px) vmax(4px) rgba($black, .5);
+
+    h2 {
+        font-size: vmax($font-xxl);
+        line-height: vmax(32px);
+
+        &::before {
+            margin-left: vmax(8px);
+        }
+    }
+}
+
+.match-detail-th {
+    @include box-shadow(inset 0 vmax(4px) vmax(4px) rgba($black, .2));
+    height: vmax(48px);
+    font-size: vmax($font-sm);
+}
+
+.match-detail {
+    height: vmax(64px);
+
+    .tag {
+        width: vmax(64px);
+        padding: vmax(2px) 0;
+        font-size: vmax($font-sm);
+    }
+
+    .replay {
+        width: vmax(32px);
+        height: vmax(32px);
+        background: svg-replay('%23444444') center no-repeat;
+        background-size: vmax(32px);
+    }
+}
+
+.match-video {
+    .video-replay {
+        height: calc(100% - 13vh);
+    }
+}
+
+.match-video-th {
+    width: 100%;
+    height: vmax(32px);
+    padding: vmax(6px) 0;
+    font-size: vmax($font-lg);
+
+    li {
+        margin-right: vmax(12px);
+    }
+}
+
+//trans
+//Trans Report - Global element
+.trans {
+    main {
+        margin-bottom: vmax(48px);
+    }
+
+    h3 {
+        margin-bottom: vmax(8px);
+        margin-left: vmax(8px);
+    }
+
+    .badge-arena {
+        @include arena-number(transparent, $gray-dark, $font-sm);
+        width: vmax(28px);
+        height: vmax(28px);
+        font-size: vmax($font-sm);
+    }
+
+    .tag {
+        padding: 0 vmax(12px);
+        // font-size: vmax($font-sm);
+        line-height: vmax(22px);
+    }
+
+    .no-data-info {
+        margin-top: vmax(40px);
+    }
+
+    .loading {
+        @include border-radius(vmax-c(8px));
+        width: vmax-c(48px);
+        height: vmax-c(48px);
+    }
+}
+
+//Trans report header
+.trans-title {
+    height: vmax(80px);
+    text-shadow: vmax(2px) vmax(2px) vmax(4px) rgba($black, .5);
+
+    h2 {
+        font-size: vmax($font-xxl);
+        line-height: vmax(28px);
+
+        // &:nth-child(2)::before {
+        //     margin: 0 vmax(8px);
+        // }
+    }
+
+     p {
+        width: vmax(48px);
+        font-size: vmax(26px);
+    }
+
+    // .trans-date:nth-child(2) {
+    //     width: vmax(72px + 24px);
+    // }
+}
+
+.grand-total {
+    height: vmax(40px);
+    padding-right: vmax(20px);
+    padding-left: vmax(8px);
+    box-shadow: inset 0 vmax(4px) vmax(4px) rgba($black, .2), 0 vmax(4px) vmax(4px) rgba($black, .2);
+
+    dt {
+        font-size: vmax($font-md);
+    }
+
+    dd {
+        font-size: vmax($font-lg);
+    }
+}
+
+.sub-total {
+    @include box-shadow(inset vmax(1px) vmax(1px) vmax(4px) 0 rgba($black, .2));
+    height: vmax(32px);
+    padding-right: vmax(32px);
+    padding-left: vmax(8px);
+
+    dt {
+        font-size: vmax($font-sm);
+    }
+}
+
+.trans-filter {
+    padding-right: vmax(20px);
+
+    .trans-filter-item {
+        @include border-radius(vmax(100px));
+        margin-left: vmax(8px);
+        padding: vmax(6px) vmax(16px);
+        font-size: vmax($font-sm);
+    }
+}
+
+.trans-date {
+    dt {
+        margin-bottom: vmax(3px);
+        font-size: vmax(26px);
+        line-height: vmax(26px);
+    }
+
+    dd {
+        font-size: vmax(16px);
+        line-height: vmax(16px);   
+    }
+}
+
+//第一層-以日期為區間，以`天`作為分類，撈出來的所有場次/回合的下注列表
+.trans-list {
+    margin-top: vmax(24px);
+    margin-bottom: vmax(48px);
+
+    .trans-date {
+        margin-bottom: vmax(8px);
+        padding-left: vmax(8px);
+    }
+
+    .cell-th {
+        height: vmax(24px);
+        margin-bottom: vmax(4px);
+        font-size: vmax($font-sm);
+    }
+
+    ul {
+        height: vmax(64px);
+        padding-right: vmax(32px);
+    }
+}
+
+//第三層-該日期該場次該回合的下注 detail information
+.trans-card-wrapper {
+    padding: vmax(24px) vmax(8px) 0;
+}
+
+.trans-detail-card {
+    @include box-shadow(0 vmax(4px) vmax(8px) rgba($black, .2));
+    // width: vmax(360px);
+    min-height: vmax(330px);
+    margin: vmax(16px) 0 vmax(40px);
+
+    h4 {
+        height: vmax(36px);
+        padding-left: vmax(6px);
+        line-height: vmax(36px);
+    }
+
+    dl {
+        min-height: vmax(72px);
+        border-bottom: 1px dashed $gray-lighter;
+    }
+
+    dt {
+        padding: vmax(12px) vmax(6px);
+        font-size: vmax($font-sm);
+    }
+
+    dd {
+        padding-left: vmax(24px);
+    }
+}
+
+//search function
+.trans-search {
+    @include box-shadow(0 vmax(-4px) vmax(8px) rgba($black, .4));
+    // width: vmax(375px-16px);
+    position: fixed;
+    width: 94%;
+    height: 90%;
+    min-height: 90%;
+    padding: 3%;
+    overflow-y: scroll;
+
+    .btn-close {
+        @include border-radius(vmax(100px));
+        top: 1%;
+        left: 90%;
+        width: vmax(64px);
+        height: vmax(64px);
+        font-size: vmax(64px);
+        line-height: vmax(64px);
+    }
+
+    .btn-submit {
+        height: vmax(48px);
+        font-size: vmax($font-xl);
+    }
+
+    .trans-filter {
+        margin: vmax(20px) 0;
+
+        .trans-filter-item {
+            padding: vmax(8px) vmax(12px);
+        }
+    }
+}
+
+.search-target-date {
+    width: vmax(359px);
+    margin: 0 auto;
+    padding: 0;
+
+    li {
+        &:nth-child(odd) {
+            width: vmax(140px);
+            height: vmax(64px);
+        }
+
+        &:first-child::before {
+            top: vmax(2px);
+            left: vmax(4px);
+            font-size: vmax($font-sm);
+        }
+
+        &:last-child::before {
+            top: vmax(2px);
+            left: vmax(4px);
+            font-size: vmax($font-sm);
+        }
+    }
+}
+
+.search-cal {
+    width: vmax(359px);
+    margin-bottom: vmax(8px);
+
+    .cal-title {
+        font-size: vmax($font-lg);
+    }
+
+    th {
+        width: vmax(50px);
+        height: vmax(32px);
+        font-size: vmax($font-sm);
+    }
+
+    td {
+        width: vmax(50px);
+        height: vmax(50px);
+    }
+
+    button {
+        @include border-radius(0);
+        height: vmax(50px);
+        margin-bottom: vmax(4px);
+        font-size: vmax($font-body);
+
+        &.active {
+            @include border-radius(100px);
+        }
+    }
+
+    .has-report {
+        &::after {
+            @include border-radius(vmax(1000px));
+            bottom: vmax(12px);
+            left: vmax(24px);
+            width: vmax(4px);
+            height: vmax(4px);
+        }
+    }
+
+    .today {
+        @include border-radius(vmax(100px));
+    }
+
+    .search-date-range {
+        @include gradient-y(rgba($orange, .8), rgba($orange-dark, 1));
+        text-shadow: 0 0 vmax(2px) rgba($black, .6);
+    }
+
+    .start-date {
+        @include border-left-radius(1000px);
+    }
+
+    .end-date {
+        @include border-right-radius(1000px);
+    }
+}
+
+//Schedule
+.daily-info {
+    dt {
+        padding: 0;
+        text-align: center;
+    }
+
+    dd {
+        padding: 0;
+        text-align: center;
+    }
+}
+
+//guide
+.guide {
+    font-size: vmax(14px);
+    line-height: vmax(16px);
+
+    .guide-tittle {
+        p {
+            padding: vmax(6px) vmax(30px);
+        } 
+    }
+
+    h2,h3,ol {
+        padding: vmax(6px) vmax(30px);   
+    }
+}
+
+//announcement
+.announcement {
+    .prevNext-select {
+        padding: vmax(16px) 0 vmax(14px);
+    }
+
+    dt {
+        padding: 0 vmax(20px);
+        line-height: vmax(46px);
+        font-size: vmax(18px);
+    }
+
+    dd {
+        padding: vmax(16px) vmax(20px);
+
+        strong {
+            margin-bottom: vmax(6px);
+            font-size: vmax(18px);
+        }
+
+        span {
+            font-size: vmax(14px);
+        }
+    }
+}
+
+//tag bg color by different bet
+$result: (cancel $gray-mid) (void $gray-mid) (draw $bdd) (lose $meron) (win $wala);
+@each $tag-bg in $result {
+    $type: nth($tag-bg, 1);
+    $color: nth($tag-bg, 2);
+
+    //tag bg-color by different status
+    .status-#{$type} {
+        height: vmax(22px);
+        margin: vmax(7px) vmax(4px) 0 0;
+    }
+}

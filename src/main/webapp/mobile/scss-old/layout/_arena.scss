@@ -1,0 +1,190 @@
+// Arena
+.arena {
+    width: 100%;
+
+    ul {
+        @include transition(all .25s);
+        display: flex;
+        justify-content: flex-start;
+        padding-top: vw(4px);
+        padding-bottom: vw(2px);
+        list-style-type: none;
+    }
+
+    li {
+        position: relative;
+        min-width: vw(71px);
+        margin: 0 vw(2px);
+        background: rgba($white, .1);
+
+        &.active {
+            background-color: rgba($white, .3);
+
+            a {
+                color: $white;
+                text-shadow: 0 vw(2px) vw(4px) rgba($black, .8);
+            }
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: vw($ht-port-arena);
+            padding-top: vw(4px);
+            color: rgba($white, .7);
+            text-align: center;
+        }
+    }
+
+    > span {
+        display: none;
+    }
+
+    .arena-betting {
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: vw(4px);
+            background-color: $green;
+        }
+
+        &.active {
+            @include transition(all .35s);
+            background: $green;
+        }
+    }
+
+    .arena-fighting {
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: vw(4px);
+            background-color: $red;
+        }
+
+        &.active {
+            @include transition(all .35s);
+            background: $red;
+        }
+    }
+
+    .arena-countdown {
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: vw(4px);
+            background-color: $purple;
+        }
+
+        &.active {
+            @include transition(all .35s);
+            background: $purple;
+        }
+    }
+
+    .times-up {
+        &::after {
+            animation: timesup .3s step-start infinite;
+        }
+
+        &.active {
+            @include transition(all .35s);
+            background: $orange;
+
+            &::after {
+                animation: none;
+                background-color: $orange;
+            }
+        }
+    }
+}
+
+//make arena-area scrollable
+.arena-scroll {
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    ul {
+        padding-top: vw(4px);
+        padding-bottom: vw(2px);
+    }
+
+    li {
+        min-width: vw(64px);
+        margin: 0 vw(2px);
+    }
+}
+
+.arena-nogame {
+    height: vw(44px);
+    background: $gray-dark;
+    font-size: vw($font-lg);
+    line-height: vw(44px);
+    text-align: center;
+
+    span {
+        display: inline-block;
+    }
+
+    ul,
+    li {
+        display: none;
+    }
+}
+
+.arena-empty {
+    position: relative;
+    opacity: .5;
+
+    &::after {
+        content: ' - ';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        line-height: vw(44px);
+        text-align: center;
+    }
+}
+
+.countdown-notice {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    z-index: $zindex-arena + 1;
+    bottom: vw(1px);
+    left: vw(2px);
+    width: vw(12px);
+    height: vw(12px);
+    opacity: .6;
+    background: url('../../images/mobile/icon-countdown.svg') left top no-repeat;
+    background-size: cover;
+}
+
+.betted {
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: $zindex-arena;
+        top: vw(-4px);
+        right: vw(2px);
+        width: vw(20px);
+        height: vw(20px);
+        background: url('../../images/mobile/icon-betted.svg') left top no-repeat;
+        background-size: cover;
+    }
+}

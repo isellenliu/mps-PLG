@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<title>PLG</title>
+	
+	<script src="../library/jquery/jquery-3.3.1.min.js"></script>
+	<script src="../library/jquery/jquery-ui.min.js"></script>
+	<script src="./js/PLG.js"></script>
+	
+	<link rel="stylesheet" href="../mobile/icomoon/style.css" /> <!-- all icon -->
+	<link href="css/mobile/game-hall.css" rel="stylesheet" type="text/css">
+</head>
+
+<body id="txnBody" class="COCKFIGHT">
+	
+	<div id="scaleable-wrapper" class="scaleable-wrapper ui-resizable">
+		<!-- <div id="sizableDiv" class="scaleable-content safari-only open-matchIframe"
+			style="position: absolute; transform: translate(-50%, -50%) scale(.92);"> -->
+		<div id="sizableDiv" class="scaleable-content safari-only open-matchIframe"
+			style="position: absolute; transform: translate(-50%, -50%) scale(1);">
+			<div id="mask-all"></div>
+			<!-- ================ -->
+
+			<div id="container_1" class="container">
+				<div class="game-type-list num-2">
+					<ul>
+						<li class="btn-COCKFIGHT active">
+							<span class="img"></span>
+						</li>
+						<!-- <li class="btn-CASINO">
+							<span class="img"></span>
+						</li> -->
+						<li class="btn-DICE">
+							<span class="img"></span>
+						</li>
+						<!-- <li class="btn-FANTAN">
+							<span class="img"></span>
+						</li>
+						<li class="btn-XO">
+							<span class="img"></span>
+						</li>
+						<li class="btn-POKERVN">
+							<span class="img"></span>
+						</li> -->
+					</ul>
+				</div>
+				<div id="streamContainer_1" class="video">
+					<!-- unavailable msg -->
+					<div id="msgLeave2_msg" class="news-wrap" style="display: none;">
+						<p>There is no event available now. Sorry for the inconvenience caused
+						</p>
+					</div>
+					<!-- ================ -->
+					<div id="canvasDiv_1">
+						<div class="video-container">
+							<div class="video-func" id="videoFuncDiv_1">
+								<a class="txt-security-code r-top" id="watermark">MDAwZGVkZWRlZGUyMjI6MQ</a>
+								<div id="timer_1" class="video-countdown">00:00:00</div>
+								<div id="live_1" class="video-live"></div>
+
+								<!-- <div class="tag-live"></div>
+								<div class="video-btnbox">
+									<a class="volume off" href="javascript:void(0);"></a>
+									<a class="monitor" href="javascript:void(0);">1</a>
+									<a class="setting" href="javascript:void(0);"></a>
+								</div> -->
+								<!-- <div id="live_1" class="sicbo-countdown" style="display: none;">20</div> -->
+								<ul class="pos-lt fade-in">
+									<li id="streamAudio_1" class="video-volume"></li>
+									<li id="streamLine_1" class="video-switch2"></li>
+								</ul>
+								<ul class="pos-rt fade-in">
+									<li id="btn_infoMenu" class="video-info"></li>
+									<!-- <li id="streamFcn_1" class="video-expand" style="display: none"></li> -->
+								</ul>
+							</div>
+							<img id="video-COCKFIGHT" src="images/temp/video-COCKFIGHT.jpg" alt="">
+							<img id="video-DICE" src="images/temp/video-DICE.jpg" alt="">
+							<!-- <video id="playerContent_1" muted="" playsinline="" autoplay="" src="/Users/seanchenmbp2022/git/mps-cockfight/src/main/webapp/mobile/images/temp/video-COCKFIGHT.jpg"></video> -->
+						</div>
+					</div>
+				</div>
+				
+				<div id="arenaContainer" class="arena">
+					<span>Coming soon</span>
+					<ul id="arenaList">
+						<li id="arena_0" class="arena-betting">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>_AO2</span>
+							</a>
+						</li>
+						<li id="arena_1" class="arena-betting active">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>_AG3</span>
+							</a>
+						</li>
+						<li id="arena_2" class="arena-betting betted">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>_TH2</span>
+							</a>
+						</li>
+						<li id="arena_3" class="arena-fighting">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>_PH2</span>
+							</a>
+						</li>
+						<li id="arena_4" class="arena-countdown times-up">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>_TH1</span>
+							</a>
+						</li>
+						<li id="arena_5" style="">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>_AG1</span>
+							</a>
+						</li>
+						<li id="arena_6" style="">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>_AG4</span>
+							</a>
+						</li>
+						<li id="arena_7" style="">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>_TH4</span>
+							</a>
+						</li>
+						<li id="arena_8" style="">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>_TH6</span>
+							</a>
+						</li>
+						<li id="arena_9" style="">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>_TH2</span>
+							</a>
+						</li>
+						<li id="arena_10" style="">
+							<a href="javascript:void(0)">
+								<span></span>
+								<span>-</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="content-body content-COCKFIGHT">
+					
+				</div>
+				<div class="content-body content-DICE"></div>
+
+			</div>
+		</div>
+	</div>
+	<script>
+		$(window).ready(function() {
+			$(".content-COCKFIGHT").load("../content-COCKFIGHT.html");
+			$(".content-DICE").load("../src-SICBO/content-SICBO.html");
+		});
+	</script>
+</body>
+</html>

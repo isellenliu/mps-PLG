@@ -1,0 +1,340 @@
+// General link btn in gamehall
+.btn {
+    @include border-radius(vw(4px));
+    @include gradient-y(rgba($gray-light, 1), rgba($gray, 1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba($gray-dark, .8);
+}
+
+// btn styles
+.btn-primary {
+    @include gradient-y($orange, $orange-dark);
+    color: $white;
+    font-weight: bold;
+    text-shadow: 0 vw(2px) vw(2px) rgba($black, .4);
+}
+
+.btn-decline {
+    background: $gray-dark;
+    color: $gray;
+}
+
+.btn-reset {
+    color: $white;
+}
+
+.btn-md {
+    width: vw(160px);
+    height: vw(48px);
+    font-size: vw($font-xl);
+    text-shadow: 0 vw(2px) vw(2px) rgba($black, .4);
+}
+
+//close btn in navigation
+.btn-close {
+    position: absolute;
+    top: vw(4px);
+    right: vw(8px);
+    width: vw(32px);
+    height: vw(32px);
+    color: $gray-lighter;
+    font-size: vw($font-xxxl);
+    text-align: center;
+}
+
+.btn-accept-odds {
+    flex-direction: column;
+    width: vw(48 - 4px);
+    height: vw(64px);
+    padding-left: 4px;
+    font-size: vw($font-xs);
+    font-weight: bold;
+    word-break: break-word;
+
+    &::before {
+        @extend %box-sizing;
+        content: '';
+        width: vw(12px);
+        height: vw(12px);
+        margin-bottom: vw(4px);
+        margin-left: vw(-24px);
+        border: vw(1px) solid $gray;
+        background: rgba($white, .8);
+    }
+
+    &.active {
+        @include gradient-y(rgba($gray, 1), rgba($gray-light, 1));
+        color: #1e1e1e;
+
+        &::before {
+            border-color: $gray-darker;
+            background: $gray-darker svg-checked('%23ffffff') center no-repeat;
+            background-size: contain;
+        }
+    }
+}
+
+.btn-setting {
+    width: vw(48px);
+    height: vw(64px);
+
+    &::after {
+        content: '';
+        display: block;
+        width: vw(24px);
+        height: vw(24px);
+        opacity: .8;
+        background: svg-setting('%232d2d2d') center no-repeat;
+        background-size: cover;
+     }
+}
+
+.btn-confirm {
+    @include transition(all .25s);
+    width: vw(80px);
+    font-size: vw($font-body);
+    letter-spacing: vw(.8px);
+}
+
+.btn-loading {
+    @include transition(all .25s);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: rgba(241, 150, 0, 1);
+    background-image: none;
+    color: $gray-light;
+    text-shadow: 0 0 0 rgba($black, 0);
+
+    &::before {
+        content: '';
+        width: vw(32px);
+        height: vw(32px);
+        margin-top: vw(16px);
+        margin-bottom: vw(4px);
+        background-image: url('../../images/mobile/icon-loading.svg');
+        background-size: cover;
+    }
+}
+
+.btn-record {
+    position: relative;
+    width: vw(48px);
+    height: vw(50px);
+    border-radius: vw(4px);
+    background: rgba(33, 33, 33, 1) svg-record('%23ffffff') center no-repeat;
+    background-size: 60%;
+
+    .unread {
+        @include border-radius(vw(999px));
+        @include box-shadow(0 0 vw(4px) $black);
+        display: flex;
+        position: absolute;
+        bottom: vw(6px);
+        left: vw(24px);
+        align-items: center;
+        justify-content: center;
+        width: vw(20px);
+        height: vw(20px);
+        background-color: $orange-dark;
+        color: $white;
+        font-size: vw($font-sm);
+        font-weight: bold;
+        letter-spacing: vw(-1px);
+    }
+}
+
+.btn-cancel {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: vw(48px);
+    height: vw(48px);
+
+    &::after {
+        content: '';
+        display: block;
+        width: vw(20px);
+        height: vw(20px);
+        opacity: .8;
+        background: svg-cancel('%232d2d2d') center no-repeat;
+        background-size: cover;
+     }
+}
+
+.btn-close-subtitle {
+    position: relative;
+    width: vw(30px);
+    height: vw(30px); 
+
+    &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        content: '';
+        display: block;
+        width: vw(22px);
+        height: vw(22px);
+        background: svg-cancel('%23ffffff') center no-repeat;
+        background-size: cover;
+     }
+}
+
+//Gernaral btn style for forms
+button {
+    @include border-radius(vw(4px));
+    @include gradient-y(rgba($black, 0), rgba($black, .4));
+    background: $gray;
+    color: $white;
+}
+
+//login btn in login page
+.btn-login {
+    width: vw(288px);
+    height: vw(48px);
+    font-size: vw($font-xl);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+//general link area/btn in profile
+.cell {
+    position: relative;
+    bottom: 0;
+    height: vw(72px);
+    margin-top: -1px;
+    border-top: 1px $gray-light solid;
+    border-bottom: 1px $gray-light solid;
+    background-color: $white;
+
+    &::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 30%;
+        right: vw(4px);
+        width: vw(24px);
+        height: vw(24px);
+        background: svg-arrow-right('%23444444') center no-repeat;
+        background-size: cover;
+    }
+
+    a {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.cell-btn {
+    @extend .cell;
+    display: block;
+    height: vw(60px);
+    margin-left: 0;
+    padding-left: vw(16px);
+    border-left: vw(8px) $orange solid;
+    font-size: vw($font-md);
+    font-weight: bold;
+    line-height: vw(60px);
+
+    &:nth-child(even) {
+        border-left: vw(8px) $orange-dark solid;
+    }
+}
+
+.btn-replay {
+    @include border-radius(vw(999px));
+    display: block;
+    width: vw(108px);
+    height: vw(30px);
+    float: right;
+    color: $white;
+    font-size: vw($font-body);
+    line-height: vw(30px);
+    text-align: center;
+
+    &::after {
+        content: '';
+        display: inline-block;
+        position: relative;
+        top: vw(4px);
+        left: vw(4px);
+        width: vw(16px);
+        height: vw(16px);
+        background: svg-replay('%23ffffff') center no-repeat;
+        background-size: cover;
+    }
+}
+
+.btn-search {
+    @extend .btn-primary;
+    @include border-radius(100px);
+    @include box-shadow(0 0 vw(8px) rgba($black, .4));
+    display: block;
+    position: fixed;
+    bottom: vw(-12px);
+    left: calc(50% - #{vw(56px)} / 2);
+    // left: calc(50%);
+    // transform: translate(-50%);
+    width: vw(56px);
+    height: vw(56px);
+    overflow: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    text-align: center;
+
+    img {
+        width: vw(28px);
+        margin-top: vw(6px);
+    }
+}
+
+.btn-menu {
+    @include border-radius(vw(6px));
+    position: relative;
+    // width: vw(30px);
+    // height: vw(30px);
+    opacity: .7;
+    background-color: rgba(0, 0, 0, 0.8);
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: vw(18px);
+        height: vw(14px);
+        background: svg-btn-menu('%23ffffff') center no-repeat;
+        background-size: cover;
+    }
+}
+
+.btn-menu-close {
+    position: relative;
+    display: block;
+    width: vw(30px);
+    height: vw(30px);
+    border-radius: 99rem;
+    background-image: linear-gradient(0deg, #535353 0%, #292929 100%);
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.50);
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: vw(14px);
+        height: vw(14px);
+        background: svg-btn-menu-close('%23D8D8D8') center no-repeat;
+        background-size: cover;
+    }
+}

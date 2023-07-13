@@ -1,0 +1,73 @@
+//base
+@import 'base/color'
+@import 'base/mixin'
+@import 'base/reset'
+@import 'base/comm'
+
+//components
+@import 'components/marquee'
+@import 'components/game-status'
+@import 'components/txt'
+@import 'components/button'
+@import 'components/modal'
+@import 'components/alert'
+@import 'components/nav-tab'
+@import 'components/list'
+@import 'components/modal-announcement'
+
+//layout
+@import 'components/chips-settings'
+@import 'components/bet-detail-tb'
+@import 'layout/page-m'
+@import 'layout/page-pc'
+@import 'layout/page-report'
+
+// stock-game
+@import 'stock-game'
+@import 'stock-game-m'
+@import 'stock-game-pc'
+
+// 翻轉div效果
+@media (min-width: $min-phone-width) and (max-width: $max-pad-width) and (orientation: landscape)
+    body
+        overflow: hidden
+        &::before,
+        &::after
+            content: '\e9a1'
+            font-family: 'icomoon' !important
+            position: fixed
+            z-index: 9999
+            left: calc(50% - 60px)
+            top: calc(50% - 60px)
+            display: inline-block
+            font-size: 120px
+            line-height: 120px
+            color: #fff
+            width: 120px
+            height: 120px
+        &::before
+            color: #ffffff4d
+        &::after
+            animation: roll 1s infinite
+            transition: 1s ease-in-out
+            transform: rotate(-90deg)
+        .page-backdrop
+            display: block !important
+            background: #000000c9
+            z-index: 9998 !important
+        &.modal-open
+        .modal
+            z-index: 10000
+            height: 100% !important
+        &.body-iframe
+            &::before,
+            &::after,
+                display: none !important
+            .page-backdrop
+                display: none !important
+            
+@keyframes roll 
+    0% 
+        transform: rotate(90deg)
+    100% 
+        transform: rotate(0)

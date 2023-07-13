@@ -1,0 +1,86 @@
+.game-status
+    width: 100%
+    animation: bg-pan-right 2s 1 linear forwards
+    padding: 10px 0
+    border-top: 3px solid transparent
+    border-bottom: 3px solid transparent
+    &.new-match
+        background-image: linear-gradient(135deg, rgba(30,87,153,1) 11%,rgba(43,176,229,1) 49%,rgba(32,124,202,1) 50%,rgba(30,87,153,1) 100%)
+        background-size: 500% 100%
+    &.close-match,
+    &.break,
+    &.coming-soon
+        background-image: linear-gradient(135deg, #555555 11%,#c5c5c5 49%,#969696 50%,#555555 100%)
+        background-size: 500% 100%
+    &.alert-msg,
+    &.error-alert
+        background-image: linear-gradient(135deg, #241e1e 11%,#060000 49%,#241e1e 50%,#060000 100%)
+        background-size: 500% 100%
+        .txt
+            padding: 10px 0
+            border-top: 3px solid #1dd153
+            border-bottom: 3px solid #1dd153
+    &.error-alert
+        .txt
+            border-top: 3px solid #971d1d
+            border-bottom: 3px solid #971d1d
+
+    &.bet-error
+        background-image: linear-gradient(135deg, #241e1e 11%,#060000 49%,#241e1e 50%,#060000 100%)
+        border-top-color: #b21c1c
+        border-bottom-color: #b21c1c
+        background-size: 500% 100%
+    
+    &.meron-win
+        background-image: linear-gradient(135deg, rgba(96,19,19,1) 1%,rgba(244,46,46,1) 49%,rgba(178,28,28,1) 50%,rgba(96,19,19,1) 100%)
+        border-top-color: #dd1f15
+        border-bottom-color: #dd1f15
+        background-size: 500% 100%
+        .img
+            border: 3px solid #f41e14
+    &.wala-win
+        background-image: linear-gradient(135deg, #16376d 1%,#2871fb 49%,#16376d 50%,#2871fb 100%)
+        border-top-color: #175cdc
+        border-bottom-color: #175cdc
+        background-size: 500% 100%
+        .img
+            border: 3px solid #2871fb
+    &.wala-win,
+    &.meron-win
+        .img
+            box-shadow: 0 3px 8px #00000077
+            &.color-red
+                border-color: red
+            &.color-yellow
+                border-color: yellow
+            &.color-blue
+                border-color: blue
+            &.color-green
+                border-color: green
+            &.color-white
+                border-color: white
+            &.color-black
+                border-color: black
+        .msg
+            .txt
+                color: #fff !important
+
+    &.bet-success
+        background-image: linear-gradient(135deg, #027f0b 11%,#00ff06 49%,#027f0b 50%,#00ff06 100%)
+        border-top-color: #78ff00
+        border-bottom-color: #78ff00
+        background-size: 500% 100%
+    .txt
+        font-size: 100%
+        color: $white
+        display: block
+        text-align: center
+        line-height: 30px
+        font-weight: bold
+        text-shadow: 0 1px 2px #1d1d1d9f
+
+@keyframes bg-pan-right
+    0%
+        background-position: 0% 50%
+    100%
+        background-position: 100% 50%

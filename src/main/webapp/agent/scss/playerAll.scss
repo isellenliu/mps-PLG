@@ -1,0 +1,71 @@
+@import "mainSetting";
+@import "playerSetting";
+
+/***************/
+.playerprofile{
+    h4{
+    	font-size: 16px;
+    	margin: 10px 10px 10px 0;
+
+    	span{
+    		padding-left: 10px;
+    		text-decoration: underline;
+    	}
+    }
+    .box_1{
+    	margin-bottom: 30px;
+    }
+	.box_2{
+	     background: none;
+	     background-color: #ECECEC ;
+    }
+	.dl_1{
+		dt{
+			padding-left: 0;
+		}
+	}
+	.box_input{
+		@extend .BGcolor_Gray;
+		@extend .align-L;
+	}
+
+	.text_1{
+		@extend .align-L;
+		margin-top: 10px;
+	}
+
+	.mg_01{
+		margin-bottom: 1px;
+	}
+
+}
+.guide{
+	h4{
+		text-decoration: underline;
+	}
+	h5{
+		font-size: 15px;
+	}
+	p{
+		width: 750px;
+		line-height: 26px;
+	}
+	table{
+		width: 750px;
+		tr{			
+			line-height: 20px;
+		}
+		th{
+			width: 97px;
+			text-align: center;
+			background-color: #ECECEC;
+		}
+		td{
+			text-align: left;
+		}
+		p{
+			width: 100%;
+			line-height: 10px;
+		}
+	}
+}

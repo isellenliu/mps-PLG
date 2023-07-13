@@ -1,0 +1,225 @@
+//for MPS system
+.mps {
+// Main Navigation
+header {
+    height: vw($ht-mps-header);
+}
+
+.container {
+    height: 100%;
+}
+
+.betting-status {
+    // height: calc(100% - 58vw - 13vw  - 8vw);
+    height: vw(667px - 210px - 58px - 24px);
+}
+
+.arena li a {
+    height: vw($ht-port-arena + 4px);
+}
+
+.status-bar {
+    height: vw($ht-port-status + 4px);
+    line-height: vw($ht-port-status + 4px);
+}
+
+.pit-area {
+    // height: vw($ht-port-pit + 10px);
+    // height: calc(100% - 2vw);
+    // height: calc(100% - 20vw - 31vw);
+    height: vw(667px - 210px - 58px - 24px - 76px - 120px);
+}
+
+//For large-size device portarit (iphone X / Galaxy S8)
+@media screen and (min-device-height: 704px) and (max-device-height: 1000px) {
+    background: $gray-darker url('../../images/mobile/fullsrn-bg.jpg') left bottom fixed no-repeat;
+    background-size: contain;
+
+    .betting-status {
+        height: calc(100% - 58vw - 13vw  - 8vw - 20vw);
+    }
+}// For large-size device portarit
+
+//For normal Landscape mode
+// @media screen and (orientation: landscape) and (min-aspect-ratio: 13/9) {
+@media screen and (orientation: landscape) {
+    // All element position
+    header {
+        height: vmax($ht-mps-header);
+    }
+
+    .subtitle {
+        @include box-shadow(inset 0 vmax(4px) vmax(4px) rgba($black, .2));
+        height: vmax($ht-mps-subheader);
+
+        h1 {
+            font-size: vmax(16px);
+            line-height: vmax($ht-mps-subheader);
+        }
+
+        .btn-close {
+            top: 0;
+            right: vmax(8px);
+            width: vmax(28px);
+            height: vmax(28px);
+            font-size: vmax($font-xxxl);
+            line-height: vmax($font-xxxl);
+        }
+    }
+
+
+    .status-bar {
+        top: vmax($ht-mps-header) + vmax(3px);
+        height: vmax($ht-mps-status);
+        line-height: vmax($ht-mps-status);
+    }
+
+    .video {
+        top: vmax($ht-mps-header) + vmax(3px) + vmax($ht-mps-status);
+    }
+
+    .fullsrn {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    //the bottom sheet of chips setting
+    .setting-area {
+        dl {
+            margin-bottom: vmax(4px);
+        }
+    }
+    //the area of road-table, switcher, confirm and cancel btn
+    .confirm-area {
+        top: vmax($ht-mps-header) + vmax(3px) + vmax($ht-mps-status) + vmax(188px) + vmax(4px);
+        // height: vmax(114px);
+    }
+
+    .road-table {
+        // height: vmax(113px+4px);
+
+        &::-webkit-scrollbar {
+            // height: vmax(4px);
+            // height: 0;
+        }
+    }
+
+    .start-betting {
+        // height: vmax(113px+4px);
+    }
+
+    .btn-confirm {
+        flex: 0 1 57%;
+        order: 1;
+        height: vmax(54px);
+        margin-left: vmax(2px);
+        font-size: vmax($font-lg);
+        letter-spacing: vmax(.8px);
+    }
+
+    .btn-cancel {
+        position: relative;
+        flex: 0 1 20%;
+        order: 2;
+        height: vmax(54px);
+    }
+
+    .btn-record {
+        flex: 0 1 20%;
+        order: 3;
+        height: vmax(54px);
+        border-radius: vmax(4px);
+        background-size: 50%;
+
+        .unread {
+            @include box-shadow(0 0 vmax(4px) $black);
+            bottom: vmax(6px);
+            left: vmax(34px);
+            width: vmax(20px);
+            height: vmax(20px);
+            font-size: vmax($font-sm);
+            letter-spacing: vmax(-1px);
+        }
+    }
+
+    .btn-loading {
+        flex-direction: row;
+        justify-content: center;
+
+        &::before {
+            width: vmax(32px);
+            height: vmax(32px);
+            margin-top: 0;
+            margin-right: vmax(4px);
+            margin-bottom: 0;
+        }
+    }
+
+    .arena {
+        top: vmax($ht-mps-header);
+        height: vmax($ht-mps-arena);
+    }
+
+    .pit-area {
+        top: vmax($ht-mps-header) + vmax($ht-mps-arena) + vmax(1px);
+        height: vmax($ht-mps-pit);
+    }
+
+    .predict {
+        top: vmax($ht-mps-header) + vmax($ht-mps-arena) + vmax($ht-mps-pit);
+        height: vmax($ht-mps-predict);
+        line-height: vmax($ht-mps-predict);
+    }
+
+    .chip-area {
+        z-index: $zindex-setting-area;
+        top: vmax($ht-mps-header) + vmax($ht-mps-arena) + vmax(1px) + vmax($ht-mps-pit);
+        height: vmax($ht-mps-chip);
+    }
+
+    // Arena
+    .arena {
+        ul {
+            padding-top: vmax(4px);
+            padding-bottom: vmax(2px);
+        }
+
+        li {
+            min-width: vmax(64px);
+            margin: 0 vmax(2px);
+
+            a {
+                height: vmax($ht-arena - 10px + 4px);
+            }
+        }
+    }
+
+    .arena-scroll {
+        ul {
+            padding-top: vmax(4px);
+            padding-bottom: vmax(2px);
+        }
+
+        li {
+            min-width: vmax(70px);
+            margin: 0 vmax(2px);
+        }
+    }
+
+    .btn-confirm {
+        height: vmax($ht-mps-btn);
+    }
+
+    .btn-cancel {
+        height: vmax($ht-mps-btn);
+    }
+
+    .btn-record {
+        height: vmax($ht-mps-btn);
+    }
+} // end-of-landscape-media-query
+
+} // end-of-mps

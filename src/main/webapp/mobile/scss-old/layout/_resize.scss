@@ -1,0 +1,32 @@
+html, body{
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+}
+
+.scaleable-content {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  width: 375px;
+  height: 667px;
+  overflow: hidden;
+  padding: 0;
+  // border: 1px solid #ff00ff;
+  -webkit-overflow-scrolling: touch;
+}
+
+.landscape {
+  width: 667px;
+  height: 375px;
+}
+
+.scaleable-wrapper {
+  height: 100%;
+  // border: 1px solid #00ff00;
+}
+

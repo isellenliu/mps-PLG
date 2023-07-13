@@ -1,0 +1,96 @@
+<div class="chips-settings">
+    <div class="modal-header">
+        <h5 class="modal-title">Select chips</h5>
+        <a href="" class="close" data-dismiss="modal">
+            <i class="icon icon-close"></i>
+        </a>
+        <a class="back" data-dismiss="modal" href="javascript:history.go(-1)">
+            <i class="icon-arrow-left"></i>
+        </a>
+    </div>
+    <div class="modal-body">
+        <ul class="chips-box">
+            
+            <li>
+                <a class="chip-number " href="javascript:void(0);">
+                    10
+                </a>
+            </li>
+            <li>
+                <a class="chip-number " href="javascript:void(0);">
+                    25
+                </a>
+            </li>
+            <li>
+                <a class="chip-number " href="javascript:void(0);">
+                    50
+                </a>
+            </li>
+            <li class="selected">
+                <a class="chip-number" href="javascript:void(0);">
+                    100
+                </a>
+            </li>
+            <li>
+                <a class="chip-number" href="javascript:void(0);">
+                    250
+                </a>
+            </li>
+            <li class="selected">
+                <a class="chip-number" href="javascript:void(0);">
+                    500
+                </a>
+            </li>
+            <li class="selected">
+                <a class="chip-number" href="javascript:void(0);">
+                    1K
+                </a>
+            </li>
+            <li>
+                <a class="chip-number" href="javascript:void(0);">
+                    3K
+                </a>
+            </li>
+            <li class="selected">
+                <a class="chip-number" href="javascript:void(0);">
+                    5K
+                </a>
+            </li>
+            <li class="selected">
+                <a class="chip-number" href="javascript:void(0);">
+                    10K
+                </a>
+            </li>
+            <li class="d-block">
+                <a class="chip-number" href="javascript:void(0);">
+                    <span>99,999</span>
+                </a>
+                <div class="chips-group">
+                    <input type="number" class="form-control" placeholder="Please enter a chip">
+                    <span class="txt-info">Max 1,000,000</span>
+                </div>
+            </li>
+        </ul>
+
+        <div class="btn-box">
+            <a href="javascript:void(0)" class="btn-primary" data-toggle="modal" data-target="#error-alert">Submit</a>
+        </div>
+        
+    </div>
+
+
+    
+</div>
+
+<script>
+    $(window).ready(function () {
+        $('.chips-box li').on('click', function () {
+            // $('.chips-box li').removeClass('selected');
+            $(this).toggleClass('selected');
+        });
+
+    });
+
+    
+
+</script>

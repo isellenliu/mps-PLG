@@ -1,0 +1,607 @@
+body
+	
+	&.COCKFIGHT
+		#video-COCKFIGHT
+			display: block
+		.game-type-list
+			background: url("../../images/mobile/fullsrn-bg.jpg") no-repeat center center
+			background-size: 100%
+	&.DICE
+		.video-func .pos-lt,
+		#video-COCKFIGHT
+			display: none
+		.game-type-list
+			background: url("../../../mobile/images/mobile/gametype/gametype-bg.jpg") no-repeat center center
+			background-size: 100%
+	// ================
+	.content-body
+		&.content-COCKFIGHT
+			position: relative
+			z-index: 200
+			padding-bottom: 10vh
+			// border-bottom: 1px solid red
+		&.content-DICE
+			// border-bottom: 1px solid red
+	// =====================
+	.scaleable-wrapper
+		width: 100%
+		height: auto
+		.scaleable-content
+			width: 100%
+			height: auto
+			overflow: visible
+			position: absolute
+			header#gameHallHeader
+				z-index: 200
+				height: 4.5vh
+				h1
+					line-height: 4.5vh
+			.container
+				position: relative
+				height: auto
+				overflow: hidden
+				.msg
+					width: 100%
+					padding: 0
+					&.msg-show
+						animation: msg-show 0.4s ease-in 0s forwards
+				// ========================
+				// .video
+				// ========================
+				.video
+					width: 100vw
+					height: 33vh
+					align-items: flex-end
+					display: block
+					background: url("../../images/mobile/video-loading.jpg") no-repeat center
+					background-size: 100%
+					.video-container
+						width: 100vw
+						max-height: none
+						height: 33vh
+						.video-func
+							margin: 0
+							width: 100vw
+							height: 32vh
+							.pos-lt
+								left: 5px 
+								bottom: 5px
+							.pos-rt
+								position: absolute
+								left: auto
+								right: 5px
+								bottom: 5px
+							.video-countdown
+								left: 5px
+								top: 5px
+							.video-live
+								top: 5px
+								right: 5px
+								border-radius: 3px
+								padding: 2px 6px 2px 9px
+						video
+							height: 33vh !important
+							width: 100vw !important
+							object-fit: cover
+							object-position: center bottom
+						img
+							height: 33vh !important
+							object-fit: cover
+							object-position: center top
+				// -----------------------------------
+				// .game-type-list
+				.game-type-list
+					position: relative
+					height: 5vh
+					display: block
+					text-align: center
+					&.num-2
+						ul
+							li
+								width: 90px
+								background: none !important
+					ul
+						display: inline-flex
+						justify-content: space-around
+						margin: 0 auto
+						width: auto
+						li
+							position: relative
+							display: inline-block
+							height: 5vh
+							z-index: 50
+							border-radius: 8px
+							transition: all 0.3s ease-in-out
+							.img
+								position: absolute
+								top: -10px
+								left: 50%
+								transform: translateX(-50%)
+								display: inline-block
+								width: 45px
+								height: 45px
+							&.btn-COCKFIGHT
+								.img
+									background: url(../../../mobile/images/mobile/gametype/icon-COCKFIGHT.webp) no-repeat center center
+									background-size: 90%
+							&.btn-CASINO
+								.img
+									background: url(../../../mobile/images/mobile/gametype/icon-CASINO.webp) no-repeat center center
+									background-size: 90%
+							&.btn-DICE
+								.img
+									background: url(../../../mobile/images/mobile/gametype/icon-DICE.webp) no-repeat center center
+									background-size: 90%
+							&.btn-FANTAN
+								.img
+									background: url(../../../mobile/images/mobile/gametype/icon-FANTAN.webp) no-repeat center center
+									background-size: 90%
+							&.btn-XO
+								.img
+									background: url(../../../mobile/images/mobile/gametype/icon-XO.webp) no-repeat center center
+									background-size: 90%
+							&.btn-POKERVN
+								.img
+									background: url(../../../mobile/images/mobile/gametype/icon-POKERVN.webp) no-repeat center center
+									background-size: 90%
+							&.active
+								height: 5vh
+								// margin-top: -1vh
+								box-shadow: 0 2px 3px #000
+								&.btn-COCKFIGHT
+									// background: url("../../images/mobile/fullsrn-bg.jpg") no-repeat top center
+									// background-size: cover
+								&.btn-DICE
+									background: url("../../../mobile/images/mobile/gametype/gametype-bg.jpg") no-repeat bottom center
+									background-size: 100%
+									// background: linear-gradient(0deg, #4c4c4c, #020202)
+				// ==================
+				.arena
+					position: relative
+					z-index: 100
+					height: 5vh
+					border-bottom: 2px solid #4CAF50
+					opacity: .5
+					transition: all 0.40s ease-in-out
+					&.active
+						opacity: 1
+					ul#arenaList
+						padding-top: 0
+						padding-bottom: 0
+						overflow-x: auto
+						overflow-y: hidden
+						height: 100%
+						li
+							width: auto
+							min-width: 17vw
+							display: flex
+							align-items: center
+							height: 100%
+							overflow: visible
+							&::after
+								height: 2px
+							a
+								height: 100%
+								padding: 0
+							&.betted
+								&::before
+									top: 0
+									right: -2px
+				.status-bar
+					display: block
+					line-height: normal
+					height: 5vh
+					background: #1D1D1D url("../../images/mobile/fullsrn-bg.jpg") no-repeat center center
+					background-size: 100%
+					text-align: center
+					&::before
+						display: none
+					.logo
+						width: 40px
+						height: 35px
+						position: relative
+						transform: none
+						left: auto
+						top: auto
+						display: inline-block
+						text-align: right
+						img
+							width: 100%
+					.raceGroup
+						margin: 0 0 0 35vw
+						padding: 0 !important
+						display: flex
+						font-size: 2.3vh
+						white-space: nowrap
+						line-height: 25px
+						width: 140px
+						strong
+							text-shadow: 0 2px 5px #000
+						.raceGroup-txt
+							text-align: left
+							.date-time
+								position: absolute
+								width: 100%
+								color: #cbcaca
+								font-size: 10px
+								line-height: 1px
+								white-space: nowrap
+								word-break: break-all
+								margin: 0 auto
+								margin-left: -10%
+								transform: scale(.8)
+				// ------------------------------
+				.betting-status
+					height: auto
+					// ==================
+					// ==================
+					.pit-area
+						gap: 3px
+						height: 34vh
+						.pit-img
+							top: 2vh
+							img
+								width: 100%
+								height: 12vh !important
+							.chicken-weight
+								position: absolute
+								z-index: 0
+								width: auto !important
+								top: -20px
+								left: 0
+								padding: 0 5px
+								border-radius: 4px
+								line-height: 14px
+								text-align: center
+								color: #fff
+								font-size: 12px
+								background: linear-gradient(to left, #000100a1 20%, #000 50%, #000100a1 80%)
+						dl
+							dt
+								font-size: 100%
+								margin-bottom: 2vh
+								.dot
+									position: absolute
+									left: 20%
+									border-radius: 50px
+									width: 10px !important
+									height: 10px !important
+						.betting
+							top: 14vh
+						// --------------------
+						& > div
+							width: 100%
+							border: 2px solid transparent
+							border-radius: 12px
+							&.betting-add
+								width: auto
+								z-index: 1000
+							
+							&.pit-wala, &.pit-meron
+								position: relative
+								.betting
+									top: 17vh
+								.avatar
+									position: absolute
+									top: -8vh
+									left: 50%
+									transform: translateX(-50%)
+									width: 80%
+									height: 11vh
+									object-position: top center
+									object-fit: contain
+									border-radius: 12px
+									pointer-events: none
+									border: none !important
+									padding-top: 5px
+									dd
+										position: absolute
+										top: 0
+										left: 50%
+										transform: translate(-50%, 0%)
+							// --------------------------------
+							// meron
+							&.pit-meron
+								border-color: #7c2020
+								.pit-img
+									img
+										left: 30%
+
+								#bankerName
+									.dot
+										background: rgb(2550, 0, 0)
+								.loadingPic
+									position: absolute
+									top: -7.5vh
+									left: 50%
+									transform: translateX(-50%)
+									width: 70%
+									height: 9vh
+									pointer-events: none
+									padding-top: 5px
+									background: url(../../images/defaultL_Wide.webp) no-repeat center center
+									background-size: contain
+									img
+										display: none
+							&.pit-bdd
+								border-color: #346532
+							// --------------------------------
+							// wala
+							&.pit-wala
+								border-color: #213c66
+								.pit-img
+									img
+										left: 70%
+								.chicken-weight
+									right: 4px
+									left: auto
+								#playerName
+									.dot
+										left: auto
+										right: 20%
+										background: rgb(0, 102, 255)
+								#playerName
+									span
+										position: absolute
+										right: 22px
+										width: 12px
+										height: 12px
+										border-radius: 50px
+										background: #999
+								.loadingPic
+									position: absolute
+									top: -7.5vh
+									left: 50%
+									transform: translateX(-50%)
+									width: 70%
+									height: 9vh
+									pointer-events: none
+									padding-top: 5px
+									background: url(../../images/defaultR_Wide.webp) no-repeat center center
+									background-size: contain
+									img
+										display: none
+							.betting
+								max-width: 60px
+							.odds
+								position: absolute
+								top: 18px
+								left: 50%
+								transform: translateX(-50%)
+								width: 100%
+								padding: 0
+								margin: 0
+								text-align: center
+								font-size: 90%
+							&.pit-bdd
+								width: 80%
+								height: 82%
+					// ===========================
+					// 路子區
+					// ===========================	
+					.confirm-area
+						position: fixed
+						bottom: -4.5%
+						left: -30%
+						justify-content: center
+						gap: 2vmin
+						margin: 0
+						width: 160%
+						height: auto
+						transform: scale(.6)
+						.road-table-info
+							width: auto
+							li
+								margin-bottom: 15px
+						.road-table
+							border-radius: 10px
+							width: 100%
+							table
+								td
+									padding: 0
+									.badge
+										position: absolute
+										left: 50%
+										transform: translateX(-50%)
+										top: 0
+										display: inline-block
+										border: 2px solid 
+										width: 16px
+										height: 16px
+										border-radius: 50%
+										color: #ffffff
+										font-size: 0
+										text-indent: 0
+										font-weight: normal
+										line-height: 12px
+										text-align: center
+										&.meron-win
+											border-color: $meron-color
+										&.draw-win,
+										&.draw-win-2,
+										&.draw-win-3,
+										&.draw-win-4,
+										&.draw-win-5
+											border-color: $draw-color
+											&::before
+												content: ''
+												border: 1px solid $draw-color
+												width: 15px
+												position: absolute
+												left: -1px
+												top: 5px
+												z-index: 10
+												transform: rotate(-45deg)
+										&.wala-win
+											border-color: $wala-color
+										&.wala-win-reverse
+											font-size: 12px
+											border: none
+											background-color: $wala-color
+										&.draw-win-reverse
+											font-size: 12px
+											border: none
+											background-color: $draw-color
+										&.meron-win-reverse
+											font-size: 12px
+											border: none
+											background-color: $meron-color
+										&.draw-win-2,
+										&.draw-win-3,
+										&.draw-win-4,
+										&.draw-win-4,
+										&.draw-win-5
+											&::before
+												left: 3px
+												top: 7px
+												width: 12px
+												border: .5px solid $draw-color
+											&::after
+												content: '2'
+												line-height: 11px
+												font: Arial
+												font-weight: bold
+												color: $draw-color
+												font-size: 10px
+										&.draw-win-3
+											&::after
+												content: '3'
+										&.draw-win-4
+											&::after
+												content: '4'
+										&.draw-win-5
+											&::after
+												content: '5'
+						.road-wrapper
+							.road-table, .start-betting
+								max-width: 100%
+					// ===========================
+					.setting-area
+						height: calc(100% - 44vh)
+						dd
+							margin: 8px 0
+					// ===========================
+					
+			.record-area.active
+				height: calc(100% - 44vh)
+				.record-detail
+					height: 280px
+	// ----------------------------------
+	// ----------------------------------
+	// ----------------------------------
+	// MPS LogIn
+	&.mps
+		background: #1D1D1D url("../../images/mobile/fullsrn-bg.jpg") left bottom fixed no-repeat
+		background-size: contain
+		.scaleable-wrapper
+			touch-action: none //解決背景滑動問題
+			.scaleable-content
+				.container
+					.video
+						height: 35vh
+						.video-container
+							height: 35vh
+							.video-func
+								bottom: 30px
+								top: 0
+								height: 34vh
+							img,
+							video
+								height: 35vh !important
+								object-fit: fill
+								object-position: center bottom
+					// .status-bar
+					// 	height: 5vh
+					// 	&::before
+					// 		top: 0
+					// 	.logo
+					// 		width: 25px
+					// 		top: 0
+					// 	.raceGroup
+					// 		padding-top: 2vh
+					// 		font-size: 12px
+					// 		line-height: 22px
+					// .betting-status
+					// 	.pit-area
+					// 		height: 24vh
+					// 	.chip-area
+					// 		height: 10vh
+					// 		margin: 3px 1vmin
+					// 	.setting-area
+					// 		height: calc(100% - 47vh)
+					// 	.confirm-area
+					// 		margin: 4px !important
+					// 	.copyright
+					// 		margin: -1px
+					// 		font-size: 7px
+				// .record-area.active
+				// 	height: calc(100% - 47vh)
+					
+	// ======================================
+@media screen and (orientation: landscape)
+	body
+		overflow: hidden
+		background: #000 !important
+		&::before, &::after
+			content: ''
+			position: absolute
+			display: block
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			width: 100px
+			height: 100px
+			opacity: 1
+			background: url(../../images/phone.webp) center no-repeat
+			background-size: contain
+			animation: verticalIcon 2s ease infinite
+			z-index: 9999999
+		&::after
+			width: 100vw
+			height: 400vh
+			overflow: hidden
+			background: #000 url(../../images/phone.webp) center no-repeat
+			background-size: 55px
+			opacity: .6
+			animation: none
+			transform: translate(-50%, -50%) rotate(-90deg)
+			z-index: 0
+		.scaleable-wrapper
+			display: none !important
+		
+	// ======================================
+	// ======================================
+@keyframes msg-show
+	0%
+		top: -100vh
+	100%
+		top: 0px
+
+@-webkit-keyframes msg-show
+	0%
+		top: -100vh
+	100%
+		top: 0px
+
+@keyframes msg-hide
+	0%
+		top: 0
+	100%
+		top: -100vh
+
+@-webkit-keyframes msg-hide
+	0%
+		top: 0
+	100%
+		top: -100vh
+
+@keyframes verticalIcon
+	0%
+		transform: translate(-50%, -50%) rotate(-90deg)
+	100%
+		transform: translate(-50%, -50%) rotate(0deg)
+
+// =======================
+#infoDiv.scaleable-content
+	width: 100%
+	height: 100%

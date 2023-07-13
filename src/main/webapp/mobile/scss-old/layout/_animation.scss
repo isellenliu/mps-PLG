@@ -1,0 +1,316 @@
+//The swipe-up icon animation in the beginning of the game
+@keyframes swipe-up {
+    0%   {bottom: 0;}
+    100% {bottom: vw(48px);}
+}
+@-webkit-keyframes swipe-up {
+    0%   {bottom: 0;}
+    100% {bottom: vw(48px);}
+}
+
+@keyframes touch {
+    0%   {transform: scale3d(1.1, 1.1, 1.1);}
+    100% {transform: scale3d(.9, .9, .9);}
+}
+@-webkit-keyframes touch {
+    0%   {transform: scale3d(1.1, 1.1, 1.1);}
+    100% {transform: scale3d(.9, .9, .9);}
+}
+
+//The animation for fade-in and out
+@keyframes fade-in {
+    0%   {opacity: 0;}
+    100% {opacity: 1;}
+}
+@-webkit-keyframes fade-in {
+    0%   {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes fade-out {
+    0%   {opacity: 1;}
+    100% {opacity: 0;}
+}
+@-webkit-keyframes fade-out {
+    0%   {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+@keyframes fade-in-out {
+    0%   {opacity: 0;}
+    30% {opacity: 1;}
+    60% {opacity: 1;}
+    100% {opacity: 0;}
+}
+@-webkit-keyframes fade-in-out {
+    0%   {opacity: 0;}
+    30% {opacity: 1;}
+    60% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+@keyframes fade-circle {
+    0%   {opacity: 1;}
+    50% {opacity: .4;}
+    100% {opacity: 1;}
+}
+@-webkit-keyframes fade-circle {
+    0%   {opacity: 1;}
+    50% {opacity: .4;}
+    100% {opacity: 1;}
+}
+
+.fade-in {
+    @include animation(fade-in .4s ease-in 0s normal 1, forwards);
+}
+
+.fade-out {
+    @include animation(fade-out .4s ease-in 0s normal 1, forwards);
+}
+
+// The animation for the system msg box
+@keyframes msg-show {
+    0%   {top: vw(-48px);}
+    100% {top: 0;}
+}
+@-webkit-keyframes msg-show {
+    0%   {top: vw(-48px);}
+    100% {top: 0;}
+}
+
+@keyframes msg-hide {
+    0%   {top: 0;}
+    100% {top: vw(-48px);}
+}
+@-webkit-keyframes msg-hide {
+    0%   {top: 0;}
+    100% {top: vw(-48px);}
+}
+
+.msg-show {
+    @include animation(msg-show .4s ease-in 0s normal 1, forwards);
+}
+
+.msg-hide {
+    @include animation(msg-hide .4s ease-in 0s normal 1, forwards);
+}
+
+//video
+@keyframes video-msg-show {
+    0%   {bottom: vw(-48px);}
+    100% {bottom: 0;}
+}
+@-webkit-keyframes video-msg-show {
+    0%   {bottom: vw(-48px);}
+    100% {bottom: 0;}
+}
+
+@keyframes video-msg-hide {
+    0%   {bottom: 0;}
+    100% {bottom: vw(-48px);}
+}
+@-webkit-keyframes video-msg-hide {
+    0%   {bottom: 0;}
+    100% {bottom: vw(-48px);}
+}
+
+.video-msg-show {
+    @include animation(video-msg-show .4s ease-in 0s normal 1, both);
+}
+
+.video-msg-hide {
+    @include animation(video-msg-hide .4s ease-in 0s normal 1, forwards);
+}
+
+//arena-arena
+@keyframes timesup{
+    0%   {background-color: darken($orange, 20%);}
+    50%  {background-color: $orange;}
+    100% {background-color: darken($orange, 20%);}
+}
+
+//setting-area
+@keyframes setting-show {
+    0%   {bottom: -100%; opacity: 0;}
+    100% {bottom: 0; opacity: 1;}
+}
+@-webkit-keyframes setting-show {
+    0%   {bottom: -100%; opacity: 0;}
+    100% {bottom: 0; opacity: 1;}
+}
+
+@keyframes setting-hide {
+    0%   {bottom: 0; opacity: 1;}
+    100% {bottom: -100%; opacity: 0;}
+}
+@-webkit-keyframes setting-hide {
+    0%   {bottom: 0; opacity: 1;}
+    100% {bottom: -100%; opacity: 0;}
+}
+
+.setting-show {
+    @include animation(setting-show .4s ease-in 0s normal 1, none);
+}
+
+.setting-hide {
+    @include animation(setting-hide .4s ease-in 0s normal 1, none);
+}
+
+//record-area
+@keyframes record-show {
+    0%   {bottom: -100%; opacity: 0;}
+    100% {bottom: 0; opacity: 1;}
+}
+@-webkit-keyframes record-show {
+    0%   {bottom: -100%; opacity: 0;}
+    100% {bottom: 0; opacity: 1;}
+}
+
+@keyframes record-hide {
+    0%   {bottom: 0; opacity: 1;}
+    100% {bottom: -100%; opacity: 0;}
+}
+@-webkit-keyframes record-hide {
+    0%   {bottom: 0; opacity: 1;}
+    100% {bottom: -100%; opacity: 0;}
+}
+
+.record-show {
+    @include animation(record-show .4s ease-in 0s normal 1, none);
+}
+
+.record-hide {
+    @include animation(record-hide .4s ease-in 0s normal 1, none);
+}
+
+//The animation for the trans report search function
+@keyframes trans-search {
+    0%   {bottom: -530px; opacity: 0;}
+    100% {bottom: 0; opacity: 1;}
+}
+@-webkit-keyframes trans-search {
+    0%   {bottom: -530px; opacity: 0;}
+    100% {bottom: 0; opacity: 1;}
+}
+
+@keyframes trans-search-small-device {
+    0%   {top: 530px; opacity: 0;}
+    100% {top: 0; opacity: 1;}
+}
+@-webkit-keyframes trans-search-small-device {
+    0%   {top: 530px; opacity: 0;}
+    100% {top: 0; opacity: 1;}
+}
+
+// animation for kingcock img
+@-webkit-keyframes flip {
+  from {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  10% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  20% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 20deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 20deg);
+    opacity: 1;
+  }
+
+  30% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 0deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 0deg);
+    opacity: 1;
+  }
+
+  50% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 0deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 0deg);
+    opacity: 1;
+  }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -30deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -30deg);
+  }
+
+  70% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    opacity: 0;
+  }
+
+  to {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flip {
+  from {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  10% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  20% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 20deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 20deg);
+    opacity: 1;
+  }
+
+  30% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 0deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 0deg);
+    opacity: 1;
+  }
+
+  50% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 0deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 0deg);
+    opacity: 1;
+  }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -30deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -30deg);
+  }
+
+  70% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    opacity: 0;
+  }
+
+  to {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    opacity: 0;
+  }
+}
+
+.flip {
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  -webkit-animation-name: flip;
+  animation-name: flip;
+}
+

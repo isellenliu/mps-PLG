@@ -1,0 +1,56 @@
+//guide & T&C
+.color-red {color: $red;}
+.color-blue {color: $blue;}
+.color-green {color: #1f8a23;}
+
+.guide {
+    padding-bottom: vw(10px);
+    color: #444444;
+    font-size: vw(13px);
+
+    .guide-tittle {
+        background-color: #ffffff;
+
+        p {
+            padding: vw(6px) vw(12px);
+            color: #444444;
+        }
+    }
+
+    h2 {
+        padding: vw(8px) vw(12px);
+        border-bottom: 1px solid #F6F6F6;
+        color: #B75300;
+        font-size: vw(18px);
+        line-height: vw(21px);   
+    }
+
+    h3 {
+        padding: vw(8px) vw(12px);
+        border-bottom: 1px solid #F6F6F6;
+        background-color: #ffffff;
+        color: #EF6D02;
+        font-size: vw(16px);
+        line-height: vw(19px);
+    }
+
+    h4 {
+        font-size: vw(14px);
+        font-weight: bolder;
+        line-height: vw(17px);
+    }
+
+    ol {
+        padding: vw(8px) vw(12px);
+        list-style: none;
+    }
+
+    li {
+        margin-bottom: vw(10px);
+
+        h4 {
+            margin-bottom:  vw(2px);
+        }
+    }
+}
+

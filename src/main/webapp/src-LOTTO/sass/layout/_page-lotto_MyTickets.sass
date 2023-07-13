@@ -1,0 +1,258 @@
+// page-lotto_MyTickets
+
+.page-web.lotto
+    .page-body.myTickets
+        justify-content: normal
+        // 分類標籤
+        .box-categories
+            margin-bottom: 2vh
+            ul.categories-list
+                border-bottom: 1px solid $clr-gray_6
+                li.categories
+                    margin-right: 3vw
+                    padding-bottom: .5vh
+                    &.active
+                        color: $clr-yellow
+                        border-bottom: 4px solid $clr-yellow
+        // 分類資料
+        .box-tickets
+            ul.tickets-list
+                overflow: hidden
+                li.ticket
+                    display: block
+                    height: fit-content
+                    margin-bottom: 2vh
+                    padding: 3vw 4vw
+                    border-radius: 5px
+                    background: $clr-gray_2
+                    // ticket 展開時 --------------------
+                    &.show
+                        border: 1px solid $clr-yellow
+                        .ticket-title
+                            .lotto-icon.expandMore
+                                display: none
+                            .lotto-icon.expandLess
+                                display: inline-block
+                        ul.ticket-detail
+                            display: flex
+                            // height: auto
+                            // transform: scale(1)
+                            // transition: scale 0s, height .3s
+                    // ticket 上排 --------------------
+                    .ticket-title
+                        display: flex
+                        justify-content: space-between
+                        align-items: center
+                        span.lotto-icon.expandMore
+                            display: inline-block
+                        span.lotto-icon.expandLess
+                            display: none
+                        // 期號
+                        p.drawDate
+                            font-size: 18px
+                            margin-right: 2vw
+                            vertical-align: middle
+                        // replay
+                        .box-icon
+                            .lotto-icon.videocam
+                                width: 24px
+                                height: 24px
+                                fill: $clr-white
+                                vertical-align: middle
+                        // 獲獎金額
+                        .winning
+                        // 鬧鐘
+                        .lotto-icon.alarm
+                            margin-right: 1vw
+                        // 倒計時
+                        .drawTime-countdown
+                        // 已刪除
+                        .deleted
+                            padding: 0 1vw
+                            border-radius: 5px
+                            border: 1px solid $clr-white
+                    // ticket 分隔線 --------------------
+                    >hr
+                        margin: 2vw 0
+                    // ticket 下排 --------------------
+                    ul.ticket-numbers
+                        display: flex
+                        flex-wrap: nowrap
+                        .numberBall
+                            &:not(:last-child)
+                                margin-right: 2vw
+                            // --------------------
+                            &.hit
+                                // background: #99BBFF
+                                background: $clr-yellow
+                                color: $clr-gray_1
+                                opacity: .8
+                            // --------------------
+                            width: 12vw
+                            height: 10vw
+                            line-height: 11vw
+                            text-align: center
+                            border-radius: 100px
+                            background: $clr-gray_1
+                    // ticket 展開後的明細 --------------------
+                    ul.ticket-detail
+                        display: none
+                        // height: 0
+                        // transform: scale(0)
+                        // display: flex
+                        flex-direction: column
+                        padding: 2vw 0 1vw
+                        .winningNumbers
+                            display: flex
+                            margin-bottom: 2vw
+                            span:first-child
+                                flex-grow: 1
+                            span:not(:first-child)
+                                margin-left: 10px
+                        .orderID,
+                        .betPlaced,
+                        .deletedOn,
+                        .numberCount,
+                        .betCount,
+                        .betAmount,
+                        .MaxPrize,
+                        .totalBet,
+                        .winningPrize,
+                        hr
+                            position: relative
+                            margin-bottom: 2vw
+                            >span:last-of-type
+                                position: absolute
+                                right: 0
+                                bottom: 0
+                        // 號碼組合
+                        .betCount
+                            >span:last-of-type
+                                top: 4px
+                            // 展開時
+                            // &.open
+                            //     .lotto-icon.arrow_dropDown
+                            //         display: none
+                            //     .lotto-icon.arrow_dropUp
+                            //         display: inline-block
+                            //     >span:last-of-type
+                            //         top: 4px
+                            //     .bet-list
+                            //         display: flex
+                            // --------------------
+                            .lotto-icon.arrow_dropDown
+                                display: inline-block
+                            .lotto-icon.arrow_dropUp
+                                display: none
+                            >span
+                                vertical-align: middle
+                            .bet-list
+                                // display: none
+                                display: flex
+                                flex-direction: column
+                                justify-content: center
+                                align-items: center
+                                .bet
+                                    span
+                                        font-weight: 500
+                                    &:not(:last-child)
+                                        margin-bottom: 2vw
+                                    .numberBall
+                                        font-size: 16px
+                                        &:not(:last-child)
+                                            margin-right: 2vw
+                                    &.hit
+                                        span
+                                            color: $clr-yellow
+                        // delete 按鈕
+                        .btn-box
+                            margin: 3vw auto 0
+                            .btn-delete
+                                padding: 3vw 15vw
+                                border-radius: 100px
+                                color: $clr-gray_2
+                        // 灰色小字
+                        .subTitle
+                            margin: 0 auto
+                            color: $clr-gray_7
+                    // 三個號碼時 不顯示號碼組合 --------------------
+                    &.num-3
+                        .betCount
+                            .lotto-icon,
+                            .bet-list
+                                display: none !important
+                    // 六個號碼時 號碼排列組合分兩排顯示 --------------------
+                    &.num-6
+                        // .betCount.open
+                        .betCount
+                            .bet-list
+                                width: 90%
+                                margin: 0 auto
+                                display: grid !important
+                                grid-auto-flow: column
+                                grid-template-columns: repeat(2, 1fr)
+                                grid-template-rows: repeat(10, 1fr)
+                                align-items: center
+                                justify-items: center
+                                row-gap: 2vw
+                                margin-top: 1vw
+                                .bet
+                                    margin-bottom: 0 !important
+                    // 超過取消期限 --------------------
+                    &.overtime
+                        .ticket-detail
+                            .btn-box
+                                display: none
+                    // 未開獎 --------------------
+                    &.pending
+                        .ticket-title
+                            .drawDate
+                                flex-grow: 1
+                            .box-icon,
+                            .winning,
+                            .deleted
+                                display: none
+                        .ticket-detail
+                            .deletedOn,
+                            .winningPrize
+                                display: none
+                    // 已開獎 --------------------
+                    &.drawn
+                        .ticket-title
+                            .winning
+                                text-align: right
+                            .lotto-icon.alarm,
+                            .drawTime-countdown,
+                            .deleted
+                                display: none
+                            .drawDate
+                                // flex-grow: 0
+                            .box-icon
+                                flex-grow: 1
+                        .ticket-detail
+                            .MaxPrize,
+                            .deletedOn,
+                            .btn-box
+                                display: none
+                        // &.win
+                        .winning
+                            text-align: right
+                            // display: block
+                        // .winningPrize
+                        //     display: block
+                    // 已刪除 --------------------
+                    &.deleted
+                        .ticket-title
+                            .drawDate
+                                flex-grow: 1
+                            .box-icon,
+                            .winning,
+                            .lotto-icon.alarm,
+                            .drawTime-countdown
+                                display: none
+                        .ticket-detail
+                            .MaxPrize,
+                            .btn-box,
+                            .subTitle,
+                            .winningPrize
+                                display: none

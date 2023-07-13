@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<title>CF mobile - BK Trans Summary </title>
+<link href="css/mobile/profile.css" rel="stylesheet" type="text/css">
+</head>
+<body class="trans bk">
+	<header>
+		<h1>Transaction Report</h1>
+		<ul>
+			<li class="goback-icon">
+				<a href="#"></a>
+			</li>
+			<li class="gamehall-icon">
+				<a href="index.html"></a>
+			</li>
+			<li class="menu-icon" onclick="openNav()">
+				<a href="#"></a>
+			</li>
+		</ul>
+		<div class="title-trans">
+			<dl class="trans-date">
+				<dt>24</dt>
+				<dd>
+					<span>JUN</span>
+					2017
+				</dd>
+			</dl>
+			<h2>BikiMex</h2>
+		</div>
+	</header>
+	<nav id="mainSidenav" class="sidenav">
+		<a href="javascript:void(0)" class="btn-close" onclick="closeNav()">&times;</a>
+		<ul class="sidenav-main">
+			<li>
+				<a href="profile.html">Profile</a>
+			</li>
+			<li>
+				<a href="trans-report.html">Transaction Report</a>
+			</li>
+			<li>
+				<a href="pwd.html">Change Password</a>
+			</li>
+			<li>
+				<a href="login.html">Logout</a>
+			</li>
+		</ul>
+	</nav>
+	<main>
+		<dl class="grand-total">
+			<dt>Grand Total</dt>
+			<dd>$ 999.00</dd>
+		</dl>
+
+		<div class="trans-by-date">
+			<h3>CPC1</h3>
+			<ul class="cell-th">
+				<li>Round</li>
+				<li>Bet</li>
+				<li>Amt</li>
+				<li>Win/Loss</li>
+			</ul>
+			<ul class="cell">
+				<a href="trans-detail-bk.html"></a>
+				<li><span class="badge-arena">23</span></li>
+				<li><span class="tag tag-player">Player Bonus</span></li>
+				<li>300.00</li>
+				<li>300.00</li>		
+			</ul>
+			<ul class="cell">
+				<a href="trans-detail-bk.html"></a>
+				<li><span class="badge-arena">18</span></li>
+				<li><span class="tag tag-banker">Banker Bonus</span></li>
+				<li>123,456.00</li>
+				<li>123,456.00</li>		
+			</ul>
+			<ul class="cell">
+				<a href="trans-detail-bk.html"></a>
+				<li><span class="badge-arena">7</span></li>
+				<li><span class="tag tag-tie">Tie</span></li>
+				<li>300.00</li>
+				<li class='minus'>-1,300.00</li>		
+			</ul>
+			<dl class="sub-total">
+				<dt>Subtotal</dt>
+				<dd>$ 456.00</dd>
+			</dl>
+		</div>
+
+		<div class="trans-by-date">
+			<h3>BA2</h3>
+			<ul class="cell-th">
+				<li>Round</li>
+				<li>Bet</li>
+				<li>Amt</li>
+				<li>Win/Loss</li>
+			</ul>
+			<ul class="cell">
+				<a href="trans-detail-bk.html"></a>
+				<li><span class="badge-arena">12</span></li>
+				<li><span class="tag tag-other">Phoenix Pair</span></li>
+				<li>999.00</li>
+				<li>888.00</li>		
+			</ul>
+			<ul class="cell">
+				<a href="trans-detail-bk.html"></a>
+				<li><span class="badge-arena">3</span></li>
+				<li><span class="tag tag-player">Player Pair</span></li>
+				<li>200.00</li>
+				<li>120.00</li>		
+			</ul>
+			<dl class="sub-total">
+				<dt>Subtotal</dt>
+				<dd>$ 123,456.00</dd>
+			</dl>
+		</div>
+	</main>
+	<a href="trans-search.html" class="btn-search"><img src="images/mobile/profile/icon-search.svg" alt=""></a>
+	<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>SV388 - Agent New Downline</title>
+	<link rel="stylesheet" type="text/css" media="all" href="css/agentAll.css" />
+	<link rel="stylesheet" href="../library/icomoon/style.css">
+</head>
+
+<body>
+	<div class="header clearfix">
+		<h1>SV388</h1>
+		<ul class="headerBtn">
+			<li style="display: none"><a class="btnLive">LIVE</a></li>
+			<li><a class="btnLogout" id="logout">LOGOUT</a></li>
+		</ul>
+		<ul class="language">  
+			<li>English
+				<ul id="selectLang">
+				 
+					<li>English<span style="display: none">en</span></li>
+				 
+					<li>中文<span style="display: none">cn</span></li>
+				 
+					<li>Tiếng Việt<span style="display: none">vi</span></li>
+				 
+					<li>日本語<span style="display: none">jp</span></li>
+				 
+					<li>ไทย<span style="display: none">th</span></li>
+				 
+					<li>ESPAÑOL<span style="display: none">es</span></li>
+				 
+					<li>Malay<span style="display: none">ms</span></li>
+				 
+					<li>Indonesia<span style="display: none">id</span></li>
+				 
+					<li>Khmer<span style="display: none">kh</span></li>
+				  
+				</ul>
+			</li>
+		</ul>
+		<div id="mrqContainer" class="scrollingText" style="overflow: hidden; position: relative; height: 27px;">
+			<ul id="mrqParent" style="position: absolute; margin: 0px; padding: 0px;"><li style="margin: 0px; padding: 0px; height: 27px;">-</li></ul>
+		</div>
+	</div>
+	<div class="nav" id="leftMenu">
+		<div class="userID com">
+			<p><strong>ID:one</strong></p>
+			<p>Nick.:<span id="loginNameTitle">one</span></p>
+		</div>
+			
+		
+			<h3 name="agentReport">Reports</h3>
+			<ul name="agentReport">
+				
+				<li id="topWinnerLoser" onclick="agentHandler.link(this,'./reports/topWinnerLoser.jsp?first=true')" class="">Top Winner / Loser</li>
+				
+				<li id="winLossSimple" onclick="agentHandler.link(this,'./reports/winLossSimple.jsp')" class="">Win / Loss Simple</li>
+				<li id="winLossDetails" onclick="agentHandler.link(this,'./reports/winLossDetails_v2.jsp?first=true')" class="">Downline Win / Loss</li>
+				
+				<li id="transactionHistory" onclick="agentHandler.link(this,'./reports/transactionHistory.jsp')" class="">Transaction&nbsp;History</li>
+				
+				<li id="currentBets" onclick="agentHandler.link(this,'./reports/currentBets.jsp')" class="">Current&nbsp;Bets</li>
+				
+				<li id="matchResults" onclick="agentHandler.link(this,'./reports/matchResults.jsp')" class="">Match&nbsp;Results</li>
+				
+				<li id="matchWinLoss" onclick="agentHandler.link(this,'./reports/matchWinLoss.jsp?first=true')" class="">Match Win / Loss</li>
+				
+					<li id="dailyWinLoss" onclick="agentHandler.link(this,'./reports/dailyWinLoss_v2.jsp?first=true')" class="">Daily Win / Loss</li>
+					
+						<li id="transferLog" onclick="agentHandler.link(this,'./reports/transferLog.jsp')" class="">Statement</li>
+					
+				
+			</ul>
+			
+			<h3>Downline Info</h3>
+			<ul>
+				
+				
+				
+				<li id="createAgent" onclick="agentHandler.link(this,'./membersInfo/createAgent.jsp')" class="tagPage">New Downline</li>
+				
+				<li id="searchDownline" onclick="agentHandler.link(this,'./membersInfo/searchDownline.jsp')" class="">Downline List</li>
+
+				
+					<li id="searchDownlineForOne" onclick="agentHandler.link(this,'./membersInfo/searchDownlineForOne.jsp')" class="">Downline List For One</li>
+				
+				
+				<li id="balanceMeun" onclick="agentHandler.link(this,'./membersInfo/searchCreditBalance.jsp')" class="">Credit&nbsp;/&nbsp;Balance</li>
+				
+				
+				<li id="createSubAccount" onclick="agentHandler.link(this,'./membersInfo/createSubAccount.jsp')" class="">New Sub Account</li>
+				
+				<li id="searchSubAccount" onclick="agentHandler.link(this,'./membersInfo/searchSubAccount.jsp')" class="">Sub&nbsp;Account&nbsp;List</li>
+					
+					<li id="transfer" onclick="agentHandler.link(this,'./membersInfo/searchTransfer.jsp')" class="">Transfer</li>
+					
+				
+				<li id="password" onclick="agentHandler.link(this,'./security/password.jsp')" class="">Security</li>
+			</ul>
+			
+		
+	</div>
+	<div class="title  clearfix">
+		<a id="Home" onclick="agentHandler.link(this,'./profile.jsp');" class="tagPage">Home</a>
+		<h3 id="topTitle">New Downline</h3>
+		<p id="topTime">11:22:53 AM&nbsp;&nbsp;Apr 14, 2023 GMT+8</p>
+		
+	</div>
+	<div style="">
+		<iframe style="border: none; height: 800px; width: 1250px;" name="mainFrame" id="mainFrame" allowtransparency="true" frameborder="0" scrolling-y="auto" onload="IFrameUtil.calcHeight('mainFrame');" height="2083" src="membersInfo/createAgent.html"> </iframe>
+    </div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

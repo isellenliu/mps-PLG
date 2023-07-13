@@ -1,0 +1,390 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.clearfix:after, .contant:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.clearfix, .contant {
+  zoom: 1;
+}
+
+.clear {
+  clear: both;
+}
+
+html, body {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+}
+
+h1 {
+  background: url(../images/logo-app-download.png) no-repeat center center;
+  background-size: auto 100%;
+  text-indent: -9999px;
+}
+
+h2 {
+  height: 210px;
+  background: url(../images/icon-app.png) no-repeat top center;
+  background-size: auto 100%;
+  text-indent: -9999px;
+}
+
+h3 {
+  font-size: 19px;
+  font-weight: normal;
+  text-align: center;
+  color: #fcc701;
+  margin-bottom: 20px;
+}
+
+.contant {
+  margin: 0 auto;
+}
+
+.contant a {
+  display: block;
+  width: 205px;
+  border-radius: 10px;
+  text-align: center;
+  color: #000;
+  font-size: 25px;
+  padding: 10px 0;
+  text-decoration: none;
+  margin: 0 auto;
+  background: linear-gradient(to bottom, #fcce01 0%, #fc9e01 100%);
+  box-shadow: 0 3px 17px 2px rgba(0, 0, 0, 0.75);
+}
+
+.contant .desktop {
+  margin-top: 20px;
+  font-size: 14px;
+  padding: 10px 0;
+  background: linear-gradient(to bottom, #636363 0%, #333333 100%);
+  color: #ffc600;
+}
+
+.contant p {
+  color: #fccc01;
+  text-align: center;
+  font-size: 10px;
+  margin-top: 10px;
+}
+
+.btn {
+  margin: 0 auto;
+}
+
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  font-size: 8px;
+  text-align: center;
+  padding: 10px 5px;
+  line-height: 10px;
+  color: #fff;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+footer p {
+  display: inline;
+  padding: 0 7px;
+}
+
+footer span {
+  color: #fbc800;
+}
+
+ul li {
+  list-style: none;
+  font-size: 20px;
+  color: #fff;
+  clear: both;
+  line-height: 20px;
+}
+
+ul span {
+  display: block;
+  width: 23px;
+  height: 23px;
+  line-height: 23px;
+  font-size: 18px;
+  text-align: center;
+  color: #000;
+  border-radius: 200px;
+  margin-right: 10px;
+  float: left;
+  background: linear-gradient(to bottom, #fc8404 0%, #de4f00 100%);
+  box-shadow: 0 0 22px rgba(0, 0, 0, 0.98);
+}
+
+ul .title {
+  color: #ff9600;
+  font-size: 24px;
+  text-align: center;
+}
+
+.two-system h1 {
+  background-size: auto 100%;
+  margin-bottom: 0px;
+}
+
+.two-system h2 {
+  background-size: auto 100%;
+}
+
+.two-system .btn .ios, .two-system .btn .android {
+  width: 100%;
+  font-size: 20px;
+  padding: 10px 0 10px 40px;
+  text-align: left;
+  margin-bottom: 0px;
+  color: #5a3b00;
+  background: url(../images/icon-ios.png) no-repeat 10px center, linear-gradient(to bottom, #fcce01 0%, #fc9e01 100%);
+}
+
+.two-system .btn .ios strong, .two-system .btn .android strong {
+  color: #000;
+}
+
+.two-system .btn .android {
+  background: url(../images/icon-android.png) no-repeat 10px center, linear-gradient(to bottom, #fcce01 0%, #fc9e01 100%);
+}
+
+.two-system .btn p {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.newApp .contant {
+  padding: 15px;
+}
+
+.newApp h5 {
+  width: 60px;
+  height: 60px;
+  text-indent: -9999px;
+  background: url(../images/icon_attention.png) center center no-repeat;
+  background-size: 100% 100%;
+  margin: 0px auto 10px auto;
+}
+
+.newApp h3 {
+  text-align: left;
+  color: #ffd851;
+  font-size: 18px;
+  margin-bottom: 0px;
+}
+
+.newApp p {
+  color: #efebdd;
+  font-size: 13px;
+  line-height: 15px;
+  text-align: left;
+  margin-top: 3px;
+  margin-bottom: 13px;
+}
+
+.newApp .noet {
+  border-bottom: 1px #6d5b48 solid;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.newApp .tips img {
+  display: block;
+  width: 305px;
+  height: 165px;
+  margin: 0 auto;
+}
+
+.newApp a {
+  width: max-content;
+  display: block;
+  background: url(../images/icon_download.png) 10px center no-repeat, linear-gradient(to bottom, #fcce01 0%, #fc9e01 100%);
+  background-size: auto 60%, 100% 100%;
+  margin: 20px auto 0 auto;
+  font-size: 20px;
+  border-radius: 4px;
+  padding: 12px 12px 12px 40px;
+  text-align: left;
+}
+
+/**橫式顯示 landscape**/
+@media only screen and (orientation: landscape) {
+  body {
+    background: url(../images/bg-add-download-l.jpg) #000 center top no-repeat;
+    background-size: 100% auto;
+  }
+  body.newApp {
+    background: url(../images/bg-add-download-p.jpg) center top #000 no-repeat;
+    background-size: 100% auto;
+  }
+  body.newApp .contant {
+    width: 100%;
+  }
+  body.newApp h5 {
+    display: none;
+  }
+  body.newApp .noet {
+    width: 50%;
+    border-bottom: none;
+    float: left;
+  }
+  body.newApp .tips {
+    width: 50%;
+    float: left;
+  }
+  body.newApp .tips img {
+    width: 285px;
+    height: 160px;
+  }
+  h1 {
+    width: 310px;
+    height: 70px;
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .setting h1 {
+    display: none;
+  }
+  h2 {
+    width: 165px;
+    height: 203px;
+    margin-top: 30px;
+    float: left;
+  }
+  .contant {
+    width: 480px;
+    position: relative;
+    top: 50%;
+    margin-top: -140px;
+  }
+  .contant a {
+    font-size: 20px;
+  }
+  .contant .desktop {
+    margin-top: 15px;
+  }
+  .btn {
+    width: 300px;
+    float: right;
+  }
+  footer br {
+    display: none;
+  }
+  ul {
+    width: 513px;
+    background: url(../images/bg-setting.png) -20px top no-repeat;
+    position: relative;
+    top: 50%;
+    margin: -150px auto 0 auto;
+    padding: 50px 0 40px 230px;
+  }
+  ul li {
+    margin-bottom: 15px;
+  }
+  ul .title {
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 23px;
+  }
+  .two-system .contant {
+    margin-top: -150px;
+  }
+  .two-system .contant .desktop {
+    padding: 5px 0;
+  }
+  .two-system h1 {
+    height: 50px;
+  }
+  .two-system h2 {
+    margin-top: 45px;
+  }
+  .two-system h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .two-system .btn {
+    width: 240px;
+    float: left;
+    margin-left: 40px;
+  }
+  .two-system .btn .ios, .two-system .btn .android {
+    font-size: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .two-system .btn p {
+    margin-bottom: 10px;
+  }
+}
+
+/**直式顯示 portrait**/
+@media only screen and (orientation: portrait) {
+  body {
+    background: url(../images/bg-chicken-p.jpg) center bottom no-repeat, url(../images/bg-add-download-p.jpg) center top #000 no-repeat;
+  }
+  body.newApp {
+    background: url(../images/bg-add-download-p.jpg) center top #000 no-repeat;
+    background-size: 100% auto;
+  }
+  body.newApp .contant {
+    width: 100%;
+  }
+  body.setting {
+    background: url(../images/bg-add-download-p.jpg) center top #000 no-repeat;
+  }
+  body.setting h1 {
+    width: 410px;
+    height: 80px;
+    background-size: auto 100%;
+  }
+  h1 {
+    height: 80px;
+    margin-bottom: 10px;
+  }
+  h2 {
+    margin: 0 auto;
+  }
+  .contant {
+    width: 410px;
+    padding-top: 40px;
+  }
+  .btn {
+    width: 242px;
+  }
+  ul {
+    width: 110%;
+    background: url(../images/bg-setting.png) center -24px no-repeat;
+    padding: 265px 0 40px 0;
+    margin: 0 auto;
+  }
+  ul li {
+    width: 265px;
+    margin: 0 auto 15px auto;
+  }
+  ul .title {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .two-system h1 {
+    height: 70px;
+  }
+  .two-system h2 {
+    height: 150px;
+  }
+  .two-system .btn {
+    width: 265px;
+  }
+}

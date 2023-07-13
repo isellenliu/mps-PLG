@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="27px" height="27px" viewBox="0 0 27 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
+    <title>icon/video-play</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Login/Logout/Profile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Match-detail-no20" transform="translate(-319.000000, -299.000000)">
+            <g id="Group-12" transform="translate(0.000000, 218.000000)">
+                <g id="Group-29">
+                    <g id="Group-2" transform="translate(316.000000, 14.000000)">
+                        <g id="icon/video-play" transform="translate(0.000000, 64.000000)">
+                            <g id="ic_play_circle_outline_black_24px">
+                                <polygon id="Shape" points="0 0 32 0 32 32 0 32"></polygon>
+                                <path d="M13,23 L21,17 L13,11 L13,23 Z M16.5,3 C9.048,3 3,9.048 3,16.5 C3,23.952 9.048,30 16.5,30 C23.952,30 30,23.952 30,16.5 C30,9.048 23.952,3 16.5,3 Z M16.5,28 C10.160625,28 5,22.839375 5,16.5 C5,10.160625 10.160625,5 16.5,5 C22.839375,5 28,10.160625 28,16.5 C28,22.839375 22.839375,28 16.5,28 Z" id="Shape" fill="#2D2D2D" fill-rule="nonzero"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

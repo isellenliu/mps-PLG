@@ -1,0 +1,29 @@
+.lotto-alert
+    &.show
+        top: 5vh
+        opacity: 1
+        transition: .3s
+    // --------------------
+    position: fixed
+    top: -50px
+    left: 50%
+    transform: translateX(-50%)
+    width: fit-content
+    max-width: 80vw
+    padding: 15px
+    border-radius: 10px
+    opacity: 0
+    text-align: center
+    background: $clr-gray_2
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, .2)
+    transition: opacity .4s, top .3s .3s
+    z-index: 10
+    span
+        display: inline-block
+        vertical-align: middle
+        // &.alert-icon.success
+        //     color: $clr-success
+        // &.alert-icon.error
+        //     color: $clr-error
+        // &.alert-icon.notifs
+        //     color: $clr-notifs

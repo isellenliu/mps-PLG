@@ -1,0 +1,57 @@
+.lotto-modal
+    &.show
+        display: block
+        // 對話框存在時，mask 層數上調
+        &~.lotto-mask
+            z-index: 6 !important
+    // --------------------
+    display: none
+    position: fixed
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    background: $clr-gray_2
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, .2)
+    width: 80vw
+    padding: 5vw
+    border-radius: 10px
+    z-index: 10
+    span.modal-close
+        position: absolute
+        top: 2vw
+        right: 2vw
+    .modal-title
+        text-align: center
+        .title-icon
+            &.success
+                color: $clr-success
+            &.error
+                color: $clr-error
+            &.notifs
+                color: $clr-notifs
+            // --------------------
+            font-size: 40px !important
+            vertical-align: middle
+        .title-main
+            vertical-align: middle
+    .modal-info
+        text-align: center
+        margin-top: 3vw
+    .modal-btn
+        text-align: center
+        margin-top: 4vw
+        .lotto-btn
+            padding: 2vw 4vw
+            margin: 0 1vw
+            border-radius: 100px
+            &.btn-L
+                background: none
+                outline-offset: -1px
+                outline: 2px solid $clr-white
+            &.btn-R
+                background: $clr-white
+                color: $clr-gray_2
+    .modal-subtitle
+        text-align: center
+        margin-top: 4vw
+        color: $clr-gray_7 !important

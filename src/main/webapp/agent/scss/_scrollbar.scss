@@ -1,0 +1,26 @@
+.nicescroll-rails {
+	position: absolute;
+	right: 0;
+	width: 10px;
+	background-color: #BDBDBD;
+	height: 100%;
+
+	div{
+		height: 58px;
+		background-color: #444;
+		display: block;
+		font-size: 0;
+		text-indent: -99999px;
+		cursor: pointer;
+		&:hover{ background-color: #666;}
+
+		span{
+			display: block;
+			margin: 5px auto 3px auto;
+			border-top: 1px #CBCBCB solid;
+			border-bottom: 1px #CBCBCB solid;
+			height: 100%;
+			width: 4px;
+		}
+	}
+}

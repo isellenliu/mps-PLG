@@ -1,0 +1,90 @@
+//list
+.list
+    .div-tb
+        margin: 0
+        .td
+            line-height: normal
+            height: 45px
+            text-align: center
+            font-size: 80%
+            &.lt
+                text-align: left
+            &.rt
+                text-align: right
+    li
+        //標題
+        &.list-tit
+            font-weight: bold
+            font-size: 90%
+            color: #4a6790
+            border: none
+            .td
+                vertical-align: bottom
+                height: 30px
+        &:nth-child(even)
+            background-color: #0d1c31
+            
+        //內容
+        font-size: 100%
+        line-height: 30px
+        color: white
+        max-height: 100%
+        padding: 0 2%
+
+        // ==========
+        .txt-txn
+            text-align: left
+            font-size: 80%
+            line-height: normal
+            padding-top: 8px
+            .icon
+                color: #90e283
+                font-weight: bold
+                &.icon-check
+                    color: #90e283
+                &.icon-close
+                    color: $meron-color
+                    font-size: 130%
+                    margin-left: -3px
+        .td
+            .txt-result
+                .icon
+                    width: 25px
+                    font-size: 140%
+                    text-align: left
+                    &.icon-check
+                        color: #90e283
+                    &.icon-close
+                        color: $meron-color
+                        font-size: 180%
+                        margin-left: -3px
+
+        // ==========
+        .badge
+            background-color: $draw-color
+            border-radius: 3px
+            margin: 0 4px
+            min-width: 30px
+            &.meron
+                background-color: $meron-color
+            &.draw
+                background-color: $draw-color
+            &.wala
+                background-color: $wala-color
+            // ========
+            &.txt-num
+                display: inline-block
+                min-width: 35px
+                height: 24px
+                font-size: 14px
+                line-height: 22px
+                font-weight: normal
+                padding: 0
+                vertical-align: middle
+                background: none
+                color: $white
+                border-radius: 100px
+                background-color: #000000a5
+            
+            
+            

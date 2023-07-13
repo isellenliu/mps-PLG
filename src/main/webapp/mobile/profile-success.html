@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<title>CF mobile - Profile page</title>
+<link href="css/mobile/profile.css" rel="stylesheet" type="text/css">
+</head>
+<body class="profile">
+	<header>
+		<h1>Profile</h1>
+		<ul>
+			<li class="goback-icon">
+				<a href="#"></a>
+			</li>
+			<li class="gamehall-icon">
+				<a href="index.html"></a>
+			</li>
+			<li class="menu-icon" onclick="openNav()">
+				<a href="#"></a>
+			</li>
+		</ul>
+	</header>
+	<nav id="mainSidenav" class="sidenav">
+		<a href="javascript:void(0)" class="btn-close" onclick="closeNav()">&times;</a>
+		<ul class="sidenav-main">
+			<li>
+				<a href="profile.html">Profile</a>
+			</li>
+			<li>
+				<a href="trans-report.html">Transaction Report</a>
+			</li>
+			<li>
+				<a href="pwd.html">Change Password</a>
+			</li>
+			<li>
+				<a href="login.html">Logout</a>
+			</li>
+		</ul>
+	</nav>
+	<main>
+		<div class="my-profile">
+			<a href="profile-done.html"><img src="images/mobile/profile/icon-profile.svg" alt="" class="pull-left"></a>
+			<dl>
+				<dt>Username:</dt>
+				<dd>iu01021301</dd>
+			</dl>
+			
+			<form action="" class="nickname-form">
+				<label for="">Nickname:</label>
+				<input type="text" value="" placeholder="Add Nickname" class="checked">
+				<button type="submit" value="submit" class="edit-btn"></button>
+			</form>
+
+			<ul>
+				<li>Create your personal login id (Nickname) for easy login</li>
+				<li>Nickname must contain 6-15 chracters without white space and special characters</li>
+				<li>Once nickname is created, no further change is allowed</li>
+				<li>Once created, user can only use Nickname to login</li>
+			</ul>
+		</div>
+		<div class="my-credit">
+			<h3>My Credit</h3>
+			<dl>
+				<dt>Given Credit :</dt>
+				<dd>500.00</dd>
+				<dt>Profit & Loss :</dt>
+				<dd class="minus">-112.19</dd>
+				<dt>Bet Credit : </dt>
+				<dd>123,456,789.20</dd>
+			</dl>
+		</div>		
+	</main>
+	<a href="pwd.html" class="cell-btn">Change Password</a>
+	<a href="bet-limit.html" class="cell-btn">Bet Limit</a>
+
+	<script src="js/main.js"></script>
+</body>
+</html>

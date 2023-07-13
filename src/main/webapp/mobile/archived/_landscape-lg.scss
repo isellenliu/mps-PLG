@@ -1,0 +1,1278 @@
+.mps {
+font-size: vmax-lg($font-body);
+overflow: hidden;
+max-width: 100vw;
+// background: $gray-darker url('../../images/mobile/fullsrn-bg.jpg') left bottom fixed no-repeat;
+// background-size: contain;
+
+// All element position
+.status-bar {
+    top: vmax-lg($ht-mps-header) + vmax-lg(8px);
+    height: vmax-lg($ht-mps-status);
+    line-height: vmax-lg($ht-mps-status);
+
+    &:before {
+        height: vmax-lg(1px);
+    }
+}
+
+.video {
+    position: fixed;
+    top: vmax-lg($ht-mps-header) + vmax-lg(10px) + vmax-lg($ht-mps-status);
+    height: 50vw * 9 / 20;
+
+    video, canvas {
+        max-height: 50vw * 9 / 20;
+    }
+
+    .msg {
+        top: auto;
+        bottom: vmax-lg(-48px);
+        width: calc(100% - 4vw);
+        height: vmax-lg(32px);
+    }    
+
+    // .loading {
+    //     width: vmax-lg(40px);
+    // }
+}
+
+.loading {
+    @include border-radius(vmax-lg(8px));
+    width: vmax-lg(48px);
+    height: vmax-lg(48px);
+}
+
+.video-container {
+    width: 50vw;
+    height: 50vw * 9 / 20;
+}
+
+.video-func {
+    left: 5vw;
+    width: 38vw;
+    margin: vmax-lg(6px);
+
+    ul {
+        width: vmax-lg(30px);
+    }
+
+    li {
+        @include border-radius(vmax-lg(6px));
+        margin-top: vmax-lg(4px);
+        width: vmax-lg(30px);
+        height: vmax-lg(30px);
+    }
+}
+
+.video-countdown {
+    @include border-radius(vmax-lg(4px));
+    padding: vmax-lg(2px) vmax-lg(4px);
+    font-size: vmax-lg($font-sm);
+}
+
+.video-logo {
+    width: vmax-lg(90px);
+}
+
+.video-live {
+    top: vmax-lg(38px);
+    padding: vmax-lg(2px) vmax-lg(6px);
+    
+    &:before {
+        font-size: vmax-lg($font-sm);
+        letter-spacing: vmax-lg(1px);
+    }
+}
+
+.video-info {
+    bottom: vmax-lg(40px);
+}
+
+.fullsrn {
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100%;
+
+    video, canvas {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .video-container {
+        width: 100vw;
+        height: calc(100vh - 5vmax);
+        max-height: calc(100vh - 5vmax);
+    }
+
+    .video-func {
+        top: calc(50% - 1vmax);
+        left: calc( ( 100vw - (100vh - 6vmax) * 16 / 9 ) / 2 );
+        width: calc( (100vh - 7vmax) * 16 / 9 );
+        height: calc(100vh - 7vmax);
+    }
+}
+
+//the area of road-table, switcher, confirm and cancel btn
+.confirm-area {
+    top: vmax-lg($ht-mps-header) + vmax-lg(3px) + vmax-lg($ht-mps-status) + vmax-lg(188px) + vmax-lg(4px);
+    height: vmax-lg($ht-port-confirm + 4px);
+}
+
+.road-table {
+    // width: vmax-lg(290px);
+    // min-width: vmax-lg(290px);
+    width: calc(50vw - 6vmax);
+    min-width: calc(50vw - 6vmax);
+    height: vmax-lg($ht-port-confirm + 6px);
+
+    &::-webkit-scrollbar {
+        height: vmax-lg(2px);
+    }
+}
+
+.start-betting {
+    left: vmax-lg(-1px);
+    width: calc(50vw - 6vmax + 2px);
+    height: vmax-lg($ht-port-confirm + 6px);
+}
+
+.btns-area {
+    position: absolute;
+    left: 50vw;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 100%;
+    width: 50vw;
+}
+
+.btn-confirm {
+    height: vmax-lg($ht-mps-btn);
+    margin-left: vmax-lg(2px);
+    font-size: vmax-lg($font-lg);
+    letter-spacing: vmax-lg(0.8px);
+}
+
+.btn-cancel {
+    height: vmax-lg($ht-mps-btn);
+}
+
+.btn-record {
+    height: vmax-lg($ht-mps-btn);
+    background-size: 50%;
+    border-radius: vmax-lg(4px);
+
+    .unread {
+        @include box-shadow(0 0 vmax-lg(4px) $black);
+        left: vmax-lg(44px);
+        bottom: vmax-lg(6px);
+        width: vmax-lg(20px);
+        height: vmax-lg(20px);
+        font-size: vmax-lg($font-sm);
+        letter-spacing: vmax-lg(-1px);
+    }
+}
+
+.btn-loading {
+    &:before {
+        width: vmax-lg(32px);
+        height: vmax-lg(32px);
+        margin-right: vmax-lg(4px);
+    }
+}
+
+.arena {
+    top: vmax-lg($ht-mps-header + 4px);
+    height: vmax-lg($ht-mps-arena - 4px);
+}
+
+.pit-area {
+    top: vmax-lg($ht-mps-header) + vmax-lg($ht-mps-arena) + vmax-lg(1px);
+    height: vmax-lg($ht-mps-pit);
+}
+
+.predict {
+    top: vmax-lg($ht-mps-header) + vmax-lg($ht-mps-arena) + vmax-lg($ht-mps-pit);
+    height: vmax-lg($ht-mps-predict);
+    margin: vmax-lg(4px) 0;
+    line-height: vmax-lg($ht-mps-predict);
+
+    dd, dt {
+        padding: 0 vmax-lg(6px);
+    }
+}
+
+.chip-area {
+    z-index: $zindex-setting-area;
+    top: vmax-lg($ht-mps-header) + vmax-lg($ht-mps-arena) + vmax-lg($ht-mps-pit);
+    height: vmax-lg($ht-mps-chip);
+}
+
+.chip-repeat {
+    border: vmax-lg(2px) solid rgba($gray-darker, 0);
+
+    &:before {
+        width: vmax-lg(24px);
+        height: vmax-lg(24px);
+    }
+}
+
+//Status bar - Round and countdown
+.status-bar {
+    font-size: vmax-lg($font-sm);
+}
+
+.status-name {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: vmax-lg(1px);
+    list-style-type: none;
+
+    li {
+        width: vmax-lg(112px);
+        text-shadow: 0 0 vmax-lg(2px) rgba(#000, 0.8);
+
+        &:first-of-type {
+            @include gradient-x(rgba($meron-dark, 1), rgba($meron-dark, 0));
+            padding-left: vmax-lg(4px);    
+            text-align: left;
+        }
+
+        &:last-of-type {
+            @include gradient-x(rgba($wala-dark, 0), rgba($wala-dark, 1));
+            padding-right: vmax-lg(4px);    
+            text-align: right;
+        }
+    }
+}
+
+// Main Navigation
+header {
+    @include box-shadow(0 vmax-lg(4px) vmax-lg(4px) rgba($black,0.2));
+
+    h1 {
+        width: vmax-lg(375px);
+        font-size: vmax-lg(16px);
+        line-height: vmax-lg($ht-mps-header);
+    }
+
+    .bet-credit {
+        left: vmax-lg(8px);
+        width: vmax-lg(667px - 16px - (40px+4px)*2);
+    }
+
+    ul {
+        height: vmax-lg($ht-mps-header);
+
+        li {
+            min-width: vmax-lg($ht-mps-header);
+            margin: 0 vmax-lg(4px);
+
+            a {
+                height: vmax-lg($ht-mps-header);
+            }
+        }
+
+        .bk-icon {
+            a {
+                background: url('../../images/mobile/icon-bk-navi.svg') center no-repeat;
+                background-size: vmax-lg(20px);
+             }
+        }
+
+        .gamehall-icon {
+            a {
+                background: url('../../images/mobile/profile/icon-gamehall.svg') center no-repeat;
+                background-size: vmax-lg(22px);
+             }
+        }
+
+        .goback-icon {
+            margin-right: auto;
+            a {
+                background: url('../../images/mobile/profile/icon-arrow-back.svg') center no-repeat;
+                background-size: vmax-lg(24px);
+             }
+        }
+
+        .menu-icon {
+            a {
+                background: url('../../images/mobile/icon-menu.svg') center no-repeat;
+                background-size: vmax-lg(20px);
+             }
+        }
+
+        .record-icon {
+            a {
+                background: url('../../images/mobile/icon-record.svg') center no-repeat;
+                background-size: vmax-lg(24px);
+             }
+
+            .unread {
+                @include box-shadow(0 0 vmax-lg(4px) $black);
+                left: vmax-lg(16px);
+                bottom: vmax-lg(8px);
+                width: vmax-lg(20px);
+                height: vmax-lg(20px);
+                font-size: vmax-lg($font-xs);
+                letter-spacing: vmax-lg(-1px);
+            }
+        }
+    }
+}
+
+// The side navigation menu
+.mask-all {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background: rgba($black, 0.8);
+}
+
+.sidenav {
+    height: 100vh;
+    padding-top: vmax-lg(36px);
+
+    .sidenav-main {
+        a {
+            width: 70vw;
+            padding: vmax-lg(24px);
+            font-size: vmax-lg($font-lg);
+        }
+    }
+}
+
+.mainnav-in {   
+    // width: 50vw !important;
+    width: 320px !important;
+}
+
+.reportnav-in {   
+    // width: 70vw !important;
+}
+
+//the current record and trans history in the left sidenav
+.nav-tabs {
+    width: 68vw;
+    height: 8vh;
+    font-size: vmax-lg($font-body);
+
+    li {
+        a, label {
+            left: vmax-lg(1px); 
+            padding: vmax-lg(8px); 
+            margin-left: vmax-lg(8px); 
+
+            &.active {
+                border-bottom: vmax-lg(2px) solid $orange;
+            }
+        }
+
+        [type=radio] {
+            &:checked ~ label {
+                border-bottom: vmax-lg(2px) solid $orange;
+            }
+        }
+    }
+}
+
+// Arena
+.arena {
+    ul {
+        padding-top: vmax-lg(4px);
+        padding-bottom: vmax-lg(2px);
+    }
+
+    li {
+        min-width: vmax-lg(64px);
+        margin: 0 vmax-lg(2px);
+
+        a {
+            height: vmax-lg($ht-mps-arena - 14px);
+            padding-top: vmax-lg(4px);
+
+            &.active {
+                text-shadow: 0 vmax-lg(2px) vmax-lg(4px) rgba($black, 0.8);
+            }
+        }
+    }
+
+    .arena-betting {
+        &:after {
+            height: vmax-lg(4px);
+        }
+    }
+
+    .arena-fighting {
+        &:after {
+            height: vmax-lg(4px);
+        }
+    }
+
+    .arena-countdown {
+        &:after {
+            height: vmax-lg(4px);
+        }
+    }
+}
+
+.countdown-notice {
+    left: vmax-lg(2px);
+    bottom: vmax-lg(1px);
+    width: vmax-lg(12px);
+    height: vmax-lg(12px);
+}
+
+.betted {
+    &:before {
+        right: vmax-lg(2px);
+        top: vmax-lg(-4px);
+        width: vmax-lg(20px);
+        height: vmax-lg(20px);
+    }      
+}
+
+.arena-scroll {
+    ul {
+        padding-top: vmax-lg(4px);
+        padding-bottom: vmax-lg(2px);
+    }
+
+    li {
+        min-width: vmax-lg(70px);
+        margin: 0 vmax-lg(2px);
+    }
+}
+
+.arena-nogame {
+    margin-top: vmax-lg(4px);
+    height: vmax-lg(44px);
+    font-size: vmax-lg($font-lg);
+    text-align: center;
+    line-height: vmax-lg(44px);
+}
+
+.arena-empty:after {
+    line-height: vmax-lg(44px);
+}
+
+//Main pit area
+.pit-area {
+    > div {
+        border: vmax-lg(2px) solid rgba($black, 0);
+
+        &.active {
+            border: vmax-lg(2px) solid $yellow;
+        }
+
+        &.disabled {
+            border: vmax-lg(2px) solid rgba(#ffffff, 0.1);
+        }
+    }
+
+    .avatar {
+        @include border-radius(vmax-lg(4px));
+        top: vmax-lg(1px);
+        width: vmax-lg(48px);
+        height: vmax-lg(48px);
+        margin: 0;
+    }
+
+    dt {
+        font-size: vmax-lg($font-xl);
+    }
+
+    .odds {
+        margin-top: vmax-lg(8px);
+        font-size: vmax-lg($font-md);
+    }
+
+    .chicken-weight {
+        font-size: vmax-lg($font-xs);
+    }
+}
+
+.pit-meron {
+    // width: vmax-lg(120px);
+    width: 18vw;
+
+    dd {
+        padding-left: vmax-lg(48+4+8px);
+    }
+
+    .avatar {
+        left: vmax-lg(0px);
+        border: vmax-lg(2px) solid $white;
+    }
+}
+
+.pit-bdd {
+    // width: vmax-lg(110px);
+    width: 14vw;
+}
+
+.pit-wala {
+    // width: vmax-lg(120px);
+    width: 18vw;
+
+    dd {
+        padding-right: vmax-lg(48+4+8px);
+    }
+
+    .avatar {
+        border: vmax-lg(2px) solid $yellow;
+        right: vmax-lg(0px);
+    }
+}
+
+//switch the order of pit area
+.pit-swtich{
+    //status bar
+    .status-name {
+        flex-direction: row-reverse;
+
+        li {
+            &:first-of-type {
+                @include gradient-x(rgba($meron-dark, 0), rgba($meron-dark, 1));
+                padding-left: 0;    
+                padding-right: vmax-lg(4px);
+                text-align: right;
+            }
+
+            &:last-of-type {
+                @include gradient-x(rgba($wala-dark, 1), rgba($wala-dark, 0));
+                padding-left: vmax-lg(4px);    
+                padding-right: 0;    
+                text-align: left;
+            }
+        }
+    }
+
+    //pit area
+    .pit-meron {
+
+        dd {
+            padding-right: vmax-lg(48+4+8px);
+        }
+
+        .avatar {
+            left: auto;
+            right: 0;
+        }
+    }
+
+    .pit-wala {
+        dd {
+            padding-left: vmax-lg(48+4+8px);
+        }
+
+        .avatar {
+            left: 0;
+        }
+    }
+}
+
+.betting {
+    top: 72%;
+    left: 50%;
+    transform: translate(-50%, -72%);
+    min-width: vmax-lg(54px);
+    height: vmax-lg(54px);
+    min-height: vmax-lg(54px);
+
+    &:before {
+        width: vmax-lg(54px);
+        height: vmax-lg(54px);
+    }
+
+    span {
+        @include border-radius(vmax-lg(4px));
+        width: 100%;
+        height: vmax-lg(20px);
+        border: vmax-lg(1px) solid $black;
+        font-size: vmax-lg($font-body);
+        line-height: vmax-lg(20px);
+    }
+
+    .betting-add-tbc {
+        bottom: -2px;
+
+        &:before {
+            font-size: vmax-lg($font-xs);
+        }
+    }
+}
+
+.betting-add {
+    @include border-radius(vmax-lg(2px));
+    position: absolute;
+    top: 23%;
+    left: 50%;
+    padding: vmax-lg(2px) vmax-lg(8px);
+    letter-spacing: vmax-lg(-0.4px);
+    transform: translate(-50%, 10%);
+    filter: drop-shadow(0 vmax-lg(2px) vmax-lg(2px) $black);
+    -webkit-filter: drop-shadow(0 vmax-lg(2px) vmax-lg(2px) $black);
+
+    &:before {
+        display: inline-block;
+        width: 0; 
+        height: 0; 
+        border-left: vmax-lg(6px) solid transparent;
+        border-right: vmax-lg(6px) solid transparent;
+        border-bottom: vmax-lg(6px) solid $orange;
+        margin-right: vmax-lg(4px);
+        content: "";
+    }
+
+    &:after {
+        position: absolute;
+        top: 95%;
+        left: 50%;
+        display: block;
+        width: 0; 
+        height: 0;
+        border-left: vmax-lg(8px) solid transparent;
+        border-right: vmax-lg(8px) solid transparent;
+        border-top: vmax-lg(8px) solid $white;
+        transform: translate(-50%, 0%);
+        content: "";
+    }
+}
+
+.betting-confirmed {
+    span {
+        border: vmax-lg(1px) solid $black;
+    }
+}
+
+//the area of chips, rebet and setting btn
+.chip-area {
+    // height: vmax-lg(68px);
+    li {
+        &:first-child,
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4) {
+            width: vmax-lg(60px); 
+        }
+    }
+}
+
+//the detail information of road-table and the switcher on the bottom
+.road-table-info {
+    align-items: flex-start;
+    width: vmax-lg(38px);
+    margin: vmax-lg(2px);
+    font-size: vmax-lg($font-xs);
+
+    li {
+        flex: 0 0 96%;
+        height: vmax-lg(12px);
+
+        &:before {
+            @include border-radius(9999px);
+            max-width: vmax-lg(9px);
+            max-height: vmax-lg(10px);
+            width: vmax-lg(9px);
+            height: vmax-lg(10px);
+            content: "";
+        }
+    }
+
+    .road-table-switcher {
+        @include border-radius(vmax-lg(12px));
+        @include box-shadow(0 vmax-lg(2px) vmax-lg(2px) 0 rgba($black, 0.50));
+        width: vmax-lg(38px);
+        height: vmax-lg(18px);
+        padding-top: vmax-lg(2px);
+        padding-bottom: vmax-lg(2px);
+
+        &:before {
+            display: none;
+        }
+
+        .badge {
+            width: vmax-lg(18px);
+            height: vmax-lg(18px);
+            font-size: vmax-lg(12px);
+            line-height: vmax-lg(18px);
+        }
+    }
+}
+
+.road-table-meron:before {
+    background: $meron;
+}
+
+.road-table-bdd:before {
+    background: $bdd;
+}
+
+.road-table-wala:before {
+    background: $wala;
+}
+
+//road-table and the style of badges, including meron/wala/bdd win(實心圓 BEAD ROAD/空心圓 BIG ROAD)
+.confirm-area {
+    table {
+        // width: 100%;
+        // height: 100%;
+        font-size: vmax-lg(6px);
+
+        td {
+            // min-width: vmax-lg(16px);
+            // width: vmax-lg(16px);
+            // height: vmax-lg(16px);
+        }
+    }
+}
+
+.badge {
+    // max-width: vmax-lg(12px);
+    // max-height: vmax-lg(12px);
+    // width: vmax-lg(12px);
+    // height: vmax-lg(12px);
+    // border: vmax-lg(1.6px) solid;
+    // font-size: vmax-lg($font-xxs);
+    // line-height: vmax-lg(12px);
+}
+
+.meron-win {
+    border-color: $meron;
+    color: transparent;
+}
+
+.wala-win {
+    border-color: $wala;
+    color: transparent;
+}
+
+.bdd-win {
+    border-color: $bdd;
+    font-size: vmax-lg($font-xxxs);
+}
+
+.meron-win-reverse {
+    @include bg-reverse($meron);
+}
+
+.wala-win-reverse {
+    @include bg-reverse($wala);
+}
+
+.bdd-win-reverse {
+    @include bg-reverse($bdd);
+}
+
+//the bottom sheet of chips setting
+.setting-area {
+    @include box-shadow(0 vmax-lg(-4px) vmax-lg(-4px) rgba($black,0.6));
+    position: fixed;
+    left: 106vw;
+    top: 0;
+    width: 50vw - 2vw;
+    height: 96vh;
+    padding: 4vh 1vw 0 1vw;
+
+    &.active {
+        left: 50vw;
+    }
+
+    dl {
+        margin-bottom: vmax-lg(16px);
+    }
+
+    dt {
+        margin-bottom: vmax-lg(4px);
+        font-size: vmax-lg($font-body);
+    }
+
+    dd {
+        order: 2;
+        margin: vmax-lg(10px) vmax-lg(1px);
+        width: vmax-lg(62px);
+        height: vmax-lg(62px);
+    }
+
+    input {
+        @include border-radius(vmax-lg(2px));
+        width: vmax-lg(180px);
+        height: vmax-lg(40px);
+        padding-left: vmax-lg(8px);
+        border: 1px solid $white;
+        margin: 0 vmax-lg(8px+4px) 0 vmax-lg(8px);
+        font-size: vmax-lg($font-lg);
+    }
+
+    .chip {
+        width: vmax-lg(56px); 
+        height: vmax-lg(56px);
+    }
+
+    .setting-customize {
+        order: 1;
+        span {
+            width: vmax-lg(64px);
+            font-size: vmax-lg($font-sm);
+        }
+    }
+
+    .btn-close {
+        top: vmax-lg(4px);
+
+    }
+
+    .btn-confirm {
+        width: calc(100% - 2vw);
+        height: vmax-lg(48px);
+        margin: 0 1vw;
+        font-size: vmax-lg($font-lg);
+    }
+}
+
+//the styles of chips
+.chip {
+    width: vmax-lg(54px); 
+    height: vmax-lg(54px);
+    border: 2px solid rgba($gray-darker, 0);
+    font-size: vmax-lg($font-body);
+    line-height: vmax-lg($font-md);
+    letter-spacing: vmax-lg(-1px);
+
+    &.active  {
+        @include border-radius(vmax-lg(100px));
+        width: vmax-lg(54px); 
+        height: vmax-lg(54px);
+        border: 2px solid rgba($yellow, 1);
+    }
+}
+
+.chip-repeat {
+    img {
+        width: vmax-lg(20px);
+    }
+}
+
+//General link btn in gamehall 
+.btn {
+    @include border-radius(vmax-lg(4px));
+}
+
+//close btn in navigation
+.btn-close {
+    top: vmax-lg(4px);
+    right: vmax-lg(8px);
+    width: vmax-lg(32px);
+    height: vmax-lg(32px);
+    font-size: vmax-lg($font-xxxl);
+}
+
+.btn-accept-odds {
+    width: vmax-lg(80px - 4px);
+    height: vmax-lg(60px);
+    margin: 0 vmax-lg(6px) 0 0;
+    font-size: vmax-lg($font-sm);
+
+    &:before {
+        width: vmax-lg(16px);
+        height: vmax-lg(16px);
+        border: 1px solid $gray;
+        margin-left: vmax-lg(-48px);
+        margin-bottom: vmax-lg(6px);
+    }
+}
+
+.btn-setting {
+    width: vmax-lg(80px);
+    height: vmax-lg(60px);
+
+    &:after {
+        width: vmax-lg(24px); 
+        height: vmax-lg(24px);
+     }
+}
+
+.btn-cancel {
+    // width: vmax-lg(48px);
+
+    &:after {
+        width: vmax-lg(20px); 
+        height: vmax-lg(20px);
+        background: url('../../images/mobile/icon-cancel.svg') center no-repeat;
+        background-size: cover;
+     }
+}
+
+//Gernaral btn style for forms
+button {
+    @include border-radius(vmax-lg(4px));
+}
+.btn-primary {
+    text-shadow: 0 vmax-lg(2px) vmax-lg(2px) rgba($black,0.40);
+
+    // &:hover,
+    // &:active,
+    &.active {
+        text-shadow: 0 vmax-lg(-2px) vmax-lg(2px) rgba($black,0.40);
+    } 
+}
+
+.btn-md {
+    width: vmax-lg(160px);
+    height: vmax-lg(48px);
+    font-size: vmax-lg($font-xl);
+    text-shadow: 0 vmax-lg(2px) vmax-lg(2px) rgba($black,0.40);
+}
+
+//login btn in login page
+.btn-login {
+    width: vmax-lg(288px);
+    height: vmax-lg(48px);
+    font-size: vmax-lg($font-xl);
+}
+
+.btn-replay {
+    width: vmax-lg(108px);
+    height: vmax-lg(30px);
+    margin-right: vmax-lg(8px);
+    font-size: vmax-lg($font-body);
+    line-height: vmax-lg(30px);
+
+    &:after {
+        top: vmax-lg(4px);
+        left: vmax-lg(4px);
+        width: vmax-lg(16px);
+        height: vmax-lg(16px);
+        background: url('../../images/mobile/profile/icon-replay.svg') center no-repeat;
+        background-size: vmax-lg(16px);
+    }
+}
+
+.btn-search {
+    @include border-top-radius(100px);
+    @include box-shadow(0 0 vmax-lg(8px) rgba($black, 0.4));
+    left: vmax-lg(160px);
+    width: vmax-lg(56px);
+    height: vmax-lg(56px/2);
+    padding-top: vmax-lg(6px);
+
+    img {
+        width: vmax-lg(24px);
+    }
+}
+
+//the detail information of current record and trans history in left sidenav
+.record-area {
+    position: fixed;
+    z-index: $zindex-record-area;
+    left: 50vw + 70vw;
+    top: 0;
+    bottom: 0;
+    height: 96vh;
+    width: 70vw - 2vw;
+    padding: 4vh 1vw 0 1vw;
+
+    &.active {
+        left: 30vw;
+        width: 70vw - 2vw;
+    }
+
+    .btn-close {
+        z-index: $zindex-record-area + 1;
+        top: vmax-lg(4px);
+    }
+}
+
+.record-detail {
+    // top: vmax-lg(32px);
+    top: 8vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 86vh;
+    // height: vmax-lg(380px - 32px - 8px);
+    // padding-right: vmax-lg(8px);
+    // padding-left: vmax-lg(8px);
+    // padding-bottom: vmax-lg(56px);
+
+    table {
+        width: 100%;
+
+        tr {
+            height: vmax-lg(48px);
+            border-bottom: vmax-lg(1px) solid rgba($white, 0.2);
+        }
+    }
+
+    .tab-current-record {
+        th {
+            &:first-child {
+                // width: vmax-lg(64px);
+                width: 20%;
+            }
+
+            &:nth-child(2) {
+                // width: vmax-lg(100px);
+                width: 30%;
+            }
+
+            &:nth-child(3) {
+                // width: vmax-lg(116px);
+                width: 40%;
+            }
+        }
+
+        td {
+            &:first-child {
+                padding-right: vmax-lg(4px);
+            }
+
+            &:last-child {
+                width: vmax-lg(40px);
+                background: url('../../images/mobile/icon-success.svg') right center no-repeat;
+                background-size: vmax-lg(24px);
+            }
+        }
+
+        .bet-fail {
+            td:last-child {
+                background: url('../../images/mobile/icon-fail.svg') right center no-repeat;
+                background-size: vmax-lg(24px);
+            }
+        }
+    } 
+
+    .tab-history {
+        th {
+            // width: vmax-lg(72px);
+            width: 25%;
+
+            &:first-child {
+                // width: vmax-lg(48px);
+                width: 17%;
+            }
+
+            &:nth-child(2) {
+                // width: vmax-lg(64px);
+                width: 14%;
+                // text-align: left;
+            }
+
+            &:nth-child(3) {
+                // width: vmax-lg(64px);
+                width: 15%;
+                // text-align: left;
+            }
+        }
+
+        td {
+            height: vmax-lg(56px);
+
+            &:nth-child(2),
+            &:nth-child(3) {
+                // text-align: left;
+            }
+        }
+
+        .tag {
+            margin-bottom: vmax-lg(2px);
+        }
+
+        .badge-arena {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    .tag {
+        min-width: vmax-lg(58px);
+        padding: vmax-lg(2px) vmax-lg(6px);
+        border-left: vmax-lg(6px) solid $gray-mid;
+        margin: 0 vmax-lg(2px) 0 vmax-lg(4px);
+    }
+
+    .tag-countdown {
+        border-left: vmax-lg(6px) solid $purple;
+    }
+
+    .badge-arena {
+        float: none;
+        width: vmax-lg(16px);
+        height: vmax-lg(16px);
+        font-size: vmax-lg($font-body);
+    }
+}
+
+//msg
+.msg {
+    @include box-shadow(0 vmax-lg(4px) vmax-lg(4px) rgba($black,0.4));
+    top: vmax-lg(-48px);
+    padding-left: 2vw;
+    padding-right: 2vw;
+    width: 96vw;
+    font-size: vmax-lg($font-md);
+
+    dl {
+        flex: 1.5 0 0;
+
+        &:first-of-type {
+            flex: 1 0 0;  
+        }
+
+        &:nth-of-type(2) {
+            flex: 1 0 0;
+            font-size: vmax-lg($font-lg);
+            text-shadow: 0 0 vmax-lg(4px) $black;
+        }
+    }
+
+    dt {
+        margin-right: vmax-lg(4px);
+        font-size: vmax-lg($font-md);
+    }
+
+
+    .badge-arena {
+        width: vmax-lg(13px);
+        height: vmax-lg(13px);
+        font-size: vmax-lg($font-sm);
+        line-height: vmax-lg(13px);
+        letter-spacing: vmax-lg(-1px);
+    }
+
+    .btn-close {
+        top: vmax-lg(2px);
+        right: vmax-lg(4px);
+    }
+}
+
+.betmsg{
+    padding-left: 2vw;
+    padding-right: 2vw;
+    width: 96vw;
+}
+
+//popup window
+.news-wrap {
+    @include box-shadow(0 0 vmax-lg(8px) 0 rgba($white, 0.6));
+    padding: vmax-lg(16px) vmax-lg(16px) vmax-lg(24px) vmax-lg(16px); 
+    border-top: vmax-lg(6px) solid $red;
+
+    &:before {
+        width: vmax-lg(48px);
+        height: vmax-lg(48px);
+    }
+
+    h3 {
+        font-size: vmax-lg($font-xl);
+    }
+
+    .btn {
+        height: vmax-lg(40px);
+        margin-top: vmax-lg(24px);
+    }
+
+    .video & {
+        width: 70%;
+        padding: vmax-lg(8px) vmax-lg(16px) vmax-lg(16px) vmax-lg(16px);
+
+        &:before {
+            width: vmax-lg(36px);
+            height: vmax-lg(36px);
+        }
+    }
+}
+
+//animation
+//setting-area
+@keyframes setting-show {
+    0%   {left: 106vw;}
+    100% {left: 50vw;}
+}
+@-webkit-keyframes setting-show {
+    0%   {left: 106vw;}
+    100% {left: 50vw;}
+}
+
+@keyframes setting-hide {
+    0%   {left: 50vw;}
+    100% {left: 106vw;}
+}
+@-webkit-keyframes setting-hide {
+    0%   {left: 50vw;}
+    100% {left: 106vw;}
+}
+
+//record-area
+@keyframes record-show {
+    0%   {left: 106vw;}
+    100% {left: 30vw;}
+}
+@-webkit-keyframes record-show {
+    0%   {left: 106vw;}
+    100% {left: 30vw;}
+}
+@keyframes record-hide {
+    0%   {left: 30vw;}
+    100% {left: 106vw;}
+}
+@-webkit-keyframes record-hide {
+    0%   {left: 30vw;}
+    100% {left: 106vw;}
+}
+
+//The animation for the system msg box for MPS
+@keyframes mps-msg-show {
+    0%   {top: vmax-lg(-($ht-mps-header) - 4px);}
+    100% {top: vmax-lg($ht-mps-header);}
+}
+@-webkit-keyframes mps-msg-show {
+    0%   {top: vmax-lg(-($ht-mps-header) - 4px);}
+    100% {top: vmax-lg($ht-mps-header);}
+}
+
+@keyframes mps-msg-hide {
+    0%   {top: vmax-lg($ht-mps-header);}
+    100% {top: vmax-lg(-($ht-mps-header) - 4px);}
+}
+@-webkit-keyframes mps-msg-hide {
+    0%   {top: vmax-lg($ht-mps-header);}
+    100% {top: vmax-lg(-($ht-mps-header) - 4px);}
+}
+
+//The animation for the system msg box 
+@keyframes msg-show {
+    0%   {top: vmax-lg(-48px);}
+    100% {top: 0;}
+}
+@-webkit-keyframes msg-show {
+    0%   {top: vmax-lg(-48px);}
+    100% {top: 0;}
+}
+
+@keyframes msg-hide {
+    0%   {top: 0;}
+    100% {top: vmax-lg(-48px);}
+}
+@-webkit-keyframes msg-hide {
+    0%   {top: 0;}
+    100% {top: vmax-lg(-48px);}
+}
+
+.msg-show {
+    @include animation(msg-show 0.4s ease-in 0s normal 1, forwards);    
+}
+
+.msg-hide {
+    @include animation(msg-hide 0.4s ease-in 0s normal 1, forwards);
+}
+} // end-of-mps

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
+    <title>Rectangle 25</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Login/Logout/Profile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.4">
+        <g id="Trans-search" transform="translate(-8.000000, -275.000000)">
+            <g id="Group-11" transform="translate(8.000000, 275.000000)">
+                <g id="Group-10">
+                    <g id="Group-3">
+                        <g id="ios-arrow-right" transform="translate(12.000000, 12.000000) scale(-1, 1) translate(-12.000000, -12.000000) ">
+                            <polygon id="Shape" fill="#000000" fill-rule="nonzero" points="6.85714286 4.46785714 7.96607143 3.42857143 17.1428571 12 7.96607143 20.5714286 6.85714286 19.5375 14.9196429 12"></polygon>
+                            <rect id="Rectangle-25" x="0" y="0" width="24" height="24"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

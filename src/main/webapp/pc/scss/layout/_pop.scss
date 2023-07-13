@@ -1,0 +1,94 @@
+// .btn-more{
+//     position: absolute;
+//     width: 52px;
+//     height: 65px;
+//     left: 0px;
+//     bottom: 0;
+//     background: url(../images/cf/banner/table.png) no-repeat;
+//     background-size: 100%;
+//     transform: scaleX(-1);
+//     z-index: 100;
+//     &::before{
+//         content: '';
+//         position: absolute;
+//         top: 45%;
+//         right: 55px;
+//         width: 0;
+//         height: 0;
+//         border-top: 10px solid transparent;
+//         border-bottom: 10px solid transparent;
+//         border-right: 6px solid #ff9900;
+//         animation: shake-horizontal 1s ease-in-out infinite both;
+//     }
+//     &::after{
+//         content: '';
+//         position: absolute;
+//         top: -2px;
+//         left: 2px;
+//         width: 55px;
+//         height: 80px;
+//         background: url(../images/cf/banner/gameAD.png) center no-repeat;
+//         background-size: 100%;
+//         transform: scaleX(-1);
+//         z-index: -10;
+//     }
+
+// }
+    
+// .gameModal{
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     position: absolute;
+//     width: 260px;
+//     height: 215px;
+//     left: 5px;
+//     bottom: 6px;
+//     background-color: #2d2d2d;
+//     box-shadow: 0 0 15px #181717, inset 0 0 0 1px #f19600;
+//     overflow: hidden;
+//     z-index: 400;
+//     &.num-1{
+//         height: 150px;
+//     }
+//     .btn-close{
+//         position: absolute;
+//         top: 0;
+//         right: 8px;
+//         width: 32px;
+//         height: 32px;
+//         color: #ffffff;
+//         font-size: 32px;
+//         text-align: center;
+//         transform: translateY(-5px);
+//     }
+//     .modal-content{
+//         position: relative;
+//         width: 100%;
+//         height: 80%;
+//         margin: 30px auto 0 auto;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         overflow: hidden;
+//         .item{
+//             width: 90%;
+//             margin: 3px auto;
+//             overflow: hidden;
+//             img{
+//                 width: 100%;
+//                 height: 100%;
+//                 object-fit: cover;
+//             }
+//         }   
+//     }
+// }
+
+// @keyframes shake-horizontal{
+//     0%{
+//         transform: translateX(3px);
+//     }
+//     100%{
+//         transform: translateX(0);
+//     }
+// }

@@ -1,0 +1,211 @@
+
+// =========
+// txt
+// ==========
+small.txt,.txt-s //約 12px
+    @include txt-small
+
+.txt //一般文字
+    @include txt
+    color: $txt
+
+.txt-b
+    @include txt
+    display: inline-block
+    font-weight: bold
+
+.txt-error //錯誤訊息
+    color: $txt_error
+
+.txt-warning
+    color: $warning
+
+.txt-link //link
+    color: $primary
+    text-decoration: underline
+    &:hover
+        color: $primary
+        text-decoration: none
+
+.txt-info  //提醒
+    color: $txt_gray
+
+.txt-star  //必填
+    color: $red
+
+.txt-imp  //重要
+    color: $red
+
+.txt-danger  //警告
+    color: $danger
+
+.txt-red //紅字
+    color: $red
+
+.txt-gray //灰字
+    color: $txt_gray
+
+.txt-primary //$primary
+    color: $primary
+
+.txt-msg
+    color: $primary
+    @include txt-large
+
+.txt-num
+    font-size: 14px
+
+.txt-txn
+    color: cadetblue
+// =================
+.txt-bold
+    font-weight: bold
+
+// =================
+.txt-bigMoney
+    @include txt-bigMoney
+    display: inline-block
+
+.txt-emptyBox
+    display: inline-block
+    background: #f7eff5
+    border-radius: 100px
+    height: 22px
+    width: 100%
+
+//排名文字
+.txt-Up,.txt-Down,.txt-Same
+    position: relative
+    color: $txt
+    padding-left: 20px
+    text-align: left
+    &::before
+        position: absolute
+        left: 0px
+        width: 15px
+        content: '▲'
+        color: $primary
+        font-size: 12px
+        line-height: normal
+        text-align: left
+.txt-Down::before
+    content: '▼'
+.txt-Same::before
+    content: ''
+
+// 版號
+.txt-version
+    font-size: 80%
+    line-height: normal
+
+
+
+.txt-money
+    position: relative
+    color: #ffef41
+    font-size: 20px
+    text-align: center
+    .icon-PHP,
+    .icon-USD,
+    .icon-SOG,
+    .icon-MYR,
+    .icon-THB,
+    .icon-IDR,
+    .icon-KHR,
+    .icon-JPY,
+    .icon-KRW,
+    .icon-HKD,
+    .icon-CNY,
+    .icon-MXN,
+    .icon-VND,
+    .icon-MMK,
+    .icon-INR,
+    .icon-AUD,
+    .icon-MMKK,
+    .icon-COP,
+    .icon-EUR,
+    .icon-CAD,
+    .icon-PHP,
+    .icon-BDT,
+    .icon-BRL,
+    .icon-AMD
+        position: relative
+        color: #000
+        &::before
+            font: 'Arial' !important
+            content: '₱'
+            color: #ffef41
+            width: 15px
+            height: 15px
+            line-height: 15px
+            font-size: 13px
+            display: inline-block
+    .icon-USD
+        &.USD::before
+            content: '$ '
+    .icon-SOG
+        &.SGD::before
+            content: '$ '
+    .icon-MYR
+        &.MYR::before
+            content: 'RM '
+    .icon-THB
+        &.THB::before
+            content: '฿ '
+    .icon-IDR
+        &.IDR::before
+            content: 'Rp '
+    .icon-KHR
+        &.KHR::before
+            content: '៛ '
+    .icon-JPY
+        &.JPY::before
+            content: '¥ '
+    .icon-KRW
+        &.KRW::before
+            content: '₩ '
+    .icon-HKD
+        &.HKD::before
+            content: 'HK$ '
+    .icon-CNY
+        &.CNY::before
+            content: 'RMB¥ '
+    .icon-MXN
+        &.MXN::before
+            content: '$ '
+    .icon-VND
+        &.VND::before
+            content: '₫(K) '
+    .icon-MMK
+        &.MMK::before
+            content: 'K ' 
+    .icon-INR
+        &.INR::before
+            content: '₹ '
+    .icon-AUD
+        &.AUD::before
+            content: '$ '
+    .icon-MMKK
+        &.MMKK::before
+            content: 'K '
+    .icon-COP
+        &.COP::before 
+            content: '$ '
+    .icon-EUR
+        &.EUR::before
+            content: '€ '
+    .icon-CAD
+        &.CAD::before
+            content: '$ '
+    .icon-PHP
+        &.PHP::before
+            content: '₱ '
+    .icon-BDT
+        &.BDT::before
+            content: '৳ '
+    .icon-BRL
+        &.BRL::before
+            content: 'R$ '
+    .icon-AMD
+        &.AMD::before
+            content: '֏ '

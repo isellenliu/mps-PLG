@@ -1,0 +1,29 @@
+.safari-only {
+    .trans {
+        padding-bottom: 20px;
+}
+
+    .btn-search {
+        bottom: 20px;
+    }
+
+    .trans-search {
+        padding-bottom: 20px;
+    }
+}
+
+@media screen and (orientation: landscape) and (min-aspect-ratio: 13/9) {
+    .safari-only {
+        .trans {
+            padding-bottom: 0;
+	}
+
+        .btn-search {
+            bottom: vmax(-12px);
+	    }
+
+        .trans-search {
+            padding-bottom: 0;
+	    }
+	}
+}

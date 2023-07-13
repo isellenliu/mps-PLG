@@ -1,0 +1,278 @@
+// color
+$blue-aegean:     #014f6f
+$blue-mist:       #87a1ad
+$dark-slate-gray: #072227
+
+@font-face
+  src: url('https://fonts.cdnfonts.com/css/anton')
+  font-family: 'Anton', sans-serif
+
+.page-web.stock
+    .page-backdrop
+    .page-wrapper
+        position: relative
+        top: 0
+        left: 0
+        transform: none
+        width: 100vw
+        height: 100vh
+        .page-video
+            height: 35vh
+            .video-btnbox
+                width: auto
+                .btn-menu
+                    background: rgba(135, 161, 173, .7)
+                    outline: 2px solid $blue-mist
+        .page-body
+            height: calc( 100% - 35vh )
+            width: 100vw
+            position: absolute
+            bottom: 0
+            background: radial-gradient(circle at center,$blue-aegean,$dark-slate-gray)
+            // 分頁標籤
+            .game-site-tab
+                height: 5vh
+                ul
+                    .item
+                        background: linear-gradient(to bottom, $blue-aegean,$dark-slate-gray)
+                        a
+                            padding-top: 3px
+                        // 股市圖案
+                        &.isstock
+                            a
+                                padding: 3px 0 0 15px
+                                &::before
+                                    display: inline-block
+                                    position: absolute
+                                    top: 50%
+                                    transform: translateY(-50%)
+                                    left: 4px
+                                    content: ''
+                                    width: 20px
+                                    height: 20px
+                                    background: url(../ICF-img/icon/icon-stock.svg) center no-repeat
+                        // 國旗圖案
+                        &.iscountry
+                            a
+                                padding: 3px 0 0 20px
+                                &::before
+                                    display: inline-block
+                                    position: absolute
+                                    top: 1.3vh
+                                    left: 6px
+                                    content: ''
+                                    width: 20px
+                                    height: 20px
+                                    background: url(../../images/Language.png) center no-repeat
+                                    background-size: 25px auto
+                                    background-position: -2px -2px
+            // 主要面板
+            .game-site-tab-content
+                height: 60vh
+                display: flex
+                flex-direction: column
+                justify-content: space-between
+                padding: 10px 10px 15px
+                .game-site-part
+                    display: none
+                .user-info
+                    position: relative
+                    border: none
+                    height: fit-content
+                // 桌面區
+                .main-bet
+                    display: block
+                    background: none
+                    margin: .5rem 0 0
+                    flex-grow: 2
+                    // 下注方塊                    
+                    .main-bet-lt,.main-bet-rt
+                        height: 98%
+                        &:first-child
+                            margin-right: 10px
+                        &:before
+                            background: none
+                        // 一般狀態
+                        display: inline-block
+                        width: calc( 50% - 10px )
+                        border-radius: 15px
+                        outline: 2px solid $blue-mist
+                        box-shadow: 0 0 8px $blue-mist, inset 0 0 6px $blue-mist
+                        background: rgba(0, 0, 0, .15)
+                        padding: 0
+                        // on-focus
+                        &:has(.main-bet-input.on-focus)
+                            background: rgba(255, 255, 255, .15)
+                            outline: 2px solid rgba(255, 255, 255, .6)
+                            box-shadow: 0 0 8px rgba(255, 255, 255, .8),inset 0 0 6px rgba(255, 255, 255, .8)
+                            transition: .3s
+                        .bet-meron,.bet-wala
+                            .txt-rate
+                                text-align: left !important
+                                width: fit-content
+                                height: fit-content
+                                padding: 3px 0 0 10px
+                                span
+                                    vertical-align: middle
+                                    color: $blue-mist
+                            // 累積金額
+                            .txt-money
+                                position: absolute
+                                top: 10vh
+                                left: 50%
+                                transform: translateX(-50%)
+                                white-space: nowrap
+                                i:before,span
+                                    color: $blue-mist
+                                    font-size: 20px
+                        .main-bet-input
+                            border: none
+                            background: none
+                            position: static
+                            height: 17vh
+                            // ODD/EVEN
+                            .bet-tit
+                                color: rgba(255, 255, 255, .7)
+                                height: fit-content
+                                line-height: 1
+                                top: 20%
+                            // 在線人數
+                            .txt-online-number
+                                width: fit-content
+                                top: 0
+                                right: 0 
+                                left: auto
+                                transform: none
+                                margin: 5px
+                                padding: 2px 5px
+                                color: $blue-mist
+                                background: rgba(0, 0, 0, .2)
+                                &:before
+                                    color: $blue-mist
+                            .chip
+                                -webkit-filter: brightness(.7)
+                                transition: .3s
+                            .chip-img
+                                opacity: .4
+                                box-shadow: 0 0 10px $dark-slate-gray
+                                transition: .3s
+                            // on-focus
+                            &.on-focus
+                                box-shadow: none
+                                // 加碼
+                                .txt-increase
+                                    top: auto
+                                    background: linear-gradient(to bottom, $yellow-light, $yellow-dark)
+                                // 上限
+                                .txt-max-bet
+                                    color: #90b7ff
+                                    top: auto
+                                .chip
+                                    -webkit-filter: brightness(1)
+                                    transform: translate(-50%, -75%)
+                                    transition: .3s
+                                // 籌碼
+                                .chip-img
+                                    opacity: .9
+                                    transform: translate(-50%, -60%)
+                                    transition: .3s
+                // 表格區
+                .bet-sel-chipBox
+                    width: fit-content
+                    margin: 0
+                    padding: 1.5vh 0 .5vh
+                    height: 8vh
+                    flex-grow: 1
+                    ul
+                        width: calc(75vw - 10px)
+                        padding-left: 5px
+                        top: 50%
+                        transform: translateY(-50%)
+                        // 籌碼
+                        .chipBox,.bet-allin
+                            -webkit-filter: brightness(.7)
+                            width: 12vw
+                            height: 12vw
+                            margin-right: 5px
+                            background: none
+                            border: none
+                            .btn-chip
+                                top: 0 !important
+                                line-height: 12vw
+                                width: 12vw
+                                height: 12vw
+                            &.active
+                                -webkit-filter: brightness(1)
+                                border: none !important
+                                outline: 2px solid $blue-mist !important
+                                box-shadow: 0px 0px 10px #fff
+                                transform: translateY(-5px)
+                                transition: .15s
+                        // icon
+                        .bet-set
+                            a
+                                width: fit-content
+                                height: fit-content
+                                line-height: 0
+                                background: transparent
+                                border: none
+                                i
+                                    font-size: 30px
+                .bet-function-box
+                    flex-grow: 1
+                    .confirm-area
+                        display: flex
+                        align-items: flex-end
+                        justify-content: center
+                        width: calc( 100vw - 20px )
+                        padding: 0 2px
+                        .road-table-info
+                            margin: 0
+                            padding: 0
+                            li
+                                background: rgba(255, 255, 255, .15)
+                                &:nth-child(1)
+                                    span
+                                        width: 25px
+                                        height: 25px
+                                        font-size: 16px
+                                        line-height: 24px
+                        //  套件(不能改)
+                        .road-wrapper
+                            flex-grow: 1
+                            margin: 0 10px
+                            // border-radius: 0
+                            // -webkit-filter: brightness(.7)
+                            // background: none
+                            // tr
+                            //     background: rgba(255, 255, 255, .1)
+                            //     td
+                        .btns-area
+                            position: relative
+                            right: 0
+                            .btn-primary, .btn-cancel
+                                width: 18vw
+                                max-height: 120px
+                                background: none
+                                border: none
+                                border-radius: 15px
+                                top: auto
+                                right: 0
+                                i
+                                    color: $blue-mist
+                                    opacity: .6
+                                &.on-focus
+                                    background: rgba(255, 255, 255, .1)
+                                    transition: .3s
+                                    i
+                                        color: #fff
+                                        opacity: 1
+                            .btn-primary
+                                height: 16vh
+                                bottom: 9vh
+                            .btn-cancel
+                                height: 8vh
+                                bottom: 0
+                                font-size: 8vw
+                                i
+                                    line-height: 8vh

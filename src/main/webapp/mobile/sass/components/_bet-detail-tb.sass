@@ -1,0 +1,163 @@
+.confirm-area
+    display: flex
+    align-items: flex-start
+    justify-content: center
+    .road-table-info
+        width: 90px
+        color: #fff
+        font-size: 80% 
+        text-align: right
+        padding: 0 10px
+        li
+            position: relative
+            display: block
+            background: #000000
+            border-radius: 100px
+            margin: 5px 0
+            padding: 2px 6px
+            &::before
+                content: ''
+                position: absolute
+                left: 5px
+                top: 50%
+                transform: translateY(-50%)
+                width: 10px
+                height: 10px
+                border-radius: 100px
+            &.road-table-meron
+                &::before
+                    background: $meron-color
+            &.road-table-bdd
+                &::before
+                    background: $draw-color
+            &.road-table-wala
+                &::before
+                    background: $wala-color
+
+        .road-table-switcher
+            text-align: center
+            border-radius: 50px
+            padding: 0
+            margin-bottom: 10px
+            .badge
+                color: #fff
+                font-size: 100%
+                text-align: center
+                width: 20px
+                height: 20px
+                line-height: 20px
+                padding: 0
+                border-radius: 100px
+                display: inline-block
+                background: $meron-color
+                &.meron-win
+                    border: 2px solid $meron-color
+                    font-size: 0 !important
+                    background: #000 !important
+    // ==========================
+    .road-wrapper
+        &.show
+            display: inline-block
+        display: none
+        width: 100%
+        height: 120px
+        overflow-y: hidden
+        overflow-x: auto
+        border-radius: 10px
+        background: #fff
+        border: 1px solid #1b2e4e
+        .road-table
+            padding-top: 2px
+            
+        table
+            width: 220px
+            table-layout: fixed
+            
+            td
+                width: 18px
+                height: 18px
+                text-align: center
+                vertical-align: middle
+                border: 1px solid #d3d9e1
+                position: relative
+                .badge
+                    position: absolute
+                    left: 50%
+                    transform: translateX(-50%)
+                    top: 0
+                    display: inline-block
+                    border: 2px solid 
+                    width: 16px
+                    height: 16px
+                    border-radius: 50%
+                    color: #ffffff
+                    font-size: 0
+                    text-indent: 0
+                    font-weight: normal
+                    line-height: 12px
+                    text-align: center
+                    &.meron-win
+                        border-color: $meron-color
+                    &.draw-win,
+                    &.draw-win-2,
+                    &.draw-win-3,
+                    &.draw-win-4,
+                    &.draw-win-5
+                        border-color: $draw-color
+                        &::before
+                            content: ''
+                            border: 1px solid $draw-color
+                            width: 15px
+                            position: absolute
+                            left: -1px
+                            top: 5px
+                            z-index: 10
+                            transform: rotate(-45deg)
+                    &.wala-win
+                        border-color: $wala-color
+                    &.wala-win-reverse
+                        font-size: 12px
+                        border: none
+                        background-color: $wala-color
+                    &.draw-win-reverse
+                        font-size: 12px
+                        border: none
+                        background-color: $draw-color
+                    &.meron-win-reverse
+                        font-size: 12px
+                        border: none
+                        background-color: $meron-color
+                    &.draw-win-2,
+                    &.draw-win-3,
+                    &.draw-win-4,
+                    &.draw-win-4,
+                    &.draw-win-5
+                        &::before
+                            left: 3px
+                            top: 7px
+                            width: 12px
+                            border: .5px solid $draw-color
+                        &::after
+                            content: '2'
+                            line-height: 11px
+                            font: Arial
+                            font-weight: bold
+                            color: $draw-color
+                            font-size: 10px
+                    &.draw-win-3
+                        &::after
+                            content: '3'
+                    &.draw-win-4
+                        &::after
+                            content: '4'
+                    &.draw-win-5
+                        &::after
+                            content: '5'
+                            
+    .btns-area
+        .btn
+            background: none
+            border: none
+            i
+                color: #338ff6
+                font-size: 150%

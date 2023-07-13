@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<title>CF mobile - login page</title>
+<link href="css/mobile/profile.css" rel="stylesheet" type="text/css">
+</head>
+<body class="login">
+	<header>
+		<a href="tc.html"><img src="images/mobile/profile/login-logo.png" alt=""></a>
+	</header>
+	<main>
+		<form action="" class="login-form">
+			<div class="form-group">
+				<img src="images/mobile/profile/icon-username.svg" alt="">
+				<input type="text" value="" placeholder="Username/Nickname" class="checked">
+			</div>
+			<div class="form-group">
+				<img src="images/mobile/profile/icon-pwd.svg" alt="">
+				<input type="password" value="" placeholder="Password"  class="error">
+			</div>
+			<div class="form-group">
+				<img src="images/mobile/profile/icon-lang.svg" alt="">
+				<select name="lang" required>
+					<option value="en" selected>English</option>
+					<option value="cn">中文</option>
+					<option value="vi">Tiếng Việt</option>
+					<option value="jp">日本語</option>
+					<option value="th">ไทย</option>
+					<option value="ms">Malay</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<img src="images/mobile/profile/icon-eye.svg" alt="">
+				<img src="images/mobile/captcha.png" alt="" class="validation-img">
+				<input type="number" value="" placeholder="Validation Code" class="error">
+			</div>
+			<span class="help-block">the password is not right.</span>
+			<button type="submit" value="submit" class="btn-login btn-primary">Login</button>
+		</form>
+
+<!-- 		<a href="#" class="device-switcher">
+			<img src="images/mobile/profile/icon-desktop.svg" alt="">
+			<span class="switch-controller">
+				<img src="images/mobile/profile/icon-phone.svg" alt="">
+			</span>
+		</a>
+ -->
+		<!--a href="#" class="device-switcher has-switched">
+			<img src="images/mobile/profile/icon-desktop.svg" alt="">
+			<span class="switch-controller">
+				<img src="images/mobile/profile/icon-phone.svg" alt="">
+			</span>
+		</a-->
+
+	</main>
+
+<!-- 	<footer>
+		<img src="images/mobile/profile/cf-appicon.png" alt="" class="app-logo">
+		<p>
+			Tap on 
+			<img src="images/mobile/profile/icon-add2desk-android.svg" alt="" class="add2desk">
+			 and select <b>“Add To Home Screen”</b> to install this Web APP on your phone.
+		</p>
+	</footer>
+ -->
+	<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" media="all" href="../css/agentAll.css">
+</head>
+
+<body>
+
+	<input type="hidden" id="agentTitle" name="createAgent" value="New Downline">
+	<form id="createAccountForm" name="createAccountForm" method="post"
+		action="/agent/membersInfoAgentController/createAgent"
+		onsubmit="javascript: return CreateAccountHandler.finalCheck();">
+		<input type="hidden" id="userID" name="userID" value="" maxlength="50">
+		<input type="hidden" id="transferCondition" name="transferCondition" value="1" maxlength="3">
+
+		<input type="hidden" id="groupType" name="groupType" value="B" maxlength="5">
+		<input type="hidden" id="currencyType" name="currencyType" value="" maxlength="2">
+		<input type="hidden" id="webSiteType" name="webSiteType" value="" maxlength="2">
+		<input type="hidden" id="bddType" name="bddType" value="" maxlength="1">
+		<input type="hidden" id="oddsMode" name="oddsMode" value="0" maxlength="1">
+
+
+		<div class="main agentAddNew">
+
+			<div class="account_yes clearfix" style="display:none;" id="applicationMessageBox">
+				<h3>User ID : <span id="successUserID"></span></h3>
+				<p>* <span id="applicationMessage"></span></p>
+			</div>
+			<h3>Transfer Setting</h3>
+			<div class="box_ul">
+				<ul id="transferTitleBar" class="ul_1 clearfix">
+					<li id="balanceTransferDaily" name="balanceTransferCondition" class="li_check_on">Daily</li>
+					<li id="balanceTransferWeekly" name="balanceTransferCondition" class="">Weekly</li>
+				</ul>
+				<ul id="weeklyBar" class="ul_1 clearfix" style="display: none;">
+					<li id="transferDay0" name="banlanceTransferWeeklyClick" class="li_check_on">Sun<input
+							type="checkbox" value="0" name="banlanceTransferWeekly" checked="false"
+							style="display: none;"></li>
+					<li id="transferDay1" name="banlanceTransferWeeklyClick" class="li_check_on">Mon<input
+							type="checkbox" value="1" name="banlanceTransferWeekly" checked="false"
+							style="display: none;"></li>
+					<li id="transferDay2" name="banlanceTransferWeeklyClick" class="li_check_on">Tue<input
+							type="checkbox" value="2" name="banlanceTransferWeekly" checked="false"
+							style="display: none;"></li>
+					<li id="transferDay3" name="banlanceTransferWeeklyClick" class="li_check_on">Wed<input
+							type="checkbox" value="3" name="banlanceTransferWeekly" checked="false"
+							style="display: none;"></li>
+					<li id="transferDay4" name="banlanceTransferWeeklyClick" class="li_check_on">Thu<input
+							type="checkbox" value="4" name="banlanceTransferWeekly" checked="false"
+							style="display: none;"></li>
+					<li id="transferDay5" name="banlanceTransferWeeklyClick" class="li_check_on">Fri<input
+							type="checkbox" value="5" name="banlanceTransferWeekly" checked="false"
+							style="display: none;"></li>
+					<li id="transferDay6" name="banlanceTransferWeeklyClick" class="li_check_on">Sat<input
+							type="checkbox" value="6" name="banlanceTransferWeekly" checked="false"
+							style="display: none;"></li>
+				</ul>
+			</div>
+
+
+			<!-- WebSiteType -->
+			<h3 id="webSiteTypeTitle">WebSite Type Setting</h3>
+			<dl id="webSiteTypeSection" class="box_1 dl_1 clearfix">
+				<dt>
+					<span class="star_on">*</span>WebSite Type
+				</dt>
+				<dd>
+					<ul class="dropDown_gray_M clearfix">
+						<li><a href="javascript:void(0)" id="webSiteTypeNo">-</a>
+							<ul id="webSiteTypeSelection">
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickWebSiteType(0,'CF');">CF
+									</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickWebSiteType(1,'CAM188');">CAM188
+									</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickWebSiteType(2,'AWS08');">AWS08
+									</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickWebSiteType(3,'AWS06');">AWS06
+									</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickWebSiteType(14,'MPSB');">MPSB
+									</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickWebSiteType(24,'DEMO');">DEMO
+									</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickWebSiteType(33,'AWC');">AWC
+									</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickWebSiteType(46,'GAMINGSOFT');">GAMINGSOFT
+									</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickWebSiteType(54,'SBC369');">SBC369
+									</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickWebSiteType(55,'AWCA');">AWCA
+									</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickWebSiteType(59,'AWS03');">AWS03
+									</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickWebSiteType(99,'ACCOUNTING');">ACCOUNTING
+									</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickWebSiteType(999,'UNITest');">UNITest
+									</a></li>
+
+							</ul>
+						</li>
+					</ul>
+				</dd>
+			</dl>
+
+
+			<!-- general information -->
+			<h3>General Information</h3>
+			<div class="boxDl_1 clearfix">
+				<dl class="dl_1">
+					<dt>
+						<span class="star_on">*</span>Username
+					</dt>
+					<dd>
+						<strong id="parentID"></strong>
+
+						<input type="hidden" id="letter2" name="letter2" value="" maxlength="1">
+						<ul class="dropDown_gray_S clearfix">
+							<li><a href="javascript:void(0)" id="downlineNo2">-</a>
+								<ul id="downlineSelectNo2">
+
+									<li><a href="javascript:void(0)">0</a></li>
+									<li><a href="javascript:void(0)">1</a></li>
+									<li><a href="javascript:void(0)">2</a></li>
+									<li><a href="javascript:void(0)">3</a></li>
+									<li><a href="javascript:void(0)">4</a></li>
+									<li><a href="javascript:void(0)">5</a></li>
+									<li><a href="javascript:void(0)">6</a></li>
+									<li><a href="javascript:void(0)">7</a></li>
+									<li><a href="javascript:void(0)">8</a></li>
+									<li><a href="javascript:void(0)">9</a></li>
+									<li><a href="javascript:void(0)">a</a></li>
+									<li><a href="javascript:void(0)">b</a></li>
+									<li><a href="javascript:void(0)">c</a></li>
+									<li><a href="javascript:void(0)">d</a></li>
+									<li><a href="javascript:void(0)">e</a></li>
+									<li><a href="javascript:void(0)">f</a></li>
+									<li><a href="javascript:void(0)">g</a></li>
+									<li><a href="javascript:void(0)">h</a></li>
+									<li><a href="javascript:void(0)">i</a></li>
+									<li><a href="javascript:void(0)">j</a></li>
+									<li><a href="javascript:void(0)">k</a></li>
+									<li><a href="javascript:void(0)">l</a></li>
+									<li><a href="javascript:void(0)">m</a></li>
+									<li><a href="javascript:void(0)">n</a></li>
+									<li><a href="javascript:void(0)">o</a></li>
+									<li><a href="javascript:void(0)">p</a></li>
+									<li><a href="javascript:void(0)">q</a></li>
+									<li><a href="javascript:void(0)">r</a></li>
+									<li><a href="javascript:void(0)">s</a></li>
+									<li><a href="javascript:void(0)">t</a></li>
+									<li><a href="javascript:void(0)">u</a></li>
+									<li><a href="javascript:void(0)">v</a></li>
+									<li><a href="javascript:void(0)">w</a></li>
+									<li><a href="javascript:void(0)">x</a></li>
+									<li><a href="javascript:void(0)">y</a></li>
+									<li><a href="javascript:void(0)">z</a></li>
+								</ul>
+							</li>
+						</ul>
+
+						<input type="hidden" id="letter3" name="letter3" value="" maxlength="1">
+						<ul class="dropDown_gray_S clearfix">
+							<li><a href="javascript:void(0)" id="downlineNo3">-</a>
+								<ul id="downlineSelectNo3">
+
+									<li><a href="javascript:void(0)">0</a></li>
+									<li><a href="javascript:void(0)">1</a></li>
+									<li><a href="javascript:void(0)">2</a></li>
+									<li><a href="javascript:void(0)">3</a></li>
+									<li><a href="javascript:void(0)">4</a></li>
+									<li><a href="javascript:void(0)">5</a></li>
+									<li><a href="javascript:void(0)">6</a></li>
+									<li><a href="javascript:void(0)">7</a></li>
+									<li><a href="javascript:void(0)">8</a></li>
+									<li><a href="javascript:void(0)">9</a></li>
+									<li><a href="javascript:void(0)">a</a></li>
+									<li><a href="javascript:void(0)">b</a></li>
+									<li><a href="javascript:void(0)">c</a></li>
+									<li><a href="javascript:void(0)">d</a></li>
+									<li><a href="javascript:void(0)">e</a></li>
+									<li><a href="javascript:void(0)">f</a></li>
+									<li><a href="javascript:void(0)">g</a></li>
+									<li><a href="javascript:void(0)">h</a></li>
+									<li><a href="javascript:void(0)">i</a></li>
+									<li><a href="javascript:void(0)">j</a></li>
+									<li><a href="javascript:void(0)">k</a></li>
+									<li><a href="javascript:void(0)">l</a></li>
+									<li><a href="javascript:void(0)">m</a></li>
+									<li><a href="javascript:void(0)">n</a></li>
+									<li><a href="javascript:void(0)">o</a></li>
+									<li><a href="javascript:void(0)">p</a></li>
+									<li><a href="javascript:void(0)">q</a></li>
+									<li><a href="javascript:void(0)">r</a></li>
+									<li><a href="javascript:void(0)">s</a></li>
+									<li><a href="javascript:void(0)">t</a></li>
+									<li><a href="javascript:void(0)">u</a></li>
+									<li><a href="javascript:void(0)">v</a></li>
+									<li><a href="javascript:void(0)">w</a></li>
+									<li><a href="javascript:void(0)">x</a></li>
+									<li><a href="javascript:void(0)">y</a></li>
+									<li><a href="javascript:void(0)">z</a></li>
+								</ul>
+							</li>
+						</ul>
+
+						<input type="hidden" id="letter4" name="letter4" value="" maxlength="1">
+						<ul id="lastIDLetter" class="dropDown_gray_S clearfix">
+							<li><a href="javascript:void(0)" id="downlineNo4">-</a>
+								<ul id="downlineSelectNo4">
+
+									<li><a href="javascript:void(0)">0</a></li>
+									<li><a href="javascript:void(0)">1</a></li>
+									<li><a href="javascript:void(0)">2</a></li>
+									<li><a href="javascript:void(0)">3</a></li>
+									<li><a href="javascript:void(0)">4</a></li>
+									<li><a href="javascript:void(0)">5</a></li>
+									<li><a href="javascript:void(0)">6</a></li>
+									<li><a href="javascript:void(0)">7</a></li>
+									<li><a href="javascript:void(0)">8</a></li>
+									<li><a href="javascript:void(0)">9</a></li>
+									<li><a href="javascript:void(0)">a</a></li>
+									<li><a href="javascript:void(0)">b</a></li>
+									<li><a href="javascript:void(0)">c</a></li>
+									<li><a href="javascript:void(0)">d</a></li>
+									<li><a href="javascript:void(0)">e</a></li>
+									<li><a href="javascript:void(0)">f</a></li>
+									<li><a href="javascript:void(0)">g</a></li>
+									<li><a href="javascript:void(0)">h</a></li>
+									<li><a href="javascript:void(0)">i</a></li>
+									<li><a href="javascript:void(0)">j</a></li>
+									<li><a href="javascript:void(0)">k</a></li>
+									<li><a href="javascript:void(0)">l</a></li>
+									<li><a href="javascript:void(0)">m</a></li>
+									<li><a href="javascript:void(0)">n</a></li>
+									<li><a href="javascript:void(0)">o</a></li>
+									<li><a href="javascript:void(0)">p</a></li>
+									<li><a href="javascript:void(0)">q</a></li>
+									<li><a href="javascript:void(0)">r</a></li>
+									<li><a href="javascript:void(0)">s</a></li>
+									<li><a href="javascript:void(0)">t</a></li>
+									<li><a href="javascript:void(0)">u</a></li>
+									<li><a href="javascript:void(0)">v</a></li>
+									<li><a href="javascript:void(0)">w</a></li>
+									<li><a href="javascript:void(0)">x</a></li>
+									<li><a href="javascript:void(0)">y</a></li>
+									<li><a href="javascript:void(0)">z</a></li>
+								</ul>
+							</li>
+						</ul>
+						<span id="isAccountExisted">&nbsp;</span><!-- have to add &nbsp; -->
+					</dd>
+					<dt>
+						<span class="star_on">*</span>Password
+					</dt>
+					<dd>
+						<input id="password" type="password" name="password" maxlength="6">
+						<span id="isPasswordValid">&nbsp;</span><!-- have to add &nbsp; -->
+						<p style="display: none;">Use only 6 digits for your security code - The numbers must not be in sequence and contains at least 2 different digit</p>
+					</dd>
+					<dt>
+						<span class="star_off">*</span>Contact No.
+					</dt>
+					<dd>
+						<input type="text" id="contactNo" name="contactNo" maxlength="16">
+					</dd>
+					<dt>
+						<span class="star_off">*</span>First Name
+					</dt>
+					<dd>
+						<input id="firstName" name="firstName" type="text" maxlength="30">
+					</dd>
+					<dt>
+						<span class="star_on">*</span>Downline Credit
+					</dt>
+					<dd>
+						<input type="text" id="givenCredit" name="givenCredit" maxlength="20" value="0"> <span
+							class="span_dd" id="givenCreditMessage" style="display: none;">≤&nbsp;0</span>
+					</dd>
+				</dl>
+
+				<dl class="dl_1 clearfix">
+					<dt>
+						<span class="star_off">*</span>Nickname
+					</dt>
+					<dd>
+
+					</dd>
+					<dt>
+						<span class="star_on">*</span>Security Code
+					</dt>
+					<dd class="notice">
+						<input type="password" id="securityCode" name="securityCode" maxlength="6">
+						<span class="" id="isSecurityCodeValid">&nbsp;</span><!-- have to add &nbsp; -->
+						<p style="display: block;">Use only 6 digits for your security code - The numbers must not be in
+							sequence and contains at least 2 different digit</p>
+					</dd>
+					<dt>
+						<span class="star_off">*</span>E-mail
+					</dt>
+					<dd>
+						<input id="email" name="email" type="text" maxlength="50">
+					</dd>
+					<dt>
+						<span class="star_off">*</span>Last Name
+					</dt>
+					<dd>
+						<input id="lastName" name="lastName" type="text" maxlength="30">
+					</dd>
+					<dt>
+						<span class="star_off">*</span>Remarks
+					</dt>
+					<dd>
+						<textarea class="remarks" rows="3" cols="40" id="remarks" name="remarks"
+							maxlength="250"></textarea>
+					</dd>
+
+				</dl>
+			</div>
+
+
+			<!-- GroupType -->
+			<h3 id="groupTypeTitle">Group Type Setting</h3>
+			<dl id="groupTypeSection" class="box_1 dl_1 clearfix">
+				<dt>
+					<span class="star_on">*</span>Group Type
+				</dt>
+				<dd>
+					<ul class="dropDown_gray_S clearfix">
+						<li><a href="javascript:void(0)" id="groupTypeNo">B</a>
+							<ul id="groupTypeSelection">
+
+								<li><a href="javascript:void(0)">A</a></li>
+
+								<li><a href="javascript:void(0)">B</a></li>
+
+								<li><a href="javascript:void(0)">C</a></li>
+
+								<li><a href="javascript:void(0)">D</a></li>
+
+							</ul>
+						</li>
+					</ul>
+				</dd>
+			</dl>
+
+			<!-- CurrencyType -->
+			<h3 id="currencyTypeTitle">Currency Type Setting</h3>
+			<dl id="currencyTypeSection" class="box_1 dl_1 clearfix">
+				<dt>
+					<span class="star_on">*</span>Currency Type
+				</dt>
+				<dd>
+					<ul class="dropDown_gray_currency clearfix">
+						<li><a href="javascript:void(0)" id="currencyTypeNo">-</a>
+							<ul id="currencyTypeSelection">
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(1);">USD</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(2);">SG</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(3);">MYR</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(4);">THB</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(5);">IDR</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(6);">KHR</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(7);">JPY</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(8);">US$</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(9);">KRW</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(10);">HKD</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(11);">RMB</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(12);">MXN</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(13);">VND</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(14);">PT</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(15);">INR</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(16);">MBTC</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(17);">METH</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(18);">EOS</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(19);">MLTC</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(20);">KRWK</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(21);">MMK</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(22);">MMKK</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(23);">AED</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(24);">AUD</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(25);">PTV</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(26);">EUR</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(27);">BND</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(28);">CAD</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(29);">GBP</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(30);">NOK</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(31);">NZD</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(32);">PHP</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(33);">SEK</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(34);">ZAR</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(35);">ZWD</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(36);">MOP</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(37);">COP</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(38);">BDT</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(39);">PTI</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(40);">BRL</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(41);">LAK</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(42);">LAKK</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(43);">NPR</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(44);">TND</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(45);">PKR</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickCurrencyType(46);">AMD</a></li>
+
+							</ul>
+						</li>
+					</ul>
+				</dd>
+			</dl>
+
+			<!-- BDDType -->
+			<h3 id="bddTypeTitle">BDD Setting</h3>
+			<dl id="bddTypeSection" class="box_1 dl_1 clearfix">
+				<dt>
+					<span class="star_on">*</span>BDD Type
+				</dt>
+				<dd>
+					<ul class="dropDown_gray_L clearfix">
+						<li><a href="javascript:void(0)" id="bddTypeNo">-</a>
+							<ul id="bddTypeSelection">
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickBDDType('0','BDD_REFUND');">BDD_REFUND</a>
+								</li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickBDDType('1','BDD_KILL');">BDD_KILL</a></li>
+
+							</ul>
+						</li>
+					</ul>
+				</dd>
+			</dl>
+
+			<!-- OddsMode -->
+			<h3 id="oddsModeTitle">Odds Mode Setting</h3>
+			<dl id="oddsModeSection" class="box_1 dl_1 clearfix">
+				<dt>
+					<span class="star_on">*</span>Odds Mode
+				</dt>
+				<dd>
+					<ul class="dropDown_gray_L clearfix">
+						<li><a href="javascript:void(0)" id="oddsModeNo">MALAY</a>
+							<ul id="oddsModeSelection">
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickOddsMode('0','MALAY');">MALAY</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickOddsMode('1','US');">US</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickOddsMode('2','IDN');">IDN</a></li>
+
+								<li><a href="javascript:void(0)"
+										onclick="CreateAccountHandler.clickOddsMode('3','HK');">HK</a></li>
+
+							</ul>
+						</li>
+					</ul>
+				</dd>
+			</dl>
+
+
+
+
+			<!-- new PT & comm -->
+			<h3>Position Taking (%) / Commission Setting</h3>
+			<table class="table_PT">
+				<thead>
+					<tr>
+						<th>Country</th>
+						<th>Game Setting</th>
+						<th>Given PT%</th>
+						<th>Downline PT %</th>
+						<th>Commission Setting</th>
+					</tr>
+				</thead>
+
+				<tbody>
+
+					<tr>
+
+						<th rowspan="2"><strong>PHI</strong><span id="ptCommCopy" class="copySetting"></span></th>
+
+						<th>Pre-fight</th>
+						<td><input id="masterPT1" class="inputText_no" type="text" value="" readonly="" disabled="">
+						</td>
+						<td><input id="givenPT1" name="givenPT1" type="text" maxlength="3" value="0">
+							<p id="givenPTMessage1">≤&nbsp;100%</p>
+						</td>
+						<td>
+							<ul class="dropDown_gray_M">
+								<li><a href="javascript:void(0)" id="downlineShowCommission1">0.0000</a>
+									<ul id="downlineSelectCommission1">
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0025</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0024</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0023</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0022</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0021</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0020</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0019</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0018</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0017</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0016</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0015</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0014</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0013</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0012</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0011</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0010</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0009</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0008</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0007</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0006</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0005</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0004</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0003</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0002</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0001</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0000</a></li>
+									</ul>
+								</li>
+							</ul>
+
+							<p>* Given commission from upline is</p>
+							<p id="commMessage1">0.0025</p>
+							<input type="hidden" id="commission1" name="commission1" value="0.0000" maxlength="6">
+						</td>
+					</tr>
+					<tr>
+						<th>Live</th>
+						<td><input id="masterLivePT1" class="inputText_no" type="text" value="" readonly="" disabled="">
+						</td>
+						<td><input id="givenLivePT1" name="givenLivePT1" type="text" maxlength="3" value="0">
+							<p id="givenLivePTMessage1">≤&nbsp;100%</p>
+						</td>
+						<td>
+							<ul class="dropDown_gray_M">
+								<li><a href="javascript:void(0)" id="downlineShowLiveCommission1">0.0000</a>
+									<ul id="downlineSelectLiveCommission1">
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0025</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0024</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0023</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0022</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0021</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0020</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0019</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0018</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0017</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0016</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0015</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0014</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0013</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0012</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0011</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0010</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0009</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0008</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0007</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0006</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0005</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0004</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0003</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0002</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0001</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0000</a></li>
+									</ul>
+								</li>
+							</ul>
+
+							<p>* Given commission from upline is</p>
+							<p id="liveCommMessage1">0.0025</p>
+							<input type="hidden" id="liveCommission1" name="liveCommission1" value="0.0000"
+								maxlength="6">
+						</td>
+					</tr>
+
+					<tr>
+
+						<th rowspan="2"><strong>CAM</strong></th>
+
+						<th>Pre-fight</th>
+						<td><input id="masterPT2" class="inputText_no" type="text" value="" readonly="" disabled="">
+						</td>
+						<td><input id="givenPT2" name="givenPT2" type="text" maxlength="3" value="0">
+							<p id="givenPTMessage2">≤&nbsp;100%</p>
+						</td>
+						<td>
+							<ul class="dropDown_gray_M">
+								<li><a href="javascript:void(0)" id="downlineShowCommission2">0.0000</a>
+									<ul id="downlineSelectCommission2">
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0025</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0024</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0023</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0022</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0021</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0020</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0019</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0018</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0017</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0016</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0015</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0014</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0013</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0012</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0011</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0010</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0009</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0008</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0007</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0006</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0005</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0004</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0003</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0002</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0001</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0000</a></li>
+									</ul>
+								</li>
+							</ul>
+
+							<p>* Given commission from upline is</p>
+							<p id="commMessage2">0.0025</p>
+							<input type="hidden" id="commission2" name="commission2" value="0.0000" maxlength="6">
+						</td>
+					</tr>
+					<tr>
+						<th>Live</th>
+						<td><input id="masterLivePT2" class="inputText_no" type="text" value="" readonly="" disabled="">
+						</td>
+						<td><input id="givenLivePT2" name="givenLivePT2" type="text" maxlength="3" value="0">
+							<p id="givenLivePTMessage2">≤&nbsp;100%</p>
+						</td>
+						<td>
+							<ul class="dropDown_gray_M">
+								<li><a href="javascript:void(0)" id="downlineShowLiveCommission2">0.0000</a>
+									<ul id="downlineSelectLiveCommission2">
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0025</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0024</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0023</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0022</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0021</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0020</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0019</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0018</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0017</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0016</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0015</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0014</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0013</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0012</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0011</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0010</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0009</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0008</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0007</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0006</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0005</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0004</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0003</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0002</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0001</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0000</a></li>
+									</ul>
+								</li>
+							</ul>
+
+							<p>* Given commission from upline is</p>
+							<p id="liveCommMessage2">0.0025</p>
+							<input type="hidden" id="liveCommission2" name="liveCommission2" value="0.0000"
+								maxlength="6">
+						</td>
+					</tr>
+
+					<tr>
+
+						<th rowspan="2"><strong>TH</strong></th>
+
+						<th>Pre-fight</th>
+						<td><input id="masterPT3" class="inputText_no" type="text" value="" readonly="" disabled="">
+						</td>
+						<td><input id="givenPT3" name="givenPT3" type="text" maxlength="3" value="0">
+							<p id="givenPTMessage3">≤&nbsp;100%</p>
+						</td>
+						<td>
+							<ul class="dropDown_gray_M">
+								<li><a href="javascript:void(0)" id="downlineShowCommission3">0.0000</a>
+									<ul id="downlineSelectCommission3">
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0025</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0024</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0023</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0022</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0021</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0020</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0019</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0018</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0017</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0016</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0015</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0014</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0013</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0012</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0011</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0010</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0009</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0008</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0007</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0006</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0005</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0004</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0003</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0002</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0001</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0000</a></li>
+									</ul>
+								</li>
+							</ul>
+
+							<p>* Given commission from upline is</p>
+							<p id="commMessage3">0.0025</p>
+							<input type="hidden" id="commission3" name="commission3" value="0.0000" maxlength="6">
+						</td>
+					</tr>
+					<tr>
+						<th>Live</th>
+						<td><input id="masterLivePT3" class="inputText_no" type="text" value="" readonly="" disabled="">
+						</td>
+						<td><input id="givenLivePT3" name="givenLivePT3" type="text" maxlength="3" value="0">
+							<p id="givenLivePTMessage3">≤&nbsp;100%</p>
+						</td>
+						<td>
+							<ul class="dropDown_gray_M">
+								<li><a href="javascript:void(0)" id="downlineShowLiveCommission3">0.0000</a>
+									<ul id="downlineSelectLiveCommission3">
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0025</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0024</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0023</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0022</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0021</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0020</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0019</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0018</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0017</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0016</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0015</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0014</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0013</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0012</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0011</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0010</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0009</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0008</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0007</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0006</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0005</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0004</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0003</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0002</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0001</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0000</a></li>
+									</ul>
+								</li>
+							</ul>
+
+							<p>* Given commission from upline is</p>
+							<p id="liveCommMessage3">0.0025</p>
+							<input type="hidden" id="liveCommission3" name="liveCommission3" value="0.0000"
+								maxlength="6">
+						</td>
+					</tr>
+
+					<tr>
+
+						<th rowspan="2"><strong>MX</strong></th>
+
+						<th>Pre-fight</th>
+						<td><input id="masterPT4" class="inputText_no" type="text" value="" readonly="" disabled="">
+						</td>
+						<td><input id="givenPT4" name="givenPT4" type="text" maxlength="3" value="0">
+							<p id="givenPTMessage4">≤&nbsp;100%</p>
+						</td>
+						<td>
+							<ul class="dropDown_gray_M">
+								<li><a href="javascript:void(0)" id="downlineShowCommission4">0.0000</a>
+									<ul id="downlineSelectCommission4">
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0025</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0024</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0023</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0022</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0021</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0020</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0019</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0018</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0017</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0016</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0015</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0014</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0013</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0012</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0011</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0010</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0009</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0008</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0007</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0006</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0005</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0004</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0003</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0002</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0001</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.commClick(this)">0.0000</a></li>
+									</ul>
+								</li>
+							</ul>
+
+							<p>* Given commission from upline is</p>
+							<p id="commMessage4">0.0025</p>
+							<input type="hidden" id="commission4" name="commission4" value="0.0000" maxlength="6">
+						</td>
+					</tr>
+					<tr>
+						<th>Live</th>
+						<td><input id="masterLivePT4" class="inputText_no" type="text" value="" readonly="" disabled="">
+						</td>
+						<td><input id="givenLivePT4" name="givenLivePT4" type="text" maxlength="3" value="0">
+							<p id="givenLivePTMessage4">≤&nbsp;100%</p>
+						</td>
+						<td>
+							<ul class="dropDown_gray_M">
+								<li><a href="javascript:void(0)" id="downlineShowLiveCommission4">0.0000</a>
+									<ul id="downlineSelectLiveCommission4">
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0025</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0024</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0023</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0022</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0021</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0020</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0019</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0018</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0017</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0016</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0015</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0014</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0013</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0012</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0011</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0010</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0009</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0008</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0007</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0006</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0005</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0004</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0003</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0002</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0001</a></li>
+										<li><a href="javascript:void(0)"
+												onclick="CreateAccountHandler.liveCommClick(this)">0.0000</a></li>
+									</ul>
+								</li>
+							</ul>
+
+							<p>* Given commission from upline is</p>
+							<p id="liveCommMessage4">0.0025</p>
+							<input type="hidden" id="liveCommission4" name="liveCommission4" value="0.0000"
+								maxlength="6">
+						</td>
+					</tr>
+
+				</tbody>
+			</table>
+
+			<!-- bet setting -->
+			<h3>Bets Setting</h3>
+			<table class="table_betSetting">
+				<thead>
+					<tr>
+						<th rowspan="2">Country</th>
+						<th rowspan="2">Game Setting</th>
+						<th colspan="2">Meron/Wala</th>
+						<th colspan="2">Draw</th>
+						<th rowspan="2">Max. Bet Per Match</th>
+					</tr>
+					<tr>
+						<th>Min. Bet</th>
+						<th>Max. Bet</th>
+						<th>Min. Bet</th>
+						<th>Max. Bet</th>
+					</tr>
+				</thead>
+
+				<tbody>
+
+					<tr>
+
+						<th rowspan="2"><strong>PHI</strong><span id="betSettingCopy" class="copySetting"></span></th>
+
+						<th>Pre-fight</th>
+						<td><input id="minBet1" name="minBet1" type="text" value="" maxlength="7">≥&nbsp;<span
+								id="minBetMessage1">1</span></td>
+						<td><input id="maxBet1" name="maxBet1" type="text" value="" maxlength="10">≤&nbsp;<span
+								id="maxBetMessage1">99,999,999</span></td>
+						<td><input id="minBetDraw1" name="minBetDraw1" type="text" value="" maxlength="7">≥&nbsp;<span
+								id="minBetDrawMessage1">1</span></td>
+						<td><input id="maxBetDraw1" name="maxBetDraw1" type="text" value="" maxlength="10">≤&nbsp;<span
+								id="maxBetDrawMessage1">99,999,999</span></td>
+						<td><input id="maxBetPerMatch1" name="maxBetPerMatch1" type="text" value=""
+								maxlength="10">≤&nbsp;<span id="maxBetPerMatchMessage1">99,999,999</span></td>
+					</tr>
+					<tr>
+						<th>Live</th>
+						<td><input id="minBetLive1" name="minBetLive1" type="text" value="" maxlength="7">≥&nbsp;<span
+								id="minBetLiveMessage1">1</span></td>
+						<td><input id="maxBetLive1" name="maxBetLive1" type="text" value="" maxlength="10">≤&nbsp;<span
+								id="maxBetLiveMessage1">99,999,999</span></td>
+						<td><input id="minBetDrawLive1" name="minBetDrawLive1" type="text" value=""
+								maxlength="7">≥&nbsp;<span id="minBetDrawLiveMessage1">1</span></td>
+						<td><input id="maxBetDrawLive1" name="maxBetDrawLive1" type="text" value=""
+								maxlength="10">≤&nbsp;<span id="maxBetDrawLiveMessage1">99,999,999</span></td>
+						<td><input id="maxBetPerMatchLive1" name="maxBetPerMatchLive1" type="text" value=""
+								maxlength="10">≤&nbsp;<span id="maxBetPerMatchLiveMessage1">99,999,999</span></td>
+					</tr>
+
+					<tr>
+
+						<th rowspan="2"><strong>CAM</strong></th>
+
+						<th>Pre-fight</th>
+						<td><input id="minBet2" name="minBet2" type="text" value="" maxlength="7">≥&nbsp;<span
+								id="minBetMessage2">1</span></td>
+						<td><input id="maxBet2" name="maxBet2" type="text" value="" maxlength="10">≤&nbsp;<span
+								id="maxBetMessage2">99,999,999</span></td>
+						<td><input id="minBetDraw2" name="minBetDraw2" type="text" value="" maxlength="7">≥&nbsp;<span
+								id="minBetDrawMessage2">1</span></td>
+						<td><input id="maxBetDraw2" name="maxBetDraw2" type="text" value="" maxlength="10">≤&nbsp;<span
+								id="maxBetDrawMessage2">99,999,999</span></td>
+						<td><input id="maxBetPerMatch2" name="maxBetPerMatch2" type="text" value=""
+								maxlength="10">≤&nbsp;<span id="maxBetPerMatchMessage2">99,999,999</span></td>
+					</tr>
+					<tr>
+						<th>Live</th>
+						<td><input id="minBetLive2" name="minBetLive2" type="text" value="" maxlength="7">≥&nbsp;<span
+								id="minBetLiveMessage2">1</span></td>
+						<td><input id="maxBetLive2" name="maxBetLive2" type="text" value="" maxlength="10">≤&nbsp;<span
+								id="maxBetLiveMessage2">99,999,999</span></td>
+						<td><input id="minBetDrawLive2" name="minBetDrawLive2" type="text" value=""
+								maxlength="7">≥&nbsp;<span id="minBetDrawLiveMessage2">1</span></td>
+						<td><input id="maxBetDrawLive2" name="maxBetDrawLive2" type="text" value=""
+								maxlength="10">≤&nbsp;<span id="maxBetDrawLiveMessage2">99,999,999</span></td>
+						<td><input id="maxBetPerMatchLive2" name="maxBetPerMatchLive2" type="text" value=""
+								maxlength="10">≤&nbsp;<span id="maxBetPerMatchLiveMessage2">99,999,999</span></td>
+					</tr>
+
+					<tr>
+
+						<th rowspan="2"><strong>TH</strong></th>
+
+						<th>Pre-fight</th>
+						<td><input id="minBet3" name="minBet3" type="text" value="" maxlength="7">≥&nbsp;<span
+								id="minBetMessage3">1</span></td>
+						<td><input id="maxBet3" name="maxBet3" type="text" value="" maxlength="10">≤&nbsp;<span
+								id="maxBetMessage3">99,999,999</span></td>
+						<td><input id="minBetDraw3" name="minBetDraw3" type="text" value="" maxlength="7">≥&nbsp;<span
+								id="minBetDrawMessage3">1</span></td>
+						<td><input id="maxBetDraw3" name="maxBetDraw3" type="text" value="" maxlength="10">≤&nbsp;<span
+								id="maxBetDrawMessage3">99,999,999</span></td>
+						<td><input id="maxBetPerMatch3" name="maxBetPerMatch3" type="text" value=""
+								maxlength="10">≤&nbsp;<span id="maxBetPerMatchMessage3">99,999,999</span></td>
+					</tr>
+					<tr>
+						<th>Live</th>
+						<td><input id="minBetLive3" name="minBetLive3" type="text" value="" maxlength="7">≥&nbsp;<span
+								id="minBetLiveMessage3">1</span></td>
+						<td><input id="maxBetLive3" name="maxBetLive3" type="text" value="" maxlength="10">≤&nbsp;<span
+								id="maxBetLiveMessage3">99,999,999</span></td>
+						<td><input id="minBetDrawLive3" name="minBetDrawLive3" type="text" value=""
+								maxlength="7">≥&nbsp;<span id="minBetDrawLiveMessage3">1</span></td>
+						<td><input id="maxBetDrawLive3" name="maxBetDrawLive3" type="text" value=""
+								maxlength="10">≤&nbsp;<span id="maxBetDrawLiveMessage3">99,999,999</span></td>
+						<td><input id="maxBetPerMatchLive3" name="maxBetPerMatchLive3" type="text" value=""
+								maxlength="10">≤&nbsp;<span id="maxBetPerMatchLiveMessage3">99,999,999</span></td>
+					</tr>
+
+					<tr>
+
+						<th rowspan="2"><strong>MX</strong></th>
+
+						<th>Pre-fight</th>
+						<td><input id="minBet4" name="minBet4" type="text" value="" maxlength="7">≥&nbsp;<span
+								id="minBetMessage4">1</span></td>
+						<td><input id="maxBet4" name="maxBet4" type="text" value="" maxlength="10">≤&nbsp;<span
+								id="maxBetMessage4">99,999,999</span></td>
+						<td><input id="minBetDraw4" name="minBetDraw4" type="text" value="" maxlength="7">≥&nbsp;<span
+								id="minBetDrawMessage4">1</span></td>
+						<td><input id="maxBetDraw4" name="maxBetDraw4" type="text" value="" maxlength="10">≤&nbsp;<span
+								id="maxBetDrawMessage4">99,999,999</span></td>
+						<td><input id="maxBetPerMatch4" name="maxBetPerMatch4" type="text" value=""
+								maxlength="10">≤&nbsp;<span id="maxBetPerMatchMessage4">99,999,999</span></td>
+					</tr>
+					<tr>
+						<th>Live</th>
+						<td><input id="minBetLive4" name="minBetLive4" type="text" value="" maxlength="7">≥&nbsp;<span
+								id="minBetLiveMessage4">1</span></td>
+						<td><input id="maxBetLive4" name="maxBetLive4" type="text" value="" maxlength="10">≤&nbsp;<span
+								id="maxBetLiveMessage4">99,999,999</span></td>
+						<td><input id="minBetDrawLive4" name="minBetDrawLive4" type="text" value=""
+								maxlength="7">≥&nbsp;<span id="minBetDrawLiveMessage4">1</span></td>
+						<td><input id="maxBetDrawLive4" name="maxBetDrawLive4" type="text" value=""
+								maxlength="10">≤&nbsp;<span id="maxBetDrawLiveMessage4">99,999,999</span></td>
+						<td><input id="maxBetPerMatchLive4" name="maxBetPerMatchLive4" type="text" value=""
+								maxlength="10">≤&nbsp;<span id="maxBetPerMatchLiveMessage4">99,999,999</span></td>
+					</tr>
+
+				</tbody>
+			</table>
+
+
+			<div class="box_input">
+				<div class="box_center clearfix">
+					<input id="code2Text" type="text" class="inputText_2" autocomplete="off" value="Validation Code"
+						onclick="validationOnClick();" onkeyup="validationOnClick();" maxlength="4">
+					<input style="display:none;" id="code" name="code" type="text" class="inputText_2"
+						autocomplete="off" maxlength="4">
+					<div class="verify">
+						<img alt="auth" id="authenticateImage" src="verifycode.gr">
+						<a id="refresh_authenticate_img" href="javascript:void(0)">refresh</a>
+					</div>
+					<input id="createAccountSubmit" class="input_on" type="button" value="Proceed"
+						onclick="document.createAccountForm.onsubmit()">
+				</div>
+			</div>
+
+		</div>
+	</form>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

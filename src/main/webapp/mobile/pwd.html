@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<title>CF mobile - Profile page</title>
+<link href="css/mobile/profile.css" rel="stylesheet" type="text/css">
+</head>
+<body class="profile">
+	<header>
+		<h1>Change Password</h1>
+		<ul>
+			<li class="goback-icon">
+				<a href="#"></a>
+			</li>
+			<li class="gamehall-icon">
+				<a href="index.html"></a>
+			</li>
+			<li class="menu-icon" onclick="openNav()">
+				<a href="#"></a>
+			</li>
+		</ul>
+	</header>
+	<nav id="mainSidenav" class="sidenav">
+		<a href="javascript:void(0)" class="btn-close" onclick="closeNav()">&times;</a>
+		<ul class="sidenav-main">
+			<li>
+				<a href="profile.html">Profile</a>
+			</li>
+			<li>
+				<a href="trans-report.html">Transaction Report</a>
+			</li>
+			<li>
+				<a href="pwd.html">Change Password</a>
+			</li>
+			<li>
+				<a href="login.html">Logout</a>
+			</li>
+		</ul>
+	</nav>
+
+	<main>
+		<form action="" class="pwd-form">
+			<div class="form-group">
+				<label for="">Current Password</label>
+				<input type="password" value="" placeholder="Current Password" class="">
+			</div>
+			<div class="form-group">
+				<label for="">New Password</label>
+				<input type="password" value="" placeholder="New Password" class="checked">
+			</div>
+			<div class="form-group">
+				<label for="">Confirm New Password</label>
+				<input type="password" value="" placeholder=" Confirm New Password"  class="error">
+				<span class="help-block">the password is not right.</span>
+			</div>	
+			<ul>
+				<li>Password must have 8 to 15 alphanumeric without white space</li>
+				<li class="error-notice">Password cannot be the same as username/nickname</li>
+				<li>Must contain at least 1 capital letter, 1 small letter and 1 number</li>
+				<li>Password must not contain any special characters (!,@,#,etc..)</li>
+			</ul>
+			<div class="text-center">
+				<button type="reset" value="reset" class="btn-reset btn-md">Reset</button>
+				<button type="submit" value="submit" class="btn-primary btn-md">Submit</button>	
+			</div>
+		</form>
+
+	</main>
+	<script src="js/main.js"></script>
+</body>
+</html>

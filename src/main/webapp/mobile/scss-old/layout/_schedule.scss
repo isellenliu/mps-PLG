@@ -1,0 +1,114 @@
+//Schedule
+.place-tab {
+    display: flex;
+    justify-content: center;
+    padding: vw(16px) 0;
+    box-shadow: 0 (2px) (4px) 0 rgba(0,0,0,.4);
+    font-size: vw(16px);
+    list-style-type: none;
+
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: vw(70px);
+        padding: 0 vw(10px);
+        margin-right: vw(8px);
+        border-radius: vw(1px);
+        background-color: #F7B681;
+        font-size: vw(16px);
+        line-height: vw(28px);
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &.active {
+            background-color: #EF6D02;
+        }
+
+        &.no-work {
+            background-color: #d2d2d2;
+        }
+    }
+
+    a {
+        color: #ffffff;
+    }
+}
+
+.daily-group {
+    p {
+        margin: vw(30px) vw(20px);
+        font-size: vw(15px);
+        color: $gray-mid;
+        text-align: center;
+        line-height: vw(22px);
+    }
+}
+
+.prevNext-select {
+    display: flex;
+    justify-content: space-between;
+    margin: vw(20px) 0;
+    padding: 0 vw(7px);
+
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        list-style-type: none;
+        color: $gray-mid;
+    }
+
+    .current {
+        color: #EF6D02;
+        font-size: vw(20px);
+        font-weight: bold;
+    }
+
+    .prev {
+        padding-left: vw(24px);
+        background: svg-arrow-left('%23666666') left center no-repeat;
+        background-size: vw(24px);
+        font-size: vw(16px);
+        line-height: vw(24px);
+    }
+
+    .next {
+        padding-right: vw(24px);
+        background: svg-arrow-right('%23666666') right center no-repeat;
+        background-size: vw(24px);
+        line-height: vw(24px);
+        font-size: vw(16px);
+        text-align: right;
+    }
+}
+
+.daily-info {
+    background-color: #ffffff;
+    
+    dt {
+        padding-left: vw(20px);
+        box-shadow: 0 (2px) (3px) 0 rgba(0,0,0,.3);
+        color: #EF6D02;
+        line-height: vw(46px);
+        font-size: vw(18px);
+    }
+
+    dd {
+        padding-left: vw(40px);
+        border-bottom: 1px solid #e0e0e0;
+        line-height: vw(37px);
+        font-size: vw(15px);
+        color: $gray-mid;
+        
+        strong {
+            padding: vw(2px) vw(6px);
+            margin-right: vw(6px);
+            border-radius: vw(1px);
+            background-color: #e0e0e0;
+            font-weight: normal;
+        }
+    }
+}
+

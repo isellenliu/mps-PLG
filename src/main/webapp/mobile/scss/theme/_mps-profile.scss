@@ -1,0 +1,57 @@
+//for MPS system
+.mps {
+// Main Navigation
+header {
+    // display: none;
+    height: vw($ht-mps-header);
+}
+
+.subtitle {
+    @include box-shadow(inset 0 vw(4px) vw(4px) rgba($black, .2));
+    height: vw($ht-mps-subheader);
+    background-color: $gray-dark;
+
+    h1 {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: vw($ht-mps-subheader);
+        color: $gray-lighter;
+        font-size: vw(16px);
+        line-height: vw($ht-mps-subheader);
+        text-align: center;
+    }
+
+    ul,
+    li a {
+        height: vw($ht-mps-subheader);
+    }
+}
+
+.container {
+    height: 100%;
+}
+
+@media screen and (orientation: landscape) {
+    // All element position
+    header {
+        height: vmax($ht-mps-header);
+    }
+
+    .subtitle {
+        @include box-shadow(inset 0 vmax(4px) vmax(4px) rgba($black, .2));
+        height: vmax($ht-mps-subheader);
+
+        h1 {
+            height: vmax($ht-mps-subheader);
+            font-size: vmax(16px);
+            line-height: vmax($ht-mps-subheader);
+        }
+
+        ul,
+        li a {
+            height: vmax($ht-mps-subheader);
+        }
+    }
+}// end-of-landscape
+} // end-of-mps

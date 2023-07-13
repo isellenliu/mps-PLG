@@ -1,0 +1,97 @@
+.video-live
+    animation: blink-1 1.5s infinite both
+
+.sicbo-countdown
+    border-radius: 99px
+    position: absolute
+    width: 56px
+    height: 56px
+    left: 4px
+    top: 4px
+    display: flex
+    justify-content: center
+    align-items: center
+    align-self: flex-start
+    background: rgba(0, 0, 0, 0.6)
+    color: #fff
+    font-size: 30px
+    font-weight: bold
+    border: 4px solid #32A23D
+    overflow: hidden
+    &::before
+        content: ''
+        position: absolute
+        width: 56px
+        height: 56px
+        background-color: #32A23D
+        animation: time-out 20s infinite linear
+        z-index: -1
+        // top: 100%        
+    &.limited
+        color: #C62828
+
+.video-btnbox
+    position: fixed
+    top: 7px
+    right: 2vw
+    z-index: 550
+    width: 120px
+    height: 30px
+    background-color: #00000061
+    border-radius: 10px 10px
+    box-shadow: 0 0 5px #4f4f4f
+    display: flex
+    justify-content: space-between
+    .btn-menu,
+    .volume,
+    .setting,
+    .monitor
+        color: #f1f1f1
+        width: 35px
+        text-align: center
+        &::before
+            font-family: 'icomoon' !important
+            content: '\ea15'
+            line-height: 30px
+            font-size: 16px
+    .volume
+        position: relative
+        &.off
+            &::after
+                position: absolute
+                top: 15px
+                left: 0
+                content: ''
+                width: 30px
+                height: 2px
+                background: red
+                transform: rotate(45deg)
+    .monitor
+        font-size: 80%
+        border-radius: 10px
+        &::before
+            font-family: 'icomoon' !important
+            content: '\e979'
+            margin-right: 3px
+    .setting
+        font-size: 80%
+        border-radius: 10px
+        &::before
+            font-family: 'icomoon' !important
+            content: '\e934'
+            margin-right: 3px
+
+@keyframes blink-1
+    0%,
+    50%,
+    100%
+        opacity: 1
+    25%,
+    75%
+        opacity: 0
+@keyframes time-out
+    0%
+        transform: translateY(0%)
+    100%
+        transform: translateY(100%)
+        

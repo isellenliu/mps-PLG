@@ -1,0 +1,27 @@
+h3{
+	font-size: 20px;
+}
+h4{
+	font-size: 16px;
+}
+
+.btnPrint{
+	@extend .float-R;
+	cursor: pointer;
+	padding: 0 30px;
+	background-color: #FD8503;
+	color: #fff;
+	border-left: 1px solid #fff;
+
+	&:hover{
+		@extend .color_Orange;
+		background-color: #353535;	
+		background-color: #353535;	
+	}
+}
+
+.main{
+	padding: 25px;
+	color: #353535;
+	min-width: 730px;
+}

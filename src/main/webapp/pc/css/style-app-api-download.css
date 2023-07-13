@@ -1,0 +1,276 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box
+}
+
+.clearfix:after, .contant:after {
+	content: "";
+	display: block;
+	clear: both
+}
+
+.clearfix, .contant {
+	zoom: 1
+}
+
+.clear {
+	clear: both
+}
+
+html, body {
+	font-family: Arial, Helvetica, sans-serif;
+	height: 100%
+}
+
+h2 {
+	width: 170px;
+	height: 210px;
+	background: url(../images/icon-api-app.png) no-repeat top center;
+	background-size: auto 100%;
+	text-indent: -9999px
+}
+
+h3 {
+	font-size: 19px;
+	font-weight: normal;
+	text-align: center;
+	color: #fcc701;
+	margin-bottom: 20px
+}
+
+.contant {
+	margin: 0 auto
+}
+
+.contant a {
+	display: block;
+	width: 205px;
+	border-radius: 10px;
+	text-align: center;
+	color: #000;
+	font-size: 25px;
+	padding: 10px 0;
+	text-decoration: none;
+	margin: 0 auto;
+	background: linear-gradient(to bottom, #fcce01 0%, #fc9e01 100%);
+	box-shadow: 0 3px 17px 2px rgba(0, 0, 0, 0.75)
+}
+
+.contant .desktop {
+	margin-top: 20px;
+	font-size: 14px;
+	padding: 10px 0;
+	background: linear-gradient(to bottom, #636363 0%, #333 100%);
+	color: #ffc600
+}
+
+.contant p {
+	color: #fccc01;
+	text-align: center;
+	font-size: 10px;
+	margin-top: 10px
+}
+
+footer {
+	width: 100%;
+	position: fixed;
+	bottom: 0px;
+	font-size: 8px;
+	text-align: center;
+	padding: 10px 5px;
+	line-height: 10px;
+	color: #fff;
+	z-index: 100;
+	background-color: rgba(0, 0, 0, 0.8)
+}
+
+footer p {
+	display: inline;
+	padding: 0 7px
+}
+
+footer span {
+	color: #fbc800
+}
+
+ul li {
+	list-style: none;
+	font-size: 20px;
+	color: #fff;
+	clear: both;
+	line-height: 20px
+}
+
+ul span {
+	display: block;
+	width: 23px;
+	height: 23px;
+	line-height: 23px;
+	font-size: 18px;
+	text-align: center;
+	color: #000;
+	border-radius: 200px;
+	margin-right: 10px;
+	float: left;
+	background: linear-gradient(to bottom, #fc8404 0%, #de4f00 100%);
+	box-shadow: 0 0 22px rgba(0, 0, 0, 0.98)
+}
+
+ul .title {
+	color: #ff9600;
+	font-size: 24px;
+	text-align: center
+}
+
+.two-system h1 {
+	background-size: auto 100%;
+	margin-bottom: 0px
+}
+
+.two-system h2 {
+	background-size: auto 100%
+}
+
+.two-system .btn .ios, .two-system .btn .android {
+	width: 100%;
+	font-size: 20px;
+	padding: 10px 0 10px 40px;
+	text-align: left;
+	margin-bottom: 0px;
+	color: #5a3b00;
+	background: url(../images/icon-ios.png) no-repeat 10px center,
+		linear-gradient(to bottom, #fcce01 0%, #fc9e01 100%)
+}
+
+.two-system .btn .ios strong, .two-system .btn .android strong {
+	color: #000
+}
+
+.two-system .btn .android {
+	background: url(../images/icon-android.png) no-repeat 10px center,
+		linear-gradient(to bottom, #fcce01 0%, #fc9e01 100%)
+}
+
+.two-system .btn p {
+	margin-top: 5px;
+	margin-bottom: 15px
+}
+
+@media only screen and (orientation: landscape) {
+	body {
+		background: url(../images/bg-add-download-l.jpg) #000 center top
+			no-repeat;
+		background-size: 100% auto
+	}
+	h2 {
+		width: 165px;
+		height: 203px;
+		margin: 20px 30px 0 0
+	}
+	.contant {
+		height: 100%;
+		position: relative;
+		margin-top: 0px;
+		display: flex;
+		align-items: center;
+		justify-content: center
+	}
+	.contant a {
+		font-size: 20px
+	}
+	.contant .desktop {
+		margin-top: 15px
+	}
+	.btn {
+		width: 210px
+	}
+	footer br {
+		display: none
+	}
+	ul {
+		width: 513px;
+		background: url(../images/bg-setting.png) -20px top no-repeat;
+		position: relative;
+		margin: 0 auto;
+		padding: 50px 0 40px 230px
+	}
+	ul li {
+		margin-bottom: 15px
+	}
+	ul .title {
+		margin-bottom: 20px;
+		text-align: left;
+		font-size: 21px
+	}
+	.two-system .contant .desktop {
+		padding: 5px 0
+	}
+	.two-system h2 {
+		margin-top: 30px
+	}
+	.two-system h3 {
+		font-size: 15px;
+		margin-bottom: 10px
+	}
+	.two-system .btn {
+		width: 240px
+	}
+	.two-system .btn .ios, .two-system .btn .android {
+		font-size: 16px;
+		padding-top: 8px;
+		padding-bottom: 8px
+	}
+	.two-system .btn p {
+		margin-bottom: 10px
+	}
+}
+
+@media only screen and (orientation: portrait) {
+	body {
+		background: url(../images/bg-chicken-p.jpg) center bottom no-repeat,
+			url(../images/bg-add-download-p.jpg) center top #000 no-repeat
+	}
+	body.setting {
+		background: url(../images/bg-add-download-p.jpg) center top #000
+			no-repeat
+	}
+	body.setting h1 {
+		width: 410px;
+		height: 80px;
+		background-size: auto 100%
+	}
+	.contant {
+		height: auto;
+		padding-top: 50px
+	}
+	h2 {
+		margin: 0 auto
+	}
+	.btn {
+		margin: 0 auto;
+		width: 210px
+	}
+	ul {
+		background: url(../images/bg-setting.png) center -24px no-repeat;
+		padding: 265px 0 0 0;
+		margin: 0 auto
+	}
+	ul li {
+		width: 185px;
+		margin: 0 auto 15px auto
+	}
+	ul .title {
+		width: 100%;
+		margin-bottom: 20px
+	}
+	.two-system h1 {
+		height: 70px
+	}
+	.two-system h2 {
+		height: 150px
+	}
+	.two-system .btn {
+		width: 265px
+	}
+}

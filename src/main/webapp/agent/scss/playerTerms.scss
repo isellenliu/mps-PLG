@@ -1,0 +1,123 @@
+@import "mainSetting";
+@import "_scrollbar";
+
+body{ font-family: Arial, Helvetica, sans-serif;}
+
+.btnLogout {
+	  float: right;
+	  padding: 0 30px;
+	  background-color: #FD8503;	 
+	  color: #fff; 
+	  border-left: 1px solid #fff;
+	  &:hover{ 
+	  	color: #FD8503; 
+	  	background-color: #000;
+	  }
+}
+.contentInfo{
+	width: 880px;
+	margin: 30px auto 0;
+}
+h3{	
+	font-size: 30px;
+	margin-bottom: 20px;
+}
+.content{
+	position: relative;
+	height: 400px;
+	padding-right: 20px;
+	overflow: hidden;
+	h4{
+		font-size: 18px;
+		margin: 15px 0 0 0;
+	}
+	ol{	font-size: 14px;}
+	li{	line-height: 30px;}
+}
+
+.input_off{ margin-left:10px;}
+.agreebtn{
+	text-align: right;
+	margin-top: 30px;
+}
+.listInfo{
+	background-color: #F8F8F8;
+	padding: 10px 15px 10px 25px;
+	margin-bottom: 3px;
+	h4{	
+		font-size: 16px;
+	}
+	dl{ 
+		font-size: 16px;
+		margin: 0;
+		line-height: 30px;
+		@media screen and (-webkit-min-device-pixel-ratio:0) {
+		    line-height: 29px;
+		} /* google chrome*/
+	}
+	dt{
+		padding: 0 10px;
+		background-color: #FD8503;
+		font-weight: bold;
+		float: left;
+		margin-right: 10px;
+	}
+	p{ line-height: 28px;}
+}
+.terms{
+	.content{
+		background-color: #f8f8f8;
+		padding-left: 20px;
+	}
+	h4{
+		font-size: 20px;
+	}
+	h5{
+		font-size: 16px;
+		margin: 15px 0 0 0;
+	}
+	p{
+		text-indent: 20px;
+	}
+}
+.chgpassword{
+	background-color: #ECECEC;
+	padding-top: 25px;
+	padding-right: 0;
+	dl{ 
+		padding: 0;
+		width: 430px;
+		margin: 0 auto;
+		*margin-bottom: 10px;
+	}
+	dt{ 
+		padding-left: 0;
+	}
+	dd{ 
+		input{
+			float: left;
+		}
+		span{
+			display: block;
+			float: left;
+			text-indent: -99999px;
+			width: 30px;
+		}
+		.checkYes{
+			background: url(../images/iconSet.png) no-repeat 2px -1941px;
+		}
+		.checkError{
+			background: url(../images/iconSet.png) no-repeat 2px -2010px;
+		}
+	}
+	
+	.inputbtn{
+		text-align: center;
+		padding: 25px 0;
+		border-top: 1px solid #fff;
+	}
+	.text_1{
+		width: 434px;
+		margin: 0 auto;
+	}
+}

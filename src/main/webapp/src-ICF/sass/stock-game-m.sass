@@ -1,0 +1,121 @@
+// mobile
+
+.page-web.stock
+    .page-wrapper
+        // 小手機 (iphoneSE) 320-359
+        @include phone-S
+            .page-video
+                height: 32vh
+            .page-body
+                height: calc( 100% - 32vh)
+                .game-site-tab
+                    ul
+                        height: 6vh
+                .game-site-tab-content
+                    .main-bet
+                        .main-bet-lt,.main-bet-rt
+                            .bet-meron,.bet-wala
+                                .txt-money
+                                    top: 8.5vh
+                                    i, span
+                                        font-size: 16px
+                            .main-bet-input
+                                .bet-tit
+                                    top: 16%
+                                    font-size: 8vw
+                                .chip
+                                    font-size: 4vw
+                                    transform: translate(-50%, 10%)
+                                .chip-img
+                                    width: 12vw
+                                    height: 12vw
+                                    transform: translate(-50%, -25%)
+                                &.on-focus
+                                    .txt-increase
+                                        font-size: 3.5vw
+                                        line-height: 5vw
+                                        padding: 0 5px !important
+                                        bottom: 2.8vh
+                                    .txt-max-bet
+                                        bottom: .1vh !important
+                                    .chip
+                                        transform: translate(-50%, -20%) !important
+                                    .chip-img
+                                        transform: translate(-50%, -35%) !important
+        // 中手機 (iphoneX) 360-400
+        @include phone-M
+            .page-video
+            .page-body
+                .game-site-tab
+                    ul
+                        height: 6vh
+                .game-site-tab-content
+                    .main-bet
+                        .main-bet-lt,.main-bet-rt
+                            .bet-meron,.bet-wala
+                                .txt-money
+                                    top: 9vh
+                            .main-bet-input
+                                .bet-tit
+                                    top: 18%
+                                .chip
+                                    font-size: 4vw
+                                    transform: translate(-50%, 75%)
+                                .chip-img
+                                    width: 12vw
+                                    height: 12vw
+                                    transform: translate(-50%, 0%)
+                                &.on-focus
+                                    .txt-increase
+                                        font-size: 3.5vw
+                                        line-height: 5vw
+                                        padding: 0 5px !important
+                                        bottom: 2.8vh
+                                    .txt-max-bet
+                                        bottom: .2vh
+                                    .chip
+                                        transform: translate(-50%, -20%)
+                                    .chip-img
+                                        transform: translate(-50%, -35%)
+                    .bet-sel-chipBox
+                        ul
+                            .chipBox,.bet-allin
+                                width: 10vw !important
+                                height: 10vw !important
+                                .btn-chip
+                                    line-height: 10vw !important
+                                    width: 10vw !important
+                                    height: 10vw !important
+        // 大手機 (iphoneX Max) 401-480
+        @include phone-L
+            .page-video
+            .page-body
+                .game-site-tab
+                .game-site-tab-content
+                    .main-bet
+                        .main-bet-lt,.main-bet-rt
+                            .main-bet-input
+                                .chip
+                                    transform: translate(-50%, 140%)
+                                .chip-img
+                                    transform: translate(-50%, 40%)
+                                &.on-focus
+                                    .txt-increase
+                                        bottom: 2.8vh
+                                    .txt-max-bet
+                                        bottom: .2vh
+                                    .chip
+                                        transform: translate(-50%, 40%)
+                                    .chip-img
+                                        transform: translate(-50%, 0%)
+        // 1024以下
+        @include Breakpoint-down
+            .page-video
+            .page-body
+                .game-site-tab
+                .game-site-tab-content
+                    .main-bet
+                        .main-bet-lt,.main-bet-rt
+                            .main-bet-input
+                                .bet-tit
+                                    font-size: 9vw

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Login/Logout/Profile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="login-success" transform="translate(-300.000000, -199.000000)">
+            <g id="Group-5" transform="translate(40.000000, 191.000000)">
+                <g id="ic_check_black_24px" transform="translate(260.000000, 8.000000)">
+                    <polygon id="Shape" fill="#4CAF50" fill-rule="nonzero" points="8.59 15.58 4.42 11.41 3 12.82 8.59 18.41 20.59 6.41 19.18 5"></polygon>
+                    <polygon id="Shape" fill="#D8D8D8" opacity="0" points="0 0 24 0 24 24 0 24"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
